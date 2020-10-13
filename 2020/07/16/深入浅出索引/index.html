@@ -1,0 +1,55 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="Kira"><title>深入浅出索引 · Kira的视界</title><meta name="description" content="序
+索引是数据库中为了提高数据查询速度而使用的一种数据结构，以一种结构化的存储方式来索引相关数据，达到快速查询的目的。通俗的讲类似书的目录，通过目录来查询数据效率会有极大提升。
+
+数据结构 索引常用的数据结构：
+
+哈希表
+有序数组
+搜索树
+
+哈希表　　适用于等值查询的场景，key通过哈希函数得到一个"><meta name="keywords" content="Kira"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 5.2.0"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/assets/blog_img/QQ20180804-0.jpg" style="width:127px;"><h3 title=""><a href="/">Kira的视界</a></h3><div class="description"><p>我们所知不过沧海一粟 <br> 我们所不知却是汪洋大海</p></div></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/mokitkira"><i class="fa fa-github"></i></a></li><li><a href="mailto:jianfengpp@163.com"><i class="fa fa-envelope"></i></a></li><li><a target="_blank" rel="noopener" href="https://www.zhihu.com/people/jacfrak"><i class="fa fa-mortar-board"></i></a></li></ul><div class="footer"><div class="p"> <span>© 2017 - 2020 </span><i class="fa fa-star"></i><span> Kira</span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><a href="https://github.com/mrcore/hexo-theme-Anatole-Core" target="_blank">Anatole-Core  </a></div><div class="beian"><a href="http://www.beian.miit.gov.cn/" target="_blank"></a><span style="height:10px;margin-left: 10px;">|</span><img src="https://qn.jixian.io/gongan.png" style="height:10px;margin-left: 10px;position: relative;top: 1px;"><span style="margin-left: 2px;"></span></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li><li><a href="/tags">标签</a></li><li><a href="/about">关于</a></li><li><a href="/guestbook">留言</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>深入浅出索引</a></h3></div><div class="post-content"><h3 id="序"><a href="#序" class="headerlink" title="序"></a>序</h3><blockquote>
+<p>索引是数据库中为了提高数据查询速度而使用的一种数据结构，以一种结构化的存储方式来索引相关数据，达到快速查询的目的。通俗的讲类似书的目录，通过目录来查询数据效率会有极大提升。</p>
+</blockquote>
+<h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><p> 索引常用的数据结构：</p>
+<ul>
+<li>哈希表</li>
+<li>有序数组</li>
+<li>搜索树</li>
+</ul>
+<h4 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h4><p>　　适用于等值查询的场景，key通过哈希函数得到一个确定的位置，上面放对应的value。使用链表解决哈希冲突。不适合范围查询，因为需要全表扫描，无法利用索引完成排序，不支持多列联合索引的最左匹配规则，如果有大量重复键值的情况会产生哈希碰撞问题。</p>
+<h4 id="有序数组"><a href="#有序数组" class="headerlink" title="有序数组"></a>有序数组</h4><p>　　只适用于静态搜索引擎，索引列的数据按照规则排序，查找数据可以直接二分查找，时间复杂度是O(log(N))支持范围查询。缺点是更新数据比较麻烦，需要移动记录。</p>
+<h4 id="搜索树"><a href="#搜索树" class="headerlink" title="搜索树"></a>搜索树</h4><p>　　大部分数据库引擎采用这种数据结构，读写的性能优点适配磁盘的访问模式。搜索树的特点是左儿子节点的数据小于父节点，父节点小于右儿子节点，每个节点的多个儿子从左到右递增，查询的时间复杂度是O(log(N))。</p>
+<h3 id="InnoDB的索引模型"><a href="#InnoDB的索引模型" class="headerlink" title="InnoDB的索引模型"></a>InnoDB的索引模型</h3><p>采用B+树，是一种多路平衡查询树</p>
+<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><ul>
+<li><p>主键索引，也叫聚簇索引，叶子节点存整行数据。</p>
+</li>
+<li><p>非主键索引，叶子节点存放的是主键的值。</p>
+</li>
+<li><p>覆盖索引，索引上已经覆盖了查询的需求，无需回表。</p>
+</li>
+</ul>
+<blockquote>
+<p>区别：通过非主键索引查找非主键列的话，需要再用主键去主键索引查找相应的数据，这个过程叫回表，也就是多扫描一次索引树。</p>
+</blockquote>
+<h3 id="索引维护"><a href="#索引维护" class="headerlink" title="索引维护"></a>索引维护</h3><p>　　B+树需要维护索引的有序，因此插入新值时需要维护，如果所在的数据页满了，则要申请一个新的数据页，然后将部分数据迁移过去，这个过程称为页分裂，反过来则称为页合并。</p>
+<p>　　采用自增主键插入数据时，由于主键是递增的，因此索引新增都是以追加的方式，不会引起页分裂，如果采用业务逻辑字段做主键，不容易保证有序插入，写数据成本会很高。</p>
+<h3 id="最左前缀原则"><a href="#最左前缀原则" class="headerlink" title="最左前缀原则"></a>最左前缀原则</h3><p>　　索引的搜索匹配按最左前缀匹配，不管是联合索引还是字符串索引的最左M个字符，在构造索引树时，已经按照索引的定义去进行了排序，比如联合索引(a,b)，在存储上也当成一个字节数组，排序也是按字节去比较排序。这也就是为什么会是最左前缀原则生效的原因。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">联合索引（a,b）</span><br><span class="line"></span><br><span class="line"><span class="comment">#可以覆盖到a</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">test</span> <span class="keyword">where</span> a=<span class="string">&#x27;cc&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#覆盖到a，覆盖不到b，因为中间用了%通配符</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">test</span> <span class="keyword">where</span> a=<span class="string">&#x27;cc%&#x27;</span> <span class="keyword">and</span> b=<span class="string">&#x27;dd&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#覆盖到a和b</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">test</span> <span class="keyword">where</span> a=<span class="string">&#x27;cc&#x27;</span>  <span class="keyword">and</span> b=<span class="string">&#x27;dd&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>索引下推</strong></p>
+<blockquote>
+<p>Mysql5.6之后在索引遍历过程中，对索引中包含的字段先做判断，直接过滤掉不满足条件的记录，减少回表次数。比如联合索引(a,b)，根据a,b条件先筛选出符合条件的数据再进行回表。</p>
+</blockquote>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2020-07-16</span><i class="fa fa-tag"></i><a class="tag" href="/categories/数据库/" title="数据库">数据库 </a><a class="tag" href="/tags/技术学习/" title="技术学习">技术学习 </a><a class="tag" href="/tags/索引/" title="索引">索引 </a><span class="leancloud_visitors"></span></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="" onclick="javascript:join_favorite()" ref="sidebar"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,https://mokitkira.github.io/2020/07/16/深入浅出索引/,Kira的视界,深入浅出索引,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/2020/08/07/%E5%BB%BA%E4%BB%93/" title="建仓">上一篇</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/2020/07/14/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/" title="观察者模式">下一篇</a></li></ul></div><script src="/js/visitors.js"></script><a id="comments"></a><div id="vcomments" style="margin:0 30px;"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//cdn.jsdelivr.net/gh/xcss/valine@latest/dist/Valine.min.js"></script><script>var valine = new Valine({
+  el:'#vcomments',
+  notify:false || false, 
+  verify:false|| false, 
+  app_id:'',
+  app_key:'',
+  placeholder:'念念不忘，必有回响...',
+  path: window.location.pathname,
+  serverURLs: '',
+  visitor:true,
+  recordIP:true,
+  avatar:'mp'
+})</script></div></div></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script><script src="/js/baidu-tongji.js"></script></body></html>
