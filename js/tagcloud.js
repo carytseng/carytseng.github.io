@@ -1,4 +1,6 @@
- function addLoadEvent(func) {
+
+
+function addLoadEvent(func) {
      var oldonload = window.onload;
      if (typeof window.onload != 'function') {
          window.onload = func;
@@ -10,15 +12,27 @@
      }
  }
 
+
  addLoadEvent(function() {
      console.log('tag cloud plugin rock and roll!');
-
      try {
-         TagCanvas.textFont = 'Helvetica';
+        var wid = document.body.clientWidth
+        var textHeight = wid / 18
+        if(textHeight>40){
+           textHeight = 40
+        }
+        var wid2 = parseInt(document.body.clientWidth * 0.45)
+        if(wid2<320){
+            wid2 = 320
+         }
+         document.getElementById("resCanvas").width=wid2;
+         document.getElementById("resCanvas").height=wid2;
+
+         TagCanvas.textFont = 'PingHei, PingFang SC, Helvetica Neue, Microsoft YaHei';
          TagCanvas.textColour = '#333';
-         TagCanvas.textHeight = 25;
-         TagCanvas.outlineColour = '#E2E1C1';
-         TagCanvas.maxSpeed = 0.03;
+         TagCanvas.textHeight = textHeight;
+         TagCanvas.outlineColour = '#E2E1D1';
+         TagCanvas.maxSpeed = 0.07;
          TagCanvas.freezeActive = true;
          TagCanvas.outlineMethod = 'block';
          TagCanvas.minBrightness = 0.2;
@@ -42,3 +56,5 @@
          document.getElementById('myCanvasContainer').style.display = 'none';
      }
  });
+
+
