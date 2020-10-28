@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="Kira"><title>Redis探究 · Kira的视界</title><meta name="description" content="工作中接触Redis大多仅用来作为缓存，也用过来做分布式锁，对于内部的实现机制及高级用法几乎是走马观花，故作此文用来记录相关的知识点，从原理出发慢慢拓展此文，全部用自己的理解话术来进行记录，个人理解，有误请指出。
+
+RedisRedis诞生之初是为了解决关系型数据库的性能问题，由于IO需要对磁盘的读"><meta name="keywords" content="Kira"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 5.2.0"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/assets/blog_img/QQ20180804-0.jpg" style="width:127px;"><h3 title=""><a href="/">Kira的视界</a></h3><div class="description"><p>我们所知不过沧海一粟 <br> 我们所不知却是汪洋大海</p></div></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/mokitkira"><i class="fa fa-github"></i></a></li><li><a href="mailto:jianfengpp@163.com"><i class="fa fa-envelope"></i></a></li><li><a target="_blank" rel="noopener" href="https://www.zhihu.com/people/jacfrak"><i class="fa fa-mortar-board"></i></a></li></ul><div class="footer"><div class="p"> <span>© 2017 - 2020 </span><i class="fa fa-star"></i><span> Kira</span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><a href="https://github.com/mrcore/hexo-theme-Anatole-Core" target="_blank">Anatole-Core  </a></div><div class="beian"><a href="http://www.beian.miit.gov.cn/" target="_blank"></a><span style="height:10px;margin-left: 10px;">|</span><img src="https://qn.jixian.io/gongan.png" style="height:10px;margin-left: 10px;position: relative;top: 1px;"><span style="margin-left: 2px;"></span></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li><li><a href="/tags">标签</a></li><li><a href="/about">关于</a></li><li><a href="/guestbook">留言</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>Redis探究</a></h3></div><div class="post-content"><blockquote>
+<p>工作中接触Redis大多仅用来作为缓存，也用过来做分布式锁，对于内部的实现机制及高级用法几乎是走马观花，故作此文用来记录相关的知识点，从原理出发慢慢拓展此文，全部用自己的理解话术来进行记录，个人理解，有误请指出。</p>
+</blockquote>
+<h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><p>Redis诞生之初是为了解决关系型数据库的性能问题，由于IO需要对磁盘的读写速度满足不了实际场景，因此创造者利用内存造了一个内存数据库，没有关系型数据库的约束，Redis提供的数据结构简单且能满足高性能的读写场景，其基于对内存的读写，能够在短时间内处理数据，由于读写速度快，免去IO的局限，IO涉及操作系统用户空间与内核空间的数据复制及事件等待，所以redis采用单线程的处理模型，免去线程切换的开销，因为也没必要进行多线程处理</p>
+<h3 id="对比memcached"><a href="#对比memcached" class="headerlink" title="对比memcached"></a>对比memcached</h3><p>支持多种数据结构，memcached仅支持字符串且不支持持久化</p>
+<h2 id="请求处理"><a href="#请求处理" class="headerlink" title="请求处理"></a>请求处理</h2><p>Redis采用基于Reactor模式开发网络事件处理器，采用IO多路复用技术，简单来说就是一条线程监听多个客户端socket，当有事件到时，将事件作为一个task放到队列中，接下来文件处理器会对队列中的task进行处理，文件处理器是单线程的，没有线程的切换问题，文件处理器包含连接应答器、命令请求处理器、命令回复处理器，执行相应的命令后，返回相应。这也是Redis速度快的原因：IO多路复用、单线程处理task、基于内存的数据操作</p>
+<h2 id="Redis数据结构"><a href="#Redis数据结构" class="headerlink" title="Redis数据结构"></a>Redis数据结构</h2><p>基于键值的存储，值支持以下几种类型</p>
+<ul>
+<li>string：字符串<ul>
+<li>字节串：非字符自增会报错</li>
+<li>整数：可自增减</li>
+<li>浮点数</li>
+</ul>
+</li>
+<li>list：有序队列<ul>
+<li>可用作队列</li>
+</ul>
+</li>
+<li>set：集合</li>
+<li>hash：散列</li>
+<li>zset：有序集合<ul>
+<li>相比散列，提供基于分值的相关功能，每个key有对应的score，应对一些场景应用</li>
+</ul>
+</li>
+</ul>
+<h2 id="持久化"><a href="#持久化" class="headerlink" title="持久化"></a>持久化</h2><p>Redis提供持久化的功能，能够将内存的数据定时写入硬盘，保证数据在系统重启后能够恢复，继续进行服务</p>
+<p>两种持久化的方式：</p>
+<ul>
+<li>快照</li>
+<li>AOF</li>
+</ul>
+<h3 id="快照"><a href="#快照" class="headerlink" title="快照"></a>快照</h3><p>　　快照：会开启一个子进程定时对内存的数据进行打快照，使用BGSAVE命令，缺点是快照是按周期打，性能有限，一旦系统崩溃，会丢失从上次快照之后的数据，也有可能在刚打完快照就崩溃。而且打快照可能会造成Redis停顿</p>
+<h3 id="AOF"><a href="#AOF" class="headerlink" title="AOF"></a>AOF</h3><p>　　AOF：将Redis的执行命令记录下来，记录到AOF文件中，可根据需要设置频率，恢复时只需要执行相应的写命令即可。缺点是AOF的文件会随着内存数据的增大而增大，造成磁盘爆满，可以使用命令对AOF文件重写，压缩冗余的部分</p>
+<p>同步频率</p>
+<ul>
+<li><p>always：每个命令都写入磁盘</p>
+</li>
+<li><p>everysec：每秒同步一次，多个命令到磁盘</p>
+</li>
+<li><p>no：由系统决定写入时间</p>
+</li>
+</ul>
+<h3 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h3><p>水平添加多个Redis实例，通过主从服务器来满足高性能的读写请求。主服务器将快照文件发送到从服务器，从服务器获得快照并初始化数据</p>
+</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2020-10-28</span><i class="fa fa-tag"></i><a class="tag" href="/tags/Nosql/" title="Nosql">Nosql </a><span class="leancloud_visitors"></span></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="" onclick="javascript:join_favorite()" ref="sidebar"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,https://mokitkira.github.io/2020/10/28/Redis探究/,Kira的视界,Redis探究,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="next pagbuttons"><a class="btn" role="navigation" href="/2020/10/07/Spring%E5%A4%9A%E6%95%B0%E6%8D%AE%E6%BA%90%E5%8A%A0%E8%BD%BD/" title="Spring多数据源加载">下一篇</a></li></ul></div><script src="/js/visitors.js"></script><a id="comments"></a><div id="vcomments" style="margin:0 30px;"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//cdn.jsdelivr.net/gh/xcss/valine@latest/dist/Valine.min.js"></script><script>var valine = new Valine({
+  el:'#vcomments',
+  notify:false || false, 
+  verify:false|| false, 
+  app_id:'',
+  app_key:'',
+  placeholder:'念念不忘，必有回响...',
+  path: window.location.pathname,
+  serverURLs: '',
+  visitor:true,
+  recordIP:true,
+  avatar:'mp'
+})</script></div></div></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script><script src="/js/baidu-tongji.js"></script></body></html>
