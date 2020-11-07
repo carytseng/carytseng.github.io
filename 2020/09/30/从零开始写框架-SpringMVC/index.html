@@ -1,5 +1,154 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="Kira"><title>从零开始写框架-SpringMVC · Kira的视界</title><meta name="description" content="前言：
-　　最近打算提升下源码能力，跟着相关教程实现Spring框架，巩固下前面的学习知识，像反射、设计模式等，顺带熟悉一些API。像设计模式这类知识，只能通过代码实践来提升对其核心思想的理解，毕竟设计模式不是凭空产生的，而是在代码实践的过程中，通过不断地重构提炼，发现其奥妙之处，才产生相关的程序思"><meta name="keywords" content="Kira"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 5.2.0"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/assets/blog_img/QQ20180804-0.jpg" style="width:127px;"><h3 title=""><a href="/">Kira的视界</a></h3><div class="description"><p>我们所知不过沧海一粟 <br> 我们所不知却是汪洋大海</p></div></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/mokitkira"><i class="fa fa-github"></i></a></li><li><a href="mailto:jianfengpp@163.com"><i class="fa fa-envelope"></i></a></li><li><a target="_blank" rel="noopener" href="https://www.zhihu.com/people/jacfrak"><i class="fa fa-mortar-board"></i></a></li></ul><div class="footer"><div class="p"> <span>© 2017 - 2020 </span><i class="fa fa-star"></i><span> Kira</span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><a href="https://github.com/mrcore/hexo-theme-Anatole-Core" target="_blank">Anatole-Core  </a></div><div class="beian"><a href="http://www.beian.miit.gov.cn/" target="_blank"></a><span style="height:10px;margin-left: 10px;">|</span><img src="https://qn.jixian.io/gongan.png" style="height:10px;margin-left: 10px;position: relative;top: 1px;"><span style="margin-left: 2px;"></span></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a href="/">首页</a></li><li><a href="/archives">归档</a></li><li><a href="/tags">标签</a></li><li><a href="/about">关于</a></li><li><a href="/guestbook">留言</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)"> </a></li></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post animated fadeInDown"><div class="post-title"><h3><a>从零开始写框架-SpringMVC</a></h3></div><div class="post-content"><blockquote>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="技术懂点皮毛，学点投资">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        从零开始写框架-SpringMVC - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 我们所知不过沧海一粟，我们所不知却是汪洋大海 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/assets/blog_img/avar.jpeg" />
+        </div>
+        <div class="name">
+            <i>Kira</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-0-MVC"><span class="toc-text">1.0 MVC</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6application-properties"><span class="toc-text">配置文件application.properties</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3"><span class="toc-text">自定义注解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%80%9D%E8%B7%AF%EF%BC%9A"><span class="toc-text">核心思路：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-0-MVC"><span class="toc-text">2.0 MVC</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#init%E6%96%B9%E6%B3%95"><span class="toc-text">init方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#doLoadConfig%E6%96%B9%E6%B3%95"><span class="toc-text">doLoadConfig方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#doScanner%E6%96%B9%E6%B3%95"><span class="toc-text">doScanner方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#doInstance%E6%96%B9%E6%B3%95"><span class="toc-text">doInstance方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#doAutowired%E6%96%B9%E6%B3%95%E8%BF%9B%E8%A1%8C%E6%B3%A8%E5%85%A5"><span class="toc-text">doAutowired方法进行注入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#initHandlerMapping%E6%96%B9%E6%B3%95"><span class="toc-text">initHandlerMapping方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#doDispatch%E8%B7%AF%E7%94%B1%E9%80%BB%E8%BE%91"><span class="toc-text">doDispatch路由逻辑</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-0-MVC"><span class="toc-text">3.0 MVC</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 我们所知不过沧海一粟，我们所不知却是汪洋大海 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        从零开始写框架-SpringMVC
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-09-30 19:24:06</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#技术学习" title="技术学习">技术学习</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#Spring" title="Spring">Spring</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#从零开始写框架" title="从零开始写框架">从零开始写框架</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <blockquote>
 <p>前言：</p>
 <p>　　最近打算提升下源码能力，跟着相关教程实现Spring框架，巩固下前面的学习知识，像反射、设计模式等，顺带熟悉一些API。像设计模式这类知识，只能通过代码实践来提升对其核心思想的理解，毕竟设计模式不是凭空产生的，而是在代码实践的过程中，通过不断地重构提炼，发现其奥妙之处，才产生相关的程序思想。</p>
 </blockquote>
@@ -52,16 +201,66 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">doDispatch</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> IOException, InvocationTargetException, IllegalAccessException </span>&#123;</span><br><span class="line">    String url = req.getRequestURI();</span><br><span class="line">    String contextPath = req.getContextPath();</span><br><span class="line">    url = url.replace(contextPath, <span class="string">&quot;&quot;</span>).replaceAll(<span class="string">&quot;//+&quot;</span>, <span class="string">&quot;/&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">this</span>.handlerMapping.containsKey(url)) &#123;</span><br><span class="line">        resp.getWriter().write(<span class="string">&quot;404....!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  	<span class="comment">//拿到url对应的controller请求方法</span></span><br><span class="line">    Method method = (Method) <span class="keyword">this</span>.handlerMapping.get(url);</span><br><span class="line">    <span class="comment">//请求传进来的实参</span></span><br><span class="line">    Map&lt;String, String[]&gt; parameterMap = req.getParameterMap();</span><br><span class="line">    <span class="comment">//取到形参类型</span></span><br><span class="line">    Class&lt;?&gt;[] parameterTypes = method.getParameterTypes();</span><br><span class="line">		<span class="comment">//实参数组初始化</span></span><br><span class="line">    Object[] paramValues = <span class="keyword">new</span> Object[parameterTypes.length];</span><br><span class="line">		<span class="comment">//这里只处理String类型</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; parameterTypes.length; i++) &#123;</span><br><span class="line">        Class paramterType = parameterTypes[i];</span><br><span class="line">        <span class="keyword">if</span> (paramterType == HttpServletRequest.class) &#123;</span><br><span class="line">            paramValues[i] = req;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (paramterType == HttpServletResponse.class) &#123;</span><br><span class="line">            paramValues[i] = resp;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (paramterType == String.class) &#123;</span><br><span class="line">            Annotation[][] pa = method.getParameterAnnotations();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; pa.length; j++) &#123;</span><br><span class="line">                <span class="keyword">for</span> (Annotation a : pa[i]) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (a <span class="keyword">instanceof</span> GPRequestParam) &#123;</span><br><span class="line">                        String paramName = ((GPRequestParam) a).value();</span><br><span class="line">                        <span class="keyword">if</span> (!<span class="string">&quot;&quot;</span>.equals(paramName.trim())) &#123;</span><br><span class="line">                            String value = Arrays.toString(parameterMap.get(paramName)).replaceAll(<span class="string">&quot;\\[|\\]&quot;</span>, <span class="string">&quot;&quot;</span>).replaceAll(<span class="string">&quot;\\s&quot;</span>, <span class="string">&quot;,&quot;</span>);</span><br><span class="line">                            paramValues[i] = value;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    String beanName = toLowerFirstCase(method.getDeclaringClass().getSimpleName());</span><br><span class="line">    method.invoke(<span class="keyword">this</span>.ioc.get(beanName), paramValues);</span><br><span class="line">    System.out.println(method);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="3-0-MVC"><a href="#3-0-MVC" class="headerlink" title="3.0 MVC"></a>3.0 MVC</h3><p>待更</p>
-</div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2020-09-30</span><i class="fa fa-tag"></i><a class="tag" href="/tags/技术学习/" title="技术学习">技术学习 </a><a class="tag" href="/tags/Spring/" title="Spring">Spring </a><a class="tag" href="/tags/从零开始写框架/" title="从零开始写框架">从零开始写框架 </a><span class="leancloud_visitors"></span></div></div></div></div><div class="share"><div class="evernote"><a class="fa fa-bookmark" href="" onclick="javascript:join_favorite()" ref="sidebar"></a></div><div class="weibo"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></div><div class="twitter"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=,https://mokitkira.github.io/2020/09/30/从零开始写框架-SpringMVC/,Kira的视界,从零开始写框架-SpringMVC,;"></a></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/2020/10/07/Spring%E5%A4%9A%E6%95%B0%E6%8D%AE%E6%BA%90%E5%8A%A0%E8%BD%BD/" title="Spring多数据源加载">上一篇</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/2020/09/25/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E7%B3%BB%E5%88%97-%E9%BB%84%E5%B8%9D%E5%86%85%E7%BB%8F/" title="读书笔记系列-黄帝内经">下一篇</a></li></ul></div><script src="/js/visitors.js"></script><a id="comments"></a><div id="vcomments" style="margin:0 30px;"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//cdn.jsdelivr.net/gh/xcss/valine@latest/dist/Valine.min.js"></script><script>var valine = new Valine({
-  el:'#vcomments',
-  notify:false || false, 
-  verify:false|| false, 
-  app_id:'',
-  app_key:'',
-  placeholder:'念念不忘，必有回响...',
-  path: window.location.pathname,
-  serverURLs: '',
-  visitor:true,
-  recordIP:true,
-  avatar:'mp'
-})</script></div></div></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script><script src="/js/baidu-tongji.js"></script></body></html>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

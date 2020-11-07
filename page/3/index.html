@@ -1,58 +1,405 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author" content="Kira"><title>Kira的视界</title><meta name="description" content="我们所知不过沧海一粟 &lt;br&gt; 我们所不知却是汪洋大海"><meta name="keywords" content="Kira"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="stylesheet" href="/css/style.css"><link rel="stylesheet" href="/css/blog_basic.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><script src="/js/jquery.js"></script><meta name="generator" content="Hexo 5.2.0"></head><body><div class="sidebar animated fadeInDown"><div class="logo-title"><div class="title"><img src="/assets/blog_img/QQ20180804-0.jpg" style="width:127px;"><h3 title=""><a href="/">Kira的视界</a></h3><div class="description"><p>我们所知不过沧海一粟 <br> 我们所不知却是汪洋大海</p></div></div></div><ul class="social-links"><li><a target="_blank" rel="noopener" href="https://github.com/mokitkira"><i class="fa fa-github"></i></a></li><li><a href="mailto:jianfengpp@163.com"><i class="fa fa-envelope"></i></a></li><li><a target="_blank" rel="noopener" href="https://www.zhihu.com/people/jacfrak"><i class="fa fa-mortar-board"></i></a></li></ul><div class="footer"><div class="p"> <span>© 2017 - 2020 </span><i class="fa fa-star"></i><span> Kira</span></div><div class="by_farbox"><span>Powered by </span><a href="https://hexo.io/zh-cn/" target="_blank">Hexo </a><span> & </span><a href="https://github.com/mrcore/hexo-theme-Anatole-Core" target="_blank">Anatole-Core  </a></div><div class="beian"><a href="http://www.beian.miit.gov.cn/" target="_blank"></a><span style="height:10px;margin-left: 10px;">|</span><img src="https://qn.jixian.io/gongan.png" style="height:10px;margin-left: 10px;position: relative;top: 1px;"><span style="margin-left: 2px;"></span></div></div></div><div class="main"><div class="page-top animated fadeInDown"><div class="nav"><li><a class="current" href="/">首页</a></li><li><a href="/archives">归档</a></li><li><a href="/tags">标签</a></li><li><a href="/about">关于</a></li><li><a href="/guestbook">留言</a></li></div><div class="information"><div class="back_btn"><li><a class="fa fa-chevron-left" onclick="window.history.go(-1)" style="display:none;"> </a></li></div></div></div><div class="autopagerize_page_element"><div class="content"><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2020/06/28/%E6%B5%85%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B7%B1%E6%8B%B7%E8%B4%9D/">浅拷贝与深拷贝</a></h3></div><div class="post-content"><p>前言
-　　一般在Java中我们创建一个对象是使用new关键字来创建的，new关键字会调用类的构造方法来创建对象，那么有一些场景我们想以现成的对象为模板来复制对象，回避构造函数的过程，毕竟构造函数中或多或少会有初始化的过程，性能难免较低，这时候就可以考虑使用拷贝，copy一个对象。
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="技术懂点皮毛，学点投资">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 我们所知不过沧海一粟，我们所不知却是汪洋大海 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/assets/blog_img/avar.jpeg" />
+        </div>
+        <div class="name">
+            <i>Kira</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li  class=active >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+</div>
 
 
-实例
-以下这个类创建对象如果...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2020-06-28</span><i class="fa fa-tag"></i><a class="tag" href="/tags/技术学习/" title="技术学习">技术学习 </a><a class="tag" href="/tags/Java基础/" title="Java基础">Java基础 </a><span class="leancloud_visitors"></span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2020/06/28/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/">原型模式</a></h3></div><div class="post-content"><p>定义
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
 
-根据原型实例创建对象的种类，并通过拷贝原型来创建新的对象。
+        </div>
+    </div>
+</div>
 
-实现方式
+        <div class="index-about-mobile">
+            <i> 我们所知不过沧海一粟，我们所不知却是汪洋大海 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+<div class="post-preview-container" style="min-height: 720px">
+    
+    <div class="post-preview">
+        <div class="post-time">2020-06-30</div>
+        <div class="post-info">
+            <a href="/2020/06/30/事务/">
+                <h3>
+                    事务
+                </h3>
+            </a>
+            <p>
+                
+                <span>/</span>
+                
+                <a class="tag" href="/tags/#技术学习" title="技术学习">技术学习</a>
+                <span>/</span>
+                
+                <a class="tag" href="/tags/#数据库" title="数据库">数据库</a>
+                <span>/</span>
+                
+                
+            </p>
+        </div>
+    </div>
+    
+    <div class="post-preview">
+        <div class="post-time">2020-06-30</div>
+        <div class="post-info">
+            <a href="/2020/06/30/基金布局/">
+                <h3>
+                    基金布局
+                </h3>
+            </a>
+            <p>
+                
+                <span>/</span>
+                
+                <a class="tag" href="/tags/#投资" title="投资">投资</a>
+                <span>/</span>
+                
+                <a class="tag" href="/tags/#基金" title="基金">基金</a>
+                <span>/</span>
+                
+                
+            </p>
+        </div>
+    </div>
+    
+    <div class="post-preview">
+        <div class="post-time">2020-06-28</div>
+        <div class="post-info">
+            <a href="/2020/06/28/浅拷贝与深拷贝/">
+                <h3>
+                    浅拷贝与深拷贝
+                </h3>
+            </a>
+            <p>
+                
+                <span>/</span>
+                
+                <a class="tag" href="/tags/#技术学习" title="技术学习">技术学习</a>
+                <span>/</span>
+                
+                <a class="tag" href="/tags/#Java基础" title="Java基础">Java基础</a>
+                <span>/</span>
+                
+                
+            </p>
+        </div>
+    </div>
+    
+    <div class="post-preview">
+        <div class="post-time">2020-06-28</div>
+        <div class="post-info">
+            <a href="/2020/06/28/原型模式/">
+                <h3>
+                    原型模式
+                </h3>
+            </a>
+            <p>
+                
+                <span>/</span>
+                
+                <a class="tag" href="/tags/#技术学习" title="技术学习">技术学习</a>
+                <span>/</span>
+                
+                <a class="tag" href="/tags/#设计模式" title="设计模式">设计模式</a>
+                <span>/</span>
+                
+                
+            </p>
+        </div>
+    </div>
+    
+    <div class="post-preview">
+        <div class="post-time">2020-06-26</div>
+        <div class="post-info">
+            <a href="/2020/06/26/JSON-Web-Token/">
+                <h3>
+                    JSON Web Token
+                </h3>
+            </a>
+            <p>
+                
+                <span>/</span>
+                
+                <a class="tag" href="/tags/#技术学习" title="技术学习">技术学习</a>
+                <span>/</span>
+                
+                <a class="tag" href="/tags/#JWT" title="JWT">JWT</a>
+                <span>/</span>
+                
+                
+            </p>
+        </div>
+    </div>
+    
+    <div class="post-preview">
+        <div class="post-time">2020-06-26</div>
+        <div class="post-info">
+            <a href="/2020/06/26/调理脾胃/">
+                <h3>
+                    调理脾胃
+                </h3>
+            </a>
+            <p>
+                
+                <span>/</span>
+                
+                <a class="tag" href="/tags/#健康" title="健康">健康</a>
+                <span>/</span>
+                
+                
+            </p>
+        </div>
+    </div>
+    
+    <div class="post-preview">
+        <div class="post-time">2020-05-21</div>
+        <div class="post-info">
+            <a href="/2020/05/21/FTP模式设置引发的问题/">
+                <h3>
+                    FTP模式设置引发的问题
+                </h3>
+            </a>
+            <p>
+                
+                <span>/</span>
+                
+                <a class="tag" href="/tags/#技术学习" title="技术学习">技术学习</a>
+                <span>/</span>
+                
+                
+            </p>
+        </div>
+    </div>
+    
+    <div class="post-preview">
+        <div class="post-time">2020-05-14</div>
+        <div class="post-info">
+            <a href="/2020/05/14/Linux文件删除原理/">
+                <h3>
+                    Linux文件删除原理
+                </h3>
+            </a>
+            <p>
+                
+                <span>/</span>
+                
+                <a class="tag" href="/tags/#技术学习" title="技术学习">技术学习</a>
+                <span>/</span>
+                
+                <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+                <span>/</span>
+                
+                
+            </p>
+        </div>
+    </div>
+    
+    <div class="post-preview">
+        <div class="post-time">2020-05-12</div>
+        <div class="post-info">
+            <a href="/2020/05/12/布隆过滤器/">
+                <h3>
+                    布隆过滤器
+                </h3>
+            </a>
+            <p>
+                
+                <span>/</span>
+                
+                <a class="tag" href="/tags/#技术学习" title="技术学习">技术学习</a>
+                <span>/</span>
+                
+                
+            </p>
+        </div>
+    </div>
+    
+    <div class="post-preview">
+        <div class="post-time">2020-05-09</div>
+        <div class="post-info">
+            <a href="/2020/05/09/软件工程实践/">
+                <h3>
+                    软件工程实践
+                </h3>
+            </a>
+            <p>
+                
+                <span>/</span>
+                
+                <a class="tag" href="/tags/#技术学习" title="技术学习">技术学习</a>
+                <span>/</span>
+                
+                <a class="tag" href="/tags/#工作感悟" title="工作感悟">工作感悟</a>
+                <span>/</span>
+                
+                
+            </p>
+        </div>
+    </div>
+    
+</div>
+<ul class="pager">
+    
+    <li class="previous">
+        <a href="/page/2/">&larr; Newer Posts</a>
+    </li>
+    
+    
+    <li class="next">
+        <a href="/page/4/">Older Posts &rarr;</a>
+    </li>
+    
+</ul>
 
-实现Cloneable接口。在java中实现了此接口的类才可以被拷贝。
-重写Object的clone方法，Object的clone方法作用域是protected类型，需要重写修改作用域为public。
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
 
 
 
-特点
-　　比new对象性...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2020-06-28</span><i class="fa fa-tag"></i><a class="tag" href="/tags/技术学习/" title="技术学习">技术学习 </a><a class="tag" href="/tags/设计模式/" title="设计模式">设计模式 </a><span class="leancloud_visitors"></span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2020/06/26/JSON-Web-Token/">JSON Web Token</a></h3></div><div class="post-content"><p>定义
 
-是一种跨域认证的令牌技术。
+</body>
 
-解决场景
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = false
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
-用户向服务器发送用户名和密码。
+<script src="/js/index.js"></script>
 
-服务器验证通过后，则在session中保存用户的相关信息，如用户角色，权限等。
-
-服务器返回一个sessionId给客户端 ，写入浏览器的cookie中。
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
-用户的每次请求都带上seesionId。
 
-服务端找到sessionI...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2020-06-26</span><i class="fa fa-tag"></i><a class="tag" href="/tags/技术学习/" title="技术学习">技术学习 </a><a class="tag" href="/tags/JWT/" title="JWT">JWT </a><span class="leancloud_visitors"></span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2020/06/26/%E8%B0%83%E7%90%86%E8%84%BE%E8%83%83/">调理脾胃</a></h3></div><div class="post-content"><p>　　近来生活不规律，饮食好生冷，多熬夜，作息不规律，感觉脾胃瘀滞，气机不畅感明显。查阅中医相关资料，是为脾胃虚弱之症。
-判定
-舌头边缘有齿痕，湿气重，脾胃虚
-食欲下降，转化率差
-早起不适，起床就胸闷气短，头晕。
-湿气重
 
-如何养脾胃
-忌生冷
-忌多
-忌忧思过度
-适量服用归脾丸或补中益气丸提升脾胃的运化
-慢跑运动提升...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2020-06-26</span><i class="fa fa-tag"></i><a class="tag" href="/tags/健康/" title="健康">健康 </a><span class="leancloud_visitors"></span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2020/05/21/FTP%E6%A8%A1%E5%BC%8F%E8%AE%BE%E7%BD%AE%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98/">FTP模式设置引发的问题</a></h3></div><div class="post-content"><p>前言　　最近写了一个程序使用FTP去服务器批量下载文件，按道理应该是比较简单的。但上了生产环境就发生了异常，程序下载的过程中莫名其妙进入假死状态，日志也没有继续打，起初以为是递归加载文件的时候找不到出口，后来经过排查原因是FTP的工作模式问题引起的。
-FTP的工作模式FTP工作端口默认有两个，通常21是命令端口，...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2020-05-21</span><i class="fa fa-tag"></i><a class="tag" href="/tags/技术学习/" title="技术学习">技术学习 </a><span class="leancloud_visitors"></span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2020/05/14/Linux%E6%96%87%E4%BB%B6%E5%88%A0%E9%99%A4%E5%8E%9F%E7%90%86/">Linux文件删除原理</a></h3></div><div class="post-content"><p>　　Linux磁盘上的文件有两个link计数器，分别是i_count和i_link，表示进程的引用计数和硬连接的数量。只有当i_count=0并且i_link=0才会删除文件。当我们使用rm命令时，只是使i_link减少，如果此时文件依然被进程引用，文件还未被真正的删除。
-实践场景
-　　实现的一个功能点是通过FT...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2020-05-14</span><i class="fa fa-tag"></i><a class="tag" href="/tags/技术学习/" title="技术学习">技术学习 </a><a class="tag" href="/tags/Linux/" title="Linux">Linux </a><span class="leancloud_visitors"></span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2020/05/12/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/">布隆过滤器</a></h3></div><div class="post-content"><p>布隆过滤器
-在防止缓存穿透场景中，接触到布隆过滤器这个东西，总结下个人对这玩意的理解
-
-组成简单来说，这个东西就是由一个bit数组和几个哈希函数组成，数组上只存放0或1，好处就是这个数组可以搞得非常大，毕竟bit数组，100w的数据，撑死 1000000Bit / 8 = 125000 Byte = 125000...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2020-05-12</span><i class="fa fa-tag"></i><a class="tag" href="/tags/技术学习/" title="技术学习">技术学习 </a><span class="leancloud_visitors"></span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2020/05/09/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/">软件工程实践</a></h3></div><div class="post-content"><p>
-　　在软件工程工作实践中，很多时候由于项目工期紧，一个需求提出后，由于急于落地结果，前期的需求调研的时间可能只有一两次的需求会议，作为开发人员，个人体会是在会议中陷入考虑编码和实现的思维中，往往这会造成开发人员对于需求的理解不准确，有时由于业务点或者业务规则过多，会给初次接触需求的开发人员过大的压力，从不理解需...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2020-05-09</span><i class="fa fa-tag"></i><a class="tag" href="/tags/技术学习/" title="技术学习">技术学习 </a><a class="tag" href="/tags/工作感悟/" title="工作感悟">工作感悟 </a><span class="leancloud_visitors"></span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2020/02/21/%E6%8A%95%E8%B5%84%E6%80%9D%E8%80%83/">投资思考</a></h3></div><div class="post-content"><p>
-　　高度信息化的社会，身处巨大的信息洪流中，每个社会个体接触信息源的渠道丰富多样，有效甄别信息的有效性并能形成投资的决策根据。市场的变化来源于大众对于当下事态的反应，抓去这种心理变化，去洞察分析，进行投机获取相应的收益。
-　　市场是自由交易的。
-　　劳动产生报酬，个人对雇主负责，雇主角度来讲，只有当你的有效成果...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2020-02-21</span><i class="fa fa-tag"></i><a class="tag" href="/tags/理哲/" title="理哲">理哲 </a><span class="leancloud_visitors"></span></div></div></div></div><div class="post animated fadeInDown"><div class="post-title"><h3><a href="/2019/12/20/Web%E5%AE%9E%E6%97%B6%E6%B6%88%E6%81%AF%E6%8E%A8%E9%80%81/">Web实时消息推送</a></h3></div><div class="post-content"><p>序
-一个Web项目中，构建过一个消息推送服务，项目使用SpringCloud微服务架构，系统多数的业务场景是发送邮件通知系统用户，为了提高系统的用户粘度，希望通过系统内的实时通知来取代邮件服务。
-
-WebSocket背景　　ws出现之前，网站实时消息技术一般采用http轮询，这种方式缺点明显，由于http协议消息...</p></div><div class="post-footer"><div class="meta"><div class="info"><i class="fa fa-sun-o"></i><span class="date">2019-12-20</span><i class="fa fa-tag"></i><a class="tag" href="/tags/技术学习/" title="技术学习">技术学习 </a><a class="tag" href="/tags/WebSocket/" title="WebSocket">WebSocket </a><span class="leancloud_visitors"></span></div></div></div></div><div class="pagination"><ul class="clearfix"><li class="pre pagbuttons"><a class="btn" role="navigation" href="/page/2/">上一页</a></li><li class="next pagbuttons"><a class="btn" role="navigation" href="/page/4/">下一页</a></li></ul></div></div></div></div><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/add-bookmark.js"></script><script src="/js/baidu-tongji.js"></script></body></html>
+</html>
