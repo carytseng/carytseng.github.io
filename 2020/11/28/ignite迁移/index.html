@@ -136,14 +136,37 @@
 </span>
     </div>
     <div class="post-content ">
-        <ul>
-<li><pre><code class="shell">#新主机docker脚本安装
-curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* docker-compose.yml&amp;ignite.db文件cp</span><br><span class="line"></span><br><span class="line">* 容器服务导出导入</span><br><span class="line"></span><br><span class="line">  * 生成容器快照，打出镜像</span><br><span class="line">    * docker commit -p [containerId] [alias]</span><br><span class="line">  * 生成tar文件</span><br><span class="line">    * docker save -o ~&#x2F;[filename].tar [imageName]</span><br><span class="line">  * 导入tar文件</span><br><span class="line">    * cat [tarfile] |docker import - [name]</span><br><span class="line"></span><br><span class="line">* 原主机获取容器启动命令相关参数</span><br><span class="line"></span><br><span class="line">  * 安装runlike</span><br><span class="line"></span><br><span class="line">    &#96;&#96;&#96;shell</span><br><span class="line">    yum install -y python-pip</span><br><span class="line">    pip install runlike</span><br><span class="line">    #查看启动参数</span><br><span class="line">    runlike -p [containerid]</span><br><span class="line">    cp</span><br></pre></td></tr></table></figure></code></pre>
+        <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">新主机docker脚本安装</span></span><br><span class="line">curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>docker-compose.yml&amp;ignite.db文件cp</p>
+</li>
+<li><p>容器服务导出导入</p>
+<ul>
+<li>生成容器快照，打出镜像<ul>
+<li>docker commit -p [containerId] [alias]</li>
+</ul>
+</li>
+<li>生成tar文件<ul>
+<li>docker save -o ~/[filename].tar [imageName]</li>
+</ul>
+</li>
+<li>导入tar文件<ul>
+<li>cat [tarfile] |docker import - [name]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>原主机获取容器启动命令相关参数</p>
+<ul>
+<li><p>安装runlike</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum install -y python-pip</span><br><span class="line">pip install runlike</span><br><span class="line"><span class="meta">#</span><span class="bash">查看启动参数</span></span><br><span class="line">runlike -p [containerid]</span><br><span class="line">cp</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 </li>
 <li><p>启动ssr子容器所有服务，获得所有containerid，修改ignite.db中表user的service_id</p>
 </li>
-<li><pre><code>docker-compose run --rm ignite-admin /bin/sh -c &#39;./ignite-admin recover&#39;</code></pre>
+<li><p>docker-compose run –rm ignite-admin /bin/sh -c ‘./ignite-admin recover’</p>
 </li>
 <li><p>docker-compose up -d</p>
 </li>
