@@ -1,148 +1,167 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang=zh>
 <head>
+    <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="技术懂点皮毛，学点投资">
-    <meta name="keyword"  content="">
-    <link rel="shortcut icon" href="/img/favicon.ico">
-
-    <title>
-        
-        kafka生产重复消费问题 - CaryTseng
-        
-    </title>
-
-    <!-- Custom CSS -->
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="分析 业务代码中消费端主要做消息存储与消息推送，http推数据。定位消费端的日志逻辑，发现http连接超时，应该是厂家设的推送地址有问题，导致超时。用的kafka版本是0.10.0，查阅了超时配置在10s，思路就改动消费端的逻辑，改成用线程池去异步推，把自动提交改成手动提交，解决了我的问题。 0.10.0以后的版本与消费者相关的几个重要参数  enable.auto.commit 默认值true">
+<meta property="og:type" content="article">
+<meta property="og:title" content="kafka生产重复消费问题">
+<meta property="og:url" content="https://mokitkira.github.io/2018/04/11/kafka%E7%94%9F%E4%BA%A7%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="CaryTseng">
+<meta property="og:description" content="分析 业务代码中消费端主要做消息存储与消息推送，http推数据。定位消费端的日志逻辑，发现http连接超时，应该是厂家设的推送地址有问题，导致超时。用的kafka版本是0.10.0，查阅了超时配置在10s，思路就改动消费端的逻辑，改成用线程池去异步推，把自动提交改成手动提交，解决了我的问题。 0.10.0以后的版本与消费者相关的几个重要参数  enable.auto.commit 默认值true">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-04-11T04:20:07.000Z">
+<meta property="article:modified_time" content="2020-10-28T15:38:55.279Z">
+<meta property="article:author" content="CaryTseng">
+<meta property="article:tag" content="消息队列">
+<meta name="twitter:card" content="summary">
     
-<link rel="stylesheet" href="/css/aircloud.css">
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>kafka生产重复消费问题</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
 
     
-<link rel="stylesheet" href="/css/gitment.css">
-
-    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
-    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
-    <!-- ga & ba script hoook -->
-    <script></script>
+    <!-- rss -->
+    
+    
 <meta name="generator" content="Hexo 5.2.0"></head>
 
-<body>
-
-<div class="site-nav-toggle" id="site-nav-toggle">
-    <button>
-        <span class="btn-bar"></span>
-        <span class="btn-bar"></span>
-        <span class="btn-bar"></span>
-    </button>
-</div>
-
-<div class="index-about">
-    <i> Philosophicalism </i>
-</div>
-
-<div class="index-container">
+<body class="max-width mx-auto px3 ltr">
     
-    <div class="index-left">
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
         
-<div class="nav" id="nav">
-    <div class="avatar-name">
-        <div class="avatar radius">
-            <img src="/assets/blog_img/avar.jpeg" />
-        </div>
-        <div class="name">
-            <i>CaryTseng</i>
-        </div>
-    </div>
-    <div class="contents" id="nav-content">
-        <ul>
-            <li >
-                <a href="/">
-                    <i class="iconfont icon-shouye1"></i>
-                    <span>HOME</span>
-                </a>
-            </li>
-            <li >
-                <a href="/tags">
-                    <i class="iconfont icon-biaoqian1"></i>
-                    <span>TAGS</span>
-                </a>
-            </li>
-            <li >
-                <a href="/archives">
-                    <i class="iconfont icon-guidang2"></i>
-                    <span>ARCHIVES</span>
-                </a>
-            </li>
-            <li >
-                <a href="/about/">
-                    <i class="iconfont icon-guanyu2"></i>
-                    <span>ABOUT</span>
-                </a>
-            </li>
-            
-            <li>
-                <a id="search">
-                    <i class="iconfont icon-sousuo1"></i>
-                    <span>SEARCH</span>
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-    
-        <div id="toc" class="toc-article">
-    
-</div>
-    
-</div>
-
-
-<div class="search-field" id="search-field">
-    <div class="search-container">
-        <div class="search-input">
-            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
-            <input id="search-input"/>
-            <span id="begin-search">search</span>
-        </div>
-        <div class="search-result-container" id="search-result-container">
-
-        </div>
-    </div>
-</div>
-
-        <div class="index-about-mobile">
-            <i> Philosophicalism </i>
-        </div>
-    </div>
-    
-    <div class="index-middle">
-        <!-- Main Content -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
         
+        <li><a class="icon" href="/2018/05/27/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2018/03/24/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://mokitkira.github.io/2018/04/11/kafka%E7%94%9F%E4%BA%A7%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://mokitkira.github.io/2018/04/11/kafka%E7%94%9F%E4%BA%A7%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98/&text=kafka生产重复消费问题"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://mokitkira.github.io/2018/04/11/kafka%E7%94%9F%E4%BA%A7%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98/&title=kafka生产重复消费问题"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://mokitkira.github.io/2018/04/11/kafka%E7%94%9F%E4%BA%A7%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98/&is_video=false&description=kafka生产重复消费问题"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=kafka生产重复消费问题&body=Check out this article: https://mokitkira.github.io/2018/04/11/kafka%E7%94%9F%E4%BA%A7%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://mokitkira.github.io/2018/04/11/kafka%E7%94%9F%E4%BA%A7%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98/&title=kafka生产重复消费问题"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://mokitkira.github.io/2018/04/11/kafka%E7%94%9F%E4%BA%A7%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98/&title=kafka生产重复消费问题"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://mokitkira.github.io/2018/04/11/kafka%E7%94%9F%E4%BA%A7%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98/&title=kafka生产重复消费问题"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://mokitkira.github.io/2018/04/11/kafka%E7%94%9F%E4%BA%A7%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98/&title=kafka生产重复消费问题"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://mokitkira.github.io/2018/04/11/kafka%E7%94%9F%E4%BA%A7%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98/&name=kafka生产重复消费问题&description=
+&lt;p&gt;&lt;strong&gt;分析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;业务代码中消费端主要做消息存储与消息推送，http推数据。定位消费端的日志逻辑，发现http连接超时，应该是厂家设的推送地址有问题，导致超时。用的kafka版本是0.10.0，查阅了超时配置在10s，思路就改动消费端的逻辑，改成用线程池去异步推，把自动提交改成手动提交，解决了我的问题。&lt;/p&gt;
+&lt;p&gt;0.10.0以后的版本与消费者相关的几个重要参数&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;enable.auto.commit 默认值true，表示消费者会周期性自动提交消费的offset&lt;/li&gt;
+&lt;li&gt;auto.commit.interval.ms 在enable.auto.commit 为true的情况下， 自动提交的间隔，默认值5000ms&lt;/li&gt;
+&lt;li&gt;max.poll.records 单次消费者拉取的最大数据条数，默认值&lt;/li&gt;
+&lt;li&gt;500 max.poll.interval.ms 默认值5分钟，表示若5分钟之内消费者没有消费完上一次poll的消息，那么consumer会主动发起离开group的请求&lt;/li&gt;
+&lt;/ul&gt;"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://mokitkira.github.io/2018/04/11/kafka%E7%94%9F%E4%BA%A7%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98/&t=kafka生产重复消费问题"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
 
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
 
-<div class="post-container">
-    <div class="post-title">
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
         kafka生产重复消费问题
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">CaryTseng</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2018-04-11T04:20:07.000Z" itemprop="datePublished">2018-04-11</time>
+        
+      
     </div>
 
-    <div class="post-meta">
-        <span class="attr">Post：<span>2018-04-11 12:20:07</span></span>
-        
-        <span class="attr">Tags：/
-        
-        <a class="tag" href="/tags/#消息队列" title="消息队列">消息队列</a>
-        <span>/</span>
-        
-        
-        </span>
-        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
-</span>
-</span>
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" rel="tag">消息队列</a>
     </div>
-    <div class="post-content ">
-        <blockquote>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <blockquote>
 <p>生产环境中kafka出现消息积压的情况，消费者重复消费的情况</p>
 </blockquote>
 <p><strong>分析</strong></p>
@@ -156,65 +175,151 @@
 </ul>
 <p>使用0.10.0后的版本，重要的特性是多了个poll线程，一个心跳线程维持心跳，另一个poll线程拉取数据，当消费了拉取的数据后，消费端会重新poll。当超过指定时间没有poll，也即consume*条数&gt;poll的间隔时间就会发生rebalance</p>
 
-        
-        <br />
-        <div id="comment-container">
-        </div>
-        <div id="disqus_thread"></div>
+  </div>
+</article>
 
-        <div id="lv-container">
-        </div>
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://mokitkira.github.io/2018/04/11/kafka%E7%94%9F%E4%BA%A7%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://mokitkira.github.io/2018/04/11/kafka%E7%94%9F%E4%BA%A7%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98/&text=kafka生产重复消费问题"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://mokitkira.github.io/2018/04/11/kafka%E7%94%9F%E4%BA%A7%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98/&title=kafka生产重复消费问题"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://mokitkira.github.io/2018/04/11/kafka%E7%94%9F%E4%BA%A7%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98/&is_video=false&description=kafka生产重复消费问题"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=kafka生产重复消费问题&body=Check out this article: https://mokitkira.github.io/2018/04/11/kafka%E7%94%9F%E4%BA%A7%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://mokitkira.github.io/2018/04/11/kafka%E7%94%9F%E4%BA%A7%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98/&title=kafka生产重复消费问题"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://mokitkira.github.io/2018/04/11/kafka%E7%94%9F%E4%BA%A7%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98/&title=kafka生产重复消费问题"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://mokitkira.github.io/2018/04/11/kafka%E7%94%9F%E4%BA%A7%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98/&title=kafka生产重复消费问题"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://mokitkira.github.io/2018/04/11/kafka%E7%94%9F%E4%BA%A7%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98/&title=kafka生产重复消费问题"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://mokitkira.github.io/2018/04/11/kafka%E7%94%9F%E4%BA%A7%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98/&name=kafka生产重复消费问题&description=
+&lt;p&gt;&lt;strong&gt;分析&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;业务代码中消费端主要做消息存储与消息推送，http推数据。定位消费端的日志逻辑，发现http连接超时，应该是厂家设的推送地址有问题，导致超时。用的kafka版本是0.10.0，查阅了超时配置在10s，思路就改动消费端的逻辑，改成用线程池去异步推，把自动提交改成手动提交，解决了我的问题。&lt;/p&gt;
+&lt;p&gt;0.10.0以后的版本与消费者相关的几个重要参数&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;enable.auto.commit 默认值true，表示消费者会周期性自动提交消费的offset&lt;/li&gt;
+&lt;li&gt;auto.commit.interval.ms 在enable.auto.commit 为true的情况下， 自动提交的间隔，默认值5000ms&lt;/li&gt;
+&lt;li&gt;max.poll.records 单次消费者拉取的最大数据条数，默认值&lt;/li&gt;
+&lt;li&gt;500 max.poll.interval.ms 默认值5分钟，表示若5分钟之内消费者没有消费完上一次poll的消息，那么consumer会主动发起离开group的请求&lt;/li&gt;
+&lt;/ul&gt;"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://mokitkira.github.io/2018/04/11/kafka%E7%94%9F%E4%BA%A7%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98/&t=kafka生产重复消费问题"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
 
     </div>
-</div>
 
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
     </div>
+
+  </div>
 </div>
 
-
-<footer class="footer">
-    <ul class="list-inline text-center">
         
-        
-
-        
-
-        
-
-        
-
-        
-
-    </ul>
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
     
-    <p>
-        <span id="busuanzi_container_site_pv">
-            <span id="busuanzi_value_site_pv"></span>PV
-        </span>
-        <span id="busuanzi_container_site_uv">
-            <span id="busuanzi_value_site_uv"></span>UV
-        </span>
-        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+    
+    2016-2021
+    CaryTseng
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </nav>
+  </div>
 </footer>
 
+    </div>
+    <!-- styles -->
 
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
 
 
 </body>
-
-<script>
-    // We expose some of the variables needed by the front end
-    window.hexo_search_path = "search.json"
-    window.hexo_root = "/"
-    window.isPost = true
-</script>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-
-<script src="/js/index.js"></script>
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
 </html>
