@@ -1,787 +1,396 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+
+  <!-- Minima -->
+  <!-- Hexo theme created by @adisaktijrs -->
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
+
   
   <title>CaryTseng</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <link rel="sitemap" href="https://carytseng.github.iositemap.xml" />
+  
+  <link rel="canonical" href="https://carytseng.github.io/page/4/">
+  
   <meta name="description" content="我们所知不过沧海一粟，我们所不知却是汪洋大海">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CaryTseng">
-<meta property="og:url" content="https://carytseng.github.io/page/4/index.html">
-<meta property="og:site_name" content="CaryTseng">
-<meta property="og:description" content="我们所知不过沧海一粟，我们所不知却是汪洋大海">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="CaryTseng">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="CaryTseng" type="application/atom+xml">
   
   
-    <link rel="icon" href="/tech.png">
+  <meta name="author" content="CaryTseng">
+  
+  <meta property="og:image" content="https://carytseng.github.io/images/face.png">
+  
+  <meta property="og:site_name" content="CaryTseng" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="CaryTseng" />
+  
+  <meta property="og:description" content="我们所知不过沧海一粟，我们所不知却是汪洋大海">
+  
+  <meta property="og:url" content="https://carytseng.github.io/page/4/" />
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CaryTseng">
+  
+  <meta name="twitter:description" content="我们所知不过沧海一粟，我们所不知却是汪洋大海">
   
   
-    
+  <meta name="twitter:image" content="https://carytseng.github.io/images/face.png">
+  
+  <meta name="twitter:url" content="https://carytseng.github.io/page/4/" />
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Preload fonts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="preload" href="../fonts/dm-serif-display-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/inter-v2-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+<link rel="stylesheet" href="/css/normalize.css">
+
+  
+<link rel="stylesheet" href="/css/skeleton.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+<link rel="stylesheet" href="/css/prism-dark.css">
+
+  
+<link rel="stylesheet" href="/css/prism-line-numbers.css">
+
+  <!-- User css -->
   
   
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/user.css">
 
   
 
-<meta name="generator" content="Hexo 5.2.0"></head>
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="/images/face.png">
+
+  <!-- Custom Theme Color Style
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <style>
+  a:not(.icon) {
+    text-decoration-color: #0FA0CE;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 50%,
+      #0FA0CE 50%
+    );
+  }
+  blockquote {
+    border-left: 8px solid #0FA0CE;
+  }
+  .nanobar .bar {
+    background: #0FA0CE;
+  }
+  .button.button-primary:hover,
+  button.button-primary:hover,
+  input[type="submit"].button-primary:hover,
+  input[type="reset"].button-primary:hover,
+  input[type="button"].button-primary:hover,
+  .button.button-primary:focus,
+  button.button-primary:focus,
+  input[type="submit"].button-primary:focus,
+  input[type="reset"].button-primary:focus,
+  input[type="button"].button-primary:focus {
+    background-color: #0FA0CE;
+    border-color: #0FA0CE;
+  }
+  input[type="email"]:focus,
+  input[type="number"]:focus,
+  input[type="search"]:focus,
+  input[type="text"]:focus,
+  input[type="tel"]:focus,
+  input[type="url"]:focus,
+  input[type="password"]:focus,
+  textarea:focus,
+  select:focus {
+    border: 1px solid #0FA0CE;
+  }
+</style>
+
+  <!-- Google Analytics (With Privacy Settings On)
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="CaryTseng" type="application/atom+xml">
+</head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    
-    <div id="header-inner" class="inner">
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://carytseng.github.io"></form>
-      </div>
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">首页</a>
-        
-          <a class="main-nav-link" href="/archives">归档</a>
-        
-          <a class="main-nav-link" href="/about">关于</a>
-        
-      </nav>
-      
-    </div>
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">CaryTseng</a>
-      </h1>
-      
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-布隆过滤器" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/05/12/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/" class="article-date">
-  <time datetime="2020-05-12T09:19:22.000Z" itemprop="datePublished">2020-05-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/12/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/">布隆过滤器</a>
-    </h1>
-  
+  <div class="container">
+    <div class="row">
+      <div>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-<p>简单来说，这个东西就是由一个bit数组和几个哈希函数组成，数组上只存放0或1，好处就是这个数组可以搞得非常大，毕竟bit数组，100w的数据，撑死 1000000Bit / 8 = 125000 Byte = 125000/1024 kb ≈ 122kb 的空间。</p>
-<p><strong>加入元素</strong></p>
-<p>　　加入元素先拿这个元素通过几个hash函数去算一下值，然后将数组上的这几个位置的值设为1</p>
-<p><strong>搜索元素</strong></p>
-        
-          <p class="article-more-link">
-            <a href="/2020/05/12/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/#more">继续阅读全文 »</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://carytseng.github.io/2020/05/12/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/" data-id="cktsjmsn3001yuno4aciigpoj" class="article-share-link">分享</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" rel="tag">技术学习</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-软件工程实践" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/05/09/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/" class="article-date">
-  <time datetime="2020-05-09T13:01:01.000Z" itemprop="datePublished">2020-05-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/09/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/">软件工程实践</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <blockquote>
-<p>　　在软件工程工作实践中，很多时候由于项目工期紧，一个需求提出后，由于急于落地结果，前期的需求调研的时间可能只有一两次的需求会议，作为开发人员，个人体会是在会议中陷入考虑编码和实现的思维中，往往这会造成开发人员对于需求的理解不准确，有时由于业务点或者业务规则过多，会给初次接触需求的开发人员过大的压力，从不理解需求开始，就开始实践编码，往往会造成不可避免的返工，如果团队有专业的需求分析人员，从需求分析人员到开发人员的沟通传递中，不可避免会遗漏信息，若果没有落地的需求文档，更加如此。因此在需求会议中应该以业务人员的角度，抛开开发人员的思维方式，无需考虑编码细节，因为这往往会影响我们的理解和会议的效果，站在对方的角度去思考，但需要考虑的是软件设计合理性，毕竟业务人员不懂技术，也不一定懂软件设计，必须引导用户，保证软件交互的合理性。</p>
-<p>　　作为开发人员需要清楚需求才可动手，只有当手上输出了该有的设计文档开始编码才能做到胸有成竹，以文档来驱动开发的好处在于，当业务快速变化的时候，能够适时查阅新增的业务点对现有的业务流程和程序流程的影响会有多大，改动一个点会造成多大的影响。</p>
-<p>　　从个人的实践来看，对于一个从零开始的需求，至少包含以下几个文档</p>
-<p>　　1、业务需求文档，包含业务提出的所有需求点和业务规则。</p>
-<p>　　2、程序流程图，需要开发根据业务需求说明书转化成程序流程图，程序流程可以作为与业务确认的稿件，保证设计方案不会与业务需求有较大的差距，最终的稿件应该是编码的可依据基础。</p>
-<p>　　3、ER图，数据库表设计，这两个工具应该能确保扩展性，否则后续的加表返工设计数据表或者加表成本都会引发一系列的编码成本。</p>
-<p>　　如果团队是需要应对快速变化的业务，那么引入敏捷开发的工程模式是比较适合的，当有了以上几个文档后，以最简单的方式构建代码架子，不考虑过多的设计，设计一个核心的架构，慢慢改进，不需要就干掉，交付最小成果，快速反馈业务人员，与业务人员探讨改进。</p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://carytseng.github.io/2020/05/09/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/" data-id="cktsjmsnz003luno43k2o9f3t" class="article-share-link">分享</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B7%A5%E4%BD%9C%E6%84%9F%E6%82%9F/" rel="tag">工作感悟</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" rel="tag">技术学习</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-投资思考" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/02/21/%E6%8A%95%E8%B5%84%E6%80%9D%E8%80%83/" class="article-date">
-  <time datetime="2020-02-21T13:01:17.000Z" itemprop="datePublished">2020-02-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/21/%E6%8A%95%E8%B5%84%E6%80%9D%E8%80%83/">投资思考</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <blockquote>
-<p>　　高度信息化的社会，身处巨大的信息洪流中，每个社会个体接触信息源的渠道丰富多样，有效甄别信息的有效性并能形成投资的决策根据。市场的变化来源于大众对于当下事态的反应，抓去这种心理变化，去洞察分析，进行投机获取相应的收益。</p>
-<p>　　市场是自由交易的。</p>
-<p>　　劳动产生报酬，个人对雇主负责，雇主角度来讲，只有当你的有效成果直接或间接促成公司收益，才是有效的，才能提高你的议价权。你的职位价格由市场供需关系确定，其上限最终会受限与市场整体的价位，除非你能够通过差异性综合提高公司收益，不仅仅你的职位能力。</p>
-<p>　　投资性收入来源于个人对市场的把握，手段及渠道是多样化的，决策的正确根据对市场未来一段时间的预测，市场是敏感的，是大众心里变化的反映，如何从其中抽取对未来有效的信息源，并根据时势预估未来一段时间的市场变化，作出相应的投资决策，其正确性只能在你的收益中得到反映。</p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://carytseng.github.io/2020/02/21/%E6%8A%95%E8%B5%84%E6%80%9D%E8%80%83/" data-id="cktsjmsnc002cuno439g63tb1" class="article-share-link">分享</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%90%86%E5%93%B2/" rel="tag">理哲</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-Web实时消息推送" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/12/20/Web%E5%AE%9E%E6%97%B6%E6%B6%88%E6%81%AF%E6%8E%A8%E9%80%81/" class="article-date">
-  <time datetime="2019-12-20T02:43:34.000Z" itemprop="datePublished">2019-12-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/20/Web%E5%AE%9E%E6%97%B6%E6%B6%88%E6%81%AF%E6%8E%A8%E9%80%81/">Web实时消息推送</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-<p>　　ws出现之前，网站实时消息技术一般采用http轮询，这种方式缺点明显，由于http协议消息包含的头部信息较长其中的有效会消耗大量的带宽资源。ws通过兼容80和443端口来实现客户端与服务端的全双工通信。</p>
-<ul>
-<li>减少控制开销</li>
-<li>更强的实时性</li>
-<li>保持连接状态，是有状态协议</li>
-<li>可以传输二进制数据</li>
-</ul>
-<p></p>
-<ol>
-<li>客户端通过http协议发起连接请求，Upgrade字段是websocket，表明需要升级为ws进行通讯。</li>
-<li>服务端收到请求后，返回101状态码表示理解，并返回Upgrade消息头表明采用ws来处理请求。</li>
-</ol>
-        
-          <p class="article-more-link">
-            <a href="/2019/12/20/Web%E5%AE%9E%E6%97%B6%E6%B6%88%E6%81%AF%E6%8E%A8%E9%80%81/#more">继续阅读全文 »</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://carytseng.github.io/2019/12/20/Web%E5%AE%9E%E6%97%B6%E6%B6%88%E6%81%AF%E6%8E%A8%E9%80%81/" data-id="cktsjmsma000luno46t11713o" class="article-share-link">分享</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WebSocket/" rel="tag">WebSocket</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" rel="tag">技术学习</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-gitflow实践" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/11/11/gitflow%E5%AE%9E%E8%B7%B5/" class="article-date">
-  <time datetime="2019-11-11T10:24:58.000Z" itemprop="datePublished">2019-11-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/11/gitflow%E5%AE%9E%E8%B7%B5/">gitflow实践</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-<ul>
-<li>提交的粒度是一个小功能点或一个bugfix</li>
-<li>comment简练且描述清楚修改的位置或增加的功能</li>
-<li>尽可能几次提交再进行一次推送</li>
-</ul>
-<ul>
-<li>master——最为稳定功能最为完整的随时可发布的代码；</li>
-<li>hotfix——修复线上代码的 bug；</li>
-<li>develop——永远是功能最新最全的分支；</li>
-<li>feature——某个功能点正在开发阶段；</li>
-<li>release——发布定期要上线的功能。</li>
-</ul>
-<p><strong>Master和develop需要保护起来，只有项目负责人可以推送和删除。</strong></p>
-<p>​    从develop拉取一条feature的新分支出来进行开发</p>
-        
-          <p class="article-more-link">
-            <a href="/2019/11/11/gitflow%E5%AE%9E%E8%B7%B5/#more">继续阅读全文 »</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://carytseng.github.io/2019/11/11/gitflow%E5%AE%9E%E8%B7%B5/" data-id="cktsjmsmc000ouno4g7p4echa" class="article-share-link">分享</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-装饰器模式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/07/26/%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/" class="article-date">
-  <time datetime="2019-07-26T01:49:02.000Z" itemprop="datePublished">2019-07-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/26/%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/">装饰器模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>定义</strong></p>
-<blockquote>
-<p>用于向一个现有对象添加新的功能，同时不改变其现有结构。通过创建一个类的装饰类，包装原有类，并保证原有类的签名的前提下提供额外功能。</p>
-</blockquote>
-<p><strong>为什么及什么时候应用</strong></p>
-<blockquote>
-<p>一般拓展一个类的功能会先想到使用继承的基础上添加，但那样会对原有类的层级结构增添多个子类，且往往我们的需求仅仅是针对某个类做一下简单的功能拓展，而并不是为了定义一个新的子类。此时仅仅增加一个装饰类即可。</p>
-</blockquote>
-<p><strong>优点</strong></p>
-<blockquote>
-<p>装饰类和被装饰类能独立发展，不相互耦合。装饰模式是继承的一个替代，可以动态扩展一个实现类的功能。</p>
-</blockquote>
-        
-          <p class="article-more-link">
-            <a href="/2019/07/26/%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/#more">继续阅读全文 »</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://carytseng.github.io/2019/07/26/%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/" data-id="cktsjmsnw003guno4flmh6ubp" class="article-share-link">分享</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" rel="tag">技术学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-适配器模式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/06/23/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" class="article-date">
-  <time datetime="2019-06-23T02:41:34.000Z" itemprop="datePublished">2019-06-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/23/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/">适配器模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>将一个类的接口转换成客户端希望的接口，通常用于使用现有类适配新的系统接口。优点是复用现有类。</p>
-</blockquote>
-<blockquote>
-<p>代码层面：适配器类继承或依赖已有的对象，实现想要的目标接口。</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>组成</th>
-<th>关系</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>客户接口</td>
-<td>适配的接口</td>
-<td>客户端想要的接口形式</td>
-</tr>
-<tr>
-<td>现有目标类</td>
-<td>现有的可被复用的类</td>
-<td>提供现有接口实现</td>
-</tr>
-<tr>
-<td>适配器类</td>
-<td>实现目标接口，依赖目标类</td>
-<td>实现目标接口，做接口兼容</td>
-</tr>
-</tbody></table>
-        
-          <p class="article-more-link">
-            <a href="/2019/06/23/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/#more">继续阅读全文 »</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://carytseng.github.io/2019/06/23/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" data-id="cktsjmso0003nuno400doapug" class="article-share-link">分享</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" rel="tag">技术学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-List遍历过程remove的ConcurrentModificationException" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/05/03/List%E9%81%8D%E5%8E%86%E8%BF%87%E7%A8%8Bremove%E7%9A%84ConcurrentModificationException/" class="article-date">
-  <time datetime="2019-05-03T08:21:50.000Z" itemprop="datePublished">2019-05-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/03/List%E9%81%8D%E5%8E%86%E8%BF%87%E7%A8%8Bremove%E7%9A%84ConcurrentModificationException/">List遍历过程remove的ConcurrentModificationException</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">list.add(<span class="number">2</span>);</span><br><span class="line">Iterator&lt;Integer&gt; iterator = list.iterator();</span><br><span class="line"><span class="keyword">while</span>(iterator.hasNext())&#123;</span><br><span class="line">  Integer integer = iterator.next();</span><br><span class="line">  <span class="keyword">if</span>(integer==<span class="number">2</span>)</span><br><span class="line">    list.remove(integer);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>　　以上代码List在遍历的过程中，通过判定索引，移除List的元素，程序抛出ConcurrentModificationException异常。</p>
-<p><strong>原因</strong>　　</p>
-<p>　　在迭代器的实现中，checkForComodification()方法会检查List的modCount与expectedModCount的值，不相等则抛出该异常。我们调用的是List的remove方法， 可以看到程序修改了modeCount的值，但是没有修改expectedModCount的值，导致问题的产生。modCount表示List被修改的次数，expectedModCount表示期待值。</p>
-        
-          <p class="article-more-link">
-            <a href="/2019/05/03/List%E9%81%8D%E5%8E%86%E8%BF%87%E7%A8%8Bremove%E7%9A%84ConcurrentModificationException/#more">继续阅读全文 »</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://carytseng.github.io/2019/05/03/List%E9%81%8D%E5%8E%86%E8%BF%87%E7%A8%8Bremove%E7%9A%84ConcurrentModificationException/" data-id="cktsjmsm2000buno4e6dwcksg" class="article-share-link">分享</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java%E5%9F%BA%E7%A1%80/" rel="tag">Java基础</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8/" rel="tag">异常</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" rel="tag">技术学习</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-责任链模式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/24/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/" class="article-date">
-  <time datetime="2019-03-24T02:52:12.000Z" itemprop="datePublished">2019-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/24/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/">责任链模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>用来处理相关事务责任的一条执行链，执行链上有多个节点，每个节点都有机会根据匹配条件处理事务，处理完就根据实际业务需求传递给下一个节点或者返回。</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>组成</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>抽象责任处理类</td>
-</tr>
-<tr>
-<td>请求类</td>
-</tr>
-<tr>
-<td>具体节点处理类</td>
-</tr>
-</tbody></table>
-        
-          <p class="article-more-link">
-            <a href="/2019/03/24/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/#more">继续阅读全文 »</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://carytseng.github.io/2019/03/24/%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/" data-id="cktsjmsny003iuno4hojq3vrv" class="article-share-link">分享</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" rel="tag">技术学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-处世" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/13/%E5%A4%84%E4%B8%96/" class="article-date">
-  <time datetime="2018-07-13T13:01:27.000Z" itemprop="datePublished">2018-07-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/13/%E5%A4%84%E4%B8%96/">处世</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <blockquote>
-<p>　　当我们做一件事情的时候，不要寐心，可能很多时候为了达成目的，我们会着急，焦虑，眼看时间一点点在消逝，不得已而为之，未考虑清楚匆忙决定一件事情，最终发现事与愿违。当然太过谨慎思虑太多也会错失很多机会，青春给了我们试错的资本，敢于尝试是听得比较多的道理。</p>
-<p>　　对人对事，得与失之间，权衡利弊而后之。而立之年，太多的困惑会阻挡人的前进方向，选择的方向往往比努力重要，想成为什么样子，想达到什么目标，三思而后行。我们处在一个环境中往往会带有局限性，限制我们的视野与思维，当你慢慢接触更优秀的人与其共事交流，会开阔自身的思维与境界，很多时候我们更愿意处于一个舒适区，不想跳出来，害怕这份稳定与安宁被打破，宁愿在内做最优解，但是这样人就会不知不觉被环境所同化，带有其土壤所熏陶的气息，很难打破。如果我们选择的东西不是我们内心所想要的，必定有所困惑，怀疑自身的态度与原则，必要的调解都无法按捺内心那股冲突。我们处于世上，有着自身的底线，跨越这个底线，抛弃原则，可能最终自己都无法认清自己的模样，何苦呢？</p>
-<p>　　人必要忠于自己而后立生处事，对人对事亦然。</p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://carytseng.github.io/2018/07/13/%E5%A4%84%E4%B8%96/" data-id="cktsjmsn2001vuno43t5t7f9y" class="article-share-link">分享</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%90%86%E5%93%B2/" rel="tag">理哲</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-
-
-  <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/">下一页&amp;raquo;</a>
-  </nav>
-</section>
-           
-    <aside id="sidebar">
-  
-    
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title recent-posts">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2021/08/05/java/">Java基础补全</a>
-          </li>
-        
-          <li>
-            <a href="/2020/12/25/Redis%E6%A8%A1%E7%B3%8A%E5%88%A0%E9%99%A4key/">Redis模糊删除key</a>
-          </li>
-        
-          <li>
-            <a href="/2020/11/28/ignite%E8%BF%81%E7%A7%BB/">ignite迁移</a>
-          </li>
-        
-          <li>
-            <a href="/2020/11/20/Navicat%E6%9B%B4%E6%96%B0%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF/">Navicat更新删除数据的正确姿势</a>
-          </li>
-        
-          <li>
-            <a href="/2020/11/04/CAP%E5%AE%9A%E7%90%86/">CAP定理</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-    
-
-  
-</aside>
-
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-left">
-      &copy; 2014 - 2021 CaryTseng&nbsp;|&nbsp;
-      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
-    </div>
-     <div id="footer-right">
-      联系方式&nbsp;|&nbsp;carytseng.kira@gmail.com
-    </div>
-  </div>
-</footer>
- 
-<script src="/jquery/jquery.min.js"></script>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">首页</a>
-  
-    <a href="/archives" class="mobile-nav-link">归档</a>
-  
-    <a href="/about" class="mobile-nav-link">关于</a>
-  
-</nav>
-    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
-<script>
-// Elevator script included on the page, already.
-window.onload = function() {
-  var elevator = new Elevator({
-    selector:'.back-to-top-btn',
-    element: document.querySelector('.back-to-top-btn'),
-    duration: 1000 // milliseconds
-  });
-}
-</script>
-      
-
-  
-    <script>
-      var cloudTieConfig = {
-        url: document.location.href, 
-        sourceId: "",
-        productKey: "e2fb4051c49842688ce669e634bc983f",
-        target: "cloud-tie-wrapper"
-      };
-    </script>
-    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
-    
-
-  
-
-
-
-
-
-
-
-<!-- author:forvoid begin -->
-<!-- author:forvoid begin -->
-
-<!-- author:forvoid end -->
-
-<!-- author:forvoid end -->
-
-
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        <div class="row">
+  <div class="two columns" style="max-width: 50px">
+    <h1 class="mt-2 mode">
+      <div onclick=setDarkMode(true) id="darkBtn">🌑</div>
+      <div onclick=setDarkMode(false) id="lightBtn" class=hidden>☀️</div>
+      <script >
+        if (localStorage.getItem('preferredTheme') == 'dark') {
+          setDarkMode(true)
         }
-      })
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
+        function setDarkMode(isDark) {
+          var darkBtn = document.getElementById('darkBtn')
+          var lightBtn = document.getElementById('lightBtn')
+          if (isDark) {
+            lightBtn.style.display = "block"
+            darkBtn.style.display = "none"
+            localStorage.setItem('preferredTheme', 'dark');
+          } else {
+            lightBtn.style.display = "none"
+            darkBtn.style.display = "block"
+            localStorage.removeItem('preferredTheme');
+          }
+          document.body.classList.toggle("darkmode");
         }
-      })
-    </script>
-    <script type="text/javascript" src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      </script>
+    </h1>
+  </div>
+
+  <div class="six columns ml-1">
+    <h1 class="mt-2">
+      Cary Tseng.
+    </h1>
+  </div>
+
+  <div class="twelve columns">
+    <div class="row">
+      <div class="nine columns left">
+        <a href="/">Home</a>
+        
+          
+          <a href="/Works" class="ml">Works</a>
+          
+        
+          
+          <a href="/About" class="ml">About</a>
+          
+        
+        
+          
+            <a href="mailto:carytseng.kira@gmail.com" target="_blank" class="ml">Email</a>
+          
+        
+      </div>
+    </div>
+    <hr style="margin-bottom: 2.6rem">
+  </div>
+</div>
+
+        <div class="trans">
+          <div class="row">
+  <div class="column">
+    <!-- Main information, edit it on theme/_config.yml -->
+    <h2 class="mb-2"></h2>
+    <p></p>
+    <p>我们所知不过沧海一粟，我们所不知却是汪洋大海</p>
+  </div>
+</div>
+
+<h3>Recent Posts</h3>
+
+
+<div class="row">
+
+  <div class="three columns left lit">
+    <p class="bottom">2021年8月5日</p>
+  </div>
+  <div class="nine columns left mb-3">
+    <a href="/2021/08/05/java/" >
+      
+        Java基础补全
+      
+    </a>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="three columns left lit">
+    <p class="bottom">2020年12月25日</p>
+  </div>
+  <div class="nine columns left mb-3">
+    <a href="/2020/12/25/Redis%E6%A8%A1%E7%B3%8A%E5%88%A0%E9%99%A4key/" >
+      
+        Redis模糊删除key
+      
+    </a>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="three columns left lit">
+    <p class="bottom">2020年11月28日</p>
+  </div>
+  <div class="nine columns left mb-3">
+    <a href="/2020/11/28/ignite%E8%BF%81%E7%A7%BB/" >
+      
+        ignite迁移
+      
+    </a>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="three columns left lit">
+    <p class="bottom">2020年11月20日</p>
+  </div>
+  <div class="nine columns left mb-3">
+    <a href="/2020/11/20/Navicat%E6%9B%B4%E6%96%B0%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF/" >
+      
+        Navicat更新删除数据的正确姿势
+      
+    </a>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="three columns left lit">
+    <p class="bottom">2020年11月4日</p>
+  </div>
+  <div class="nine columns left mb-3">
+    <a href="/2020/11/04/CAP%E5%AE%9A%E7%90%86/" >
+      
+        CAP定理
+      
+    </a>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="three columns left lit">
+    <p class="bottom">2020年10月28日</p>
+  </div>
+  <div class="nine columns left mb-3">
+    <a href="/2020/10/28/%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/" >
+      
+        栈实现队列
+      
+    </a>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="three columns left lit">
+    <p class="bottom">2020年10月28日</p>
+  </div>
+  <div class="nine columns left mb-3">
+    <a href="/2020/10/28/Redis%E6%8E%A2%E7%A9%B6/" >
+      
+        Redis探究
+      
+    </a>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="three columns left lit">
+    <p class="bottom">2020年10月7日</p>
+  </div>
+  <div class="nine columns left mb-3">
+    <a href="/2020/10/07/Spring%E5%A4%9A%E6%95%B0%E6%8D%AE%E6%BA%90%E5%8A%A0%E8%BD%BD/" >
+      
+        Spring多数据源加载
+      
+    </a>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="three columns left lit">
+    <p class="bottom">2020年9月30日</p>
+  </div>
+  <div class="nine columns left mb-3">
+    <a href="/2020/09/30/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%86%99%E6%A1%86%E6%9E%B6-SpringMVC/" >
+      
+        从零开始写框架-SpringMVC
+      
+    </a>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="three columns left lit">
+    <p class="bottom">2020年9月25日</p>
+  </div>
+  <div class="nine columns left mb-3">
+    <a href="/2020/09/25/%E6%96%B0%E5%85%A5%E4%B9%A6%E5%8D%95/" >
+      
+        新入书单
+      
+    </a>
+  </div>
+</div>
+
+
+<h4> <a href="/archives">All Posts</a></h4>
+
+          <div class="row mt-2">
   
+    <div class="eight columns">
+      <p id="madewith">Made with ❤ and
+        <a class="footer-link icon" href="https://hexo.io" target="_blank" style="text-decoration: none;" rel="noreferrer" aria-label="Hexo.io">
+        <svg class="hexo svg-hov" width="14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Hexo.js</title><path d="M12 .007L1.57 6.056V18.05L12 23.995l10.43-6.049V5.952L12 .007zm4.798 17.105l-.939.521-.939-.521V12.94H9.08v4.172l-.94.521-.938-.521V6.89l.939-.521.939.521v4.172h5.84V6.89l.94-.521.938.521v10.222z"/></svg>
+        </a>
+        
+    </div>
 
+    <!-- Sepcial thanks to https://simpleicons.org/ for the icons -->
+    <div class="four columns mb-3 posisi" >
+      
 
- 
-<script src="/js/is.js"></script>
+      
 
+      
 
+      
 
+      
+
+    </div>
   
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+</div>
 
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
+        </div>
+      </div>
 
-
-
-
-<script src="/js/script.js"></script>
-
-
-<script src="/js/elevator.js"></script>
+    </div>
 
   </div>
+  <script src="/js/nanobar.min.js"></script>
+  <script>
+    var options = {
+      classname: 'nanobar',
+      id: 'myNanobar'
+    };
+    var nanobar = new Nanobar(options);
+    nanobar.go(30);
+    nanobar.go(76);
+    nanobar.go(100);
+  </script>
+
 </body>
+
 </html>
