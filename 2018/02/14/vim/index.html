@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>vim | CaryTseng</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="命令模式移动光标    按键 操作    h 左移动   j 下移动   k 上移动   l 右移动   ctrl+d 下移动半页   ctrl+u 上移动半页   gg 移动到第一行   G 移动到最后一行   nG 移动到第n行   n+ 右移n个字符   n+ 下移动n行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vim">
+<meta property="og:url" content="https://mokitkira.github.io/2018/02/14/vim/index.html">
+<meta property="og:site_name" content="CaryTseng">
+<meta property="og:description" content="命令模式移动光标    按键 操作    h 左移动   j 下移动   k 上移动   l 右移动   ctrl+d 下移动半页   ctrl+u 上移动半页   gg 移动到第一行   G 移动到最后一行   nG 移动到第n行   n+ 右移n个字符   n+ 下移动n行">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-02-14T14:22:20.000Z">
+<meta property="article:modified_time" content="2021-01-09T05:49:54.751Z">
+<meta property="article:author" content="CaryTseng">
+<meta property="article:tag" content="技术学习">
+<meta property="article:tag" content="生产效率">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="CaryTseng" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://mokitkira.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">CaryTseng</a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-vim" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/14/vim/" class="article-date">
+  <time datetime="2018-02-14T14:22:20.000Z" itemprop="datePublished">2018-02-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vim
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h2 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h2><p><strong>移动光标</strong></p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>h</td>
+<td>左移动</td>
+</tr>
+<tr>
+<td>j</td>
+<td>下移动</td>
+</tr>
+<tr>
+<td>k</td>
+<td>上移动</td>
+</tr>
+<tr>
+<td>l</td>
+<td>右移动</td>
+</tr>
+<tr>
+<td>ctrl+d</td>
+<td>下移动半页</td>
+</tr>
+<tr>
+<td>ctrl+u</td>
+<td>上移动半页</td>
+</tr>
+<tr>
+<td>gg</td>
+<td>移动到第一行</td>
+</tr>
+<tr>
+<td>G</td>
+<td>移动到最后一行</td>
+</tr>
+<tr>
+<td>nG</td>
+<td>移动到第n行</td>
+</tr>
+<tr>
+<td>n+<space></td>
+<td>右移n个字符</td>
+</tr>
+<tr>
+<td>n+<enter></td>
+<td>下移动n行</td>
+</tr>
+</tbody></table>
+<a id="more"></a>
+
+<p><strong>搜索</strong></p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/word</td>
+<td>向光标下搜索</td>
+</tr>
+<tr>
+<td>?word</td>
+<td>向光标上搜索</td>
+</tr>
+</tbody></table>
+<p><strong>删除、复制与粘贴</strong></p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>x</td>
+<td>向后删除一个字符</td>
+</tr>
+<tr>
+<td>nx</td>
+<td>向后删除n个字符</td>
+</tr>
+<tr>
+<td>dd</td>
+<td>删除游标那正行</td>
+</tr>
+<tr>
+<td>ndd</td>
+<td>删除光标下n行</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>yy</td>
+<td>复制那一行</td>
+</tr>
+<tr>
+<td>nyy</td>
+<td>复制光标下n行</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>p</td>
+<td>将已复制的数据贴到光标下一行</td>
+</tr>
+<tr>
+<td>P</td>
+<td>将已复制的数据贴到光标上一行</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>u</td>
+<td>复原前一个动作（撤回）</td>
+</tr>
+<tr>
+<td>ctrl+r</td>
+<td>重做上一个动作</td>
+</tr>
+</tbody></table>
+<p><strong>切换到输入模式</strong></p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>i</td>
+<td>目前光标所在处输入</td>
+</tr>
+<tr>
+<td>I</td>
+<td>从光标所在行的非空格字符输入</td>
+</tr>
+<tr>
+<td>a</td>
+<td>从目前光标所在的下一个字符开始输入</td>
+</tr>
+<tr>
+<td>A</td>
+<td>从目前光标所在的最后一个字符开始输入</td>
+</tr>
+<tr>
+<td>o</td>
+<td>从目前光标所在的行的下一行开始输入</td>
+</tr>
+<tr>
+<td>O</td>
+<td>从目前光标所在的行的上一行开始输入</td>
+</tr>
+</tbody></table>
+<p><strong>命令模式切换到底线命令模式</strong></p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>:w</td>
+<td>编辑的数据写入硬盘</td>
+</tr>
+<tr>
+<td>:w!</td>
+<td>强制写入硬盘，无权限还是写不进</td>
+</tr>
+<tr>
+<td>:q</td>
+<td>离开vi</td>
+</tr>
+<tr>
+<td>:q!</td>
+<td>修改过不想保存，强制离开vi</td>
+</tr>
+<tr>
+<td>:wq</td>
+<td>保存后离开</td>
+</tr>
+<tr>
+<td>:w [filename]</td>
+<td>另存为</td>
+</tr>
+</tbody></table>
+<p><strong>vim环境的变更</strong></p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>:set nu</td>
+<td>显示行号</td>
+</tr>
+<tr>
+<td>:set nonu</td>
+<td>取消显示行号</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://mokitkira.github.io/2018/02/14/vim/" data-id="ckts2rsqm0012vvo4cq0yer83" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" rel="tag">技术学习</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%9F%E4%BA%A7%E6%95%88%E7%8E%87/" rel="tag">生产效率</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2018/02/26/ssr-ignite-%E6%90%AD%E5%BB%BA/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          ssr &amp; ignite 搭建
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/02/11/kafka%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">kafka消息队列</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+       
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">命令模式</span></a></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+    <!--微信公众号二维码-->
+
+
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 CaryTseng&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;carytseng.kira@gmail.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/about" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+  
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "e2fb4051c49842688ce669e634bc983f",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+    
+
+  
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      })
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      })
+    </script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>

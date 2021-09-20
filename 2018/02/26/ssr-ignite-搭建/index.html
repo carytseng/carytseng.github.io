@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ssr &amp; ignite 搭建 | CaryTseng</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="vps搭建相关记录，方便日后使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ssr &amp; ignite 搭建">
+<meta property="og:url" content="https://mokitkira.github.io/2018/02/26/ssr-ignite-%E6%90%AD%E5%BB%BA/index.html">
+<meta property="og:site_name" content="CaryTseng">
+<meta property="og:description" content="vps搭建相关记录，方便日后使用">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-02-26T06:37:47.000Z">
+<meta property="article:modified_time" content="2021-01-09T05:49:54.513Z">
+<meta property="article:author" content="CaryTseng">
+<meta property="article:tag" content="ssr">
+<meta property="article:tag" content="ignite">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="CaryTseng" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://mokitkira.github.io"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">CaryTseng</a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ssr-ignite-搭建" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/26/ssr-ignite-%E6%90%AD%E5%BB%BA/" class="article-date">
+  <time datetime="2018-02-26T06:37:47.000Z" itemprop="datePublished">2018-02-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ssr &amp; ignite 搭建
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <h4 id="shadowsocks安装"><a href="#shadowsocks安装" class="headerlink" title="shadowsocks安装"></a>shadowsocks安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">yum -y update</span><br><span class="line"></span><br><span class="line">yum -y install wget</span><br><span class="line"></span><br><span class="line">wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh</span><br><span class="line"></span><br><span class="line">chmod +x shadowsocks.sh</span><br><span class="line"></span><br><span class="line">./shadowsocks.sh 2&gt;&amp;1 | tee shadowsocks.log</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>编辑：vi /etc/shadowsocks.json</p>
+<p>启动：/etc/init.d/shadowsocks start</p>
+<p>停止：/etc/init.d/shadowsocks stop</p>
+<p>重启：/etc/init.d/shadowsocks restart</p>
+<p>状态：/etc/init.d/shadowsocks status</p>
+<p>卸载：./shadowsocks-go.sh uninstall</p>
+</blockquote>
+<h4 id="bbr安装"><a href="#bbr安装" class="headerlink" title="bbr安装"></a>bbr安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh</span><br><span class="line"></span><br><span class="line">chmod +x bbr.sh</span><br><span class="line"></span><br><span class="line">./bbr.sh</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">确认bbr开启</span></span><br><span class="line">lsmod | grep bbr</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="SSR安装"><a href="#SSR安装" class="headerlink" title="SSR安装"></a>SSR安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">yum -y install git </span><br><span class="line">yum --enablerepo=extras install epel-release</span><br><span class="line">yum -y install python-pip</span><br><span class="line"></span><br><span class="line">git clone https://github.com/hao35954514/shadowsocksR-b.git</span><br><span class="line"></span><br><span class="line">cd shadowsocksR-b/ </span><br><span class="line">bash initcfg.sh</span><br><span class="line"></span><br><span class="line">sed -i &quot;s/API_INTERFACE = &#x27;sspanelv2&#x27;/API_INTERFACE = &#x27;mudbjson&#x27;/&quot; userapiconfig.py</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>使用说明:</p>
+<p>python mujson_mgr.py -a|-d|-e|-c|-l [选项( -u|-p|-k|-m|-O|-o|-G|-g|-t|-f|-i|-s|-S )]</p>
+<p>操作:</p>
+<p>-a ADD        添加 用户</p>
+<p>-d DELETE      删除 用户</p>
+<p>-e EDIT       编辑 用户</p>
+<p>-c CLEAR       清零 上传/下载 已使用流量</p>
+<p>-l LIST       显示用户信息 或 所有用户信息</p>
+<p>选项:</p>
+<p>-u USER       用户名</p>
+<p>-p PORT       服务器 端口</p>
+<p>-k PASSWORD     服务器 密码</p>
+<p>-m METHOD      服务器 加密方式，默认: aes-128-ctr</p>
+<p>-O PROTOCOL     服务器 协议插件，默认: auth_aes128_md5</p>
+<p>-o OBFS       服务器 混淆插件，默认: tls1.2_ticket_auth_compatible</p>
+<p>-G PROTOCOL_PARAM  服务器 协议插件参数，可用于限制设备连接数，-G 5 代表限制5个</p>
+<p>-g OBFS_PARAM    服务器 混淆插件参数，可省略</p>
+<p>-t TRANSFER     限制总使用流量，单位: GB，默认:838868GB(即 8PB/8192TB 可理解为无限)</p>
+<p>-f FORBID      设置禁止访问使用的端口</p>
+<p>​            – 例如：禁止25,465,233~266这些端口，那么这样写: -f “25,465,233-266”</p>
+<p>-i MUID       设置子ID显示（仅适用与 -l 操作）</p>
+<p>-s value       当前用户(端口)单线程限速，单位: KB/s(speed_limit_per_con)</p>
+<p>-S value       当前用户(端口)端口总限速，单位: KB/s(speed_limit_per_user)</p>
+<p>一般选项:</p>
+<p>-h, –help      显示此帮助消息并退出</p>
+<p>多用户的本地JSON数据库文件位置：shadowsocksR-b/mudb.json</p>
+</blockquote>
+<blockquote>
+<p>#添加用户</p>
+<p>python mujson_mgr.py -a -u fuck -p 8989 -k panzer1230 -m aes-256-cfb -O auth_aes128_md5 -G 10 -o tls1.2_ticket_auth -s 10000 -S 10000 -t 10</p>
+<p>#编辑用户</p>
+<p>python mujson_mgr.py -e -u lightime -t 100 #以用户修改</p>
+<p>python mujson_mgr.py -e -p 3333 -t 100 #以端口修改</p>
+<p>#删除用户</p>
+<p>python mujson_mgr.py -d -u lightime #以用户为依据删除</p>
+<p>python mujson_mgr.py -d -p 3333 #以端口为依据删除</p>
+<p>#其他操作</p>
+<p>python mujson_mgr.py -l #查看所有用户信息</p>
+<p>python mujson_mgr.py -l -u lightime #查看单个用户信息(包括流量使用情况)</p>
+<p>python mujson_mgr.py -c -u lightime #用户使用流量清零</p>
+<p>#服务端控制</p>
+<p>./run.sh #后台运行 但不记录日志</p>
+<p>./logrun.sh #后台运行 且 记录日志</p>
+<p>./tail.sh #查看日志./stop.sh #停止服务端</p>
+</blockquote>
+<h4 id="go-ignite"><a href="#go-ignite" class="headerlink" title="go-ignite"></a>go-ignite</h4><blockquote>
+<p>go-ignite是一个基于Docker实现，由Golang开发的多账户SS(R)管理面板。<br>对用户来说，SS(R)服务被隔离在单独的容器中，安全高效，一键创建服务，简单方便。<br>对管理员，提供后台管理页面，能够快捷的管理用户服务，重置流量等。</p>
+<p>用户面板：<br>支持创建 SS 和 SSR，但是仅提供自定义加密方式，且只能在初始化激活账号的时候，创建之后无法更改；<br>SS 支持 AEAD 系加密；<br>SSR 密码由随机生成、协议默认 auth_aes128_md5、混淆默认 tls1.2_ticket_auth_compatible。</p>
+<p>管理面板：<br>无法更改用户端口、服务类型；<br>用户使用的端口并非随机创建。</p>
+<p>因为需要使用 Docker，所以请使用非 OpenVZ 构架的 VPS 进行。</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">curl -sSL https://get.daocloud.io/docker | sh</span><br><span class="line">service docker start</span><br><span class="line">curl -L https://get.daocloud.io/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` &gt; /usr/local/bin/docker-compose</span><br><span class="line">chmod +x /usr/local/bin/docker-compose</span><br><span class="line">usermod -aG docker root</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;opt</span><br><span class="line">vi docker-compose.yml</span><br></pre></td></tr></table></figure>
+
+<h5 id="通过ip访问"><a href="#通过ip访问" class="headerlink" title="通过ip访问"></a>通过ip访问</h5><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">ignite:</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">ignite</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">goignite/ignite</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;./data:/root/ignite/data&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;/var/run/docker.sock:/var/run/docker.sock&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">HOST_ADDRESS=8.8.8.8</span></span><br><span class="line">      <span class="comment"># 此处修改为VPS IP，是展示在用户界面上的 SS/R 的连接 IP</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">HOST_FROM=5001</span></span><br><span class="line">      <span class="comment"># SS/R 容器的起始可用端口范围，默认 5001</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">HOST_TO=6000</span></span><br><span class="line">      <span class="comment"># SS/R 容器的截止可用端口范围，默认 6000</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;80:5000&quot;</span></span><br><span class="line">      <span class="comment"># 用户界面访问端口，默认 80</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">ignite-admin:</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">ignite-admin</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">goignite/ignite-admin</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;./data:/root/ignite/data&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;/var/run/docker.sock:/var/run/docker.sock&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">AUTH_USERNAME=admin</span></span><br><span class="line">      <span class="comment"># 管理员用户名</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">AUTH_PASSWORD=admin_password</span></span><br><span class="line">      <span class="comment"># 管理员密码</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">Auth_SECRET=ignite2017</span></span><br><span class="line">      <span class="comment"># 生成 JWT Token 的密钥，随便修改</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;8080:8000&quot;</span></span><br><span class="line">      <span class="comment"># 管理界面访问端口，默认 8080</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="通过域名访问（中文为了说明，使用时请删除）"><a href="#通过域名访问（中文为了说明，使用时请删除）" class="headerlink" title="通过域名访问（中文为了说明，使用时请删除）"></a>通过域名访问（中文为了说明，使用时请删除）</h5><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"> <span class="attr">version:</span> <span class="string">&#x27;3&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">nginx-proxy:</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">nginx-proxy</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">jwilder/nginx-proxy</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;80:80&quot;</span></span><br><span class="line">      <span class="comment"># 访问端口，可以无需修改</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/var/run/docker.sock:/tmp/docker.sock:ro</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">ignite:</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">ignite</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">goignite/ignite</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;./data:/root/ignite/data&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;/var/run/docker.sock:/var/run/docker.sock&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">HOST_ADDRESS=8.8.8.8</span></span><br><span class="line">      <span class="comment"># 此处修改为 VPS IP，是展示在用户界面上的 SS/R 的连接 IP</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">HOST_FROM=5001</span></span><br><span class="line">      <span class="comment"># SS/R 容器的起始可用端口范围，默认 5001</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">HOST_TO=6000</span></span><br><span class="line">      <span class="comment"># SS/R 容器的截止可用端口范围，默认 6000</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">VIRTUAL_PORT=5000</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">VIRTUAL_HOST=domain.com</span></span><br><span class="line">      <span class="comment"># 用户面板的访问域名</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">ignite-admin:</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">ignite-admin</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">goignite/ignite-admin</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;./data:/root/ignite/data&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;/var/run/docker.sock:/var/run/docker.sock&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">AUTH_USERNAME=admin</span></span><br><span class="line">      <span class="comment"># 管理员用户名</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">AUTH_PASSWORD=admin_password</span></span><br><span class="line">      <span class="comment"># 管理员密码</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">Auth_SECRET=ignite2017</span></span><br><span class="line">      <span class="comment"># 生成 JWT Token 的密钥，随便修改</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">VIRTUAL_PORT=8000</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">VIRTUAL_HOST=admin.domain.com</span></span><br><span class="line">      <span class="comment"># 管理面板的访问域名</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;opt</span><br><span class="line">docker-compose up -d</span><br><span class="line"></span><br><span class="line">docker-compose up -d</span><br><span class="line"># 运行</span><br><span class="line">docker-compose down</span><br><span class="line"># 停止</span><br><span class="line">docker-compose pull</span><br><span class="line"># 更新</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://mokitkira.github.io/2018/02/26/ssr-ignite-%E6%90%AD%E5%BB%BA/" data-id="ckts2rsqm0010vvo41v3v474p" class="article-share-link">分享</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ignite/" rel="tag">ignite</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssr/" rel="tag">ssr</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+  <div id="random_posts">
+    <h2>推荐文章</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2018/03/24/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          代理模式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/02/14/vim/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">vim</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+       
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+
+  
+    
+    <div class="widget-wrap">
+    
+      <div class="widget" id="toc-widget-fixed">
+      
+        <strong class="toc-title">文章目录</strong>
+        <div class="toc-widget-list">
+              <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#shadowsocks%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">shadowsocks安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#bbr%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">bbr安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SSR%E5%AE%89%E8%A3%85"><span class="toc-number">3.</span> <span class="toc-text">SSR安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#go-ignite"><span class="toc-number">4.</span> <span class="toc-text">go-ignite</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%80%9A%E8%BF%87ip%E8%AE%BF%E9%97%AE"><span class="toc-number">4.1.</span> <span class="toc-text">通过ip访问</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E5%9F%9F%E5%90%8D%E8%AE%BF%E9%97%AE%EF%BC%88%E4%B8%AD%E6%96%87%E4%B8%BA%E4%BA%86%E8%AF%B4%E6%98%8E%EF%BC%8C%E4%BD%BF%E7%94%A8%E6%97%B6%E8%AF%B7%E5%88%A0%E9%99%A4%EF%BC%89"><span class="toc-number">4.2.</span> <span class="toc-text">通过域名访问（中文为了说明，使用时请删除）</span></a></li></ol></li></ol>
+          </div>
+      </div>
+    </div>
+
+  
+    
+
+  
+    
+  
+    
+  
+    
+
+  
+    
+  
+    <!--微信公众号二维码-->
+
+
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2021 CaryTseng&nbsp;|&nbsp;
+      主题 <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      联系方式&nbsp;|&nbsp;carytseng.kira@gmail.com
+    </div>
+  </div>
+</footer>
+ 
+<script src="/jquery/jquery.min.js"></script>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/about" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+  
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "e2fb4051c49842688ce669e634bc983f",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+    
+
+  
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      })
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      })
+    </script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+ 
+<script src="/js/is.js"></script>
+
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+<script src="/js/elevator.js"></script>
+
+  </div>
+</body>
+</html>
