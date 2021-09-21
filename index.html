@@ -1,396 +1,783 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!DOCTYPE HTML>
+<html>
 <head>
-
-  <!-- Minima -->
-  <!-- Hexo theme created by @adisaktijrs -->
-
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
-
   
   <title>CaryTseng</title>
-  
-  <link rel="sitemap" href="https://carytseng.github.iositemap.xml" />
-  
-  <link rel="canonical" href="https://carytseng.github.io/">
+  <meta name="author" content="CaryTseng">
   
   <meta name="description" content="我们所知不过沧海一粟，我们所不知却是汪洋大海">
   
   
-  <meta name="author" content="CaryTseng">
-  
-  <meta property="og:image" content="https://carytseng.github.io/images/face.png">
-  
-  <meta property="og:site_name" content="CaryTseng" />
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="CaryTseng" />
-  
-  <meta property="og:description" content="我们所知不过沧海一粟，我们所不知却是汪洋大海">
-  
-  <meta property="og:url" content="https://carytseng.github.io/" />
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="CaryTseng">
-  
-  <meta name="twitter:description" content="我们所知不过沧海一粟，我们所不知却是汪洋大海">
-  
-  
-  <meta name="twitter:image" content="https://carytseng.github.io/images/face.png">
-  
-  <meta name="twitter:url" content="https://carytseng.github.io/" />
-
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Preload fonts
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="preload" href="../fonts/dm-serif-display-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="../fonts/inter-v2-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
-
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  
-<link rel="stylesheet" href="/css/normalize.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-<link rel="stylesheet" href="/css/skeleton.css">
+  <meta property="og:site_name" content="CaryTseng"/>
 
   
-<link rel="stylesheet" href="/css/custom.css">
-
-  
-<link rel="stylesheet" href="/css/prism-dark.css">
-
-  
-<link rel="stylesheet" href="/css/prism-line-numbers.css">
-
-  <!-- User css -->
-  
-  
-<link rel="stylesheet" href="/css/user.css">
-
+    <meta property="og:image" content=""/>
   
 
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="/images/face.png">
-
-  <!-- Custom Theme Color Style
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <style>
-  a:not(.icon) {
-    text-decoration-color: #0FA0CE;
-    background-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0) 50%,
-      #0FA0CE 50%
-    );
-  }
-  blockquote {
-    border-left: 8px solid #0FA0CE;
-  }
-  .nanobar .bar {
-    background: #0FA0CE;
-  }
-  .button.button-primary:hover,
-  button.button-primary:hover,
-  input[type="submit"].button-primary:hover,
-  input[type="reset"].button-primary:hover,
-  input[type="button"].button-primary:hover,
-  .button.button-primary:focus,
-  button.button-primary:focus,
-  input[type="submit"].button-primary:focus,
-  input[type="reset"].button-primary:focus,
-  input[type="button"].button-primary:focus {
-    background-color: #0FA0CE;
-    border-color: #0FA0CE;
-  }
-  input[type="email"]:focus,
-  input[type="number"]:focus,
-  input[type="search"]:focus,
-  input[type="text"]:focus,
-  input[type="tel"]:focus,
-  input[type="url"]:focus,
-  input[type="password"]:focus,
-  textarea:focus,
-  select:focus {
-    border: 1px solid #0FA0CE;
-  }
-</style>
-
-  <!-- Google Analytics (With Privacy Settings On)
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   
+  
+    <link href="/face.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/readable.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+    <script src="/js/marked.js"></script>
+    <script src="/js/comment.js"></script>
+    <script src="/js/timeago.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+	<script src="/js/spin.min.js"></script>
+  
+  <!-- analytics -->
+  
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?158281932937a280be091a3dfd514e8f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
 
 <meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="CaryTseng" type="application/atom+xml">
 </head>
 
 <body>
+  <nav id="main-nav" class="navbar  navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">CaryTseng</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
   <div class="container">
-    <div class="row">
-      <div>
+    <div class="content">
+      <div class="page-header ">
+  <h1 class="title ">philosopher on coding</h1>
+</div>
 
-        <div class="row">
-  <div class="two columns" style="max-width: 50px">
-    <h1 class="mt-2 mode">
-      <div onclick=setDarkMode(true) id="darkBtn">🌑</div>
-      <div onclick=setDarkMode(false) id="lightBtn" class=hidden>☀️</div>
-      <script >
-        if (localStorage.getItem('preferredTheme') == 'dark') {
-          setDarkMode(true)
-        }
-        function setDarkMode(isDark) {
-          var darkBtn = document.getElementById('darkBtn')
-          var lightBtn = document.getElementById('lightBtn')
-          if (isDark) {
-            lightBtn.style.display = "block"
-            darkBtn.style.display = "none"
-            localStorage.setItem('preferredTheme', 'dark');
-          } else {
-            lightBtn.style.display = "none"
-            darkBtn.style.display = "block"
-            localStorage.removeItem('preferredTheme');
-          }
-          document.body.classList.toggle("darkmode");
-        }
-      </script>
-    </h1>
+<div class="row page">
+
+	
+	<div class="col-md-9">
+	
+
+		<div class="slogan">
+      <i class="fa fa-heart"></i>
+      我们所知不过沧海一粟，我们所不知却是汪洋大海
+</div>    
+		<div id="top_search"></div>
+		<div class="mypage">
+		
+		<!-- title and entry -->
+        <!-- render top articles firstly -->
+        
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+            
+		
+        
+        <!-- render other articles -->
+        
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2021-08-05 </div>
+			<div class="article-title"><a href="/2021/08/05/java/" >Java基础补全</a></div>						
+		</h3>
+	
+
+
+			  <div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li><p>boolean,byte,char,short,int,long,float,double,void</p>
+</li>
+<li><p>Boolean,Byte,Character,Integer,Long,Float,Double,Void</p>
+</li>
+</ul>
+
+<p>&amp;&amp;是短路操作符:若操作符左边的布尔表达式能推算出整个表达式的布尔值，则不计算右边的表达式。</p>
+<p>&amp;是非短路操作符:始终会计算两边的布尔表达式。</p>
+<p>==比较两个变量的值是否相等，也就是变量所存储的数值是否相等</p>
+	
+	</div>
+  <a type="button" href="/2021/08/05/java/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2020-12-25 </div>
+			<div class="article-title"><a href="/2020/12/25/Redis模糊删除key/" >Redis模糊删除key</a></div>						
+		</h3>
+	
+
+
+			  <div class="entry">
+  <div class="row">
+	
+	
+		
+<p>该命令是redis2.8提供的，相比keys命令，它是通过游标分步进行，不会对线程造成阻塞，提供匹配功能。游标的意思，redis的数据结构是基于hash的，类似java的hashmap，底层也是数组+链表，这里通过游标遍历。</p>
+<p>SCAN CURSOR [MATCH pattern] [COUNT count]</p>
+<p>CURSOR代表游标，每次扫描都会返回上次的游标以此来开始增量的扫描，count指扫描槽位的数量，可以理解为扫描hashmap中一维数组中多少个元素并返回这些槽组的数据，判断是否有符合的元素。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">scanAndDel</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           redisTemplate.execute((RedisCallback&lt;Boolean&gt;) redisConnection -&gt;</span><br><span class="line">           &#123;</span><br><span class="line">               Object nativeConnection = redisConnection.getNativeConnection();</span><br><span class="line"></span><br><span class="line">               <span class="comment">// lettuce 单机</span></span><br><span class="line">               <span class="keyword">if</span> (nativeConnection <span class="keyword">instanceof</span> RedisAsyncCommands) &#123;</span><br><span class="line">                   RedisAsyncCommands connection = (RedisAsyncCommands) nativeConnection;</span><br><span class="line"></span><br><span class="line">                   RedisCommands&lt;<span class="keyword">byte</span>[], String&gt; commands = connection.getStatefulConnection().sync();</span><br><span class="line"></span><br><span class="line">                   KeyScanCursor&lt;<span class="keyword">byte</span>[]&gt; scanCursor = <span class="keyword">null</span>;</span><br><span class="line">                   <span class="keyword">do</span> &#123;</span><br><span class="line">                       <span class="keyword">if</span> (scanCursor == <span class="keyword">null</span>) &#123;</span><br><span class="line">                           scanCursor = commands.scan(ScanArgs.Builder.matches(key));</span><br><span class="line">                       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                           scanCursor = commands.scan(scanCursor, ScanArgs.Builder.matches(key));</span><br><span class="line">                       &#125;</span><br><span class="line"></span><br><span class="line">                       List&lt;<span class="keyword">byte</span>[]&gt; byteKeys = scanCursor.getKeys();</span><br><span class="line">                       <span class="keyword">if</span> (byteKeys.size() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                           <span class="keyword">byte</span>[][] keys = <span class="keyword">new</span> <span class="keyword">byte</span>[byteKeys.size()][];</span><br><span class="line">                           <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; byteKeys.size(); i++) &#123;</span><br><span class="line">                               keys[i] = byteKeys.get(i);</span><br><span class="line">                           &#125;</span><br><span class="line"></span><br><span class="line">                           commands.del(keys);</span><br><span class="line">                           <span class="keyword">try</span> &#123;</span><br><span class="line">                               Thread.sleep(<span class="number">100</span>);</span><br><span class="line">                           &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                           &#125;</span><br><span class="line">                       &#125;</span><br><span class="line">                   &#125; <span class="keyword">while</span> (!scanCursor.isFinished());</span><br><span class="line">               &#125;</span><br><span class="line"></span><br><span class="line">               <span class="comment">// lettuce 集群</span></span><br><span class="line">               <span class="keyword">if</span> (nativeConnection <span class="keyword">instanceof</span> RedisAdvancedClusterAsyncCommands) &#123;</span><br><span class="line">                   RedisAdvancedClusterAsyncCommands connection = (RedisAdvancedClusterAsyncCommands) nativeConnection;</span><br><span class="line"></span><br><span class="line">                   RedisAdvancedClusterCommands&lt;<span class="keyword">byte</span>[], String&gt; commands = connection.getStatefulConnection().sync();</span><br><span class="line"></span><br><span class="line">                   KeyScanCursor&lt;<span class="keyword">byte</span>[]&gt; scanCursor = <span class="keyword">null</span>;</span><br><span class="line">                   <span class="keyword">do</span> &#123;</span><br><span class="line">                       <span class="keyword">if</span> (scanCursor == <span class="keyword">null</span>) &#123;</span><br><span class="line">                           scanCursor = commands.scan(ScanArgs.Builder.matches(key));</span><br><span class="line">                       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                           scanCursor = commands.scan(scanCursor, ScanArgs.Builder.matches(key));</span><br><span class="line">                       &#125;</span><br><span class="line"></span><br><span class="line">                       List&lt;<span class="keyword">byte</span>[]&gt; byteKeys = scanCursor.getKeys();</span><br><span class="line">                       <span class="keyword">if</span> (byteKeys.size() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                           <span class="keyword">byte</span>[][] keys = <span class="keyword">new</span> <span class="keyword">byte</span>[byteKeys.size()][];</span><br><span class="line">                           <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; byteKeys.size(); i++) &#123;</span><br><span class="line">                               keys[i] = byteKeys.get(i);</span><br><span class="line">                           &#125;</span><br><span class="line"></span><br><span class="line">                           commands.del(keys);</span><br><span class="line">                           <span class="keyword">try</span> &#123;</span><br><span class="line">                               Thread.sleep(<span class="number">100</span>);</span><br><span class="line">                           &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                           &#125;</span><br><span class="line">                       &#125;</span><br><span class="line">                   &#125; <span class="keyword">while</span> (!scanCursor.isFinished());</span><br><span class="line">               &#125;</span><br><span class="line">               <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">           &#125;);</span><br><span class="line">       &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+	
+	</div>
+  <a type="button" href="/2020/12/25/Redis模糊删除key/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2020-11-28 </div>
+			<div class="article-title"><a href="/2020/11/28/ignite迁移/" title="ignite服务主机迁移，主要是docker容器的备份迁移">ignite迁移</a></div>						
+		</h3>
+	
+
+
+			  <div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">新主机docker脚本安装</span></span><br><span class="line">curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>docker-compose.yml&amp;ignite.db文件cp</p>
+</li>
+<li><p>容器服务导出导入</p>
+<ul>
+<li>生成容器快照，打出镜像<ul>
+<li>docker commit -p [containerId] [alias]</li>
+</ul>
+</li>
+<li>生成tar文件<ul>
+<li>docker save -o ~/[filename].tar [imageName]</li>
+</ul>
+</li>
+<li>导入tar文件<ul>
+<li>cat [tarfile] |docker import - [name]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>原主机获取容器启动命令相关参数</p>
+<ul>
+<li><p>安装runlike</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum install -y python-pip</span><br><span class="line">pip install runlike</span><br><span class="line"><span class="meta">#</span><span class="bash">查看启动参数</span></span><br><span class="line">runlike -p [containerid]</span><br><span class="line">cp</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>启动ssr子容器所有服务，获得所有containerid，修改ignite.db中表user的service_id</p>
+</li>
+<li><p>docker-compose run –rm ignite-admin /bin/sh -c ‘./ignite-admin recover’</p>
+</li>
+<li><p>docker-compose up -d</p>
+</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2020/11/28/ignite迁移/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2020-11-20 </div>
+			<div class="article-title"><a href="/2020/11/20/Navicat更新删除数据的正确姿势/" >Navicat更新删除数据的正确姿势</a></div>						
+		</h3>
+	
+
+
+			  <div class="entry">
+  <div class="row">
+	
+	
+		<blockquote>
+<p> 非常久没有使用Navicat这个工具了，基本从开发的项目转入oracle之后都是使用PL/SQL这个工具了，oracle是提供执行语句回滚的显式操作的。最近发现Navicat操作MySQL居然没有，查阅了一下Navicat执行sql特别是update/delete时怎么防止误操作，回滚数据。</p>
+</blockquote>
+<p>MySQL是默认提交事务的，所以写query时，如果写了条update是直接提交的，如果想回滚怎么办？只能找binlog非常麻烦。正确的姿势应该是在query页中，提前set autocommit=0，也就是关闭自动提交，但这仅在当前query页中生效，重启或者打开新标签页会失效，然后你的update语句需要显式commit才能提交，这样你能在commit前select一下查看当前执行结果，Innodb的隔离级别默认是可重复读的，所以能读到当前事务下的数据结果，如果不对就执行rollback。</p>
+
+	
+	</div>
+  <a type="button" href="/2020/11/20/Navicat更新删除数据的正确姿势/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2020-11-04 </div>
+			<div class="article-title"><a href="/2020/11/04/CAP定理/" >CAP定理</a></div>						
+		</h3>
+	
+
+
+			  <div class="entry">
+  <div class="row">
+	
+	
+		
+<p>分布式系统有三个指标，也即一致性、可用性、分区容错</p>
+<p>（C）一致性：多个节点的数据保持一致，当某个节点的数据修改后，需要同步修改所有节点的数据，保持一致</p>
+<p>（A）可用性：即当某个节点宕机后，整个集群还能正常对外服务，保证服务健康</p>
+<p>（P）分区容错：两个节点间可能会无法通信，P定理总是成立的。</p>
+	
+	</div>
+  <a type="button" href="/2020/11/04/CAP定理/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2020-10-28 </div>
+			<div class="article-title"><a href="/2020/10/28/栈实现队列/" >栈实现队列</a></div>						
+		</h3>
+	
+
+
+			  <div class="entry">
+  <div class="row">
+	
+	
+		<p>相对好理解的一条题目，栈的特点是后进先出，队列的特点是先进先出，那么用两个栈怎么实现队列呢？设S1和S2两个栈，要实现先进先出，如果都放到一个栈中，栈底元素是最先入的，那么要先出，得把栈底元素变成栈顶元素，这时候就利用到第二个栈了，把S1的元素都倒到S2，那么S2的栈顶元素就是最先入栈的，也就符合队列的特性。</p>
+<p>入队列思路</p>
+<ul>
+<li>直接放入S1</li>
+</ul>
+<p>出队列思路</p>
+	
+	</div>
+  <a type="button" href="/2020/10/28/栈实现队列/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2020-10-28 </div>
+			<div class="article-title"><a href="/2020/10/28/Redis探究/" >Redis探究</a></div>						
+		</h3>
+	
+
+
+			  <div class="entry">
+  <div class="row">
+	
+	
+		
+<p>Redis诞生之初是为了解决关系型数据库的性能问题，由于IO需要对磁盘的读写速度满足不了实际场景，因此创造者利用内存造了一个内存数据库，没有关系型数据库的约束，Redis提供的数据结构简单且能满足高性能的读写场景，其基于对内存的读写，能够在短时间内处理数据，由于读写速度快，免去IO的局限，IO涉及操作系统用户空间与内核空间的数据复制及事件等待，所以redis采用单线程的处理模型，免去线程切换的开销，因为也没必要进行多线程处理</p>
+<p>支持多种数据结构，memcached仅支持字符串且不支持持久化</p>
+<p>Redis采用基于Reactor模式开发网络事件处理器，采用IO多路复用技术，简单来说就是一条线程监听多个客户端socket，当有事件到时，将事件作为一个task放到队列中，接下来文件处理器会对队列中的task进行处理，文件处理器是单线程的，没有线程的切换问题，文件处理器包含连接应答器、命令请求处理器、命令回复处理器，执行相应的命令后，返回相应。这也是Redis速度快的原因：IO多路复用、单线程处理task、基于内存的数据操作</p>
+<p></p>
+	
+	</div>
+  <a type="button" href="/2020/10/28/Redis探究/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2020-10-07 </div>
+			<div class="article-title"><a href="/2020/10/07/Spring多数据源加载/" >Spring多数据源加载</a></div>						
+		</h3>
+	
+
+
+			  <div class="entry">
+  <div class="row">
+	
+	
+		
+<ul>
+<li>分包方式</li>
+<li>参数化方式</li>
+<li>注解+AOP</li>
+</ul>
+<p>比较简单，哪个数据源的操作就走哪个mapper目录下的文件，一般就是两个库无任何关联的场景。</p>
+<p>根据传入的参数选择数据源，进行数据查询，个人比较推崇这一种方式。</p>
+<p>在特定的方式上添加自定义的注解，配置上需要选择的数据源值，AOP执行的时候通过获取注解上的值来切换，这种方式需要在方法上写死需要的数据源，不太灵活。</p>
+	
+	</div>
+  <a type="button" href="/2020/10/07/Spring多数据源加载/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2020-09-30 </div>
+			<div class="article-title"><a href="/2020/09/30/从零开始写框架-SpringMVC/" >从零开始写框架-SpringMVC</a></div>						
+		</h3>
+	
+
+
+			  <div class="entry">
+  <div class="row">
+	
+	
+		
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scanPackage=com.gupaoedu.demo</span><br></pre></td></tr></table></figure>
+
+<p>这部分主要模拟Spring中我们常用的Autowired，Controller，RequestMapping，RequestParam，Service等。</p>
+<p>注解文件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(&#123;ElementType.FIELD&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> GPAutowired &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Target(&#123;ElementType.TYPE&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> GPController &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Target(&#123;ElementType.TYPE,ElementType.METHOD&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> GPRequestMapping &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Target(&#123;ElementType.PARAMETER&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> GPRequestParam &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Target(&#123;ElementType.TYPE&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> GPService &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+	
+	</div>
+  <a type="button" href="/2020/09/30/从零开始写框架-SpringMVC/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2020-09-25 </div>
+			<div class="article-title"><a href="/2020/09/25/新入书单/" >新入书单</a></div>						
+		</h3>
+	
+
+
+			  <div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li>Google工作法</li>
+<li>图解黄帝内经</li>
+<li>我们内心的冲突</li>
+<li>我们时代的神经症人格</li>
+<li>Spring5核心原理与30个类手写实战</li>
+<li>零基础学炒股从入门到精通</li>
+</ul>
+<hr>
+<p><strong>待购入</strong></p>
+<ul>
+<li>价值：我对投资的思考</li>
+<li>墨菲定律</li>
+<li>李大霄投资战略</li>
+<li>聪明的投资者</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2020/09/25/新入书单/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+           
+		
+
+		</div>
+
+		<!-- pagination -->
+		<div>
+  		<center>
+		<div class="pagination">
+<ul class="pagination">
+	 
+		
+          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+        
+
+        <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
+
+		
+		   <li class="next"> <a href="/page/2/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a> </li>          
+        
+	
+</ul>
+</div>
+
+  		</center>
+		</div>
+
+		
+		
+	</div> <!-- col-md-9 -->
+
+	
+		<div class="col-md-3">
+	<div id="sidebar">
+	
+			
+  <div id="site_search">
+   <div class="form-group">
+    <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索" class="st-search-input st-default-search-input form-control"/>
+   </div>  
+  <div id="local-search-result"></div>
   </div>
 
-  <div class="six columns ml-1">
-    <h1 class="mt-2">
-      Cary Tseng.
-    </h1>
-  </div>
 
-  <div class="twelve columns">
-    <div class="row">
-      <div class="nine columns left">
-        <a href="/">Home</a>
-        
-          
-          <a href="/Works" class="ml">Works</a>
-          
-        
-          
-          <a href="/About" class="ml">About</a>
-          
-        
-        
-          
-            <a href="mailto:carytseng.kira@gmail.com" target="_blank" class="ml">Email</a>
-          
-        
-      </div>
+		
+			
+		
+			
+	<div class="widget">
+		<h4>标签云</h4>
+		<ul class="tag_box inline list-unstyled">		
+		
+			<li><a href="/tags/生产效率/">生产效率<span>1</span></a></li>
+		
+			<li><a href="/tags/WebSocket/">WebSocket<span>1</span></a></li>
+		
+			<li><a href="/tags/数据库/">数据库<span>2</span></a></li>
+		
+			<li><a href="/tags/缓存/">缓存<span>1</span></a></li>
+		
+			<li><a href="/tags/生活/">生活<span>2</span></a></li>
+		
+			<li><a href="/tags/异常/">异常<span>1</span></a></li>
+		
+			<li><a href="/tags/Web/">Web<span>1</span></a></li>
+		
+			<li><a href="/tags/投资/">投资<span>5</span></a></li>
+		
+			<li><a href="/tags/ssr/">ssr<span>1</span></a></li>
+		
+			<li><a href="/tags/Linux/">Linux<span>1</span></a></li>
+		
+			<li><a href="/tags/垃圾回收/">垃圾回收<span>1</span></a></li>
+		
+			<li><a href="/tags/从零开始写框架/">从零开始写框架<span>1</span></a></li>
+		
+			<li><a href="/tags/设计模式/">设计模式<span>12</span></a></li>
+		
+			<li><a href="/tags/消息队列/">消息队列<span>2</span></a></li>
+		
+			<li><a href="/tags/Java基础/">Java基础<span>2</span></a></li>
+		
+			<li><a href="/tags/技术学习/">技术学习<span>33</span></a></li>
+		
+			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
+		
+			<li><a href="/tags/数据源/">数据源<span>1</span></a></li>
+		
+			<li><a href="/tags/ignite/">ignite<span>1</span></a></li>
+		
+			<li><a href="/tags/索引/">索引<span>1</span></a></li>
+		
+		
+		   <li><a href="/tags">...<span>29</span></a></li>
+		 
+		</ul>
+	</div>
+
+
+		
+			
+<div class="widget">
+  <h4>最新文章</h4>
+  <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2021/08/05/java/" ><i class="fa fa-file-o"></i>Java基础补全</a>
+      </li>
+    
+      <li>
+        <a href="/2020/12/25/Redis模糊删除key/" ><i class="fa fa-file-o"></i>Redis模糊删除key</a>
+      </li>
+    
+      <li>
+        <a href="/2020/11/28/ignite迁移/"  title="ignite服务主机迁移，主要是docker容器的备份迁移" ><i class="fa fa-file-o"></i>ignite迁移</a>
+      </li>
+    
+      <li>
+        <a href="/2020/11/20/Navicat更新删除数据的正确姿势/" ><i class="fa fa-file-o"></i>Navicat更新删除数据的正确姿势</a>
+      </li>
+    
+      <li>
+        <a href="/2020/11/04/CAP定理/" ><i class="fa fa-file-o"></i>CAP定理</a>
+      </li>
+    
+  </ul>
+</div>
+
+		
+	</div> <!-- sidebar -->
+</div> <!-- col-md-3 -->
+
+	
+	
+</div> <!-- row-fluid -->
+
+
     </div>
-    <hr style="margin-bottom: 2.6rem">
   </div>
-</div>
-
-        <div class="trans">
-          <div class="row">
-  <div class="column">
-    <!-- Main information, edit it on theme/_config.yml -->
-    <h2 class="mb-2"></h2>
-    <p></p>
-    <p>我们所知不过沧海一粟，我们所不知却是汪洋大海</p>
-  </div>
-</div>
-
-<h3>Recent Posts</h3>
-
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2021年8月5日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2021/08/05/java/" >
-      
-        Java基础补全
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年12月25日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/12/25/Redis%E6%A8%A1%E7%B3%8A%E5%88%A0%E9%99%A4key/" >
-      
-        Redis模糊删除key
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年11月28日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/11/28/ignite%E8%BF%81%E7%A7%BB/" >
-      
-        ignite迁移
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年11月20日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/11/20/Navicat%E6%9B%B4%E6%96%B0%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF/" >
-      
-        Navicat更新删除数据的正确姿势
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年11月4日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/11/04/CAP%E5%AE%9A%E7%90%86/" >
-      
-        CAP定理
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年10月28日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/10/28/%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/" >
-      
-        栈实现队列
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年10月28日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/10/28/Redis%E6%8E%A2%E7%A9%B6/" >
-      
-        Redis探究
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年10月7日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/10/07/Spring%E5%A4%9A%E6%95%B0%E6%8D%AE%E6%BA%90%E5%8A%A0%E8%BD%BD/" >
-      
-        Spring多数据源加载
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年9月30日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/09/30/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%86%99%E6%A1%86%E6%9E%B6-SpringMVC/" >
-      
-        从零开始写框架-SpringMVC
-      
-    </a>
-  </div>
-</div>
-
-<div class="row">
-
-  <div class="three columns left lit">
-    <p class="bottom">2020年9月25日</p>
-  </div>
-  <div class="nine columns left mb-3">
-    <a href="/2020/09/25/%E6%96%B0%E5%85%A5%E4%B9%A6%E5%8D%95/" >
-      
-        新入书单
-      
-    </a>
-  </div>
-</div>
-
-
-<h4> <a href="/archives">All Posts</a></h4>
-
-          <div class="row mt-2">
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2021 CaryTseng
   
-    <div class="eight columns">
-      <p id="madewith">Made with ❤ and
-        <a class="footer-link icon" href="https://hexo.io" target="_blank" style="text-decoration: none;" rel="noreferrer" aria-label="Hexo.io">
-        <svg class="hexo svg-hov" width="14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Hexo.js</title><path d="M12 .007L1.57 6.056V18.05L12 23.995l10.43-6.049V5.952L12 .007zm4.798 17.105l-.939.521-.939-.521V12.94H9.08v4.172l-.94.521-.938-.521V6.89l.939-.521.939.521v4.172h5.84V6.89l.94-.521.938.521v10.222z"/></svg>
-        </a>
-        
-    </div>
-
-    <!-- Sepcial thanks to https://simpleicons.org/ for the icons -->
-    <div class="four columns mb-3 posisi" >
-      
-
-      
-
-      
-
-      
-
-      
-
-    </div>
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
   
-</div>
 
-        </div>
-      </div>
 
-    </div>
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
 
-  </div>
-  <script src="/js/nanobar.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
   <script>
-    var options = {
-      classname: 'nanobar',
-      id: 'myNanobar'
-    };
-    var nanobar = new Nanobar(options);
-    nanobar.go(30);
-    nanobar.go(76);
-    nanobar.go(100);
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
   </script>
 
-</body>
 
+</body>
 </html>

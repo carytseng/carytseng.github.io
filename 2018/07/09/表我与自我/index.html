@@ -1,252 +1,328 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!DOCTYPE HTML>
+<html>
 <head>
-
-  <!-- Minima -->
-  <!-- Hexo theme created by @adisaktijrs -->
-
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
-
   
-  <title>表我与自我</title>
-  
-  <link rel="sitemap" href="https://carytseng.github.iositemap.xml" />
-  
-  <link rel="canonical" href="https://carytseng.github.io/2018/07/09/%E8%A1%A8%E6%88%91%E4%B8%8E%E8%87%AA%E6%88%91/">
-  
-  <meta name="description" content="当我们认知一个人，最快速的方式是通过外表，穿着，走姿，来刻画一个人在我们心目中的印象，标签化是我们短期内记忆一个人最快的方法，反之亦然。 　　一个人所呈现的表象是他想让我们看到的样子，表我和内我是截然不同的，在外界环境中，起作用的是表我，这个姿态是我们根据社会规则，道德伦理，他人所要求的样子所刻画出">
-  
-  
+  <title>表我与自我 | CaryTseng</title>
   <meta name="author" content="CaryTseng">
   
-  <meta property="og:image" content="https://carytseng.github.ioundefined">
+  <meta name="description" content="我们所知不过沧海一粟，我们所不知却是汪洋大海">
   
-  <meta property="og:site_name" content="CaryTseng" />
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="表我与自我" />
   
-  <meta property="og:description" content="当我们认知一个人，最快速的方式是通过外表，穿着，走姿，来刻画一个人在我们心目中的印象，标签化是我们短期内记忆一个人最快的方法，反之亦然。 　　一个人所呈现的表象是他想让我们看到的样子，表我和内我是截然不同的，在外界环境中，起作用的是表我，这个姿态是我们根据社会规则，道德伦理，他人所要求的样子所刻画出">
-  
-  <meta property="og:url" content="https://carytseng.github.io/2018/07/09/%E8%A1%A8%E6%88%91%E4%B8%8E%E8%87%AA%E6%88%91/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="表我与自我">
-  
-  <meta name="twitter:description" content="当我们认知一个人，最快速的方式是通过外表，穿着，走姿，来刻画一个人在我们心目中的印象，标签化是我们短期内记忆一个人最快的方法，反之亦然。 　　一个人所呈现的表象是他想让我们看到的样子，表我和内我是截然不同的，在外界环境中，起作用的是表我，这个姿态是我们根据社会规则，道德伦理，他人所要求的样子所刻画出">
-  
-  
-  <meta name="twitter:image" content="https://carytseng.github.ioundefined">
-  
-  <meta name="twitter:url" content="https://carytseng.github.io/2018/07/09/%E8%A1%A8%E6%88%91%E4%B8%8E%E8%87%AA%E6%88%91/" />
-
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Preload fonts
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="preload" href="../fonts/dm-serif-display-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="../fonts/inter-v2-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
-
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  
-<link rel="stylesheet" href="/css/normalize.css">
+  <meta property="og:title" content="表我与自我"/>
+  <meta property="og:site_name" content="CaryTseng"/>
 
   
-<link rel="stylesheet" href="/css/skeleton.css">
-
-  
-<link rel="stylesheet" href="/css/custom.css">
-
-  
-<link rel="stylesheet" href="/css/prism-dark.css">
-
-  
-<link rel="stylesheet" href="/css/prism-line-numbers.css">
-
-  <!-- User css -->
-  
-  
-<link rel="stylesheet" href="/css/user.css">
-
+    <meta property="og:image" content=""/>
   
 
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="/images/face.png">
-
-  <!-- Custom Theme Color Style
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <style>
-  a:not(.icon) {
-    text-decoration-color: #0FA0CE;
-    background-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0) 50%,
-      #0FA0CE 50%
-    );
-  }
-  blockquote {
-    border-left: 8px solid #0FA0CE;
-  }
-  .nanobar .bar {
-    background: #0FA0CE;
-  }
-  .button.button-primary:hover,
-  button.button-primary:hover,
-  input[type="submit"].button-primary:hover,
-  input[type="reset"].button-primary:hover,
-  input[type="button"].button-primary:hover,
-  .button.button-primary:focus,
-  button.button-primary:focus,
-  input[type="submit"].button-primary:focus,
-  input[type="reset"].button-primary:focus,
-  input[type="button"].button-primary:focus {
-    background-color: #0FA0CE;
-    border-color: #0FA0CE;
-  }
-  input[type="email"]:focus,
-  input[type="number"]:focus,
-  input[type="search"]:focus,
-  input[type="text"]:focus,
-  input[type="tel"]:focus,
-  input[type="url"]:focus,
-  input[type="password"]:focus,
-  textarea:focus,
-  select:focus {
-    border: 1px solid #0FA0CE;
-  }
-</style>
-
-  <!-- Google Analytics (With Privacy Settings On)
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   
+  
+    <link href="/face.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/readable.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+    <script src="/js/marked.js"></script>
+    <script src="/js/comment.js"></script>
+    <script src="/js/timeago.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+	<script src="/js/spin.min.js"></script>
+  
+  <!-- analytics -->
+  
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?158281932937a280be091a3dfd514e8f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
 
 <meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="CaryTseng" type="application/atom+xml">
 </head>
 
 <body>
-  <div class="container">
-    <div class="row">
-      <div>
-
-        <div class="row">
-  <div class="two columns" style="max-width: 50px">
-    <h1 class="mt-2 mode">
-      <div onclick=setDarkMode(true) id="darkBtn">🌑</div>
-      <div onclick=setDarkMode(false) id="lightBtn" class=hidden>☀️</div>
-      <script >
-        if (localStorage.getItem('preferredTheme') == 'dark') {
-          setDarkMode(true)
-        }
-        function setDarkMode(isDark) {
-          var darkBtn = document.getElementById('darkBtn')
-          var lightBtn = document.getElementById('lightBtn')
-          if (isDark) {
-            lightBtn.style.display = "block"
-            darkBtn.style.display = "none"
-            localStorage.setItem('preferredTheme', 'dark');
-          } else {
-            lightBtn.style.display = "none"
-            darkBtn.style.display = "block"
-            localStorage.removeItem('preferredTheme');
-          }
-          document.body.classList.toggle("darkmode");
-        }
-      </script>
-    </h1>
-  </div>
-
-  <div class="six columns ml-1">
-    <h1 class="mt-2">
-      Cary Tseng.
-    </h1>
-  </div>
-
-  <div class="twelve columns">
-    <div class="row">
-      <div class="nine columns left">
-        <a href="/">Home</a>
-        
-          
-          <a href="/Works" class="ml">Works</a>
-          
-        
-          
-          <a href="/About" class="ml">About</a>
-          
-        
-        
-          
-            <a href="mailto:carytseng.kira@gmail.com" target="_blank" class="ml">Email</a>
-          
-        
+  <nav id="main-nav" class="navbar  navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">CaryTseng</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
       </div>
-    </div>
-    <hr style="margin-bottom: 2.6rem">
-  </div>
-</div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
 
-        <div class="trans">
-            <h2>表我与自我</h2>
+  <div class="container">
+    <div class="content">
+      
 
-  <blockquote>
+
+	
+		<div class="page-header ">		
+			<h1 class="title "> 表我与自我</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <blockquote>
 <p>　　当我们认知一个人，最快速的方式是通过外表，穿着，走姿，来刻画一个人在我们心目中的印象，标签化是我们短期内记忆一个人最快的方法，反之亦然。</p>
 <p>　　一个人所呈现的表象是他想让我们看到的样子，表我和内我是截然不同的，在外界环境中，起作用的是表我，这个姿态是我们根据社会规则，道德伦理，他人所要求的样子所刻画出来的。形成一个人的表我，其行为细节，三观，态度等，其实都可以关联性分析。一个人最原生的自我来自于其原生家庭，所处的阶层，父母的教养，童年的经历，青春期的成长，都是塑造一个人的基石。其三观与原生家庭的教养会在社交细节中体现出来，其行为动机则需要关联构成其复杂性格的环境与经历。我们知道一个人的行事总是遵循其固定不变的性格构成，受动机和能力的制约，一个正常的人在其范围内作出的行为都是有根据的，处事，对人亦然。要了解一个人的自我，需要时间去了解，通过对其日常的行为细节，观其言察其色，对待一件事情的反应，面对责任时是推卸抑或主动承担。这些细节是掩饰不了的，会在其行为中体现出来。情商达练之人懂得在人群中把握分寸，与人相处时保持一种舒适的状态，适度展现自我在环境中的存在，但也往往成为其弱点。人与人相处时，其一言一行都会进入他人的印象中，言语是其动机产生的结果，达到一个如何的程度，希望事情走向一个什么样的结果，其实已经刻画在一个人的大致计划中，是其本我在事物发展过程当中的本能调控。这类动机行为是难以看穿的，因为当你不完全了解一个人时，这个结果你是无法推敲出来的。有一类人，处于人群中并不处于起眼的，但发生某事情时，为了调控事情走向，达到自我目的，会通过各类细节去调控，虽然抽象，但是若果最终的结果如他个人所愿，则必定有其达练之处。聪明人与聪明人交谈时，思维方式是跳跃的，正常人的交流顺序是按照123456，但聪明人之间交流的逻辑顺序是136，遵从跳跃式顺序。很多时候聪明人识破一个人的动机的时候，不会去揭穿，鉴于正常的社交尊重，让对方能够下台面或者利用话题周旋，若这个动机也是能够接受的范围内，且是双赢的，则会顺应对方的所求，有所求必有所图，这类人难以交心，其有着天生的防备心态，表面上关系融洽，但一旦希望关系深入时，你必然能感受到与对方的距离。大智若愚非常适用于形容高阶的聪明人，看似平淡无常，其背后的动机暗流涌动，当你对其产生疑惑但又无法说出个所以然来，这时候，明显的对方已经高你一阶。</p>
 </blockquote>
+	  
+	</div>
 
-  <p><a class="classtest-link" href="/tags/%E7%90%86%E5%93%B2/" rel="tag">理哲</a> — 2018年7月9日</p>
-  
+	<!-- recommended posts -->
+	
 
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2018/07/13/处世/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
 
-          <div class="row mt-2">
-  
-    <div class="eight columns">
-      <p id="madewith">Made with ❤ and
-        <a class="footer-link icon" href="https://hexo.io" target="_blank" style="text-decoration: none;" rel="noreferrer" aria-label="Hexo.io">
-        <svg class="hexo svg-hov" width="14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Hexo.js</title><path d="M12 .007L1.57 6.056V18.05L12 23.995l10.43-6.049V5.952L12 .007zm4.798 17.105l-.939.521-.939-.521V12.94H9.08v4.172l-.94.521-.938-.521V6.89l.939-.521.939.521v4.172h5.84V6.89l.94-.521.938.521v10.222z"/></svg>
-        </a>
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2018/07/07/光阴似箭日月如梭/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
         
-    </div>
-
-    <!-- Sepcial thanks to https://simpleicons.org/ for the icons -->
-    <div class="four columns mb-3 posisi" >
-      
-
-      
-
-      
-
-      
-
-      
-
-    </div>
-  
+	
+</ul>
 </div>
 
-        </div>
-      </div>
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+    	 
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
+	 <script type="text/javascript">
+	   getComments({
+           type: "github" ? "github" : "github",       
+	       user: "wzpan",
+	       repo: "hexo-theme-freemind-blog",
+		   client_id: "bf7d4ba11877db88543e",
+           client_secret: "bff8a6b06b745c0bfcdccbe225623ea8e2a057bb",
+		   no_comment: "暂时还没有留言呢，点击下面的按钮去留言吧！",
+		   go_to_comment: "去留言",
+		   no_issue: "no_issue",
+		   issue_title: "表我与自我",
+		   issue_id: "",
+		   btn_class: "btn btn-primary",
+		   comments_target: "#comment-thread",
+		   loading_target: "#loading_spin"
+		   });
+	 </script>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2018-07-09 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/理哲/">理哲<span>9</span></a></li>
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
 
     </div>
-
   </div>
-  <script src="/js/nanobar.min.js"></script>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2021 CaryTseng
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
   <script>
-    var options = {
-      classname: 'nanobar',
-      id: 'myNanobar'
-    };
-    var nanobar = new Nanobar(options);
-    nanobar.go(30);
-    nanobar.go(76);
-    nanobar.go(100);
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
   </script>
 
-</body>
 
+</body>
 </html>
