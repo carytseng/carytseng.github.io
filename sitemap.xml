@@ -494,14 +494,14 @@
   </url>
   
   <url>
-    <loc>https://carytseng.github.io/tags/JWT/</loc>
+    <loc>https://carytseng.github.io/tags/Linux/</loc>
     <lastmod>2021-09-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://carytseng.github.io/tags/Linux/</loc>
+    <loc>https://carytseng.github.io/tags/JWT/</loc>
     <lastmod>2021-09-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -599,13 +599,6 @@
   </url>
   
   <url>
-    <loc>https://carytseng.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
-    <lastmod>2021-09-21</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://carytseng.github.io/tags/Spring/</loc>
     <lastmod>2021-09-21</lastmod>
     <changefreq>daily</changefreq>
@@ -620,7 +613,7 @@
   </url>
   
   <url>
-    <loc>https://carytseng.github.io/tags/%E7%90%86%E5%93%B2/</loc>
+    <loc>https://carytseng.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2021-09-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -628,6 +621,13 @@
   
   <url>
     <loc>https://carytseng.github.io/tags/Web/</loc>
+    <lastmod>2021-09-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://carytseng.github.io/tags/%E7%90%86%E5%93%B2/</loc>
     <lastmod>2021-09-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
