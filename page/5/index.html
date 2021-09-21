@@ -209,39 +209,6 @@ var _hmt = _hmt || [];
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2019-11-11 </div>
-			<div class="article-title"><a href="/2019/11/11/jvm/gc/" >GC</a></div>						
-		</h3>
-	
-
-
-			  <div class="entry">
-  <div class="row">
-	
-	
-		<p>JVM针对堆中的对象，启用守护线程进行无用对象的回收，防止JVM的内存溢出造成程序不可用。</p>
-<ul>
-<li><p>引用计数法</p>
-<p>简单来讲就是判断对象是否存在引用，没有则认为可回收，但若存在循环引用的情况，就无法判断导致内存泄漏</p>
-</li>
-<li><p>可达性分析</p>
-<p>通过GC Roots对象作为起点进行搜索，如果一个对象与GC Roots之前没有可达路径，则认为该对象不可达，但还需要经过两次标记才能进行回收</p>
-</li>
-</ul>
-<p>强引用：存在引用的对象就是强引用对象，gc即使溢出都不会收集这类对象</p>
-<p>软引用：SoftReference对象，如果gc快溢出了，会收集这类对象</p>
-	
-	</div>
-  <a type="button" href="/2019/11/11/jvm/gc/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2019-11-11 </div>
 			<div class="article-title"><a href="/2019/11/11/jvm/jvm/" >jvm</a></div>						
 		</h3>
 	
@@ -305,37 +272,6 @@ var _hmt = _hmt || [];
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2019-11-11 </div>
-			<div class="article-title"><a href="/2019/11/11/nginx/Nginx/" >nginx</a></div>						
-		</h3>
-	
-
-
-			  <div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line">    echo &#39;start install nginx...&#39;</span><br><span class="line">    wget http:&#x2F;&#x2F;nginx.org&#x2F;download&#x2F;nginx-1.10.2.tar.gz</span><br><span class="line">    tar -xvf nginx-1.10.2.tar.gz</span><br><span class="line">    cd nginx-1.10.2</span><br><span class="line">    yum -y install gcc pcre-devel openssl-devel</span><br><span class="line">    .&#x2F;configure</span><br><span class="line">    make</span><br><span class="line">    make install</span><br><span class="line">    echo &#39;install nginx successful.&#39;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx &#x2F;usr&#x2F;bin&#x2F;nginx</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 80:80 -p 443:443 --name nginx --restart&#x3D;always -e TZ&#x3D;&quot;Asia&#x2F;Shanghai&quot; \</span><br><span class="line">-v &#x2F;home&#x2F;appuser&#x2F;nginx&#x2F;html:&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html \</span><br><span class="line"> -v &#x2F;home&#x2F;appuser&#x2F;nginx&#x2F;conf&#x2F;nginx:&#x2F;etc&#x2F;nginx&#x2F;  \</span><br><span class="line"> -v &#x2F;home&#x2F;appuser&#x2F;nginx&#x2F;log:&#x2F;var&#x2F;log&#x2F;nginx nginx</span><br></pre></td></tr></table></figure>
-
-<p>假设下面四种情况分别用 <a target="_blank" rel="noopener" href="http://192.168.1.1/proxy/test.html">http://192.168.1.1/proxy/test.html</a> 进行访问。</p>
-	
-	</div>
-  <a type="button" href="/2019/11/11/nginx/Nginx/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2019-11-11 </div>
 			<div class="article-title"><a href="/2019/11/11/git/git/" >git</a></div>						
 		</h3>
 	
@@ -362,6 +298,39 @@ var _hmt = _hmt || [];
 	
 	</div>
   <a type="button" href="/2019/11/11/git/git/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2019-11-11 </div>
+			<div class="article-title"><a href="/2019/11/11/jvm/gc/" >GC</a></div>						
+		</h3>
+	
+
+
+			  <div class="entry">
+  <div class="row">
+	
+	
+		<p>JVM针对堆中的对象，启用守护线程进行无用对象的回收，防止JVM的内存溢出造成程序不可用。</p>
+<ul>
+<li><p>引用计数法</p>
+<p>简单来讲就是判断对象是否存在引用，没有则认为可回收，但若存在循环引用的情况，就无法判断导致内存泄漏</p>
+</li>
+<li><p>可达性分析</p>
+<p>通过GC Roots对象作为起点进行搜索，如果一个对象与GC Roots之前没有可达路径，则认为该对象不可达，但还需要经过两次标记才能进行回收</p>
+</li>
+</ul>
+<p>强引用：存在引用的对象就是强引用对象，gc即使溢出都不会收集这类对象</p>
+<p>软引用：SoftReference对象，如果gc快溢出了，会收集这类对象</p>
+	
+	</div>
+  <a type="button" href="/2019/11/11/jvm/gc/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
            
@@ -442,6 +411,37 @@ var _hmt = _hmt || [];
 	
 	</div>
   <a type="button" href="/2019/11/11/linux/linux/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2019-11-11 </div>
+			<div class="article-title"><a href="/2019/11/11/nginx/Nginx/" >nginx</a></div>						
+		</h3>
+	
+
+
+			  <div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line">    echo &#39;start install nginx...&#39;</span><br><span class="line">    wget http:&#x2F;&#x2F;nginx.org&#x2F;download&#x2F;nginx-1.10.2.tar.gz</span><br><span class="line">    tar -xvf nginx-1.10.2.tar.gz</span><br><span class="line">    cd nginx-1.10.2</span><br><span class="line">    yum -y install gcc pcre-devel openssl-devel</span><br><span class="line">    .&#x2F;configure</span><br><span class="line">    make</span><br><span class="line">    make install</span><br><span class="line">    echo &#39;install nginx successful.&#39;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx &#x2F;usr&#x2F;bin&#x2F;nginx</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 80:80 -p 443:443 --name nginx --restart&#x3D;always -e TZ&#x3D;&quot;Asia&#x2F;Shanghai&quot; \</span><br><span class="line">-v &#x2F;home&#x2F;appuser&#x2F;nginx&#x2F;html:&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html \</span><br><span class="line"> -v &#x2F;home&#x2F;appuser&#x2F;nginx&#x2F;conf&#x2F;nginx:&#x2F;etc&#x2F;nginx&#x2F;  \</span><br><span class="line"> -v &#x2F;home&#x2F;appuser&#x2F;nginx&#x2F;log:&#x2F;var&#x2F;log&#x2F;nginx nginx</span><br></pre></td></tr></table></figure>
+
+<p>假设下面四种情况分别用 <a target="_blank" rel="noopener" href="http://192.168.1.1/proxy/test.html">http://192.168.1.1/proxy/test.html</a> 进行访问。</p>
+	
+	</div>
+  <a type="button" href="/2019/11/11/nginx/Nginx/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
            
@@ -592,45 +592,45 @@ var _hmt = _hmt || [];
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/基金/">基金<span>1</span></a></li>
-		
-			<li><a href="/tags/Spring/">Spring<span>1</span></a></li>
-		
-			<li><a href="/tags/redis/">redis<span>1</span></a></li>
-		
-			<li><a href="/tags/数据源/">数据源<span>1</span></a></li>
-		
 			<li><a href="/tags/效率/">效率<span>1</span></a></li>
 		
-			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
+			<li><a href="/tags/ssr/">ssr<span>1</span></a></li>
 		
-			<li><a href="/tags/Web/">Web<span>1</span></a></li>
-		
-			<li><a href="/tags/Java基础/">Java基础<span>2</span></a></li>
-		
-			<li><a href="/tags/JWT/">JWT<span>2</span></a></li>
+			<li><a href="/tags/投资/">投资<span>5</span></a></li>
 		
 			<li><a href="/tags/工作感悟/">工作感悟<span>1</span></a></li>
 		
-			<li><a href="/tags/消息队列/">消息队列<span>2</span></a></li>
+			<li><a href="/tags/JWT/">JWT<span>2</span></a></li>
 		
-			<li><a href="/tags/ignite/">ignite<span>1</span></a></li>
+			<li><a href="/tags/技术学习/">技术学习<span>22</span></a></li>
 		
-			<li><a href="/tags/垃圾回收/">垃圾回收<span>1</span></a></li>
+			<li><a href="/tags/股票/">股票<span>2</span></a></li>
 		
-			<li><a href="/tags/从零开始写框架/">从零开始写框架<span>1</span></a></li>
-		
-			<li><a href="/tags/Nosql/">Nosql<span>1</span></a></li>
-		
-			<li><a href="/tags/缓存/">缓存<span>1</span></a></li>
-		
-			<li><a href="/tags/理哲/">理哲<span>1</span></a></li>
-		
-			<li><a href="/tags/WebSocket/">WebSocket<span>1</span></a></li>
+			<li><a href="/tags/数据源/">数据源<span>1</span></a></li>
 		
 			<li><a href="/tags/异常/">异常<span>1</span></a></li>
 		
-			<li><a href="/tags/数据库/">数据库<span>2</span></a></li>
+			<li><a href="/tags/缓存/">缓存<span>1</span></a></li>
+		
+			<li><a href="/tags/基金/">基金<span>1</span></a></li>
+		
+			<li><a href="/tags/Nosql/">Nosql<span>1</span></a></li>
+		
+			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
+		
+			<li><a href="/tags/Linux/">Linux<span>2</span></a></li>
+		
+			<li><a href="/tags/编程技巧/">编程技巧<span>16</span></a></li>
+		
+			<li><a href="/tags/WebSocket/">WebSocket<span>1</span></a></li>
+		
+			<li><a href="/tags/Web/">Web<span>1</span></a></li>
+		
+			<li><a href="/tags/理哲/">理哲<span>1</span></a></li>
+		
+			<li><a href="/tags/索引/">索引<span>1</span></a></li>
+		
+			<li><a href="/tags/从零开始写框架/">从零开始写框架<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>27</span></a></li>

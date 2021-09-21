@@ -627,14 +627,14 @@
   </url>
   
   <url>
-    <loc>https://dogfun.top/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/</loc>
+    <loc>https://dogfun.top/tags/Nosql/</loc>
     <lastmod>2021-09-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://dogfun.top/tags/Nosql/</loc>
+    <loc>https://dogfun.top/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/</loc>
     <lastmod>2021-09-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -704,14 +704,14 @@
   </url>
   
   <url>
-    <loc>https://dogfun.top/tags/JWT/</loc>
+    <loc>https://dogfun.top/tags/%E6%95%B0%E6%8D%AE%E6%BA%90/</loc>
     <lastmod>2021-09-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://dogfun.top/tags/%E6%95%B0%E6%8D%AE%E6%BA%90/</loc>
+    <loc>https://dogfun.top/tags/JWT/</loc>
     <lastmod>2021-09-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -853,7 +853,7 @@
   </url>
   
   <url>
-    <loc>https://dogfun.top/categories/nginx/</loc>
+    <loc>https://dogfun.top/categories/kafka/</loc>
     <lastmod>2021-09-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -867,7 +867,7 @@
   </url>
   
   <url>
-    <loc>https://dogfun.top/categories/kafka/</loc>
+    <loc>https://dogfun.top/categories/nginx/</loc>
     <lastmod>2021-09-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -888,14 +888,14 @@
   </url>
   
   <url>
-    <loc>https://dogfun.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <loc>https://dogfun.top/categories/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2021-09-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://dogfun.top/categories/%E7%AE%97%E6%B3%95/</loc>
+    <loc>https://dogfun.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2021-09-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

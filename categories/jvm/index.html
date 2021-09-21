@@ -164,37 +164,6 @@ var _hmt = _hmt || [];
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2019-11-11 </div>
-			<div class="article-title"><a href="/2019/11/11/jvm/gc/" >GC</a></div>						
-		</h3>
-	
-
-
-		     <div class="entry">
-  <div class="row">
-	
-	
-		<p>JVM针对堆中的对象，启用守护线程进行无用对象的回收，防止JVM的内存溢出造成程序不可用。</p>
-<ul>
-<li><p>引用计数法</p>
-<p>简单来讲就是判断对象是否存在引用，没有则认为可回收，但若存在循环引用的情况，就无法判断导致内存泄漏</p>
-</li>
-<li><p>可达性分析</p>
-<p>通过GC Roots对象作为起点进行搜索，如果一个对象与GC Roots之前没有可达路径，则认为该对象不可达，但还需要经过两次标记才能进行回收</p>
-</li>
-</ul>
-<p>强引用：存在引用的对象就是强引用对象，gc即使溢出都不会收集这类对象</p>
-<p>软引用：SoftReference对象，如果gc快溢出了，会收集这类对象</p>
-	
-	</div>
-  <a type="button" href="/2019/11/11/jvm/gc/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2019-11-11 </div>
 			<div class="article-title"><a href="/2019/11/11/jvm/jvm/" >jvm</a></div>						
 		</h3>
 	
@@ -248,6 +217,37 @@ var _hmt = _hmt || [];
 	
 	</div>
   <a type="button" href="/2019/11/11/jvm/jvm/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2019-11-11 </div>
+			<div class="article-title"><a href="/2019/11/11/jvm/gc/" >GC</a></div>						
+		</h3>
+	
+
+
+		     <div class="entry">
+  <div class="row">
+	
+	
+		<p>JVM针对堆中的对象，启用守护线程进行无用对象的回收，防止JVM的内存溢出造成程序不可用。</p>
+<ul>
+<li><p>引用计数法</p>
+<p>简单来讲就是判断对象是否存在引用，没有则认为可回收，但若存在循环引用的情况，就无法判断导致内存泄漏</p>
+</li>
+<li><p>可达性分析</p>
+<p>通过GC Roots对象作为起点进行搜索，如果一个对象与GC Roots之前没有可达路径，则认为该对象不可达，但还需要经过两次标记才能进行回收</p>
+</li>
+</ul>
+<p>强引用：存在引用的对象就是强引用对象，gc即使溢出都不会收集这类对象</p>
+<p>软引用：SoftReference对象，如果gc快溢出了，会收集这类对象</p>
+	
+	</div>
+  <a type="button" href="/2019/11/11/jvm/gc/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 	       
@@ -328,45 +328,45 @@ var _hmt = _hmt || [];
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/工作感悟/">工作感悟<span>1</span></a></li>
-		
-			<li><a href="/tags/ignite/">ignite<span>1</span></a></li>
-		
-			<li><a href="/tags/redis/">redis<span>1</span></a></li>
-		
-			<li><a href="/tags/缓存/">缓存<span>1</span></a></li>
-		
-			<li><a href="/tags/基金/">基金<span>1</span></a></li>
-		
-			<li><a href="/tags/ssr/">ssr<span>1</span></a></li>
-		
 			<li><a href="/tags/理哲/">理哲<span>1</span></a></li>
-		
-			<li><a href="/tags/Nosql/">Nosql<span>1</span></a></li>
-		
-			<li><a href="/tags/编程技巧/">编程技巧<span>16</span></a></li>
-		
-			<li><a href="/tags/效率/">效率<span>1</span></a></li>
-		
-			<li><a href="/tags/Linux/">Linux<span>2</span></a></li>
-		
-			<li><a href="/tags/数据源/">数据源<span>1</span></a></li>
-		
-			<li><a href="/tags/数据库/">数据库<span>2</span></a></li>
-		
-			<li><a href="/tags/消息队列/">消息队列<span>2</span></a></li>
-		
-			<li><a href="/tags/JWT/">JWT<span>2</span></a></li>
 		
 			<li><a href="/tags/股票/">股票<span>2</span></a></li>
 		
-			<li><a href="/tags/垃圾回收/">垃圾回收<span>1</span></a></li>
+			<li><a href="/tags/索引/">索引<span>1</span></a></li>
+		
+			<li><a href="/tags/Web/">Web<span>1</span></a></li>
 		
 			<li><a href="/tags/WebSocket/">WebSocket<span>1</span></a></li>
 		
+			<li><a href="/tags/Nosql/">Nosql<span>1</span></a></li>
+		
+			<li><a href="/tags/投资/">投资<span>5</span></a></li>
+		
+			<li><a href="/tags/Linux/">Linux<span>2</span></a></li>
+		
+			<li><a href="/tags/从零开始写框架/">从零开始写框架<span>1</span></a></li>
+		
+			<li><a href="/tags/异常/">异常<span>1</span></a></li>
+		
+			<li><a href="/tags/缓存/">缓存<span>1</span></a></li>
+		
+			<li><a href="/tags/redis/">redis<span>1</span></a></li>
+		
+			<li><a href="/tags/Spring/">Spring<span>1</span></a></li>
+		
+			<li><a href="/tags/消息队列/">消息队列<span>2</span></a></li>
+		
 			<li><a href="/tags/技术学习/">技术学习<span>22</span></a></li>
 		
-			<li><a href="/tags/索引/">索引<span>1</span></a></li>
+			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
+		
+			<li><a href="/tags/ignite/">ignite<span>1</span></a></li>
+		
+			<li><a href="/tags/数据库/">数据库<span>2</span></a></li>
+		
+			<li><a href="/tags/ssr/">ssr<span>1</span></a></li>
+		
+			<li><a href="/tags/基金/">基金<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>27</span></a></li>
