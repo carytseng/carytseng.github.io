@@ -132,90 +132,8 @@ var _hmt = _hmt || [];
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2020-06-28 </div>
-			<div class="article-title"><a href="/2020/06/28/浅拷贝与深拷贝/" >浅拷贝与深拷贝</a></div>						
-		</h3>
-	
-
-
-		     <div class="entry">
-  <div class="row">
-	
-	
-		<p><strong>前言</strong></p>
-<p>　　一般在Java中我们创建一个对象是使用new关键字来创建的，new关键字会调用类的构造方法来创建对象，那么有一些场景我们想以现成的对象为模板来复制对象，回避构造函数的过程，毕竟构造函数中或多或少会有初始化的过程，性能难免较低，这时候就可以考虑使用拷贝，copy一个对象。</p>
-	
-	</div>
-  <a type="button" href="/2020/06/28/浅拷贝与深拷贝/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2020-06-28 </div>
-			<div class="article-title"><a href="/2020/06/28/原型模式/" >原型模式</a></div>						
-		</h3>
-	
-
-
-		     <div class="entry">
-  <div class="row">
-	
-	
-		<p><strong>定义</strong></p>
-<blockquote>
-<p>根据原型实例创建对象的种类，并通过拷贝原型来创建新的对象。</p>
-</blockquote>
-<p><strong>实现方式</strong></p>
-<ul>
-<li>实现Cloneable接口。在java中实现了此接口的类才可以被拷贝。</li>
-<li>重写Object的clone方法，Object的clone方法作用域是protected类型，需要重写修改作用域为public。</li>
-</ul>
-	
-	</div>
-  <a type="button" href="/2020/06/28/原型模式/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2020-06-26 </div>
-			<div class="article-title"><a href="/2020/06/26/JSON-Web-Token/" >JSON Web Token</a></div>						
-		</h3>
-	
-
-
-		     <div class="entry">
-  <div class="row">
-	
-	
-		<p><strong>定义</strong></p>
-<blockquote>
-<p>是一种跨域认证的令牌技术。</p>
-</blockquote>
-<p><strong>解决场景</strong></p>
-<ol>
-<li><p>用户向服务器发送用户名和密码。</p>
-</li>
-<li><p>服务器验证通过后，则在session中保存用户的相关信息，如用户角色，权限等。</p>
-</li>
-<li><p>服务器返回一个sessionId给客户端 ，写入浏览器的cookie中。</p>
-	
-	</div>
-  <a type="button" href="/2020/06/26/JSON-Web-Token/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
 			<div class="date"> 2020-05-21 </div>
-			<div class="article-title"><a href="/2020/05/21/FTP模式设置引发的问题/" >FTP模式设置引发的问题</a></div>						
+			<div class="article-title"><a href="/2020/05/21/linux/FTP模式设置引发的问题/" >FTP模式设置引发的问题</a></div>						
 		</h3>
 	
 
@@ -233,7 +151,7 @@ var _hmt = _hmt || [];
 <p>　　FTP默认是启动主动模式，client与server的21端口建立连接后，client随机开放一个1024以上的端口，发送命令给server，告诉server我client将采用主动模式并开放端口，server主动连接并传输。</p>
 	
 	</div>
-  <a type="button" href="/2020/05/21/FTP模式设置引发的问题/#more" class="btn btn-default more">阅读此文</a>
+  <a type="button" href="/2020/05/21/linux/FTP模式设置引发的问题/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 	       
@@ -242,7 +160,7 @@ var _hmt = _hmt || [];
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2020-05-14 </div>
-			<div class="article-title"><a href="/2020/05/14/Linux文件删除原理/" >Linux文件删除原理</a></div>						
+			<div class="article-title"><a href="/2020/05/14/linux/Linux文件删除原理/" >Linux文件删除原理</a></div>						
 		</h3>
 	
 
@@ -257,7 +175,120 @@ var _hmt = _hmt || [];
 
 	
 	</div>
-  <a type="button" href="/2020/05/14/Linux文件删除原理/#more" class="btn btn-default more">阅读此文</a>
+  <a type="button" href="/2020/05/14/linux/Linux文件删除原理/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2020-05-14 </div>
+			<div class="article-title"><a href="/2020/05/14/linux/NetworkManager/" >NetworkManager</a></div>						
+		</h3>
+	
+
+
+		     <div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">nmcli connection 网络连接管理$ nmcli connection show  # 查看所有网卡配置</span><br><span class="line">$ nmcli connection reload # 重新加载网卡配置，不会立即生效</span><br><span class="line">$ nmcli connection down ens160 &amp;&amp; nmcli connection up ens160 # 立即生效Connection配置</span><br><span class="line">$ nmcli connection add type ethernet con-name ens160-con ifname ens160 ipv4.addr 1.1.1.2&#x2F;24 ipv4.gateway 1.1.1.1 ipv4.method manual # 为device创建connection</span><br><span class="line">$ nmcli connection add type ethernet con-name ens160-con ifname ens160 ipv.method auto # dhcp</span><br><span class="line">$ nmcli connection modify ens160-con ipv.addr 1.1.1.3&#x2F;24 &amp;&amp; nmcli connection up ens160-con # 修改IP地址并立即生效</span><br><span class="line">​</span><br><span class="line">交互方式修改IP</span><br><span class="line">$ nmcli connection edit ens160-con</span><br><span class="line">​</span><br><span class="line">nmcli device 网卡设备管理</span><br><span class="line">$ nmcli device status # 查看所有网卡设备状态</span><br><span class="line">$ nmcli device show ens160 # 查看网卡配置</span><br><span class="line">$ nmcli device reapply ens160 # 立即生效网卡配置</span><br></pre></td></tr></table></figure>
+
+
+	
+	</div>
+  <a type="button" href="/2020/05/14/linux/NetworkManager/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2020-05-14 </div>
+			<div class="article-title"><a href="/2020/05/14/linux/vim/" >Vim</a></div>						
+		</h3>
+	
+
+
+		     <div class="entry">
+  <div class="row">
+	
+	
+		<p><strong>移动光标</strong></p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>h</td>
+<td>左移动</td>
+</tr>
+<tr>
+<td>j</td>
+<td>下移动</td>
+</tr>
+<tr>
+<td>k</td>
+<td>上移动</td>
+</tr>
+<tr>
+<td>l</td>
+<td>右移动</td>
+</tr>
+<tr>
+<td>ctrl+d</td>
+<td>下移动半页</td>
+</tr>
+<tr>
+<td>ctrl+u</td>
+<td>上移动半页</td>
+</tr>
+<tr>
+<td>gg</td>
+<td>移动到第一行</td>
+</tr>
+<tr>
+<td>G</td>
+<td>移动到最后一行</td>
+</tr>
+<tr>
+<td>nG</td>
+<td>移动到第n行</td>
+</tr>
+<tr>
+<td>n+<space></space></td>
+<td>右移n个字符</td>
+</tr>
+<tr>
+<td>n+<enter></enter></td>
+<td>下移动n行</td>
+</tr>
+</tbody></table>
+<p><strong>搜索</strong></p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/word</td>
+<td>向光标下搜索</td>
+</tr>
+<tr>
+<td>?word</td>
+<td>向光标上搜索</td>
+</tr>
+</tbody></table>
+	
+	</div>
+  <a type="button" href="/2020/05/14/linux/vim/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 	       
@@ -266,7 +297,7 @@ var _hmt = _hmt || [];
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2020-05-12 </div>
-			<div class="article-title"><a href="/2020/05/12/布隆过滤器/" >布隆过滤器</a></div>						
+			<div class="article-title"><a href="/2020/05/12/web/布隆过滤器/" >布隆过滤器</a></div>						
 		</h3>
 	
 
@@ -282,7 +313,7 @@ var _hmt = _hmt || [];
 <p><strong>搜索元素</strong></p>
 	
 	</div>
-  <a type="button" href="/2020/05/12/布隆过滤器/#more" class="btn btn-default more">阅读此文</a>
+  <a type="button" href="/2020/05/12/web/布隆过滤器/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 	       
@@ -291,7 +322,7 @@ var _hmt = _hmt || [];
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2020-05-09 </div>
-			<div class="article-title"><a href="/2020/05/09/软件工程实践/" >软件工程实践</a></div>						
+			<div class="article-title"><a href="/2020/05/09/个人思考/软件工程实践/" >软件工程实践</a></div>						
 		</h3>
 	
 
@@ -312,7 +343,7 @@ var _hmt = _hmt || [];
 
 	
 	</div>
-  <a type="button" href="/2020/05/09/软件工程实践/#more" class="btn btn-default more">阅读此文</a>
+  <a type="button" href="/2020/05/09/个人思考/软件工程实践/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 	       
@@ -321,7 +352,7 @@ var _hmt = _hmt || [];
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2019-12-20 </div>
-			<div class="article-title"><a href="/2019/12/20/Web实时消息推送/" title="使用WebSocket从零构建一个消息推送服务">Web实时消息推送</a></div>						
+			<div class="article-title"><a href="/2019/12/20/web/Web实时消息推送/" title="使用WebSocket从零构建一个消息推送服务">Web实时消息推送</a></div>						
 		</h3>
 	
 
@@ -345,7 +376,7 @@ var _hmt = _hmt || [];
 </ol>
 	
 	</div>
-  <a type="button" href="/2019/12/20/Web实时消息推送/#more" class="btn btn-default more">阅读此文</a>
+  <a type="button" href="/2019/12/20/web/Web实时消息推送/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 	       
@@ -353,8 +384,8 @@ var _hmt = _hmt || [];
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2019-07-26 </div>
-			<div class="article-title"><a href="/2019/07/26/装饰器模式/" >装饰器模式</a></div>						
+			<div class="date"> 2019-05-03 </div>
+			<div class="article-title"><a href="/2019/05/03/java/List遍历过程remove的ConcurrentModificationException/" title="List遍历过程调用remove方法发生ConcurrentModificationException异常">List遍历过程remove的ConcurrentModificationException</a></div>						
 		</h3>
 	
 
@@ -363,21 +394,14 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<p><strong>定义</strong></p>
-<blockquote>
-<p>用于向一个现有对象添加新的功能，同时不改变其现有结构。通过创建一个类的装饰类，包装原有类，并保证原有类的签名的前提下提供额外功能。</p>
-</blockquote>
-<p><strong>为什么及什么时候应用</strong></p>
-<blockquote>
-<p>一般拓展一个类的功能会先想到使用继承的基础上添加，但那样会对原有类的层级结构增添多个子类，且往往我们的需求仅仅是针对某个类做一下简单的功能拓展，而并不是为了定义一个新的子类。此时仅仅增加一个装饰类即可。</p>
-</blockquote>
-<p><strong>优点</strong></p>
-<blockquote>
-<p>装饰类和被装饰类能独立发展，不相互耦合。装饰模式是继承的一个替代，可以动态扩展一个实现类的功能。</p>
-</blockquote>
+		<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">list.add(<span class="number">2</span>);</span><br><span class="line">Iterator&lt;Integer&gt; iterator = list.iterator();</span><br><span class="line"><span class="keyword">while</span>(iterator.hasNext())&#123;</span><br><span class="line">  Integer integer = iterator.next();</span><br><span class="line">  <span class="keyword">if</span>(integer==<span class="number">2</span>)</span><br><span class="line">    list.remove(integer);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>　　以上代码List在遍历的过程中，通过判定索引，移除List的元素，程序抛出ConcurrentModificationException异常。</p>
+<p><strong>原因</strong>　　</p>
+<p>　　在迭代器的实现中，checkForComodification()方法会检查List的modCount与expectedModCount的值，不相等则抛出该异常。我们调用的是List的remove方法， 可以看到程序修改了modeCount的值，但是没有修改expectedModCount的值，导致问题的产生。modCount表示List被修改的次数，expectedModCount表示期待值。</p>
 	
 	</div>
-  <a type="button" href="/2019/07/26/装饰器模式/#more" class="btn btn-default more">阅读此文</a>
+  <a type="button" href="/2019/05/03/java/List遍历过程remove的ConcurrentModificationException/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 	       
@@ -385,8 +409,8 @@ var _hmt = _hmt || [];
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2019-06-23 </div>
-			<div class="article-title"><a href="/2019/06/23/适配器模式/" >适配器模式</a></div>						
+			<div class="date"> 2018-05-28 </div>
+			<div class="article-title"><a href="/2018/05/28/数据库/缓存与DB数据操作问题/" >缓存与DB数据操作问题</a></div>						
 		</h3>
 	
 
@@ -395,39 +419,38 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<blockquote>
-<p>将一个类的接口转换成客户端希望的接口，通常用于使用现有类适配新的系统接口。优点是复用现有类。</p>
-</blockquote>
-<blockquote>
-<p>代码层面：适配器类继承或依赖已有的对象，实现想要的目标接口。</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>组成</th>
-<th>关系</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>客户接口</td>
-<td>适配的接口</td>
-<td>客户端想要的接口形式</td>
-</tr>
-<tr>
-<td>现有目标类</td>
-<td>现有的可被复用的类</td>
-<td>提供现有接口实现</td>
-</tr>
-<tr>
-<td>适配器类</td>
-<td>实现目标接口，依赖目标类</td>
-<td>实现目标接口，做接口兼容</td>
-</tr>
-</tbody></table>
+		<p>　　更新数据时，先删除缓存再更新DB，还是先更新DB再删除缓存。</p>
+<h4 id="先删除缓存再更新DB"><a href="#先删除缓存再更新DB" class="headerlink" title="先删除缓存再更新DB"></a>先删除缓存再更新DB</h4><p>　　出现脏数据的概率较大，假设系统存在两条线程，一条是查询，一条是更新，当更新时，先删除缓存，此时查询线程不能命中缓存，去查库，此时load的是旧数据，然后将旧数据缓存，更新线程此时才更新数据库。这样很大的概率缓存是脏数据。</p>
+<h4 id="先更新DB再删除缓存"><a href="#先更新DB再删除缓存" class="headerlink" title="先更新DB再删除缓存"></a>先更新DB再删除缓存</h4><p>　　产生脏数据的概率低，同样是上个例子两条线程，当更新DB时，查询线程查的是旧数据，此时删除缓存，下次查询则会去查库，保证新数据，不会影响后面的数据。这种情况产生脏数据的情形：查询线程命中不了缓存，去查库，此时更新操作删除缓存，尔后查询线程load旧数据进缓存，这才造成脏数据。出现的条件在于查库线程在更新操作之前，且在更新线程删除缓存之后load数据进缓存。条件比较苛刻，可以忽略。</p>
+
 	
 	</div>
-  <a type="button" href="/2019/06/23/适配器模式/#more" class="btn btn-default more">阅读此文</a>
+  <a type="button" href="/2018/05/28/数据库/缓存与DB数据操作问题/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2018-02-11 </div>
+			<div class="article-title"><a href="/2018/02/11/kafka/kafka消息队列/" >kafka消息队列</a></div>						
+		</h3>
+	
+
+
+		     <div class="entry">
+  <div class="row">
+	
+	
+		
+<p>解耦：降低系统间的耦合度，方便日后扩展</p>
+<p>削峰：通过异步处理消息，并且提供多消费端来消费消息，达到削峰的作用</p>
+<p>冗余</p>
+<p>可恢复</p>
+	
+	</div>
+  <a type="button" href="/2018/02/11/kafka/kafka消息队列/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 	       
@@ -471,54 +494,95 @@ var _hmt = _hmt || [];
 
 		
 			
+	<div class="widget">
+		<h4>分类</h4>
+		<ul class="tag_box inline list-unstyled">
+		
+			<li><a href="/categories/Redis/">Redis<span>3</span></a></li>
+		
+			<li><a href="/categories/docker/">docker<span>3</span></a></li>
+		
+			<li><a href="/categories/git/">git<span>2</span></a></li>
+		
+			<li><a href="/categories/java/">java<span>3</span></a></li>
+		
+			<li><a href="/categories/jvm/">jvm<span>3</span></a></li>
+		
+			<li><a href="/categories/kafka/">kafka<span>3</span></a></li>
+		
+			<li><a href="/categories/linux/">linux<span>6</span></a></li>
+		
+			<li><a href="/categories/nginx/">nginx<span>1</span></a></li>
+		
+			<li><a href="/categories/vps/">vps<span>3</span></a></li>
+		
+			<li><a href="/categories/web/">web<span>9</span></a></li>
+		
+			<li><a href="/categories/个人思考/">个人思考<span>1</span></a></li>
+		
+			<li><a href="/categories/数据库/">数据库<span>7</span></a></li>
+		
+			<li><a href="/categories/杂谈/">杂谈<span>2</span></a></li>
+		
+			<li><a href="/categories/算法/">算法<span>1</span></a></li>
+		
+			<li><a href="/categories/设计模式/">设计模式<span>13</span></a></li>
+		
+			<li><a href="/categories/金融/">金融<span>6</span></a></li>
+		
+			<li><a href="/categories/随笔/">随笔<span>10</span></a></li>
+		
+		</ul>
+	</div>
+
 		
 			
 	<div class="widget">
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/Web/">Web<span>1</span></a></li>
-		
-			<li><a href="/tags/股票/">股票<span>2</span></a></li>
-		
-			<li><a href="/tags/从零开始写框架/">从零开始写框架<span>1</span></a></li>
-		
-			<li><a href="/tags/工作感悟/">工作感悟<span>1</span></a></li>
-		
-			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
-		
-			<li><a href="/tags/健康/">健康<span>2</span></a></li>
-		
-			<li><a href="/tags/消息队列/">消息队列<span>2</span></a></li>
-		
-			<li><a href="/tags/投资/">投资<span>5</span></a></li>
-		
-			<li><a href="/tags/垃圾回收/">垃圾回收<span>1</span></a></li>
-		
-			<li><a href="/tags/生活/">生活<span>2</span></a></li>
-		
-			<li><a href="/tags/JWT/">JWT<span>1</span></a></li>
-		
-			<li><a href="/tags/Java基础/">Java基础<span>2</span></a></li>
-		
-			<li><a href="/tags/redis/">redis<span>1</span></a></li>
-		
-			<li><a href="/tags/理哲/">理哲<span>9</span></a></li>
+			<li><a href="/tags/异常/">异常<span>1</span></a></li>
 		
 			<li><a href="/tags/ignite/">ignite<span>1</span></a></li>
 		
+			<li><a href="/tags/缓存/">缓存<span>1</span></a></li>
+		
+			<li><a href="/tags/工作感悟/">工作感悟<span>1</span></a></li>
+		
+			<li><a href="/tags/Spring/">Spring<span>1</span></a></li>
+		
+			<li><a href="/tags/编程技巧/">编程技巧<span>16</span></a></li>
+		
+			<li><a href="/tags/索引/">索引<span>1</span></a></li>
+		
+			<li><a href="/tags/投资/">投资<span>5</span></a></li>
+		
+			<li><a href="/tags/数据库/">数据库<span>2</span></a></li>
+		
+			<li><a href="/tags/效率/">效率<span>1</span></a></li>
+		
+			<li><a href="/tags/理哲/">理哲<span>1</span></a></li>
+		
 			<li><a href="/tags/WebSocket/">WebSocket<span>1</span></a></li>
 		
-			<li><a href="/tags/生产效率/">生产效率<span>1</span></a></li>
+			<li><a href="/tags/技术学习/">技术学习<span>22</span></a></li>
 		
 			<li><a href="/tags/ssr/">ssr<span>1</span></a></li>
 		
-			<li><a href="/tags/设计模式/">设计模式<span>12</span></a></li>
+			<li><a href="/tags/redis/">redis<span>1</span></a></li>
+		
+			<li><a href="/tags/数据源/">数据源<span>1</span></a></li>
+		
+			<li><a href="/tags/从零开始写框架/">从零开始写框架<span>1</span></a></li>
 		
 			<li><a href="/tags/Nosql/">Nosql<span>1</span></a></li>
 		
+			<li><a href="/tags/JWT/">JWT<span>2</span></a></li>
 		
-		   <li><a href="/tags">...<span>29</span></a></li>
+			<li><a href="/tags/Linux/">Linux<span>2</span></a></li>
+		
+		
+		   <li><a href="/tags">...<span>27</span></a></li>
 		 
 		</ul>
 	</div>
@@ -531,15 +595,15 @@ var _hmt = _hmt || [];
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2021/08/05/java/" ><i class="fa fa-file-o"></i>Java基础补全</a>
+        <a href="/2021/08/05/java/java/" ><i class="fa fa-file-o"></i>Java基础补全</a>
       </li>
     
       <li>
-        <a href="/2020/12/25/Redis模糊删除key/" ><i class="fa fa-file-o"></i>Redis模糊删除key</a>
+        <a href="/2020/12/25/Redis/Redis模糊删除key/" ><i class="fa fa-file-o"></i>Redis模糊删除key</a>
       </li>
     
       <li>
-        <a href="/2020/11/28/ignite迁移/"  title="ignite服务主机迁移，主要是docker容器的备份迁移" ><i class="fa fa-file-o"></i>ignite迁移</a>
+        <a href="/2020/11/28/vps/ignite迁移/"  title="ignite服务主机迁移，主要是docker容器的备份迁移" ><i class="fa fa-file-o"></i>ignite迁移</a>
       </li>
     
       <li>
@@ -547,7 +611,7 @@ var _hmt = _hmt || [];
       </li>
     
       <li>
-        <a href="/2020/11/04/CAP定理/" ><i class="fa fa-file-o"></i>CAP定理</a>
+        <a href="/2020/11/04/web/CAP定理/" ><i class="fa fa-file-o"></i>CAP定理</a>
       </li>
     
   </ul>
@@ -583,14 +647,6 @@ var _hmt = _hmt || [];
 <script src="/js/main.js"></script>
 <script src="/js/search.js"></script> 
 
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-(function($){
-  $('.fancybox').fancybox();
-})(jQuery);
-</script>
 
 
 

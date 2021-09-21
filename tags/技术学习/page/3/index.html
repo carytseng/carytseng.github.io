@@ -132,294 +132,8 @@ var _hmt = _hmt || [];
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2019-05-03 </div>
-			<div class="article-title"><a href="/2019/05/03/List遍历过程remove的ConcurrentModificationException/" title="List遍历过程调用remove方法发生ConcurrentModificationException异常">List遍历过程remove的ConcurrentModificationException</a></div>						
-		</h3>
-	
-
-
-		     <div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">list.add(<span class="number">2</span>);</span><br><span class="line">Iterator&lt;Integer&gt; iterator = list.iterator();</span><br><span class="line"><span class="keyword">while</span>(iterator.hasNext())&#123;</span><br><span class="line">  Integer integer = iterator.next();</span><br><span class="line">  <span class="keyword">if</span>(integer==<span class="number">2</span>)</span><br><span class="line">    list.remove(integer);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>　　以上代码List在遍历的过程中，通过判定索引，移除List的元素，程序抛出ConcurrentModificationException异常。</p>
-<p><strong>原因</strong>　　</p>
-<p>　　在迭代器的实现中，checkForComodification()方法会检查List的modCount与expectedModCount的值，不相等则抛出该异常。我们调用的是List的remove方法， 可以看到程序修改了modeCount的值，但是没有修改expectedModCount的值，导致问题的产生。modCount表示List被修改的次数，expectedModCount表示期待值。</p>
-	
-	</div>
-  <a type="button" href="/2019/05/03/List遍历过程remove的ConcurrentModificationException/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2019-03-24 </div>
-			<div class="article-title"><a href="/2019/03/24/责任链模式/" >责任链模式</a></div>						
-		</h3>
-	
-
-
-		     <div class="entry">
-  <div class="row">
-	
-	
-		<blockquote>
-<p>用来处理相关事务责任的一条执行链，执行链上有多个节点，每个节点都有机会根据匹配条件处理事务，处理完就根据实际业务需求传递给下一个节点或者返回。</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>组成</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>抽象责任处理类</td>
-</tr>
-<tr>
-<td>请求类</td>
-</tr>
-<tr>
-<td>具体节点处理类</td>
-</tr>
-</tbody></table>
-	
-	</div>
-  <a type="button" href="/2019/03/24/责任链模式/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2018-05-28 </div>
-			<div class="article-title"><a href="/2018/05/28/缓存与DB数据操作问题/" >缓存与DB数据操作问题</a></div>						
-		</h3>
-	
-
-
-		     <div class="entry">
-  <div class="row">
-	
-	
-		<p>　　更新数据时，先删除缓存再更新DB，还是先更新DB再删除缓存。</p>
-<h4 id="先删除缓存再更新DB"><a href="#先删除缓存再更新DB" class="headerlink" title="先删除缓存再更新DB"></a>先删除缓存再更新DB</h4><p>　　出现脏数据的概率较大，假设系统存在两条线程，一条是查询，一条是更新，当更新时，先删除缓存，此时查询线程不能命中缓存，去查库，此时load的是旧数据，然后将旧数据缓存，更新线程此时才更新数据库。这样很大的概率缓存是脏数据。</p>
-<h4 id="先更新DB再删除缓存"><a href="#先更新DB再删除缓存" class="headerlink" title="先更新DB再删除缓存"></a>先更新DB再删除缓存</h4><p>　　产生脏数据的概率低，同样是上个例子两条线程，当更新DB时，查询线程查的是旧数据，此时删除缓存，下次查询则会去查库，保证新数据，不会影响后面的数据。这种情况产生脏数据的情形：查询线程命中不了缓存，去查库，此时更新操作删除缓存，尔后查询线程load旧数据进缓存，这才造成脏数据。出现的条件在于查库线程在更新操作之前，且在更新线程删除缓存之后load数据进缓存。条件比较苛刻，可以忽略。</p>
-
-	
-	</div>
-  <a type="button" href="/2018/05/28/缓存与DB数据操作问题/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2018-05-27 </div>
-			<div class="article-title"><a href="/2018/05/27/外观模式/" >外观模式</a></div>						
-		</h3>
-	
-
-
-		     <div class="entry">
-  <div class="row">
-	
-	
-		<p><strong>定义</strong></p>
-<blockquote>
-<p>外部与一个子系统的通信通过一个统一的外观对象进行，为一组接口提供一个统一的界面，外部与其只通过这个抽象的接口，隐藏背后的复杂性。</p>
-</blockquote>
-	
-	</div>
-  <a type="button" href="/2018/05/27/外观模式/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2018-03-24 </div>
-			<div class="article-title"><a href="/2018/03/24/代理模式/" >代理模式</a></div>						
-		</h3>
-	
-
-
-		     <div class="entry">
-  <div class="row">
-	
-	
-		<blockquote>
-<p>一个类代表另一个类的功能，创建现有对象的对象，向外提供功能接口。增加了中间层，目标对象职责明确，不同的代理类能够按照场景去做不同的额外业务操作，不影响被代理类的业务。</p>
-</blockquote>
-<p><img src="/assets/blog_img/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F.png"></p>
-	
-	</div>
-  <a type="button" href="/2018/03/24/代理模式/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2018-02-14 </div>
-			<div class="article-title"><a href="/2018/02/14/vim/" >vim</a></div>						
-		</h3>
-	
-
-
-		     <div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h2><p><strong>移动光标</strong></p>
-<table>
-<thead>
-<tr>
-<th>按键</th>
-<th>操作</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>h</td>
-<td>左移动</td>
-</tr>
-<tr>
-<td>j</td>
-<td>下移动</td>
-</tr>
-<tr>
-<td>k</td>
-<td>上移动</td>
-</tr>
-<tr>
-<td>l</td>
-<td>右移动</td>
-</tr>
-<tr>
-<td>ctrl+d</td>
-<td>下移动半页</td>
-</tr>
-<tr>
-<td>ctrl+u</td>
-<td>上移动半页</td>
-</tr>
-<tr>
-<td>gg</td>
-<td>移动到第一行</td>
-</tr>
-<tr>
-<td>G</td>
-<td>移动到最后一行</td>
-</tr>
-<tr>
-<td>nG</td>
-<td>移动到第n行</td>
-</tr>
-<tr>
-<td>n+<space></td>
-<td>右移n个字符</td>
-</tr>
-<tr>
-<td>n+<enter></td>
-<td>下移动n行</td>
-</tr>
-</tbody></table>
-	
-	</div>
-  <a type="button" href="/2018/02/14/vim/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2018-02-11 </div>
-			<div class="article-title"><a href="/2018/02/11/kafka消息队列/" >kafka消息队列</a></div>						
-		</h3>
-	
-
-
-		     <div class="entry">
-  <div class="row">
-	
-	
-		
-<p>解耦：降低系统间的耦合度，方便日后扩展</p>
-<p>削峰：通过异步处理消息，并且提供多消费端来消费消息，达到削峰的作用</p>
-<p>冗余</p>
-<p>可恢复</p>
-	
-	</div>
-  <a type="button" href="/2018/02/11/kafka消息队列/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2017-08-13 </div>
-			<div class="article-title"><a href="/2017/08/13/工厂模式/" title="相比简单工厂模式，工厂模式的区别在哪里呢">工厂模式</a></div>						
-		</h3>
-	
-
-
-		     <div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
-<p>对比简单工厂模式集中工厂类生产，工厂模式将对象的创建交给相应的子类工厂，延迟创建，降低扩展对工厂接口的影响。这里有个要求就是工厂创建对象的细节不依赖于客户端。</p>
-</blockquote>
-<h1 id="对象关系"><a href="#对象关系" class="headerlink" title="对象关系"></a>对象关系</h1><table>
-<thead>
-<tr>
-<th>组成</th>
-<th>关系</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>抽象产品</td>
-<td>具体产品的父类</td>
-<td>产品的公共接口</td>
-</tr>
-<tr>
-<td>具体产品</td>
-<td>抽象产品的子类</td>
-<td>生产的具体产品</td>
-</tr>
-<tr>
-<td>抽象工厂</td>
-<td>工厂抽象类</td>
-<td>定义工厂的生产行为</td>
-</tr>
-<tr>
-<td>具体的工厂</td>
-<td>工厂抽象类的具体实现</td>
-<td>根据参数创建不同的具体产品</td>
-</tr>
-</tbody></table>
-	
-	</div>
-  <a type="button" href="/2017/08/13/工厂模式/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
 			<div class="date"> 2017-08-06 </div>
-			<div class="article-title"><a href="/2017/08/06/会话技术Cookie与Session/" title="介绍Web开发中常用的会话技术Cookie与Session">会话技术Cookie与Session</a></div>						
+			<div class="article-title"><a href="/2017/08/06/web/会话技术Cookie与Session/" title="介绍Web开发中常用的会话技术Cookie与Session">会话技术Cookie与Session</a></div>						
 		</h3>
 	
 
@@ -441,7 +155,7 @@ var _hmt = _hmt || [];
 <p>　　Cookie是不能跨域名的，也就是a网站的Cookie是不能发到b网站去的。</p>
 	
 	</div>
-  <a type="button" href="/2017/08/06/会话技术Cookie与Session/#more" class="btn btn-default more">阅读此文</a>
+  <a type="button" href="/2017/08/06/web/会话技术Cookie与Session/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 	       
@@ -449,8 +163,8 @@ var _hmt = _hmt || [];
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2017-07-21 </div>
-			<div class="article-title"><a href="/2017/07/21/抽象工厂模式/" title="相比工厂模式，抽象工厂模式提供的不只是某一种产品，而是类比现实中的工厂，能供生产多种产品的组合，比如美的生产空调、微波炉，解决这类场景问题">抽象工厂模式</a></div>						
+			<div class="date"> 2017-02-17 </div>
+			<div class="article-title"><a href="/2017/02/17/数据库/sql-count的用法/" title="count(*)、count(id)、count(1)、count(字段)的区别，针对MySQL">count的用法</a></div>						
 		</h3>
 	
 
@@ -459,12 +173,13 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
-<p>相比工厂模式，抽象工厂可以生产多类产品。抽象出产品类，比如电视类、空调类两类别产品，具体的产品子类对应子品牌，如海尔的电视，三星的电视或海尔的空调，三星的空调。工厂具体类主要包含需要生产的产品的组合，需要组合时只需扩展一个新的工厂具体类。</p>
-</blockquote>
+		<p>*<em>count(</em>)、count(id)、count(1)、count(字段)的区别，针对MySQL**</p>
+<p>count(id)，InnoDB会遍历整张表，把每行的id取出来，返回给server层，判断不为空，按行累计。</p>
+<p>count(1)，InnoDB会遍历整张表，每行放数字1进去，返回给server层，判断不为空，按行累计。</p>
+<p>count(字段)</p>
 	
 	</div>
-  <a type="button" href="/2017/07/21/抽象工厂模式/#more" class="btn btn-default more">阅读此文</a>
+  <a type="button" href="/2017/02/17/数据库/sql-count的用法/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 	       
@@ -481,7 +196,7 @@ var _hmt = _hmt || [];
         <li><a href="/"><i class="fa fa-home"></i>Home</a></li>
 
 		
-		   <li class="next"> <a href="/tags/技术学习/page/4/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a> </li>          
+          <li class="next disabled"><a>下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>
         
 	
 </ul>
@@ -508,54 +223,95 @@ var _hmt = _hmt || [];
 
 		
 			
+	<div class="widget">
+		<h4>分类</h4>
+		<ul class="tag_box inline list-unstyled">
+		
+			<li><a href="/categories/Redis/">Redis<span>3</span></a></li>
+		
+			<li><a href="/categories/docker/">docker<span>3</span></a></li>
+		
+			<li><a href="/categories/git/">git<span>2</span></a></li>
+		
+			<li><a href="/categories/java/">java<span>3</span></a></li>
+		
+			<li><a href="/categories/jvm/">jvm<span>3</span></a></li>
+		
+			<li><a href="/categories/kafka/">kafka<span>3</span></a></li>
+		
+			<li><a href="/categories/linux/">linux<span>6</span></a></li>
+		
+			<li><a href="/categories/nginx/">nginx<span>1</span></a></li>
+		
+			<li><a href="/categories/vps/">vps<span>3</span></a></li>
+		
+			<li><a href="/categories/web/">web<span>9</span></a></li>
+		
+			<li><a href="/categories/个人思考/">个人思考<span>1</span></a></li>
+		
+			<li><a href="/categories/数据库/">数据库<span>7</span></a></li>
+		
+			<li><a href="/categories/杂谈/">杂谈<span>2</span></a></li>
+		
+			<li><a href="/categories/算法/">算法<span>1</span></a></li>
+		
+			<li><a href="/categories/设计模式/">设计模式<span>13</span></a></li>
+		
+			<li><a href="/categories/金融/">金融<span>6</span></a></li>
+		
+			<li><a href="/categories/随笔/">随笔<span>10</span></a></li>
+		
+		</ul>
+	</div>
+
 		
 			
 	<div class="widget">
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/数据库/">数据库<span>2</span></a></li>
+			<li><a href="/tags/Java基础/">Java基础<span>2</span></a></li>
 		
-			<li><a href="/tags/理哲/">理哲<span>9</span></a></li>
+			<li><a href="/tags/垃圾回收/">垃圾回收<span>1</span></a></li>
 		
 			<li><a href="/tags/Spring/">Spring<span>1</span></a></li>
 		
-			<li><a href="/tags/工作感悟/">工作感悟<span>1</span></a></li>
+			<li><a href="/tags/数据源/">数据源<span>1</span></a></li>
 		
-			<li><a href="/tags/Nosql/">Nosql<span>1</span></a></li>
+			<li><a href="/tags/JWT/">JWT<span>2</span></a></li>
 		
-			<li><a href="/tags/股票/">股票<span>2</span></a></li>
+			<li><a href="/tags/消息队列/">消息队列<span>2</span></a></li>
+		
+			<li><a href="/tags/编程技巧/">编程技巧<span>16</span></a></li>
+		
+			<li><a href="/tags/技术学习/">技术学习<span>22</span></a></li>
 		
 			<li><a href="/tags/基金/">基金<span>1</span></a></li>
 		
-			<li><a href="/tags/数据源/">数据源<span>1</span></a></li>
+			<li><a href="/tags/缓存/">缓存<span>1</span></a></li>
+		
+			<li><a href="/tags/Nosql/">Nosql<span>1</span></a></li>
+		
+			<li><a href="/tags/理哲/">理哲<span>1</span></a></li>
+		
+			<li><a href="/tags/Linux/">Linux<span>2</span></a></li>
+		
+			<li><a href="/tags/Web/">Web<span>1</span></a></li>
+		
+			<li><a href="/tags/股票/">股票<span>2</span></a></li>
 		
 			<li><a href="/tags/ignite/">ignite<span>1</span></a></li>
 		
-			<li><a href="/tags/Java基础/">Java基础<span>2</span></a></li>
+			<li><a href="/tags/工作感悟/">工作感悟<span>1</span></a></li>
+		
+			<li><a href="/tags/投资/">投资<span>5</span></a></li>
 		
 			<li><a href="/tags/异常/">异常<span>1</span></a></li>
 		
-			<li><a href="/tags/WebSocket/">WebSocket<span>1</span></a></li>
-		
-			<li><a href="/tags/健康/">健康<span>2</span></a></li>
-		
 			<li><a href="/tags/从零开始写框架/">从零开始写框架<span>1</span></a></li>
 		
-			<li><a href="/tags/缓存/">缓存<span>1</span></a></li>
 		
-			<li><a href="/tags/redis/">redis<span>1</span></a></li>
-		
-			<li><a href="/tags/生产效率/">生产效率<span>1</span></a></li>
-		
-			<li><a href="/tags/JWT/">JWT<span>1</span></a></li>
-		
-			<li><a href="/tags/索引/">索引<span>1</span></a></li>
-		
-			<li><a href="/tags/生活/">生活<span>2</span></a></li>
-		
-		
-		   <li><a href="/tags">...<span>29</span></a></li>
+		   <li><a href="/tags">...<span>27</span></a></li>
 		 
 		</ul>
 	</div>
@@ -568,15 +324,15 @@ var _hmt = _hmt || [];
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2021/08/05/java/" ><i class="fa fa-file-o"></i>Java基础补全</a>
+        <a href="/2021/08/05/java/java/" ><i class="fa fa-file-o"></i>Java基础补全</a>
       </li>
     
       <li>
-        <a href="/2020/12/25/Redis模糊删除key/" ><i class="fa fa-file-o"></i>Redis模糊删除key</a>
+        <a href="/2020/12/25/Redis/Redis模糊删除key/" ><i class="fa fa-file-o"></i>Redis模糊删除key</a>
       </li>
     
       <li>
-        <a href="/2020/11/28/ignite迁移/"  title="ignite服务主机迁移，主要是docker容器的备份迁移" ><i class="fa fa-file-o"></i>ignite迁移</a>
+        <a href="/2020/11/28/vps/ignite迁移/"  title="ignite服务主机迁移，主要是docker容器的备份迁移" ><i class="fa fa-file-o"></i>ignite迁移</a>
       </li>
     
       <li>
@@ -584,7 +340,7 @@ var _hmt = _hmt || [];
       </li>
     
       <li>
-        <a href="/2020/11/04/CAP定理/" ><i class="fa fa-file-o"></i>CAP定理</a>
+        <a href="/2020/11/04/web/CAP定理/" ><i class="fa fa-file-o"></i>CAP定理</a>
       </li>
     
   </ul>
@@ -620,14 +376,6 @@ var _hmt = _hmt || [];
 <script src="/js/main.js"></script>
 <script src="/js/search.js"></script> 
 
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-(function($){
-  $('.fancybox').fancybox();
-})(jQuery);
-</script>
 
 
 
