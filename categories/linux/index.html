@@ -297,31 +297,6 @@ var _hmt = _hmt || [];
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2019-11-11 </div>
-			<div class="article-title"><a href="/2019/11/11/linux/linux-firewall/" >firewall</a></div>						
-		</h3>
-	
-
-
-		     <div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="Firewall"><a href="#Firewall" class="headerlink" title="Firewall"></a>Firewall</h2><h3 id="一、服务命令"><a href="#一、服务命令" class="headerlink" title="一、服务命令"></a>一、服务命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">查看版本：</span><br><span class="line">firewall-cmd --version</span><br><span class="line"></span><br><span class="line">开启、关闭firewall</span><br><span class="line">systemctl start firewalld</span><br><span class="line"></span><br><span class="line">查看状态：</span><br><span class="line">systemctl status firewalld</span><br><span class="line"></span><br><span class="line">停止：</span><br><span class="line">systemctl disable firewalld</span><br><span class="line"></span><br><span class="line">禁用：</span><br><span class="line">systemctl stop firewalld</span><br></pre></td></tr></table></figure>
-
-<h3 id="二、端口操作"><a href="#二、端口操作" class="headerlink" title="二、端口操作"></a>二、端口操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">查看打开的端口：</span><br><span class="line">firewall-cmd --list-ports</span><br><span class="line"></span><br><span class="line">打开一个端口：</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;8080&#x2F;tcp</span><br><span class="line"></span><br><span class="line">打开范围内端口：</span><br><span class="line">firewall-cmd --add-port&#x3D;8989-9999&#x2F;tcp --permanent</span><br><span class="line"></span><br><span class="line">关闭一个端口：</span><br><span class="line">firewall-cmd --permanent --remove-port&#x3D;8080&#x2F;tcp</span><br><span class="line"></span><br><span class="line">打开某项服务：</span><br><span class="line">firewall-cmd --permanent --add-service&#x3D;http</span><br><span class="line"></span><br><span class="line">关闭某项服务：</span><br><span class="line">firewall-cmd --permanent --remove-service&#x3D;http</span><br><span class="line"></span><br><span class="line">进行端口转发：</span><br><span class="line">firewall-cmd --permanent --add-forward-port&#x3D;port&#x3D;80:proto&#x3D;tcp:toport&#x3D;8080:toaddr&#x3D;192.0.2.55</span><br><span class="line"></span><br><span class="line">允许转发到其他地址：</span><br><span class="line">firewall-cmd --permanent --add-masquerade</span><br><span class="line"></span><br><span class="line">重新加载防火墙：</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
-
-
-	
-	</div>
-  <a type="button" href="/2019/11/11/linux/linux-firewall/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2019-11-11 </div>
 			<div class="article-title"><a href="/2019/11/11/linux/linux/" >linux</a></div>						
 		</h3>
 	
@@ -365,6 +340,31 @@ var _hmt = _hmt || [];
 	
 	</div>
   <a type="button" href="/2019/11/11/linux/linux/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2019-11-11 </div>
+			<div class="article-title"><a href="/2019/11/11/linux/linux-firewall/" >firewall</a></div>						
+		</h3>
+	
+
+
+		     <div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="Firewall"><a href="#Firewall" class="headerlink" title="Firewall"></a>Firewall</h2><h3 id="一、服务命令"><a href="#一、服务命令" class="headerlink" title="一、服务命令"></a>一、服务命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">查看版本：</span><br><span class="line">firewall-cmd --version</span><br><span class="line"></span><br><span class="line">开启、关闭firewall</span><br><span class="line">systemctl start firewalld</span><br><span class="line"></span><br><span class="line">查看状态：</span><br><span class="line">systemctl status firewalld</span><br><span class="line"></span><br><span class="line">停止：</span><br><span class="line">systemctl disable firewalld</span><br><span class="line"></span><br><span class="line">禁用：</span><br><span class="line">systemctl stop firewalld</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、端口操作"><a href="#二、端口操作" class="headerlink" title="二、端口操作"></a>二、端口操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">查看打开的端口：</span><br><span class="line">firewall-cmd --list-ports</span><br><span class="line"></span><br><span class="line">打开一个端口：</span><br><span class="line">firewall-cmd --permanent --add-port&#x3D;8080&#x2F;tcp</span><br><span class="line"></span><br><span class="line">打开范围内端口：</span><br><span class="line">firewall-cmd --add-port&#x3D;8989-9999&#x2F;tcp --permanent</span><br><span class="line"></span><br><span class="line">关闭一个端口：</span><br><span class="line">firewall-cmd --permanent --remove-port&#x3D;8080&#x2F;tcp</span><br><span class="line"></span><br><span class="line">打开某项服务：</span><br><span class="line">firewall-cmd --permanent --add-service&#x3D;http</span><br><span class="line"></span><br><span class="line">关闭某项服务：</span><br><span class="line">firewall-cmd --permanent --remove-service&#x3D;http</span><br><span class="line"></span><br><span class="line">进行端口转发：</span><br><span class="line">firewall-cmd --permanent --add-forward-port&#x3D;port&#x3D;80:proto&#x3D;tcp:toport&#x3D;8080:toaddr&#x3D;192.0.2.55</span><br><span class="line"></span><br><span class="line">允许转发到其他地址：</span><br><span class="line">firewall-cmd --permanent --add-masquerade</span><br><span class="line"></span><br><span class="line">重新加载防火墙：</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+
+
+	
+	</div>
+  <a type="button" href="/2019/11/11/linux/linux-firewall/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 	       
@@ -443,45 +443,45 @@ var _hmt = _hmt || [];
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/JWT/">JWT<span>2</span></a></li>
+			<li><a href="/tags/垃圾回收/">垃圾回收<span>1</span></a></li>
 		
-			<li><a href="/tags/Spring/">Spring<span>1</span></a></li>
-		
-			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
+			<li><a href="/tags/理哲/">理哲<span>1</span></a></li>
 		
 			<li><a href="/tags/效率/">效率<span>1</span></a></li>
 		
-			<li><a href="/tags/股票/">股票<span>2</span></a></li>
+			<li><a href="/tags/数据源/">数据源<span>1</span></a></li>
 		
-			<li><a href="/tags/Web/">Web<span>1</span></a></li>
-		
-			<li><a href="/tags/Java基础/">Java基础<span>2</span></a></li>
-		
-			<li><a href="/tags/从零开始写框架/">从零开始写框架<span>1</span></a></li>
+			<li><a href="/tags/Nosql/">Nosql<span>1</span></a></li>
 		
 			<li><a href="/tags/ssr/">ssr<span>1</span></a></li>
 		
-			<li><a href="/tags/redis/">redis<span>1</span></a></li>
-		
 			<li><a href="/tags/数据库/">数据库<span>2</span></a></li>
 		
-			<li><a href="/tags/消息队列/">消息队列<span>2</span></a></li>
-		
-			<li><a href="/tags/WebSocket/">WebSocket<span>1</span></a></li>
-		
-			<li><a href="/tags/垃圾回收/">垃圾回收<span>1</span></a></li>
-		
-			<li><a href="/tags/缓存/">缓存<span>1</span></a></li>
-		
-			<li><a href="/tags/索引/">索引<span>1</span></a></li>
+			<li><a href="/tags/redis/">redis<span>1</span></a></li>
 		
 			<li><a href="/tags/异常/">异常<span>1</span></a></li>
 		
+			<li><a href="/tags/Web/">Web<span>1</span></a></li>
+		
+			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
+		
 			<li><a href="/tags/基金/">基金<span>1</span></a></li>
+		
+			<li><a href="/tags/Linux/">Linux<span>2</span></a></li>
+		
+			<li><a href="/tags/缓存/">缓存<span>1</span></a></li>
+		
+			<li><a href="/tags/投资/">投资<span>5</span></a></li>
 		
 			<li><a href="/tags/技术学习/">技术学习<span>21</span></a></li>
 		
-			<li><a href="/tags/投资/">投资<span>5</span></a></li>
+			<li><a href="/tags/从零开始写框架/">从零开始写框架<span>1</span></a></li>
+		
+			<li><a href="/tags/WebSocket/">WebSocket<span>1</span></a></li>
+		
+			<li><a href="/tags/索引/">索引<span>1</span></a></li>
+		
+			<li><a href="/tags/股票/">股票<span>2</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>26</span></a></li>
@@ -497,7 +497,7 @@ var _hmt = _hmt || [];
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2021/09/25/Mac/" ><i class="fa fa-file-o"></i>Mac折腾</a>
+        <a href="/2021/09/25/Mac/"  title="mac优化配置常用记录" ><i class="fa fa-file-o"></i>Mac折腾</a>
       </li>
     
       <li>
