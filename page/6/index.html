@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>第 6 页 | DogFun</title>
+  <title>第 6 页 | CaryTseng</title>
   <meta name="author" content="CaryTseng">
   
   <meta name="description" content="我们所知不过沧海一粟，我们所不知却是汪洋大海">
@@ -12,7 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-  <meta property="og:site_name" content="DogFun"/>
+  <meta property="og:site_name" content="CaryTseng"/>
 
   
     <meta property="og:image" content=""/>
@@ -54,14 +54,14 @@
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?158281932937a280be091a3dfd514e8f";
+  hm.src = "//hm.baidu.com/hm.js?f880ece5980fa96666aaebab89b33e81";
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
 
 
-<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="DogFun" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="CaryTseng" type="application/atom+xml">
 </head>
 
 <body>
@@ -73,7 +73,7 @@ var _hmt = _hmt || [];
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/">DogFun</a>
+       <a class="navbar-brand" href="/">CaryTseng</a>
       <div class="collapse navbar-collapse nav-menu">
 		<ul class="nav navbar-nav">
 		  
@@ -137,37 +137,6 @@ var _hmt = _hmt || [];
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2019-11-11 </div>
-			<div class="article-title"><a href="/2019/11/11/数据库/sql-index/" >索引</a></div>						
-		</h3>
-	
-
-
-			  <div class="entry">
-  <div class="row">
-	
-	
-		
-<p> 索引常用的数据结构：</p>
-<ul>
-<li>哈希表</li>
-<li>有序数组</li>
-<li>搜索树</li>
-</ul>
-<p>　　适用于等值查询的场景，key通过哈希函数得到一个确定的位置，上面放对应的value。使用链表解决哈希冲突。不适合范围查询，因为需要全表扫描，无法利用索引完成排序，不支持多列联合索引的最左匹配规则，如果有大量重复键值的情况会产生哈希碰撞问题。</p>
-<p>　　只适用于静态搜索引擎，索引列的数据按照规则排序，查找数据可以直接二分查找，时间复杂度是O(log(N))支持范围查询。缺点是更新数据比较麻烦，需要移动记录。</p>
-	
-	</div>
-  <a type="button" href="/2019/11/11/数据库/sql-index/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2019-11-11 </div>
 			<div class="article-title"><a href="/2019/11/11/数据库/sql-optimize/" >SQL优化</a></div>						
 		</h3>
 	
@@ -189,6 +158,64 @@ var _hmt = _hmt || [];
 	
 	</div>
   <a type="button" href="/2019/11/11/数据库/sql-optimize/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2019-11-11 </div>
+			<div class="article-title"><a href="/2019/11/11/数据库/SQL常用/" >SQL常用</a></div>						
+		</h3>
+	
+
+
+			  <div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="SQL常用"><a href="#SQL常用" class="headerlink" title="SQL常用"></a>SQL常用</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*sql: 去除数据库表中 tab、空格、回车符等特殊字符的解决方法</span></span><br><span class="line"><span class="comment">去除 tab、空格、回车符等使用 replace 语句</span></span><br><span class="line"><span class="comment">按照 ASCII 码*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">char</span>(<span class="number">64</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*例如 64 对应 @，则 */</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">REPLACE</span>(‘abc@qq.com’,<span class="built_in">char</span>(<span class="number">64</span>),’kk’)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*则结果为 abckkqq.com*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*依此类推，</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">去掉其他特殊符号，参考 ASCII 码对照表，去掉 tab 符号为*/</span></span><br><span class="line"> <span class="keyword">select</span> <span class="keyword">REPLACE</span>(‘要替换的字符或列名’,<span class="built_in">char</span>(<span class="number">9</span>),’替换的目标字符’)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*去掉空格符号为*/</span> </span><br><span class="line"><span class="keyword">select</span> <span class="keyword">REPLACE</span>(‘要替换的字符或列名’,<span class="built_in">char</span>(<span class="number">32</span>),’替换的目标字符’)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*去掉换行符号为*/</span> </span><br><span class="line"><span class="keyword">select</span> <span class="keyword">REPLACE</span>(‘要替换的字符或列名’,<span class="built_in">char</span>(<span class="number">10</span>),’替换的目标字符’)*/</span><br></pre></td></tr></table></figure>
+
+<h2 id="获取近12个月"><a href="#获取近12个月" class="headerlink" title="获取近12个月"></a>获取近12个月</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>(<span class="keyword">CURDATE</span>(), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">1</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">2</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">3</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">4</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">5</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">6</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">7</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">8</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">9</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">10</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">11</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span></span><br></pre></td></tr></table></figure>
+
+
+	
+	</div>
+  <a type="button" href="/2019/11/11/数据库/SQL常用/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2019-11-11 </div>
+			<div class="article-title"><a href="/2019/11/11/数据库/sql-index/" >索引</a></div>						
+		</h3>
+	
+
+
+			  <div class="entry">
+  <div class="row">
+	
+	
+		
+<p> 索引常用的数据结构：</p>
+<ul>
+<li>哈希表</li>
+<li>有序数组</li>
+<li>搜索树</li>
+</ul>
+<p>　　适用于等值查询的场景，key通过哈希函数得到一个确定的位置，上面放对应的value。使用链表解决哈希冲突。不适合范围查询，因为需要全表扫描，无法利用索引完成排序，不支持多列联合索引的最左匹配规则，如果有大量重复键值的情况会产生哈希碰撞问题。</p>
+<p>　　只适用于静态搜索引擎，索引列的数据按照规则排序，查找数据可以直接二分查找，时间复杂度是O(log(N))支持范围查询。缺点是更新数据比较麻烦，需要移动记录。</p>
+	
+	</div>
+  <a type="button" href="/2019/11/11/数据库/sql-index/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
            
@@ -429,33 +456,6 @@ var _hmt = _hmt || [];
 
            
 		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2018-07-04 </div>
-			<div class="article-title"><a href="/2018/07/04/个人思考/存在即是合理/" >存在即是合理</a></div>						
-		</h3>
-	
-
-
-			  <div class="entry">
-  <div class="row">
-	
-	
-		<blockquote>
-<p>　　存在即是合理，当环境变换时，周遭的一切都不是你知悉的一切，快速投入到工作中，你会发现周围的一切都那么模糊，快速的工作节奏，工作的deadline压力，抬头发现已经忘记时间，夜色已经降临，只是生活还是在继续。走出大楼，那各色的人匆匆茫茫到底在奔向何方，憧憬着什么。有时你会发现人最可怕的地方是不知道自己想要什么，任由生活摆布。但成年人的世界有时又无可奈何，责任在身，上级的压力，慢慢的就能够去接受，去承担这种变化，无事一身轻或许是最潇洒的状态，摆摆手或者就能让自己的生活轻松点，但是人要懂得居安思危，时间是很残酷的，不知不觉你的青春、你的时间就已然流逝。</p>
-<p>　　生活要有点盼头，有点目标，你就会去期待，这个过程必须改变自我，坚持着一些事情，养成良好的习惯，保持自律，一点一点的积累，相信会在不久的将来收到回报。</p>
-</blockquote>
-
-	
-	</div>
-  <a type="button" href="/2018/07/04/个人思考/存在即是合理/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-           
-		
 
 		</div>
 
@@ -518,17 +518,15 @@ var _hmt = _hmt || [];
 		
 			<li><a href="/categories/linux/">linux<span>6</span></a></li>
 		
-			<li><a href="/categories/nginx/">nginx<span>1</span></a></li>
-		
 			<li><a href="/categories/vps/">vps<span>3</span></a></li>
 		
 			<li><a href="/categories/web/">web<span>9</span></a></li>
 		
-			<li><a href="/categories/个人思考/">个人思考<span>1</span></a></li>
+			<li><a href="/categories/中间件/">中间件<span>1</span></a></li>
+		
+			<li><a href="/categories/效率/">效率<span>1</span></a></li>
 		
 			<li><a href="/categories/数据库/">数据库<span>7</span></a></li>
-		
-			<li><a href="/categories/杂谈/">杂谈<span>2</span></a></li>
 		
 			<li><a href="/categories/算法/">算法<span>1</span></a></li>
 		
@@ -536,7 +534,7 @@ var _hmt = _hmt || [];
 		
 			<li><a href="/categories/金融/">金融<span>6</span></a></li>
 		
-			<li><a href="/categories/随笔/">随笔<span>10</span></a></li>
+			<li><a href="/categories/随笔/">随笔<span>13</span></a></li>
 		
 		</ul>
 	</div>
@@ -547,48 +545,48 @@ var _hmt = _hmt || [];
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/投资/">投资<span>5</span></a></li>
+			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
 		
-			<li><a href="/tags/JWT/">JWT<span>2</span></a></li>
-		
-			<li><a href="/tags/Web/">Web<span>1</span></a></li>
-		
-			<li><a href="/tags/索引/">索引<span>1</span></a></li>
-		
-			<li><a href="/tags/redis/">redis<span>1</span></a></li>
+			<li><a href="/tags/Java基础/">Java基础<span>2</span></a></li>
 		
 			<li><a href="/tags/股票/">股票<span>2</span></a></li>
 		
-			<li><a href="/tags/ignite/">ignite<span>1</span></a></li>
+			<li><a href="/tags/投资/">投资<span>5</span></a></li>
 		
-			<li><a href="/tags/数据源/">数据源<span>1</span></a></li>
+			<li><a href="/tags/redis/">redis<span>1</span></a></li>
 		
-			<li><a href="/tags/异常/">异常<span>1</span></a></li>
-		
-			<li><a href="/tags/理哲/">理哲<span>1</span></a></li>
-		
-			<li><a href="/tags/技术学习/">技术学习<span>22</span></a></li>
-		
-			<li><a href="/tags/垃圾回收/">垃圾回收<span>1</span></a></li>
-		
-			<li><a href="/tags/工作感悟/">工作感悟<span>1</span></a></li>
+			<li><a href="/tags/JWT/">JWT<span>2</span></a></li>
 		
 			<li><a href="/tags/WebSocket/">WebSocket<span>1</span></a></li>
 		
+			<li><a href="/tags/数据源/">数据源<span>1</span></a></li>
+		
+			<li><a href="/tags/理哲/">理哲<span>1</span></a></li>
+		
+			<li><a href="/tags/消息队列/">消息队列<span>2</span></a></li>
+		
+			<li><a href="/tags/数据库/">数据库<span>2</span></a></li>
+		
 			<li><a href="/tags/Nosql/">Nosql<span>1</span></a></li>
 		
-			<li><a href="/tags/从零开始写框架/">从零开始写框架<span>1</span></a></li>
-		
-			<li><a href="/tags/ssr/">ssr<span>1</span></a></li>
-		
-			<li><a href="/tags/基金/">基金<span>1</span></a></li>
+			<li><a href="/tags/垃圾回收/">垃圾回收<span>1</span></a></li>
 		
 			<li><a href="/tags/效率/">效率<span>1</span></a></li>
 		
-			<li><a href="/tags/缓存/">缓存<span>1</span></a></li>
+			<li><a href="/tags/ignite/">ignite<span>1</span></a></li>
+		
+			<li><a href="/tags/ssr/">ssr<span>1</span></a></li>
+		
+			<li><a href="/tags/异常/">异常<span>1</span></a></li>
+		
+			<li><a href="/tags/Spring/">Spring<span>1</span></a></li>
+		
+			<li><a href="/tags/Linux/">Linux<span>2</span></a></li>
+		
+			<li><a href="/tags/基金/">基金<span>1</span></a></li>
 		
 		
-		   <li><a href="/tags">...<span>27</span></a></li>
+		   <li><a href="/tags">...<span>26</span></a></li>
 		 
 		</ul>
 	</div>
@@ -599,6 +597,10 @@ var _hmt = _hmt || [];
 <div class="widget">
   <h4>最新文章</h4>
   <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2021/09/25/Mac/" ><i class="fa fa-file-o"></i>Mac折腾</a>
+      </li>
     
       <li>
         <a href="/2021/08/05/java/java/" ><i class="fa fa-file-o"></i>Java基础补全</a>
@@ -614,10 +616,6 @@ var _hmt = _hmt || [];
     
       <li>
         <a href="/2020/11/20/Navicat更新删除数据的正确姿势/" ><i class="fa fa-file-o"></i>Navicat更新删除数据的正确姿势</a>
-      </li>
-    
-      <li>
-        <a href="/2020/11/04/web/CAP定理/" ><i class="fa fa-file-o"></i>CAP定理</a>
       </li>
     
   </ul>
