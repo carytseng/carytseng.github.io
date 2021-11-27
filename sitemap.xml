@@ -634,13 +634,6 @@
 
   
   <url>
-    <loc>https://dogfun.top/tags/Nosql/</loc>
-    <lastmod>2021-11-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://dogfun.top/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/</loc>
     <lastmod>2021-11-27</lastmod>
     <changefreq>daily</changefreq>
@@ -649,20 +642,6 @@
   
   <url>
     <loc>https://dogfun.top/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2021-11-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://dogfun.top/tags/redis/</loc>
-    <lastmod>2021-11-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://dogfun.top/tags/%E7%BC%93%E5%AD%98/</loc>
     <lastmod>2021-11-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -718,6 +697,27 @@
   </url>
   
   <url>
+    <loc>https://dogfun.top/tags/Nosql/</loc>
+    <lastmod>2021-11-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://dogfun.top/tags/redis/</loc>
+    <lastmod>2021-11-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://dogfun.top/tags/%E7%BC%93%E5%AD%98/</loc>
+    <lastmod>2021-11-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://dogfun.top/tags/ssr/</loc>
     <lastmod>2021-11-27</lastmod>
     <changefreq>daily</changefreq>
@@ -739,14 +739,14 @@
   </url>
   
   <url>
-    <loc>https://dogfun.top/tags/WebSocket/</loc>
+    <loc>https://dogfun.top/tags/%E6%95%B0%E6%8D%AE%E6%BA%90/</loc>
     <lastmod>2021-11-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://dogfun.top/tags/%E6%95%B0%E6%8D%AE%E6%BA%90/</loc>
+    <loc>https://dogfun.top/tags/WebSocket/</loc>
     <lastmod>2021-11-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -867,13 +867,6 @@
   </url>
   
   <url>
-    <loc>https://dogfun.top/categories/Redis/</loc>
-    <lastmod>2021-11-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://dogfun.top/categories/jvm/</loc>
     <lastmod>2021-11-27</lastmod>
     <changefreq>daily</changefreq>
@@ -888,6 +881,20 @@
   </url>
   
   <url>
+    <loc>https://dogfun.top/categories/java/</loc>
+    <lastmod>2021-11-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://dogfun.top/categories/Redis/</loc>
+    <lastmod>2021-11-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://dogfun.top/categories/vps/</loc>
     <lastmod>2021-11-27</lastmod>
     <changefreq>daily</changefreq>
@@ -896,13 +903,6 @@
   
   <url>
     <loc>https://dogfun.top/categories/web/</loc>
-    <lastmod>2021-11-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://dogfun.top/categories/java/</loc>
     <lastmod>2021-11-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
