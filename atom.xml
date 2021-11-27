@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>CaryTseng</title>
   <icon>https://www.gravatar.com/avatar/bac9080800c06a1b685d5f013601b128</icon>
-  <subtitle>philosopher on coding</subtitle>
+  <subtitle>·思考仓库·</subtitle>
   <link href="https://dogfun.top/atom.xml" rel="self"/>
   
   <link href="https://dogfun.top/"/>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Minio</title>
-    <link href="https://dogfun.top/2021/11/27/Minio/"/>
-    <id>https://dogfun.top/2021/11/27/Minio/</id>
+    <link href="https://dogfun.top/2021/11/27/%E4%B8%AD%E9%97%B4%E4%BB%B6/Minio/"/>
+    <id>https://dogfun.top/2021/11/27/%E4%B8%AD%E9%97%B4%E4%BB%B6/Minio/</id>
     <published>2021-11-27T01:49:06.000Z</published>
     <updated>2021-11-27T14:26:02.441Z</updated>
     
@@ -40,8 +40,8 @@
   
   <entry>
     <title>随想11-27</title>
-    <link href="https://dogfun.top/2021/11/27/%E9%9A%8F%E6%83%B311-27/"/>
-    <id>https://dogfun.top/2021/11/27/%E9%9A%8F%E6%83%B311-27/</id>
+    <link href="https://dogfun.top/2021/11/27/%E9%9A%8F%E6%83%B3/%E9%9A%8F%E6%83%B311-27/"/>
+    <id>https://dogfun.top/2021/11/27/%E9%9A%8F%E6%83%B3/%E9%9A%8F%E6%83%B311-27/</id>
     <published>2021-11-27T01:49:06.000Z</published>
     <updated>2021-11-27T14:36:17.529Z</updated>
     
@@ -63,8 +63,8 @@
   
   <entry>
     <title>NVM</title>
-    <link href="https://dogfun.top/2021/10/25/NVM/"/>
-    <id>https://dogfun.top/2021/10/25/NVM/</id>
+    <link href="https://dogfun.top/2021/10/25/web/NVM/"/>
+    <id>https://dogfun.top/2021/10/25/web/NVM/</id>
     <published>2021-10-25T01:49:06.000Z</published>
     <updated>2021-11-27T14:31:17.451Z</updated>
     
@@ -112,8 +112,8 @@
   
   <entry>
     <title>Mac平台下工具总结</title>
-    <link href="https://dogfun.top/2021/09/25/mac/"/>
-    <id>https://dogfun.top/2021/09/25/mac/</id>
+    <link href="https://dogfun.top/2021/09/25/%E6%95%88%E7%8E%87/mac/"/>
+    <id>https://dogfun.top/2021/09/25/%E6%95%88%E7%8E%87/mac/</id>
     <published>2021-09-25T01:49:06.000Z</published>
     <updated>2021-11-27T14:26:11.124Z</updated>
     
@@ -203,10 +203,10 @@
   
   <entry>
     <title>Navicat更新删除数据的正确姿势</title>
-    <link href="https://dogfun.top/2020/11/20/Navicat%E6%9B%B4%E6%96%B0%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF/"/>
-    <id>https://dogfun.top/2020/11/20/Navicat%E6%9B%B4%E6%96%B0%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF/</id>
+    <link href="https://dogfun.top/2020/11/20/%E6%95%B0%E6%8D%AE%E5%BA%93/Navicat%E6%9B%B4%E6%96%B0%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF/"/>
+    <id>https://dogfun.top/2020/11/20/%E6%95%B0%E6%8D%AE%E5%BA%93/Navicat%E6%9B%B4%E6%96%B0%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF/</id>
     <published>2020-11-20T15:07:44.000Z</published>
-    <updated>2021-01-09T05:49:54.235Z</updated>
+    <updated>2021-11-27T15:13:48.130Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p> 非常久没有使用Navicat这个工具了，基本从开发的项目转入oracle之后都是使用PL/SQL这个工具了，oracle是提供执行语句回滚的显式操作的。最近发现Navicat操作MySQL居然没有，查阅了一下Navicat执行sql特别是update/delete时怎么防止误操作，回滚数据。</p></blockquote><p>MySQL是默认提交事务的，所以写query时，如果写了条update是直接提交的，如果想回滚怎么办？只能找binlog非常麻烦。正确的姿势应该是在query页中，提前set autocommit=0，也就是关闭自动提交，但这仅在当前query页中生效，重启或者打开新标签页会失效，然后你的update语句需要显式commit才能提交，这样你能在commit前select一下查看当前执行结果，Innodb的隔离级别默认是可重复读的，所以能读到当前事务下的数据结果，如果不对就执行rollback。</p>]]></content>
     
@@ -218,6 +218,8 @@
       
     
     
+    
+    <category term="数据库" scheme="https://dogfun.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     
   </entry>
@@ -356,37 +358,41 @@
   </entry>
   
   <entry>
-    <title>ES</title>
-    <link href="https://dogfun.top/2020/09/25/ES/"/>
-    <id>https://dogfun.top/2020/09/25/ES/</id>
+    <title>Presto</title>
+    <link href="https://dogfun.top/2020/09/25/presto/"/>
+    <id>https://dogfun.top/2020/09/25/presto/</id>
     <published>2020-09-25T01:25:02.000Z</published>
-    <updated>2021-09-21T07:27:21.876Z</updated>
+    <updated>2021-11-27T16:01:25.132Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="ES"><a href="#ES" class="headerlink" title="ES"></a>ES</h1><h3 id="环境搭建-docker"><a href="#环境搭建-docker" class="headerlink" title="环境搭建(docker)"></a>环境搭建(docker)</h3><h4 id="Elasticsearch"><a href="#Elasticsearch" class="headerlink" title="Elasticsearch"></a>Elasticsearch</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 9200:9200 -p 9300:9300 -d  -e &quot;discovery.type&#x3D;single-node&quot; --name elasticsearch \</span><br><span class="line">-v &#x2F;Users&#x2F;carytseng&#x2F;envir&#x2F;elasticsearch&#x2F;config&#x2F;elasticsearch.yml:&#x2F;usr&#x2F;share&#x2F;elasticsearch&#x2F;config&#x2F;elasticsearch.yml \</span><br><span class="line">-v &#x2F;Users&#x2F;carytseng&#x2F;envir&#x2F;elasticsearch&#x2F;data:&#x2F;usr&#x2F;share&#x2F;elasticsearch&#x2F;data \</span><br><span class="line">-v &#x2F;Users&#x2F;carytseng&#x2F;envir&#x2F;elasticsearch&#x2F;plugins:&#x2F;usr&#x2F;share&#x2F;elasticsearch&#x2F;plugins \</span><br><span class="line"> docker.elastic.co&#x2F;elasticsearch&#x2F;elasticsearch:7.12.0 </span><br></pre></td></tr></table></figure><h4 id="Kibana"><a href="#Kibana" class="headerlink" title="Kibana"></a>Kibana</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --link elasticsearch:elasticsearch --name kibana -p 5601:5601 -d docker.elastic.co&#x2F;kibana&#x2F;kibana:7.12.0</span><br></pre></td></tr></table></figure><h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">查看集群状态</span><br><span class="line">GET &#x2F;_cat&#x2F;health?v</span><br><span class="line"></span><br><span class="line">查询所有创建的索引</span><br><span class="line">GET &#x2F;_cat&#x2F;indices?v</span><br><span class="line"></span><br><span class="line">创建索引</span><br><span class="line">PUT [index]</span><br></pre></td></tr></table></figure><h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ul><li>text</li><li>keyword</li></ul><h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><ul><li>term：查询keyword类型，用于精确匹配。查询text类型若不知道分词器，会无法命中数据<ul><li>比如查text类型，关键词”Quick Foxes!”，该数据被分为[Quick,Foxes]，会出现无法命中</li><li>用关键词”Quick”，则能查出，因此对于模糊查询要用match查text类型的数据</li></ul></li><li>match：查询text类型，用于模糊查询</li></ul><h3 id="Nested"><a href="#Nested" class="headerlink" title="Nested"></a>Nested</h3><blockquote><p>es中object类型的数组会被扁平化，打破数组中对象属性的关联关系，需要定义nested即嵌套对象来处理数组，保证数组中的对象会被独立处理。</p></blockquote><h3 id="多层嵌套对象处理inner-hits"><a href="#多层嵌套对象处理inner-hits" class="headerlink" title="多层嵌套对象处理inner_hits"></a>多层嵌套对象处理inner_hits</h3><p>inner_hits是用于筛选出命中对象的对应属性，当层级过多时，条件中有多个inner_hits，需要使用name来防止覆盖问题</p><h3 id="删除所有文档数据"><a href="#删除所有文档数据" class="headerlink" title="删除所有文档数据"></a>删除所有文档数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">chinaunicom_medical_search_dev&#x2F;_delete_by_query</span><br><span class="line">&#123;&quot;query&quot;:&#123;&quot;match_all&quot;:&#123;&#125;&#125;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># curl -XDELETE &#39;http:&#x2F;&#x2F;127.0.0.1:9200&#x2F;logstash&#39; </span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;docker run -p 9200:9200 -p 9300:9300 -d  -e &amp;quot;discovery.type&amp;#x3D;single-node&amp;quot; --name elasticsearch \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-v &amp;#x2F;Users&amp;#x2F;carytseng&amp;#x2F;envir&amp;#x2F;elasticsearch&amp;#x2F;config&amp;#x2F;elasticsearch.yml:&amp;#x2F;usr&amp;#x2F;share&amp;#x2F;elasticsearch&amp;#x2F;config&amp;#x2F;elasticsearch.yml \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-v &amp;#x2F;Users&amp;#x2F;carytseng&amp;#x2F;envir&amp;#x2F;elasticsearch&amp;#x2F;data:&amp;#x2F;usr&amp;#x2F;share&amp;#x2F;elasticsearch&amp;#x2F;data \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-v &amp;#x2F;Users&amp;#x2F;carytseng&amp;#x2F;envir&amp;#x2F;elasticsearch&amp;#x2F;plugins:&amp;#x2F;usr&amp;#x2F;share&amp;#x2F;elasticsearch&amp;#x2F;plugins \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; docker.elastic.co&amp;#x2F;elasticsearch&amp;#x2F;elasticsearch:7.12.0 &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;docker run --link elasticsearch:elasticsearch --name kibana -p 5601:5601 -d docker.elastic.co&amp;#x2F;kibana&amp;#x2F;kibana:7.12.0&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;查看集群状态&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;GET &amp;#x2F;_cat&amp;#x2F;health?v&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;查询所有创建的索引&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;GET &amp;#x2F;_cat&amp;#x2F;indices?v&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;创建索引&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;PUT [index]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-
-&lt;ul&gt;
-&lt;li&gt;text&lt;/li&gt;
-&lt;li&gt;keyword&lt;/li&gt;
-&lt;/ul&gt;</summary>
+    <content type="html"><![CDATA[<h1 id="Presto"><a href="#Presto" class="headerlink" title="Presto"></a>Presto</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>​        Facebook开发的分布式查询引擎，采用master-slave架构，由一个Coordinator节点，一个Discovery节点，多个Worker节点组成，Coordinator负责解析SQL，生成执行计划，分发执行任务给多个Worker节点，Worker节点负责实际执行查询任务。Worker节点启动后向Discovery Server服务注册，Coordinator从Discovery Server获得可以正常工作的Worker节点。</p><h3 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h3><ol><li>完全基于内存的并行计算</li><li>流水线</li><li>本地化计算</li><li>动态编译执行计划</li><li>小心使用内存和数据结构</li><li>类BlinkDB的近似查询</li><li>GC控制</li></ol><h2 id="隐式类型转换"><a href="#隐式类型转换" class="headerlink" title="隐式类型转换"></a>隐式类型转换</h2><p>手工处理：try_cast([] as [])</p><p>美团修改版：<a href="https://github.com/MTDATA/presto/commits/mt-0.60">https://github.com/MTDATA/presto/commits/mt-0.60</a></p>]]></content>
     
     
+    <summary type="html">&lt;p&gt;​        Facebook开发的分布式查询引擎，采用master-slave架构，由一个Coordinator节点，一个Discovery节点，多个Worker节点组成，Coordinator负责解析SQL，生成执行计划，分发执行任务给多个Worker节点，Worker节点负责实际执行查询任务。Worker节点启动后向Discovery Server服务注册，Coordinator从Discovery Server获得可以正常工作的Worker节点。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;完全基于内存的并行计算&lt;/li&gt;
+&lt;li&gt;流水线&lt;/li&gt;
+&lt;li&gt;本地化计算&lt;/li&gt;
+&lt;li&gt;动态编译执行计划&lt;/li&gt;
+&lt;li&gt;小心使用内存和数据结构&lt;/li&gt;
+&lt;li&gt;类BlinkDB的近似查询&lt;/li&gt;
+&lt;li&gt;GC控制&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;手工处理：try_cast([] as [])&lt;/p&gt;
+&lt;p&gt;美团修改版：&lt;a href=&quot;https://github.com/MTDATA/presto/commits/mt-0.60&quot;&gt;https://github.com/MTDATA/presto/commits/mt-0.60&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="中间件" scheme="https://dogfun.top/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
     
     
   </entry>
   
   <entry>
     <title>Nacos</title>
-    <link href="https://dogfun.top/2020/09/25/Nacos/"/>
-    <id>https://dogfun.top/2020/09/25/Nacos/</id>
+    <link href="https://dogfun.top/2020/09/25/%E4%B8%AD%E9%97%B4%E4%BB%B6/Nacos/"/>
+    <id>https://dogfun.top/2020/09/25/%E4%B8%AD%E9%97%B4%E4%BB%B6/Nacos/</id>
     <published>2020-09-25T01:25:02.000Z</published>
-    <updated>2021-09-21T07:27:35.784Z</updated>
+    <updated>2021-11-27T15:12:54.055Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Nacos"><a href="#Nacos" class="headerlink" title="Nacos"></a>Nacos</h1><h2 id="docker启动"><a href="#docker启动" class="headerlink" title="docker启动"></a>docker启动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;nacos-group&#x2F;nacos-docker.git</span><br><span class="line">cd nacos-docker</span><br><span class="line">docker-compose -f example&#x2F;standalone-derby.yaml up</span><br></pre></td></tr></table></figure><h2 id="SpringCloud-namespaces"><a href="#SpringCloud-namespaces" class="headerlink" title="SpringCloud+namespaces"></a>SpringCloud+namespaces</h2><ol><li>添加命名空间</li><li>maven中定义多个环境profile</li></ol><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">id</span>&gt;</span>dev<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">activeByDefault</span>&gt;</span>true<span class="tag">&lt;/<span class="name">activeByDefault</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">runtime.env</span>&gt;</span>dev<span class="tag">&lt;/<span class="name">runtime.env</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">nacos.server-addr</span>&gt;</span>10.91.22.7:8888<span class="tag">&lt;/<span class="name">nacos.server-addr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">nacos.namespace</span>&gt;</span>aa96c495-c8fa-4078-b159-556c08592786<span class="tag">&lt;/<span class="name">nacos.namespace</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">id</span>&gt;</span>local<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">runtime.env</span>&gt;</span>local<span class="tag">&lt;/<span class="name">runtime.env</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">nacos.server-addr</span>&gt;</span>10.91.22.7:8888<span class="tag">&lt;/<span class="name">nacos.server-addr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">nacos.namespace</span>&gt;</span>aa96c495-c8fa-4078-b159-556c08592786<span class="tag">&lt;/<span class="name">nacos.namespace</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br></pre></td></tr></table></figure><p>![image-20210512144727556](/Users/carytseng/Library/Application Support/typora-user-images/image-20210512144727556.png)</p><p><strong>maven中指定生效的profile，idea的active-profile指定的是项目下的对应环境的profile，非nacos上的配置</strong></p><ol start="3"><li>spring.cloud.nacos.discovery.namespace指定注册到相应的命名空间的注册列表，默认会在public</li></ol><p>![image-20210512144838409](/Users/carytseng/Library/Application Support/typora-user-images/image-20210512144838409.png)</p>]]></content>
     
@@ -403,13 +409,15 @@
     
     
     
+    <category term="中间件" scheme="https://dogfun.top/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
+    
     
   </entry>
   
   <entry>
     <title>Presto</title>
-    <link href="https://dogfun.top/2020/09/25/presto/"/>
-    <id>https://dogfun.top/2020/09/25/presto/</id>
+    <link href="https://dogfun.top/2020/09/25/%E4%B8%AD%E9%97%B4%E4%BB%B6/presto/"/>
+    <id>https://dogfun.top/2020/09/25/%E4%B8%AD%E9%97%B4%E4%BB%B6/presto/</id>
     <published>2020-09-25T01:25:02.000Z</published>
     <updated>2021-09-21T07:27:49.002Z</updated>
     
@@ -431,34 +439,35 @@
     
     
     
+    <category term="中间件" scheme="https://dogfun.top/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
+    
     
   </entry>
   
   <entry>
-    <title>新入书单</title>
-    <link href="https://dogfun.top/2020/09/25/%E6%96%B0%E5%85%A5%E4%B9%A6%E5%8D%95/"/>
-    <id>https://dogfun.top/2020/09/25/%E6%96%B0%E5%85%A5%E4%B9%A6%E5%8D%95/</id>
+    <title>ES</title>
+    <link href="https://dogfun.top/2020/09/25/%E6%95%B0%E6%8D%AE%E5%BA%93/ES/"/>
+    <id>https://dogfun.top/2020/09/25/%E6%95%B0%E6%8D%AE%E5%BA%93/ES/</id>
     <published>2020-09-25T01:25:02.000Z</published>
-    <updated>2021-01-09T05:49:54.541Z</updated>
+    <updated>2021-11-27T15:12:36.722Z</updated>
     
-    <content type="html"><![CDATA[<ul><li>Google工作法</li><li>图解黄帝内经</li><li>我们内心的冲突</li><li>我们时代的神经症人格</li><li>Spring5核心原理与30个类手写实战</li><li>零基础学炒股从入门到精通</li></ul><hr><p><strong>待购入</strong></p><ul><li>价值：我对投资的思考</li><li>墨菲定律</li><li>李大霄投资战略</li><li>聪明的投资者</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;ul&gt;
-&lt;li&gt;Google工作法&lt;/li&gt;
-&lt;li&gt;图解黄帝内经&lt;/li&gt;
-&lt;li&gt;我们内心的冲突&lt;/li&gt;
-&lt;li&gt;我们时代的神经症人格&lt;/li&gt;
-&lt;li&gt;Spring5核心原理与30个类手写实战&lt;/li&gt;
-&lt;li&gt;零基础学炒股从入门到精通&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-</summary>
-      
+    <content type="html"><![CDATA[<h1 id="ES"><a href="#ES" class="headerlink" title="ES"></a>ES</h1><h3 id="环境搭建-docker"><a href="#环境搭建-docker" class="headerlink" title="环境搭建(docker)"></a>环境搭建(docker)</h3><h4 id="Elasticsearch"><a href="#Elasticsearch" class="headerlink" title="Elasticsearch"></a>Elasticsearch</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 9200:9200 -p 9300:9300 -d  -e &quot;discovery.type&#x3D;single-node&quot; --name elasticsearch \</span><br><span class="line">-v &#x2F;Users&#x2F;carytseng&#x2F;envir&#x2F;elasticsearch&#x2F;config&#x2F;elasticsearch.yml:&#x2F;usr&#x2F;share&#x2F;elasticsearch&#x2F;config&#x2F;elasticsearch.yml \</span><br><span class="line">-v &#x2F;Users&#x2F;carytseng&#x2F;envir&#x2F;elasticsearch&#x2F;data:&#x2F;usr&#x2F;share&#x2F;elasticsearch&#x2F;data \</span><br><span class="line">-v &#x2F;Users&#x2F;carytseng&#x2F;envir&#x2F;elasticsearch&#x2F;plugins:&#x2F;usr&#x2F;share&#x2F;elasticsearch&#x2F;plugins \</span><br><span class="line"> docker.elastic.co&#x2F;elasticsearch&#x2F;elasticsearch:7.12.0 </span><br></pre></td></tr></table></figure><h4 id="Kibana"><a href="#Kibana" class="headerlink" title="Kibana"></a>Kibana</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --link elasticsearch:elasticsearch --name kibana -p 5601:5601 -d docker.elastic.co&#x2F;kibana&#x2F;kibana:7.12.0</span><br></pre></td></tr></table></figure><h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">查看集群状态</span><br><span class="line">GET &#x2F;_cat&#x2F;health?v</span><br><span class="line"></span><br><span class="line">查询所有创建的索引</span><br><span class="line">GET &#x2F;_cat&#x2F;indices?v</span><br><span class="line"></span><br><span class="line">创建索引</span><br><span class="line">PUT [index]</span><br></pre></td></tr></table></figure><h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ul><li>text</li><li>keyword</li></ul><h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><ul><li>term：查询keyword类型，用于精确匹配。查询text类型若不知道分词器，会无法命中数据<ul><li>比如查text类型，关键词”Quick Foxes!”，该数据被分为[Quick,Foxes]，会出现无法命中</li><li>用关键词”Quick”，则能查出，因此对于模糊查询要用match查text类型的数据</li></ul></li><li>match：查询text类型，用于模糊查询</li></ul><h3 id="Nested"><a href="#Nested" class="headerlink" title="Nested"></a>Nested</h3><blockquote><p>es中object类型的数组会被扁平化，打破数组中对象属性的关联关系，需要定义nested即嵌套对象来处理数组，保证数组中的对象会被独立处理。</p></blockquote><h3 id="多层嵌套对象处理inner-hits"><a href="#多层嵌套对象处理inner-hits" class="headerlink" title="多层嵌套对象处理inner_hits"></a>多层嵌套对象处理inner_hits</h3><p>inner_hits是用于筛选出命中对象的对应属性，当层级过多时，条件中有多个inner_hits，需要使用name来防止覆盖问题</p><h3 id="删除所有文档数据"><a href="#删除所有文档数据" class="headerlink" title="删除所有文档数据"></a>删除所有文档数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">chinaunicom_medical_search_dev&#x2F;_delete_by_query</span><br><span class="line">&#123;&quot;query&quot;:&#123;&quot;match_all&quot;:&#123;&#125;&#125;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># curl -XDELETE &#39;http:&#x2F;&#x2F;127.0.0.1:9200&#x2F;logstash&#39; </span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
     
     
+    <summary type="html">&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;docker run -p 9200:9200 -p 9300:9300 -d  -e &amp;quot;discovery.type&amp;#x3D;single-node&amp;quot; --name elasticsearch \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-v &amp;#x2F;Users&amp;#x2F;carytseng&amp;#x2F;envir&amp;#x2F;elasticsearch&amp;#x2F;config&amp;#x2F;elasticsearch.yml:&amp;#x2F;usr&amp;#x2F;share&amp;#x2F;elasticsearch&amp;#x2F;config&amp;#x2F;elasticsearch.yml \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-v &amp;#x2F;Users&amp;#x2F;carytseng&amp;#x2F;envir&amp;#x2F;elasticsearch&amp;#x2F;data:&amp;#x2F;usr&amp;#x2F;share&amp;#x2F;elasticsearch&amp;#x2F;data \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;-v &amp;#x2F;Users&amp;#x2F;carytseng&amp;#x2F;envir&amp;#x2F;elasticsearch&amp;#x2F;plugins:&amp;#x2F;usr&amp;#x2F;share&amp;#x2F;elasticsearch&amp;#x2F;plugins \&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; docker.elastic.co&amp;#x2F;elasticsearch&amp;#x2F;elasticsearch:7.12.0 &lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;docker run --link elasticsearch:elasticsearch --name kibana -p 5601:5601 -d docker.elastic.co&amp;#x2F;kibana&amp;#x2F;kibana:7.12.0&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;查看集群状态&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;GET &amp;#x2F;_cat&amp;#x2F;health?v&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;查询所有创建的索引&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;GET &amp;#x2F;_cat&amp;#x2F;indices?v&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;创建索引&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;PUT [index]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+&lt;li&gt;text&lt;/li&gt;
+&lt;li&gt;keyword&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="中间件" scheme="https://dogfun.top/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
     
     
   </entry>
