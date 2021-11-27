@@ -23,11 +23,30 @@
     
     
     <entry>
+      <title>随想11-27</title>
+      <link href="/2021/11/27/%E9%9A%8F%E6%83%B311-27/"/>
+      <url>/2021/11/27/%E9%9A%8F%E6%83%B311-27/</url>
+      
+        <content type="html"><![CDATA[<blockquote><pre><code>   泛娱乐时代倘若不能保持独立思考的能力，建立自己的观念防线，极其容易被喂养垃圾价值观而不自知，在碎片化的无意识信息汲取中得不到任何有养分的熏陶，谈何成长，不变成shit就不错了。走向平庸只需几步，失去专注力、固步自封害怕触及新领域、沉浸在自我建立的舒适区中。只需要两三年，基本的格局即会定调，再想改变是难上加难，毕竟人的天性对于大多数人来讲是不可抗力因素。</code></pre></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随想 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>NVM</title>
       <link href="/2021/10/25/NVM/"/>
       <url>/2021/10/25/NVM/</url>
       
-        <content type="html"><![CDATA[<p>1、nvm安装。nvm是node版本管理工具，为解决node各版本不兼容问题，nvm是让你在同一台机器上安装和切换不同版本的node</p><ol><li><p>brew install nvm</p></li><li><p>编辑配置文件，vim ~/.bash_profile，文件中写入如下内容</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export NVM_DIR&#x3D;~&#x2F;.nvm</span><br><span class="line">source $(brew --prefix nvm)&#x2F;nvm.sh</span><br></pre></td></tr></table></figure></li><li><p>保存，source ~/.bash_profile</p></li></ol><p>2、nvm切换镜像源，解决node下载卡/失败的问题</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  vim ~&#x2F;.bash_profile</span><br><span class="line">  &#x2F;&#x2F; 加入以下两条配置文件</span><br><span class="line">  export NVM_NODEJS_ORG_MIRROR&#x3D;http:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;node</span><br><span class="line">  export NVM_IOJS_ORG_MIRROR&#x3D;http:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;iojs</span><br><span class="line">  &#x2F;&#x2F; 重启配置文件</span><br><span class="line">  source ~&#x2F;.bashrc</span><br><span class="line">  &#96;&#96;&#96;   </span><br><span class="line"></span><br><span class="line">3、安装node指定版本</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>  nvm ls-remote  // 查看所有的node可用版本<br>  nvm list  // 查看已安装node版本<br>  nvm install 版本号  // 下载指定node版本，如nvm install v11.14.0<br>  nvm use 版本号  // 使用指定版本<br>  nvm alias default  // 设置默认版本，每次启动终端都使用该版本<br>  ```</p>]]></content>
+        <content type="html"><![CDATA[<p>1、nvm安装。nvm是node版本管理工具，为解决node各版本不兼容问题，nvm是让你在同一台机器上安装和切换不同版本的node</p><ol><li><p>brew install nvm</p></li><li><p>编辑配置文件，vim ~/.bash_profile，文件中写入如下内容</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export NVM_DIR&#x3D;~&#x2F;.nvm</span><br><span class="line">source $(brew --prefix nvm)&#x2F;nvm.sh</span><br></pre></td></tr></table></figure></li><li><p>保存，source ~/.bash_profile</p></li></ol><p>2、nvm切换镜像源，解决node下载卡/失败的问题</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim ~&#x2F;.bash_profile</span><br><span class="line">&#x2F;&#x2F; 加入以下两条配置文件</span><br><span class="line">export NVM_NODEJS_ORG_MIRROR&#x3D;http:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;node</span><br><span class="line">export NVM_IOJS_ORG_MIRROR&#x3D;http:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;iojs</span><br><span class="line">&#x2F;&#x2F; 重启配置文件</span><br><span class="line">source ~&#x2F;.bashrc</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>3、安装node指定版本</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nvm ls-remote  &#x2F;&#x2F; 查看所有的node可用版本</span><br><span class="line">nvm list  &#x2F;&#x2F; 查看已安装node版本</span><br><span class="line">nvm install 版本号  &#x2F;&#x2F; 下载指定node版本，如nvm install v11.14.0</span><br><span class="line">nvm use 版本号  &#x2F;&#x2F; 使用指定版本</span><br><span class="line">nvm alias default  &#x2F;&#x2F; 设置默认版本，每次启动终端都使用该版本</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>

@@ -39,13 +39,36 @@
   </entry>
   
   <entry>
+    <title>随想11-27</title>
+    <link href="https://dogfun.top/2021/11/27/%E9%9A%8F%E6%83%B311-27/"/>
+    <id>https://dogfun.top/2021/11/27/%E9%9A%8F%E6%83%B311-27/</id>
+    <published>2021-11-27T01:49:06.000Z</published>
+    <updated>2021-11-27T14:36:17.529Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><pre><code>   泛娱乐时代倘若不能保持独立思考的能力，建立自己的观念防线，极其容易被喂养垃圾价值观而不自知，在碎片化的无意识信息汲取中得不到任何有养分的熏陶，谈何成长，不变成shit就不错了。走向平庸只需几步，失去专注力、固步自封害怕触及新领域、沉浸在自我建立的舒适区中。只需要两三年，基本的格局即会定调，再想改变是难上加难，毕竟人的天性对于大多数人来讲是不可抗力因素。</code></pre></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;pre&gt;&lt;code&gt;   泛娱乐时代倘若不能保持独立思考的能力，建立自己的观念防线，极其容易被喂养垃圾价值观而不自知，在碎片化的无意识信息汲取中得不到任何有养分的熏陶，谈何成长，不变成shit就不错了。走向平庸只需几步，失去专注力、固步自封害怕触及新领</summary>
+      
+    
+    
+    
+    <category term="随想" scheme="https://dogfun.top/categories/%E9%9A%8F%E6%83%B3/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>NVM</title>
     <link href="https://dogfun.top/2021/10/25/NVM/"/>
     <id>https://dogfun.top/2021/10/25/NVM/</id>
     <published>2021-10-25T01:49:06.000Z</published>
-    <updated>2021-11-27T14:26:08.282Z</updated>
+    <updated>2021-11-27T14:31:17.451Z</updated>
     
-    <content type="html"><![CDATA[<p>1、nvm安装。nvm是node版本管理工具，为解决node各版本不兼容问题，nvm是让你在同一台机器上安装和切换不同版本的node</p><ol><li><p>brew install nvm</p></li><li><p>编辑配置文件，vim ~/.bash_profile，文件中写入如下内容</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export NVM_DIR&#x3D;~&#x2F;.nvm</span><br><span class="line">source $(brew --prefix nvm)&#x2F;nvm.sh</span><br></pre></td></tr></table></figure></li><li><p>保存，source ~/.bash_profile</p></li></ol><p>2、nvm切换镜像源，解决node下载卡/失败的问题</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  vim ~&#x2F;.bash_profile</span><br><span class="line">  &#x2F;&#x2F; 加入以下两条配置文件</span><br><span class="line">  export NVM_NODEJS_ORG_MIRROR&#x3D;http:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;node</span><br><span class="line">  export NVM_IOJS_ORG_MIRROR&#x3D;http:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;iojs</span><br><span class="line">  &#x2F;&#x2F; 重启配置文件</span><br><span class="line">  source ~&#x2F;.bashrc</span><br><span class="line">  &#96;&#96;&#96;   </span><br><span class="line"></span><br><span class="line">3、安装node指定版本</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>  nvm ls-remote  // 查看所有的node可用版本<br>  nvm list  // 查看已安装node版本<br>  nvm install 版本号  // 下载指定node版本，如nvm install v11.14.0<br>  nvm use 版本号  // 使用指定版本<br>  nvm alias default  // 设置默认版本，每次启动终端都使用该版本<br>  ```</p>]]></content>
+    <content type="html"><![CDATA[<p>1、nvm安装。nvm是node版本管理工具，为解决node各版本不兼容问题，nvm是让你在同一台机器上安装和切换不同版本的node</p><ol><li><p>brew install nvm</p></li><li><p>编辑配置文件，vim ~/.bash_profile，文件中写入如下内容</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export NVM_DIR&#x3D;~&#x2F;.nvm</span><br><span class="line">source $(brew --prefix nvm)&#x2F;nvm.sh</span><br></pre></td></tr></table></figure></li><li><p>保存，source ~/.bash_profile</p></li></ol><p>2、nvm切换镜像源，解决node下载卡/失败的问题</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vim ~&#x2F;.bash_profile</span><br><span class="line">&#x2F;&#x2F; 加入以下两条配置文件</span><br><span class="line">export NVM_NODEJS_ORG_MIRROR&#x3D;http:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;node</span><br><span class="line">export NVM_IOJS_ORG_MIRROR&#x3D;http:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;iojs</span><br><span class="line">&#x2F;&#x2F; 重启配置文件</span><br><span class="line">source ~&#x2F;.bashrc</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>3、安装node指定版本</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nvm ls-remote  &#x2F;&#x2F; 查看所有的node可用版本</span><br><span class="line">nvm list  &#x2F;&#x2F; 查看已安装node版本</span><br><span class="line">nvm install 版本号  &#x2F;&#x2F; 下载指定node版本，如nvm install v11.14.0</span><br><span class="line">nvm use 版本号  &#x2F;&#x2F; 使用指定版本</span><br><span class="line">nvm alias default  &#x2F;&#x2F; 设置默认版本，每次启动终端都使用该版本</span><br></pre></td></tr></table></figure>]]></content>
     
     
     <summary type="html">&lt;p&gt;1、nvm安装。nvm是node版本管理工具，为解决node各版本不兼容问题，nvm是让你在同一台机器上安装和切换不同版本的node&lt;/p&gt;
@@ -59,7 +82,7 @@
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;2、nvm切换镜像源，解决node下载卡/失败的问题&lt;/p&gt;
-  &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;  vim ~&amp;#x2F;.bash_profile&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#x2F;&amp;#x2F; 加入以下两条配置文件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  export NVM_NODEJS_ORG_MIRROR&amp;#x3D;http:&amp;#x2F;&amp;#x2F;npm.taobao.org&amp;#x2F;mirrors&amp;#x2F;node&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  export NVM_IOJS_ORG_MIRROR&amp;#x3D;http:&amp;#x2F;&amp;#x2F;npm.taobao.org&amp;#x2F;mirrors&amp;#x2F;iojs&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#x2F;&amp;#x2F; 重启配置文件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  source ~&amp;#x2F;.bashrc&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#96;&amp;#96;&amp;#96;   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3、安装node指定版本&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+  &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;vim ~&amp;#x2F;.bash_profile&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#x2F;&amp;#x2F; 加入以下两条配置文件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;export NVM_NODEJS_ORG_MIRROR&amp;#x3D;http:&amp;#x2F;&amp;#x2F;npm.taobao.org&amp;#x2F;mirrors&amp;#x2F;node&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;export NVM_IOJS_ORG_MIRROR&amp;#x3D;http:&amp;#x2F;&amp;#x2F;npm.taobao.org&amp;#x2F;mirrors&amp;#x2F;iojs&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#x2F;&amp;#x2F; 重启配置文件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;source ~&amp;#x2F;.bashrc&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
     
     
     
@@ -496,30 +519,6 @@
     <category term="投资" scheme="https://dogfun.top/tags/%E6%8A%95%E8%B5%84/"/>
     
     <category term="股票" scheme="https://dogfun.top/tags/%E8%82%A1%E7%A5%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>牛市?</title>
-    <link href="https://dogfun.top/2020/08/17/%E9%87%91%E8%9E%8D/%E7%89%9B%E5%B8%82/"/>
-    <id>https://dogfun.top/2020/08/17/%E9%87%91%E8%9E%8D/%E7%89%9B%E5%B8%82/</id>
-    <published>2020-08-17T10:51:34.000Z</published>
-    <updated>2021-01-09T05:49:54.351Z</updated>
-    
-    <content type="html"><![CDATA[<p>　　8.17今天的股市红红火火，浙商证券在上周的震荡盘中，亏了6、7个点，后续也没有补仓，虽然看多，600股成本16.44，上周收盘15.50，一块钱的亏损，受可转债转股的影响，担心股价受影响，因此打算换股，看好招商证券20块的价位，但最终没有买入。今天证券板块拉升，招商当了把领头羊，涨停，虽然上周就看出来机构在打压股价，不断地低吸拉成本，可惜了，一波短线没有买入。今天的大盘站到3400以上，拉升过大，后面的量能支撑表示有所怀疑，k线站到了5日线以上，明天之后也会有所回调，今天将手上的浙商16.60清仓了，防止风险，没什么盈利，三安光电25.78的300股，今天到达29.50，比较满意，手上的持仓也没有满上。今天的行情就是撬动金融板块，拉升指数，个股普遍没有大涨，二八行情。后续应该是大盘的板块轮动，今天加仓了手上的科技基金，科技基金之前高拉减仓了，震荡行情中没有什么亏损，提前埋伏科技板，等大盘资金轮动的时候能吃点肉，顺应国家的慢牛行情，小股民跟着赚点小钱，还是要对股市有所敬畏，看好中国的资本市场。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;　　8.17今天的股市红红火火，浙商证券在上周的震荡盘中，亏了6、7个点，后续也没有补仓，虽然看多，600股成本16.44，上周收盘15.50，一块钱的亏损，受可转债转股的影响，担心股价受影响，因此打算换股，看好招商证券20块的价位，但最终没有买入。今天证券板块拉升，招商当</summary>
-      
-    
-    
-    
-    <category term="金融" scheme="https://dogfun.top/categories/%E9%87%91%E8%9E%8D/"/>
-    
-    
-    <category term="投资" scheme="https://dogfun.top/tags/%E6%8A%95%E8%B5%84/"/>
     
   </entry>
   

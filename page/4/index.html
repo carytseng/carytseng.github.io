@@ -137,6 +137,41 @@ var _hmt = _hmt || [];
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2020-06-30 </div>
+			<div class="article-title"><a href="/2020/06/30/数据库/事务/" >事务</a></div>						
+		</h3>
+	
+
+
+			  <div class="entry">
+  <div class="row">
+	
+	
+		<p><strong>事务的定义</strong></p>
+<blockquote>
+<p>事务是数据库管理系统执行过程的一个逻辑单位，通俗地讲，一件事要么一次做完，要么不做。</p>
+</blockquote>
+<p><strong>事务的特性（ACID）</strong></p>
+<ul>
+<li><strong>原子性（Atomicity）</strong>：事务作为一个整体被执行，包含在其中的对数据库的操作要么全部被执行，要么都不执行。</li>
+<li><strong>一致性（Consistency）</strong>：事务应确保数据库的状态从一个一致状态转变为另一个一致状态。<em>一致状态</em>的含义是数据库中的数据应满足完整性约束。</li>
+<li><strong>隔离性（Isolation）</strong>：多个事务并发执行时，一个事务的执行不应影响其他事务的执行。</li>
+<li><strong>持久性（Durability）</strong>：已被提交的事务对数据库的修改应该永久保存在数据库中。</li>
+</ul>
+<p><strong>例子</strong></p>
+<p>　　比如去银行存款这个事务，分为几个操作，首先查询账户余额，修改余额，然后提交，这就是一个事务。</p>
+	
+	</div>
+  <a type="button" href="/2020/06/30/数据库/事务/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2020-06-30 </div>
 			<div class="article-title"><a href="/2020/06/30/金融/基金布局/" >基金布局</a></div>						
 		</h3>
 	
@@ -493,98 +528,6 @@ var _hmt = _hmt || [];
 
            
 		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2020-05-14 </div>
-			<div class="article-title"><a href="/2020/05/14/linux/vim/" >Vim</a></div>						
-		</h3>
-	
-
-
-			  <div class="entry">
-  <div class="row">
-	
-	
-		<p><strong>移动光标</strong></p>
-<table>
-<thead>
-<tr>
-<th>按键</th>
-<th>操作</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>h</td>
-<td>左移动</td>
-</tr>
-<tr>
-<td>j</td>
-<td>下移动</td>
-</tr>
-<tr>
-<td>k</td>
-<td>上移动</td>
-</tr>
-<tr>
-<td>l</td>
-<td>右移动</td>
-</tr>
-<tr>
-<td>ctrl+d</td>
-<td>下移动半页</td>
-</tr>
-<tr>
-<td>ctrl+u</td>
-<td>上移动半页</td>
-</tr>
-<tr>
-<td>gg</td>
-<td>移动到第一行</td>
-</tr>
-<tr>
-<td>G</td>
-<td>移动到最后一行</td>
-</tr>
-<tr>
-<td>nG</td>
-<td>移动到第n行</td>
-</tr>
-<tr>
-<td>n+<space></space></td>
-<td>右移n个字符</td>
-</tr>
-<tr>
-<td>n+<enter></enter></td>
-<td>下移动n行</td>
-</tr>
-</tbody></table>
-<p><strong>搜索</strong></p>
-<table>
-<thead>
-<tr>
-<th>按键</th>
-<th>操作</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>/word</td>
-<td>向光标下搜索</td>
-</tr>
-<tr>
-<td>?word</td>
-<td>向光标上搜索</td>
-</tr>
-</tbody></table>
-	
-	</div>
-  <a type="button" href="/2020/05/14/linux/vim/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-           
-		
 
 		</div>
 
@@ -667,6 +610,8 @@ var _hmt = _hmt || [];
 		
 			<li><a href="/categories/金融/">金融<span>6</span></a></li>
 		
+			<li><a href="/categories/随想/">随想<span>1</span></a></li>
+		
 			<li><a href="/categories/随笔/">随笔<span>13</span></a></li>
 		
 		</ul>
@@ -678,45 +623,45 @@ var _hmt = _hmt || [];
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/从零开始写框架/">从零开始写框架<span>1</span></a></li>
-		
-			<li><a href="/tags/技术学习/">技术学习<span>21</span></a></li>
-		
-			<li><a href="/tags/异常/">异常<span>1</span></a></li>
-		
-			<li><a href="/tags/Nosql/">Nosql<span>1</span></a></li>
-		
-			<li><a href="/tags/基金/">基金<span>1</span></a></li>
-		
-			<li><a href="/tags/消息队列/">消息队列<span>2</span></a></li>
-		
-			<li><a href="/tags/Java基础/">Java基础<span>2</span></a></li>
-		
-			<li><a href="/tags/股票/">股票<span>2</span></a></li>
-		
-			<li><a href="/tags/redis/">redis<span>1</span></a></li>
-		
-			<li><a href="/tags/ignite/">ignite<span>1</span></a></li>
-		
-			<li><a href="/tags/投资/">投资<span>5</span></a></li>
-		
-			<li><a href="/tags/编程技巧/">编程技巧<span>16</span></a></li>
-		
-			<li><a href="/tags/数据库/">数据库<span>2</span></a></li>
-		
-			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
-		
-			<li><a href="/tags/JWT/">JWT<span>2</span></a></li>
+			<li><a href="/tags/ssr/">ssr<span>1</span></a></li>
 		
 			<li><a href="/tags/WebSocket/">WebSocket<span>1</span></a></li>
 		
 			<li><a href="/tags/Spring/">Spring<span>1</span></a></li>
 		
-			<li><a href="/tags/理哲/">理哲<span>1</span></a></li>
+			<li><a href="/tags/数据源/">数据源<span>1</span></a></li>
+		
+			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
+		
+			<li><a href="/tags/数据库/">数据库<span>2</span></a></li>
+		
+			<li><a href="/tags/Web/">Web<span>1</span></a></li>
+		
+			<li><a href="/tags/Java基础/">Java基础<span>2</span></a></li>
+		
+			<li><a href="/tags/消息队列/">消息队列<span>2</span></a></li>
 		
 			<li><a href="/tags/效率/">效率<span>1</span></a></li>
 		
-			<li><a href="/tags/ssr/">ssr<span>1</span></a></li>
+			<li><a href="/tags/缓存/">缓存<span>1</span></a></li>
+		
+			<li><a href="/tags/异常/">异常<span>1</span></a></li>
+		
+			<li><a href="/tags/Nosql/">Nosql<span>1</span></a></li>
+		
+			<li><a href="/tags/技术学习/">技术学习<span>21</span></a></li>
+		
+			<li><a href="/tags/股票/">股票<span>2</span></a></li>
+		
+			<li><a href="/tags/ignite/">ignite<span>1</span></a></li>
+		
+			<li><a href="/tags/编程技巧/">编程技巧<span>16</span></a></li>
+		
+			<li><a href="/tags/索引/">索引<span>1</span></a></li>
+		
+			<li><a href="/tags/垃圾回收/">垃圾回收<span>1</span></a></li>
+		
+			<li><a href="/tags/投资/">投资<span>5</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>26</span></a></li>
@@ -736,6 +681,10 @@ var _hmt = _hmt || [];
       </li>
     
       <li>
+        <a href="/2021/11/27/随想11-27/" ><i class="fa fa-file-o"></i>随想11-27</a>
+      </li>
+    
+      <li>
         <a href="/2021/10/25/NVM/" ><i class="fa fa-file-o"></i>NVM</a>
       </li>
     
@@ -745,10 +694,6 @@ var _hmt = _hmt || [];
     
       <li>
         <a href="/2021/09/25/mac/"  title="常年使用mac平台总结出的优良体验，日常的效率工具，有助提升个人工作效率" ><i class="fa fa-file-o"></i>Mac平台下工具总结</a>
-      </li>
-    
-      <li>
-        <a href="/2021/08/05/java/java/" ><i class="fa fa-file-o"></i>Java基础补全</a>
       </li>
     
   </ul>
