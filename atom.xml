@@ -6,7 +6,7 @@
   <link href="https://dogfun.top/atom.xml" rel="self"/>
   
   <link href="https://dogfun.top/"/>
-  <updated>2021-11-26T17:07:58.572Z</updated>
+  <updated>2021-11-27T14:24:36.003Z</updated>
   <id>https://dogfun.top/</id>
   
   <author>
@@ -17,43 +17,53 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="https://dogfun.top/2021/11/25/Minio/"/>
-    <id>https://dogfun.top/2021/11/25/Minio/</id>
-    <published>2021-11-25T08:46:43.932Z</published>
-    <updated>2021-11-26T17:07:58.572Z</updated>
+    <title>Minio</title>
+    <link href="https://dogfun.top/2021/11/27/Minio/"/>
+    <id>https://dogfun.top/2021/11/27/Minio/</id>
+    <published>2021-11-27T01:49:06.000Z</published>
+    <updated>2021-11-27T14:24:36.003Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Minio"><a href="#Minio" class="headerlink" title="Minio"></a>Minio</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 9000:9000 -p 9001:9001 -d --name minio1 \</span><br><span class="line">  -v &#x2F;Users&#x2F;carytseng&#x2F;envir&#x2F;minio&#x2F;data:&#x2F;data \</span><br><span class="line">  -v &#x2F;Users&#x2F;carytseng&#x2F;envir&#x2F;minio&#x2F;config:&#x2F;root&#x2F;.minio \</span><br><span class="line">  -e &#39;MINIO_ROOT_USER&#x3D;admin&#39; \</span><br><span class="line">  -e &#39;MINIO_ROOT_PASSWORD&#x3D;admin123&#39; \</span><br><span class="line">  minio&#x2F;minio server &#x2F;data --console-address &quot;:9001&quot;</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h1 id="Minio"><a href="#Minio" class="headerlink" title="Minio"></a>Minio</h1><h2 id="docker安装"><a href="#docker安装" class="headerlink" title="docker安装"></a>docker安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 9000:9000 -p 9001:9001 -d --name minio1 \</span><br><span class="line">  -v &#x2F;Users&#x2F;carytseng&#x2F;envir&#x2F;minio&#x2F;data:&#x2F;data \</span><br><span class="line">  -v &#x2F;Users&#x2F;carytseng&#x2F;envir&#x2F;minio&#x2F;config:&#x2F;root&#x2F;.minio \</span><br><span class="line">  -e &#39;MINIO_ROOT_USER&#x3D;admin&#39; \</span><br><span class="line">  -e &#39;MINIO_ROOT_PASSWORD&#x3D;admin123&#39; \</span><br><span class="line">  minio&#x2F;minio server &#x2F;data --console-address &quot;:9001&quot;</span><br></pre></td></tr></table></figure>]]></content>
     
     
       
       
-    <summary type="html">&lt;h1 id=&quot;Minio&quot;&gt;&lt;a href=&quot;#Minio&quot; class=&quot;headerlink&quot; title=&quot;Minio&quot;&gt;&lt;/a&gt;Minio&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;Minio&quot;&gt;&lt;a href=&quot;#Minio&quot; class=&quot;headerlink&quot; title=&quot;Minio&quot;&gt;&lt;/a&gt;Minio&lt;/h1&gt;&lt;h2 id=&quot;docker安装&quot;&gt;&lt;a href=&quot;#docker安装&quot; class=&quot;headerlink&quot; titl</summary>
       
     
     
+    
+    <category term="中间件" scheme="https://dogfun.top/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
     
     
   </entry>
   
   <entry>
-    <title></title>
+    <title>NVM安装</title>
     <link href="https://dogfun.top/2021/10/25/NVM/"/>
     <id>https://dogfun.top/2021/10/25/NVM/</id>
-    <published>2021-10-25T03:29:49.877Z</published>
-    <updated>2021-10-25T03:29:49.877Z</updated>
+    <published>2021-10-25T01:49:06.000Z</published>
+    <updated>2021-11-27T14:23:41.494Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="NVM"><a href="#NVM" class="headerlink" title="NVM"></a>NVM</h1><p>1、Homebrew自动安装</p><ul><li><p>```<br>// Homebrew安装<br>/bin/zsh -c “$(curl -fsSL <a href="https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)&quot;">https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)&quot;</a></p><p>// Homebrew卸载<br>/bin/zsh -c “$(curl -fsSL <a href="https://gitee.com/cunkai/HomebrewCN/raw/master/HomebrewUninstall.sh)&quot;">https://gitee.com/cunkai/HomebrewCN/raw/master/HomebrewUninstall.sh)&quot;</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">  brew -v 出现brew版本号，说明安装成功</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">2、nvm安装。nvm是node版本管理工具，为解决node各版本不兼容问题，nvm是让你在同一台机器上安装和切换不同版本的node</span><br><span class="line"></span><br><span class="line">1. brew install nvm</span><br><span class="line"></span><br><span class="line">2. 编辑配置文件，vim ~&#x2F;.bash_profile，文件中写入如下内容</span><br><span class="line"></span><br></pre></td></tr></table></figure><p> export NVM_DIR=~/.nvm<br> source $(brew –prefix nvm)/nvm.sh</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. 保存，source ~&#x2F;.bash_profile</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">3、nvm切换镜像源，解决node下载卡&#x2F;失败的问题</span><br><span class="line"></span><br><span class="line">- [![复制代码](https:&#x2F;&#x2F;common.cnblogs.com&#x2F;images&#x2F;copycode.gif)](javascript:void(0);)</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>vim ~/.bash_profile<br>// 加入以下两条配置文件<br>export NVM_NODEJS_ORG_MIRROR=<a href="http://npm.taobao.org/mirrors/node">http://npm.taobao.org/mirrors/node</a><br>export NVM_IOJS_ORG_MIRROR=<a href="http://npm.taobao.org/mirrors/iojs">http://npm.taobao.org/mirrors/iojs</a><br>// 重启配置文件<br>source ~/.bashrc</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  [![复制代码](https:&#x2F;&#x2F;common.cnblogs.com&#x2F;images&#x2F;copycode.gif)](javascript:void(0);)</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">4、安装node指定版本</span><br><span class="line"></span><br><span class="line">- &#96;&#96;&#96;</span><br><span class="line">  nvm ls-remote  &#x2F;&#x2F; 查看所有的node可用版本</span><br><span class="line">  nvm list  &#x2F;&#x2F; 查看已安装node版本</span><br><span class="line">  nvm install 版本号  &#x2F;&#x2F; 下载指定node版本，如nvm install v11.14.0</span><br><span class="line">  nvm use 版本号  &#x2F;&#x2F; 使用指定版本</span><br><span class="line">  nvm alias default  &#x2F;&#x2F; 设置默认版本，每次启动终端都使用该版本</span><br></pre></td></tr></table></figure></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;NVM&quot;&gt;&lt;a href=&quot;#NVM&quot; class=&quot;headerlink&quot; title=&quot;NVM&quot;&gt;&lt;/a&gt;NVM&lt;/h1&gt;&lt;p&gt;1、Homebrew自动安装&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;```&lt;br&gt;// Homebrew安装&lt;br&gt;/bin/zsh -c</summary>
-      
+    <content type="html"><![CDATA[<h1 id="NVM"><a href="#NVM" class="headerlink" title="NVM"></a>NVM</h1><p>1、nvm安装。nvm是node版本管理工具，为解决node各版本不兼容问题，nvm是让你在同一台机器上安装和切换不同版本的node</p><ol><li><p>brew install nvm</p></li><li><p>编辑配置文件，vim ~/.bash_profile，文件中写入如下内容</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export NVM_DIR&#x3D;~&#x2F;.nvm</span><br><span class="line">source $(brew --prefix nvm)&#x2F;nvm.sh</span><br></pre></td></tr></table></figure></li><li><p>保存，source ~/.bash_profile</p></li></ol><p>2、nvm切换镜像源，解决node下载卡/失败的问题</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  vim ~&#x2F;.bash_profile</span><br><span class="line">  &#x2F;&#x2F; 加入以下两条配置文件</span><br><span class="line">  export NVM_NODEJS_ORG_MIRROR&#x3D;http:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;node</span><br><span class="line">  export NVM_IOJS_ORG_MIRROR&#x3D;http:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;iojs</span><br><span class="line">  &#x2F;&#x2F; 重启配置文件</span><br><span class="line">  source ~&#x2F;.bashrc</span><br><span class="line">  &#96;&#96;&#96;   </span><br><span class="line"></span><br><span class="line">3、安装node指定版本</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>  nvm ls-remote  // 查看所有的node可用版本<br>  nvm list  // 查看已安装node版本<br>  nvm install 版本号  // 下载指定node版本，如nvm install v11.14.0<br>  nvm use 版本号  // 使用指定版本<br>  nvm alias default  // 设置默认版本，每次启动终端都使用该版本<br>  ```</p>]]></content>
     
     
+    <summary type="html">&lt;p&gt;1、nvm安装。nvm是node版本管理工具，为解决node各版本不兼容问题，nvm是让你在同一台机器上安装和切换不同版本的node&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;brew install nvm&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;编辑配置文件，vim ~/.bash_profile，文件中写入如下内容&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;export NVM_DIR&amp;#x3D;~&amp;#x2F;.nvm&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;source $(brew --prefix nvm)&amp;#x2F;nvm.sh&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;保存，source ~/.bash_profile&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;2、nvm切换镜像源，解决node下载卡/失败的问题&lt;/p&gt;
+  &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;  vim ~&amp;#x2F;.bash_profile&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#x2F;&amp;#x2F; 加入以下两条配置文件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  export NVM_NODEJS_ORG_MIRROR&amp;#x3D;http:&amp;#x2F;&amp;#x2F;npm.taobao.org&amp;#x2F;mirrors&amp;#x2F;node&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  export NVM_IOJS_ORG_MIRROR&amp;#x3D;http:&amp;#x2F;&amp;#x2F;npm.taobao.org&amp;#x2F;mirrors&amp;#x2F;iojs&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#x2F;&amp;#x2F; 重启配置文件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  source ~&amp;#x2F;.bashrc&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#96;&amp;#96;&amp;#96;   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3、安装node指定版本&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="Node" scheme="https://dogfun.top/categories/Node/"/>
     
     
   </entry>

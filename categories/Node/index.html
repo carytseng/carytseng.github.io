@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Linux | CaryTseng</title>
+  <title>Node | CaryTseng</title>
   <meta name="author" content="CaryTseng">
   
   <meta name="description" content="我们所知不过沧海一粟，我们所不知却是汪洋大海">
@@ -113,7 +113,7 @@ var _hmt = _hmt || [];
 
 <!-- title -->
 <div class="page-header ">
-  <h1 class="archive-title-tag title ">Linux</h1>
+  <h1 class="archive-title-category title ">Node</h1>
 </div>
 
 <div class="row page">
@@ -132,8 +132,8 @@ var _hmt = _hmt || [];
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2020-05-14 </div>
-			<div class="article-title"><a href="/2020/05/14/linux/Linux文件删除原理/" >Linux文件删除原理</a></div>						
+			<div class="date"> 2021-10-25 </div>
+			<div class="article-title"><a href="/2021/10/25/NVM/" >NVM安装</a></div>						
 		</h3>
 	
 
@@ -142,36 +142,21 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<p>　　Linux磁盘上的文件有两个link计数器，分别是i_count和i_link，表示进程的引用计数和硬连接的数量。只有当i_count=0并且i_link=0才会删除文件。当我们使用rm命令时，只是使i_link减少，如果此时文件依然被进程引用，文件还未被真正的删除。</p>
-<p><strong>实践场景</strong></p>
-<p>　　实现的一个功能点是通过FTP将文件从其他机子同步到本机，需要删除本机当日的数据，覆写新的数据，并且这些数据会被一个程序定时读取使用。这里的问题是如果此时程序正在读取数据，而同步程序也在跑，会不会影响业务。首先这里程序不涉及写操作，只读，那么当同步程序删除文件时，应用程序load到内存中，完成业务操作都是在内存中，当然如果发生程序异常，那么重跑也会以最新的文件为基础。</p>
-
+		<p>1、nvm安装。nvm是node版本管理工具，为解决node各版本不兼容问题，nvm是让你在同一台机器上安装和切换不同版本的node</p>
+<ol>
+<li><p>brew install nvm</p>
+</li>
+<li><p>编辑配置文件，vim ~/.bash_profile，文件中写入如下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export NVM_DIR&#x3D;~&#x2F;.nvm</span><br><span class="line">source $(brew --prefix nvm)&#x2F;nvm.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>保存，source ~/.bash_profile</p>
+</li>
+</ol>
+<p>2、nvm切换镜像源，解决node下载卡/失败的问题</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">  vim ~&#x2F;.bash_profile</span><br><span class="line">  &#x2F;&#x2F; 加入以下两条配置文件</span><br><span class="line">  export NVM_NODEJS_ORG_MIRROR&#x3D;http:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;node</span><br><span class="line">  export NVM_IOJS_ORG_MIRROR&#x3D;http:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;iojs</span><br><span class="line">  &#x2F;&#x2F; 重启配置文件</span><br><span class="line">  source ~&#x2F;.bashrc</span><br><span class="line">  &#96;&#96;&#96;   </span><br><span class="line"></span><br><span class="line">3、安装node指定版本</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 	
 	</div>
-  <a type="button" href="/2020/05/14/linux/Linux文件删除原理/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2020-05-14 </div>
-			<div class="article-title"><a href="/2020/05/14/linux/NetworkManager/" >NetworkManager</a></div>						
-		</h3>
-	
-
-
-		     <div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">nmcli connection 网络连接管理$ nmcli connection show  # 查看所有网卡配置</span><br><span class="line">$ nmcli connection reload # 重新加载网卡配置，不会立即生效</span><br><span class="line">$ nmcli connection down ens160 &amp;&amp; nmcli connection up ens160 # 立即生效Connection配置</span><br><span class="line">$ nmcli connection add type ethernet con-name ens160-con ifname ens160 ipv4.addr 1.1.1.2&#x2F;24 ipv4.gateway 1.1.1.1 ipv4.method manual # 为device创建connection</span><br><span class="line">$ nmcli connection add type ethernet con-name ens160-con ifname ens160 ipv.method auto # dhcp</span><br><span class="line">$ nmcli connection modify ens160-con ipv.addr 1.1.1.3&#x2F;24 &amp;&amp; nmcli connection up ens160-con # 修改IP地址并立即生效</span><br><span class="line">​</span><br><span class="line">交互方式修改IP</span><br><span class="line">$ nmcli connection edit ens160-con</span><br><span class="line">​</span><br><span class="line">nmcli device 网卡设备管理</span><br><span class="line">$ nmcli device status # 查看所有网卡设备状态</span><br><span class="line">$ nmcli device show ens160 # 查看网卡配置</span><br><span class="line">$ nmcli device reapply ens160 # 立即生效网卡配置</span><br></pre></td></tr></table></figure>
-
-
-	
-	</div>
-  <a type="button" href="/2020/05/14/linux/NetworkManager/#more" class="btn btn-default more">阅读此文</a>
+  <a type="button" href="/2021/10/25/NVM/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 	       
@@ -254,45 +239,45 @@ var _hmt = _hmt || [];
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
-		
-			<li><a href="/tags/从零开始写框架/">从零开始写框架<span>1</span></a></li>
-		
-			<li><a href="/tags/ssr/">ssr<span>1</span></a></li>
-		
-			<li><a href="/tags/编程技巧/">编程技巧<span>16</span></a></li>
-		
-			<li><a href="/tags/投资/">投资<span>5</span></a></li>
+			<li><a href="/tags/异常/">异常<span>1</span></a></li>
 		
 			<li><a href="/tags/Java基础/">Java基础<span>2</span></a></li>
 		
-			<li><a href="/tags/技术学习/">技术学习<span>21</span></a></li>
-		
-			<li><a href="/tags/效率/">效率<span>1</span></a></li>
-		
-			<li><a href="/tags/Linux/">Linux<span>2</span></a></li>
-		
-			<li><a href="/tags/索引/">索引<span>1</span></a></li>
-		
-			<li><a href="/tags/redis/">redis<span>1</span></a></li>
-		
-			<li><a href="/tags/Spring/">Spring<span>1</span></a></li>
-		
-			<li><a href="/tags/缓存/">缓存<span>1</span></a></li>
+			<li><a href="/tags/编程技巧/">编程技巧<span>16</span></a></li>
 		
 			<li><a href="/tags/数据源/">数据源<span>1</span></a></li>
 		
-			<li><a href="/tags/异常/">异常<span>1</span></a></li>
+			<li><a href="/tags/理哲/">理哲<span>1</span></a></li>
 		
-			<li><a href="/tags/Nosql/">Nosql<span>1</span></a></li>
+			<li><a href="/tags/缓存/">缓存<span>1</span></a></li>
+		
+			<li><a href="/tags/技术学习/">技术学习<span>21</span></a></li>
+		
+			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
 		
 			<li><a href="/tags/数据库/">数据库<span>2</span></a></li>
 		
-			<li><a href="/tags/垃圾回收/">垃圾回收<span>1</span></a></li>
+			<li><a href="/tags/从零开始写框架/">从零开始写框架<span>1</span></a></li>
+		
+			<li><a href="/tags/投资/">投资<span>5</span></a></li>
+		
+			<li><a href="/tags/Spring/">Spring<span>1</span></a></li>
+		
+			<li><a href="/tags/WebSocket/">WebSocket<span>1</span></a></li>
+		
+			<li><a href="/tags/ignite/">ignite<span>1</span></a></li>
+		
+			<li><a href="/tags/JWT/">JWT<span>2</span></a></li>
+		
+			<li><a href="/tags/股票/">股票<span>2</span></a></li>
+		
+			<li><a href="/tags/索引/">索引<span>1</span></a></li>
+		
+			<li><a href="/tags/Nosql/">Nosql<span>1</span></a></li>
+		
+			<li><a href="/tags/redis/">redis<span>1</span></a></li>
 		
 			<li><a href="/tags/基金/">基金<span>1</span></a></li>
-		
-			<li><a href="/tags/消息队列/">消息队列<span>2</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>26</span></a></li>
