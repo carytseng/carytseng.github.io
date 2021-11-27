@@ -133,7 +133,7 @@ var _hmt = _hmt || [];
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2021-09-25 </div>
-			<div class="article-title"><a href="/2021/09/25/Mac/" title="mac优化配置常用记录">Mac折腾</a></div>						
+			<div class="article-title"><a href="/2021/09/25/mac/" title="常用使用mac平台总结出的优良体验，日常的效率工具，有助提升个人工作效率">Mac平台下工具总结</a></div>						
 		</h3>
 	
 
@@ -142,16 +142,14 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<h3 id="设置性能模式"><a href="#设置性能模式" class="headerlink" title="设置性能模式"></a>设置性能模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">开启性能模式</span><br><span class="line">sudo nvram boot-args&#x3D;&quot;serverperfmode&#x3D;1 $(nvram boot-args 2&gt;&#x2F;dev&#x2F;null | cut -f 2-)&quot;</span><br><span class="line"></span><br><span class="line">关闭性能模式</span><br><span class="line">sudo nvram boot-args&#x3D;&quot;$(nvram boot-args 2&gt;&#x2F;dev&#x2F;null | sed -e $&#39;s&#x2F;boot-args\t&#x2F;&#x2F;;s&#x2F;serverperfmode&#x3D;1&#x2F;&#x2F;&#39;)&quot;</span><br><span class="line"></span><br><span class="line">查看当前模式</span><br><span class="line">nvram boot-args</span><br></pre></td></tr></table></figure>
+		<p>解压：Bandizip<br>影音：IINA<br>终端替代：iTerm2<br>文档阅览：PDF Expert<br>浏览器下载：NeatDownloadManager<br>磁力链接必备：迅雷<br>系统清理：Disk diet<br>本地索引搜索：HapiGo<br>外网工具：Clash<br>文档编辑：wps<br>邮件收发（主要可设代理，方便gmail）：Formail<br>文件管理器替代：TotalFinder</p>
+<p>MarkDown编辑：Typora<br>文本编辑：Sublime Text<br>Java开发：IDEA<br>数据库图形化：Navicat<br>git图形化工具：SourceTree<br>svn工具：Cornerstone<br>接口调试：PostMan<br>UML工具：draw.io<br>容器：docker<br>性能监控：JProfiler<br>文本对比：Beyond Compare<br>redis图形化工具：RDM<br>前端编辑：Visual Studio Code<br>ssh工具：Royal Tsx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">开启性能模式</span><br><span class="line">sudo nvram boot-args&#x3D;&quot;serverperfmode&#x3D;1 $(nvram boot-args 2&gt;&#x2F;dev&#x2F;null | cut -f 2-)&quot;</span><br><span class="line"></span><br><span class="line">关闭性能模式</span><br><span class="line">sudo nvram boot-args&#x3D;&quot;$(nvram boot-args 2&gt;&#x2F;dev&#x2F;null | sed -e $&#39;s&#x2F;boot-args\t&#x2F;&#x2F;;s&#x2F;serverperfmode&#x3D;1&#x2F;&#x2F;&#39;)&quot;</span><br><span class="line"></span><br><span class="line">查看当前模式</span><br><span class="line">nvram boot-args</span><br></pre></td></tr></table></figure>
 
-
-
-<h3 id="设置显卡模式"><a href="#设置显卡模式" class="headerlink" title="设置显卡模式"></a>设置显卡模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo pmset -a GPUSwitch 0 &#x2F;&#x2F; 强制使用集显</span><br><span class="line"></span><br><span class="line">sudo pmset -a GPUSwitch 1 &#x2F;&#x2F; 强制使用独显</span><br><span class="line"></span><br><span class="line">sudo pmset -a GPUSwitch 2 &#x2F;&#x2F; 自动切换模式</span><br></pre></td></tr></table></figure>
-
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo pmset -a GPUSwitch 0 &#x2F;&#x2F; 强制使用集显</span><br><span class="line"></span><br><span class="line">sudo pmset -a GPUSwitch 1 &#x2F;&#x2F; 强制使用独显</span><br><span class="line"></span><br><span class="line">sudo pmset -a GPUSwitch 2 &#x2F;&#x2F; 自动切换模式</span><br></pre></td></tr></table></figure>
 	
 	</div>
-  <a type="button" href="/2021/09/25/Mac/#more" class="btn btn-default more">阅读此文</a>
+  <a type="button" href="/2021/09/25/mac/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 	       
@@ -211,7 +209,7 @@ var _hmt = _hmt || [];
 		
 			<li><a href="/categories/效率/">效率<span>1</span></a></li>
 		
-			<li><a href="/categories/数据库/">数据库<span>7</span></a></li>
+			<li><a href="/categories/数据库/">数据库<span>8</span></a></li>
 		
 			<li><a href="/categories/算法/">算法<span>1</span></a></li>
 		
@@ -230,45 +228,45 @@ var _hmt = _hmt || [];
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/Linux/">Linux<span>2</span></a></li>
-		
-			<li><a href="/tags/从零开始写框架/">从零开始写框架<span>1</span></a></li>
-		
-			<li><a href="/tags/索引/">索引<span>1</span></a></li>
-		
-			<li><a href="/tags/Nosql/">Nosql<span>1</span></a></li>
-		
-			<li><a href="/tags/基金/">基金<span>1</span></a></li>
+			<li><a href="/tags/投资/">投资<span>5</span></a></li>
 		
 			<li><a href="/tags/技术学习/">技术学习<span>21</span></a></li>
 		
-			<li><a href="/tags/消息队列/">消息队列<span>2</span></a></li>
-		
-			<li><a href="/tags/编程技巧/">编程技巧<span>16</span></a></li>
-		
-			<li><a href="/tags/投资/">投资<span>5</span></a></li>
-		
-			<li><a href="/tags/异常/">异常<span>1</span></a></li>
-		
-			<li><a href="/tags/Spring/">Spring<span>1</span></a></li>
-		
-			<li><a href="/tags/效率/">效率<span>1</span></a></li>
-		
-			<li><a href="/tags/理哲/">理哲<span>1</span></a></li>
-		
-			<li><a href="/tags/ssr/">ssr<span>1</span></a></li>
-		
-			<li><a href="/tags/数据源/">数据源<span>1</span></a></li>
-		
-			<li><a href="/tags/ignite/">ignite<span>1</span></a></li>
-		
-			<li><a href="/tags/数据库/">数据库<span>2</span></a></li>
+			<li><a href="/tags/从零开始写框架/">从零开始写框架<span>1</span></a></li>
 		
 			<li><a href="/tags/redis/">redis<span>1</span></a></li>
 		
-			<li><a href="/tags/股票/">股票<span>2</span></a></li>
+			<li><a href="/tags/数据库/">数据库<span>2</span></a></li>
 		
-			<li><a href="/tags/JWT/">JWT<span>2</span></a></li>
+			<li><a href="/tags/编程技巧/">编程技巧<span>16</span></a></li>
+		
+			<li><a href="/tags/效率/">效率<span>1</span></a></li>
+		
+			<li><a href="/tags/垃圾回收/">垃圾回收<span>1</span></a></li>
+		
+			<li><a href="/tags/异常/">异常<span>1</span></a></li>
+		
+			<li><a href="/tags/消息队列/">消息队列<span>2</span></a></li>
+		
+			<li><a href="/tags/基金/">基金<span>1</span></a></li>
+		
+			<li><a href="/tags/Java基础/">Java基础<span>2</span></a></li>
+		
+			<li><a href="/tags/ignite/">ignite<span>1</span></a></li>
+		
+			<li><a href="/tags/WebSocket/">WebSocket<span>1</span></a></li>
+		
+			<li><a href="/tags/Nosql/">Nosql<span>1</span></a></li>
+		
+			<li><a href="/tags/索引/">索引<span>1</span></a></li>
+		
+			<li><a href="/tags/Web/">Web<span>1</span></a></li>
+		
+			<li><a href="/tags/Linux/">Linux<span>2</span></a></li>
+		
+			<li><a href="/tags/Spring/">Spring<span>1</span></a></li>
+		
+			<li><a href="/tags/ssr/">ssr<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>26</span></a></li>
@@ -284,23 +282,23 @@ var _hmt = _hmt || [];
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2021/09/25/Mac/"  title="mac优化配置常用记录" ><i class="fa fa-file-o"></i>Mac折腾</a>
+        <a href="/2021/11/25/Minio/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
+        <a href="/2021/10/25/NVM/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
+        <a href="/2021/10/21/数据库/MyBatisPlus/"  title="MyBatisPlus常用记录" ><i class="fa fa-file-o"></i>MyBatisPlus常用记录</a>
+      </li>
+    
+      <li>
+        <a href="/2021/09/25/mac/"  title="常用使用mac平台总结出的优良体验，日常的效率工具，有助提升个人工作效率" ><i class="fa fa-file-o"></i>Mac平台下工具总结</a>
       </li>
     
       <li>
         <a href="/2021/08/05/java/java/" ><i class="fa fa-file-o"></i>Java基础补全</a>
-      </li>
-    
-      <li>
-        <a href="/2020/12/25/Redis/Redis模糊删除key/" ><i class="fa fa-file-o"></i>Redis模糊删除key</a>
-      </li>
-    
-      <li>
-        <a href="/2020/11/28/vps/ignite迁移/"  title="ignite服务主机迁移，主要是docker容器的备份迁移" ><i class="fa fa-file-o"></i>ignite迁移</a>
-      </li>
-    
-      <li>
-        <a href="/2020/11/20/Navicat更新删除数据的正确姿势/" ><i class="fa fa-file-o"></i>Navicat更新删除数据的正确姿势</a>
       </li>
     
   </ul>

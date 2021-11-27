@@ -294,6 +294,12 @@ var _hmt = _hmt || [];
 		
             
 		
+            
+		
+            
+		
+            
+		
         
         <!-- render other articles -->
         
@@ -302,8 +308,8 @@ var _hmt = _hmt || [];
 	
 	<!-- display as entry -->	
 		<h3 class="title">
-			<div class="date"> 2021-09-25 </div>
-			<div class="article-title"><a href="/2021/09/25/Mac/" title="mac优化配置常用记录">Mac折腾</a></div>						
+			<div class="date"> 2021-11-25 </div>
+			<div class="article-title"><a href="/2021/11/25/Minio/" ></a></div>						
 		</h3>
 	
 
@@ -312,16 +318,101 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<h3 id="设置性能模式"><a href="#设置性能模式" class="headerlink" title="设置性能模式"></a>设置性能模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">开启性能模式</span><br><span class="line">sudo nvram boot-args&#x3D;&quot;serverperfmode&#x3D;1 $(nvram boot-args 2&gt;&#x2F;dev&#x2F;null | cut -f 2-)&quot;</span><br><span class="line"></span><br><span class="line">关闭性能模式</span><br><span class="line">sudo nvram boot-args&#x3D;&quot;$(nvram boot-args 2&gt;&#x2F;dev&#x2F;null | sed -e $&#39;s&#x2F;boot-args\t&#x2F;&#x2F;;s&#x2F;serverperfmode&#x3D;1&#x2F;&#x2F;&#39;)&quot;</span><br><span class="line"></span><br><span class="line">查看当前模式</span><br><span class="line">nvram boot-args</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="设置显卡模式"><a href="#设置显卡模式" class="headerlink" title="设置显卡模式"></a>设置显卡模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo pmset -a GPUSwitch 0 &#x2F;&#x2F; 强制使用集显</span><br><span class="line"></span><br><span class="line">sudo pmset -a GPUSwitch 1 &#x2F;&#x2F; 强制使用独显</span><br><span class="line"></span><br><span class="line">sudo pmset -a GPUSwitch 2 &#x2F;&#x2F; 自动切换模式</span><br></pre></td></tr></table></figure>
+		<h1 id="Minio"><a href="#Minio" class="headerlink" title="Minio"></a>Minio</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 9000:9000 -p 9001:9001 -d --name minio1 \</span><br><span class="line">  -v &#x2F;Users&#x2F;carytseng&#x2F;envir&#x2F;minio&#x2F;data:&#x2F;data \</span><br><span class="line">  -v &#x2F;Users&#x2F;carytseng&#x2F;envir&#x2F;minio&#x2F;config:&#x2F;root&#x2F;.minio \</span><br><span class="line">  -e &#39;MINIO_ROOT_USER&#x3D;admin&#39; \</span><br><span class="line">  -e &#39;MINIO_ROOT_PASSWORD&#x3D;admin123&#39; \</span><br><span class="line">  minio&#x2F;minio server &#x2F;data --console-address &quot;:9001&quot;</span><br></pre></td></tr></table></figure>
 
 
 	
 	</div>
-  <a type="button" href="/2021/09/25/Mac/#more" class="btn btn-default more">阅读此文</a>
+  <a type="button" href="/2021/11/25/Minio/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2021-10-25 </div>
+			<div class="article-title"><a href="/2021/10/25/NVM/" ></a></div>						
+		</h3>
+	
+
+
+			  <div class="entry">
+  <div class="row">
+	
+	
+		<h1 id="NVM"><a href="#NVM" class="headerlink" title="NVM"></a>NVM</h1><p>1、Homebrew自动安装</p>
+<ul>
+<li><p>```<br>// Homebrew安装<br>/bin/zsh -c “$(curl -fsSL <a target="_blank" rel="noopener" href="https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)&quot;">https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)&quot;</a></p>
+<p>// Homebrew卸载<br>/bin/zsh -c “$(curl -fsSL <a target="_blank" rel="noopener" href="https://gitee.com/cunkai/HomebrewCN/raw/master/HomebrewUninstall.sh)&quot;">https://gitee.com/cunkai/HomebrewCN/raw/master/HomebrewUninstall.sh)&quot;</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">  brew -v 出现brew版本号，说明安装成功</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">2、nvm安装。nvm是node版本管理工具，为解决node各版本不兼容问题，nvm是让你在同一台机器上安装和切换不同版本的node</span><br><span class="line"></span><br><span class="line">1. brew install nvm</span><br><span class="line"></span><br><span class="line">2. 编辑配置文件，vim ~&#x2F;.bash_profile，文件中写入如下内容</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p> export NVM_DIR=~/.nvm<br> source $(brew –prefix nvm)/nvm.sh</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. 保存，source ~&#x2F;.bash_profile</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">3、nvm切换镜像源，解决node下载卡&#x2F;失败的问题</span><br><span class="line"></span><br><span class="line">- [![复制代码](https:&#x2F;&#x2F;common.cnblogs.com&#x2F;images&#x2F;copycode.gif)](javascript:void(0);)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>vim ~/.bash_profile<br>// 加入以下两条配置文件<br>export NVM_NODEJS_ORG_MIRROR=<a target="_blank" rel="noopener" href="http://npm.taobao.org/mirrors/node">http://npm.taobao.org/mirrors/node</a><br>export NVM_IOJS_ORG_MIRROR=<a target="_blank" rel="noopener" href="http://npm.taobao.org/mirrors/iojs">http://npm.taobao.org/mirrors/iojs</a><br>// 重启配置文件<br>source ~/.bashrc</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  [![复制代码](https:&#x2F;&#x2F;common.cnblogs.com&#x2F;images&#x2F;copycode.gif)](javascript:void(0);)</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line"></span><br><span class="line">4、安装node指定版本</span><br><span class="line"></span><br><span class="line">- &#96;&#96;&#96;</span><br><span class="line">  nvm ls-remote  &#x2F;&#x2F; 查看所有的node可用版本</span><br><span class="line">  nvm list  &#x2F;&#x2F; 查看已安装node版本</span><br><span class="line">  nvm install 版本号  &#x2F;&#x2F; 下载指定node版本，如nvm install v11.14.0</span><br><span class="line">  nvm use 版本号  &#x2F;&#x2F; 使用指定版本</span><br><span class="line">  nvm alias default  &#x2F;&#x2F; 设置默认版本，每次启动终端都使用该版本</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2021/10/25/NVM/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2021-10-21 </div>
+			<div class="article-title"><a href="/2021/10/21/数据库/MyBatisPlus/" title="MyBatisPlus常用记录">MyBatisPlus常用记录</a></div>						
+		</h3>
+	
+
+
+			  <div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="MyBatisPlus"><a href="#MyBatisPlus" class="headerlink" title="MyBatisPlus"></a>MyBatisPlus</h2><h2 id="时间范围查询"><a href="#时间范围查询" class="headerlink" title="时间范围查询"></a>时间范围查询</h2><h3 id="1-传入时间范围参数类型是字符串"><a href="#1-传入时间范围参数类型是字符串" class="headerlink" title="1.传入时间范围参数类型是字符串"></a>1.传入时间范围参数类型是字符串</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;if test&#x3D;&quot;startTime!&#x3D;null and startTime.trim() neq &#39;&#39;&quot;&gt;</span><br><span class="line">    and date_format(create_time,&#39;%Y-%m-%d %H:%i:%s&#39;) &gt;&#x3D; str_to_date(#&#123;startTime&#125;,&#39;%Y-%m-%d %H:%i:%s&#39;)</span><br><span class="line">  &lt;&#x2F;if&gt;</span><br><span class="line">  &lt;if test&#x3D;&quot;endTime!&#x3D;null and endTime.trim() neq &#39;&#39;&quot;&gt;</span><br><span class="line">    and date_format(create_time,&#39;%Y-%m-%d %H:%i:%s&#39;) &lt;&#x3D; str_to_date(#&#123;endTime&#125;,&#39;%Y-%m-%d %H:%i:%s&#39;)</span><br><span class="line">  &lt;&#x2F;if&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-传入时间范围参数类型是Date"><a href="#2-传入时间范围参数类型是Date" class="headerlink" title="2.传入时间范围参数类型是Date"></a>2.传入时间范围参数类型是Date</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;if test&#x3D;&quot;startTime!&#x3D;null and startTime.trim() neq &#39;&#39;&quot;&gt;</span><br><span class="line">   and date_format(create_time,&#39;%Y-%m-%d %H:%i:%s&#39;) &gt;&#x3D; date_format(#&#123;startTime&#125;,&#39;%Y-%m-%d %H:%i:%s&#39;)</span><br><span class="line"> &lt;&#x2F;if&gt;</span><br><span class="line"> &lt;if test&#x3D;&quot;endTime!&#x3D;null and endTime.trim() neq &#39;&#39;&quot;&gt;</span><br><span class="line">   and date_format(create_time,&#39;%Y-%m-%d %H:%i:%s&#39;) &lt;&#x3D; date_format(#&#123;endTime&#125;,&#39;%Y-%m-%d %H:%i:%s&#39;)</span><br><span class="line"> &lt;&#x2F;if&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Mybatis-Plus时间范围查询"><a href="#3-Mybatis-Plus时间范围查询" class="headerlink" title="3.Mybatis-Plus时间范围查询"></a>3.Mybatis-Plus时间范围查询</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Page&lt;Record&gt; page &#x3D; new Page&lt;&gt;(page, limit);</span><br><span class="line">IPage&lt;Record&gt; result &#x3D; iRecordService.page(page,</span><br><span class="line">       new LambdaQueryWrapper&lt;Record&gt;()</span><br><span class="line">           .apply(StrUtil.isNotBlank(start_date),</span><br><span class="line">                   &quot;date_format (optime,&#39;%Y-%m-%d&#39;) &gt;&#x3D; date_format(&#39;&quot; + start_date + &quot;&#39;,&#39;%Y-%m-%d&#39;)&quot;)</span><br><span class="line">           .apply(StrUtil.isNotBlank(end_date),</span><br><span class="line">                   &quot;date_format (optime,&#39;%Y-%m-%d&#39;) &lt;&#x3D; date_format(&#39;&quot; + end_date + &quot;&#39;,&#39;%Y-%m-%d&#39;)&quot;)</span><br><span class="line">           .orderByDesc(HmsFaceDetectLog::getOptime));</span><br></pre></td></tr></table></figure>
+
+
+	
+	</div>
+  <a type="button" href="/2021/10/21/数据库/MyBatisPlus/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2021-09-25 </div>
+			<div class="article-title"><a href="/2021/09/25/mac/" title="常用使用mac平台总结出的优良体验，日常的效率工具，有助提升个人工作效率">Mac平台下工具总结</a></div>						
+		</h3>
+	
+
+
+			  <div class="entry">
+  <div class="row">
+	
+	
+		<p>解压：Bandizip<br>影音：IINA<br>终端替代：iTerm2<br>文档阅览：PDF Expert<br>浏览器下载：NeatDownloadManager<br>磁力链接必备：迅雷<br>系统清理：Disk diet<br>本地索引搜索：HapiGo<br>外网工具：Clash<br>文档编辑：wps<br>邮件收发（主要可设代理，方便gmail）：Formail<br>文件管理器替代：TotalFinder</p>
+<p>MarkDown编辑：Typora<br>文本编辑：Sublime Text<br>Java开发：IDEA<br>数据库图形化：Navicat<br>git图形化工具：SourceTree<br>svn工具：Cornerstone<br>接口调试：PostMan<br>UML工具：draw.io<br>容器：docker<br>性能监控：JProfiler<br>文本对比：Beyond Compare<br>redis图形化工具：RDM<br>前端编辑：Visual Studio Code<br>ssh工具：Royal Tsx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">开启性能模式</span><br><span class="line">sudo nvram boot-args&#x3D;&quot;serverperfmode&#x3D;1 $(nvram boot-args 2&gt;&#x2F;dev&#x2F;null | cut -f 2-)&quot;</span><br><span class="line"></span><br><span class="line">关闭性能模式</span><br><span class="line">sudo nvram boot-args&#x3D;&quot;$(nvram boot-args 2&gt;&#x2F;dev&#x2F;null | sed -e $&#39;s&#x2F;boot-args\t&#x2F;&#x2F;;s&#x2F;serverperfmode&#x3D;1&#x2F;&#x2F;&#39;)&quot;</span><br><span class="line"></span><br><span class="line">查看当前模式</span><br><span class="line">nvram boot-args</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo pmset -a GPUSwitch 0 &#x2F;&#x2F; 强制使用集显</span><br><span class="line"></span><br><span class="line">sudo pmset -a GPUSwitch 1 &#x2F;&#x2F; 强制使用独显</span><br><span class="line"></span><br><span class="line">sudo pmset -a GPUSwitch 2 &#x2F;&#x2F; 自动切换模式</span><br></pre></td></tr></table></figure>
+	
+	</div>
+  <a type="button" href="/2021/09/25/mac/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
            
@@ -525,92 +616,6 @@ var _hmt = _hmt || [];
 
            
 		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2020-10-28 </div>
-			<div class="article-title"><a href="/2020/10/28/Redis/redis/" >Redis探究</a></div>						
-		</h3>
-	
-
-
-			  <div class="entry">
-  <div class="row">
-	
-	
-		
-<p>Redis诞生之初是为了解决关系型数据库的性能问题，由于IO需要对磁盘的读写速度满足不了实际场景，因此创造者利用内存造了一个内存数据库，没有关系型数据库的约束，Redis提供的数据结构简单且能满足高性能的读写场景，其基于对内存的读写，能够在短时间内处理数据，由于读写速度快，免去IO的局限，IO涉及操作系统用户空间与内核空间的数据复制及事件等待，所以redis采用单线程的处理模型，免去线程切换的开销，因为也没必要进行多线程处理</p>
-<p>支持多种数据结构，memcached仅支持字符串且不支持持久化</p>
-<p>Redis采用基于Reactor模式开发网络事件处理器，采用IO多路复用技术，简单来说就是一条线程监听多个客户端socket，当有事件到时，将事件作为一个task放到队列中，接下来文件处理器会对队列中的task进行处理，文件处理器是单线程的，没有线程的切换问题，文件处理器包含连接应答器、命令请求处理器、命令回复处理器，执行相应的命令后，返回相应。这也是Redis速度快的原因：IO多路复用、单线程处理task、基于内存的数据操作</p>
-<p></p>
-	
-	</div>
-  <a type="button" href="/2020/10/28/Redis/redis/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2020-10-07 </div>
-			<div class="article-title"><a href="/2020/10/07/web/Spring多数据源加载/" >Spring多数据源加载</a></div>						
-		</h3>
-	
-
-
-			  <div class="entry">
-  <div class="row">
-	
-	
-		
-<ul>
-<li>分包方式</li>
-<li>参数化方式</li>
-<li>注解+AOP</li>
-</ul>
-<p>比较简单，哪个数据源的操作就走哪个mapper目录下的文件，一般就是两个库无任何关联的场景。</p>
-<p>根据传入的参数选择数据源，进行数据查询，个人比较推崇这一种方式。</p>
-<p>在特定的方式上添加自定义的注解，配置上需要选择的数据源值，AOP执行的时候通过获取注解上的值来切换，这种方式需要在方法上写死需要的数据源，不太灵活。</p>
-	
-	</div>
-  <a type="button" href="/2020/10/07/web/Spring多数据源加载/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2020-09-30 </div>
-			<div class="article-title"><a href="/2020/09/30/web/从零开始写框架-SpringMVC/" >从零开始写框架-SpringMVC</a></div>						
-		</h3>
-	
-
-
-			  <div class="entry">
-  <div class="row">
-	
-	
-		
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scanPackage=com.gupaoedu.demo</span><br></pre></td></tr></table></figure>
-
-<p>这部分主要模拟Spring中我们常用的Autowired，Controller，RequestMapping，RequestParam，Service等。</p>
-<p>注解文件：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(&#123;ElementType.FIELD&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> GPAutowired &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Target(&#123;ElementType.TYPE&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> GPController &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Target(&#123;ElementType.TYPE,ElementType.METHOD&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> GPRequestMapping &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Target(&#123;ElementType.PARAMETER&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> GPRequestParam &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Target(&#123;ElementType.TYPE&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> GPService &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-	
-	</div>
-  <a type="button" href="/2020/09/30/web/从零开始写框架-SpringMVC/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-           
-		
 
 		</div>
 
@@ -681,7 +686,7 @@ var _hmt = _hmt || [];
 		
 			<li><a href="/categories/效率/">效率<span>1</span></a></li>
 		
-			<li><a href="/categories/数据库/">数据库<span>7</span></a></li>
+			<li><a href="/categories/数据库/">数据库<span>8</span></a></li>
 		
 			<li><a href="/categories/算法/">算法<span>1</span></a></li>
 		
@@ -700,45 +705,45 @@ var _hmt = _hmt || [];
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/技术学习/">技术学习<span>21</span></a></li>
-		
-			<li><a href="/tags/Linux/">Linux<span>2</span></a></li>
-		
-			<li><a href="/tags/Web/">Web<span>1</span></a></li>
-		
 			<li><a href="/tags/基金/">基金<span>1</span></a></li>
 		
-			<li><a href="/tags/理哲/">理哲<span>1</span></a></li>
-		
-			<li><a href="/tags/消息队列/">消息队列<span>2</span></a></li>
-		
-			<li><a href="/tags/异常/">异常<span>1</span></a></li>
-		
-			<li><a href="/tags/缓存/">缓存<span>1</span></a></li>
+			<li><a href="/tags/WebSocket/">WebSocket<span>1</span></a></li>
 		
 			<li><a href="/tags/投资/">投资<span>5</span></a></li>
 		
-			<li><a href="/tags/效率/">效率<span>1</span></a></li>
-		
-			<li><a href="/tags/Nosql/">Nosql<span>1</span></a></li>
-		
-			<li><a href="/tags/redis/">redis<span>1</span></a></li>
-		
-			<li><a href="/tags/数据库/">数据库<span>2</span></a></li>
-		
-			<li><a href="/tags/JWT/">JWT<span>2</span></a></li>
-		
-			<li><a href="/tags/垃圾回收/">垃圾回收<span>1</span></a></li>
-		
-			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
-		
-			<li><a href="/tags/Java基础/">Java基础<span>2</span></a></li>
-		
-			<li><a href="/tags/数据源/">数据源<span>1</span></a></li>
+			<li><a href="/tags/理哲/">理哲<span>1</span></a></li>
 		
 			<li><a href="/tags/从零开始写框架/">从零开始写框架<span>1</span></a></li>
 		
+			<li><a href="/tags/索引/">索引<span>1</span></a></li>
+		
+			<li><a href="/tags/Nosql/">Nosql<span>1</span></a></li>
+		
+			<li><a href="/tags/缓存/">缓存<span>1</span></a></li>
+		
+			<li><a href="/tags/数据源/">数据源<span>1</span></a></li>
+		
+			<li><a href="/tags/垃圾回收/">垃圾回收<span>1</span></a></li>
+		
+			<li><a href="/tags/技术学习/">技术学习<span>21</span></a></li>
+		
+			<li><a href="/tags/Java基础/">Java基础<span>2</span></a></li>
+		
+			<li><a href="/tags/JWT/">JWT<span>2</span></a></li>
+		
+			<li><a href="/tags/Web/">Web<span>1</span></a></li>
+		
 			<li><a href="/tags/股票/">股票<span>2</span></a></li>
+		
+			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
+		
+			<li><a href="/tags/效率/">效率<span>1</span></a></li>
+		
+			<li><a href="/tags/ssr/">ssr<span>1</span></a></li>
+		
+			<li><a href="/tags/Spring/">Spring<span>1</span></a></li>
+		
+			<li><a href="/tags/编程技巧/">编程技巧<span>16</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>26</span></a></li>
@@ -754,23 +759,23 @@ var _hmt = _hmt || [];
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2021/09/25/Mac/"  title="mac优化配置常用记录" ><i class="fa fa-file-o"></i>Mac折腾</a>
+        <a href="/2021/11/25/Minio/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
+        <a href="/2021/10/25/NVM/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
+        <a href="/2021/10/21/数据库/MyBatisPlus/"  title="MyBatisPlus常用记录" ><i class="fa fa-file-o"></i>MyBatisPlus常用记录</a>
+      </li>
+    
+      <li>
+        <a href="/2021/09/25/mac/"  title="常用使用mac平台总结出的优良体验，日常的效率工具，有助提升个人工作效率" ><i class="fa fa-file-o"></i>Mac平台下工具总结</a>
       </li>
     
       <li>
         <a href="/2021/08/05/java/java/" ><i class="fa fa-file-o"></i>Java基础补全</a>
-      </li>
-    
-      <li>
-        <a href="/2020/12/25/Redis/Redis模糊删除key/" ><i class="fa fa-file-o"></i>Redis模糊删除key</a>
-      </li>
-    
-      <li>
-        <a href="/2020/11/28/vps/ignite迁移/"  title="ignite服务主机迁移，主要是docker容器的备份迁移" ><i class="fa fa-file-o"></i>ignite迁移</a>
-      </li>
-    
-      <li>
-        <a href="/2020/11/20/Navicat更新删除数据的正确姿势/" ><i class="fa fa-file-o"></i>Navicat更新删除数据的正确姿势</a>
       </li>
     
   </ul>

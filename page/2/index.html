@@ -136,6 +136,92 @@ var _hmt = _hmt || [];
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2020-10-28 </div>
+			<div class="article-title"><a href="/2020/10/28/Redis/redis/" >Redis探究</a></div>						
+		</h3>
+	
+
+
+			  <div class="entry">
+  <div class="row">
+	
+	
+		
+<p>Redis诞生之初是为了解决关系型数据库的性能问题，由于IO需要对磁盘的读写速度满足不了实际场景，因此创造者利用内存造了一个内存数据库，没有关系型数据库的约束，Redis提供的数据结构简单且能满足高性能的读写场景，其基于对内存的读写，能够在短时间内处理数据，由于读写速度快，免去IO的局限，IO涉及操作系统用户空间与内核空间的数据复制及事件等待，所以redis采用单线程的处理模型，免去线程切换的开销，因为也没必要进行多线程处理</p>
+<p>支持多种数据结构，memcached仅支持字符串且不支持持久化</p>
+<p>Redis采用基于Reactor模式开发网络事件处理器，采用IO多路复用技术，简单来说就是一条线程监听多个客户端socket，当有事件到时，将事件作为一个task放到队列中，接下来文件处理器会对队列中的task进行处理，文件处理器是单线程的，没有线程的切换问题，文件处理器包含连接应答器、命令请求处理器、命令回复处理器，执行相应的命令后，返回相应。这也是Redis速度快的原因：IO多路复用、单线程处理task、基于内存的数据操作</p>
+<p></p>
+	
+	</div>
+  <a type="button" href="/2020/10/28/Redis/redis/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2020-10-07 </div>
+			<div class="article-title"><a href="/2020/10/07/web/Spring多数据源加载/" >Spring多数据源加载</a></div>						
+		</h3>
+	
+
+
+			  <div class="entry">
+  <div class="row">
+	
+	
+		
+<ul>
+<li>分包方式</li>
+<li>参数化方式</li>
+<li>注解+AOP</li>
+</ul>
+<p>比较简单，哪个数据源的操作就走哪个mapper目录下的文件，一般就是两个库无任何关联的场景。</p>
+<p>根据传入的参数选择数据源，进行数据查询，个人比较推崇这一种方式。</p>
+<p>在特定的方式上添加自定义的注解，配置上需要选择的数据源值，AOP执行的时候通过获取注解上的值来切换，这种方式需要在方法上写死需要的数据源，不太灵活。</p>
+	
+	</div>
+  <a type="button" href="/2020/10/07/web/Spring多数据源加载/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2020-09-30 </div>
+			<div class="article-title"><a href="/2020/09/30/web/从零开始写框架-SpringMVC/" >从零开始写框架-SpringMVC</a></div>						
+		</h3>
+	
+
+
+			  <div class="entry">
+  <div class="row">
+	
+	
+		
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scanPackage=com.gupaoedu.demo</span><br></pre></td></tr></table></figure>
+
+<p>这部分主要模拟Spring中我们常用的Autowired，Controller，RequestMapping，RequestParam，Service等。</p>
+<p>注解文件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(&#123;ElementType.FIELD&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> GPAutowired &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Target(&#123;ElementType.TYPE&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> GPController &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Target(&#123;ElementType.TYPE,ElementType.METHOD&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> GPRequestMapping &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Target(&#123;ElementType.PARAMETER&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> GPRequestParam &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Target(&#123;ElementType.TYPE&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> GPService &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+	
+	</div>
+  <a type="button" href="/2020/09/30/web/从零开始写框架-SpringMVC/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2020-09-25 </div>
 			<div class="article-title"><a href="/2020/09/25/ES/" >ES</a></div>						
 		</h3>
@@ -348,93 +434,6 @@ var _hmt = _hmt || [];
 
            
 		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2020-08-15 </div>
-			<div class="article-title"><a href="/2020/08/15/个人思考/茶多酚的功效/" >茶多酚的功效</a></div>						
-		</h3>
-	
-
-
-			  <div class="entry">
-  <div class="row">
-	
-	
-		<h3 id="茶多酚"><a href="#茶多酚" class="headerlink" title="茶多酚"></a>茶多酚</h3><p>　　英德特产绿茶，号称绿茶中的茶王，期间特别驱车前往本地试茶，相比红茶的烈性，绿茶的茶性比较收敛，就茶感上比较中性，对中枢神经的兴奋作用没有那么大，有促排，消肿的功效 ，个人本身有鼻炎，鼻甲长期处于肿胀的状态，喝绿茶发现鼻甲的肿胀有减缓，脸上的油脂减少，查阅相关资料，发现绿茶中的茶多酚含量相比其他茶种含量较高，因为绿茶的发酵程度低，故而茶多酚含量高。茶多酚对人体有多重功效，特别是一些慢性疾病有一定的疗效。</p>
-<h4 id="功效"><a href="#功效" class="headerlink" title="功效"></a>功效</h4><ul>
-<li>抗氧化</li>
-<li>抗炎，鼻炎患者能够有效消肿，对鼻腔的炎症有一定的抑制作用</li>
-<li>抗高血脂</li>
-<li>延缓衰老</li>
-<li>防水肿、抗过敏</li>
-</ul>
-
-	
-	</div>
-  <a type="button" href="/2020/08/15/个人思考/茶多酚的功效/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2020-08-07 </div>
-			<div class="article-title"><a href="/2020/08/07/金融/建仓/" >建仓</a></div>						
-		</h3>
-	
-
-
-			  <div class="entry">
-  <div class="row">
-	
-	
-		<p>　　8.4入场建仓，300股的浙商证券，成本16.65，500股的三安光电，成本26.14。基本是买在跌位，8.6涨了一块钱，在8.7又猛跌猛拉，基本上没有多大的盈利，后续看好，持股不动。</p>
-<p>　　8.11，今天尾盘跳水，将这段时间的收益吐回去了，尾盘还加仓了浙商证券，拉低成本到16.44，虽然大盘整体下挫，但是聪明的钱，北上资金净流入60亿，说明在买筹，还是看好后市，持股不动。</p>
-
-	
-	</div>
-  <a type="button" href="/2020/08/07/金融/建仓/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2020-07-16 </div>
-			<div class="article-title"><a href="/2020/07/16/数据库/深入浅出索引/" title="索引理论总结">深入浅出索引</a></div>						
-		</h3>
-	
-
-
-			  <div class="entry">
-  <div class="row">
-	
-	
-		
-<p> 索引常用的数据结构：</p>
-<ul>
-<li>哈希表</li>
-<li>有序数组</li>
-<li>搜索树</li>
-</ul>
-<p>　　适用于等值查询的场景，key通过哈希函数得到一个确定的位置，上面放对应的value。使用链表解决哈希冲突。不适合范围查询，因为需要全表扫描，无法利用索引完成排序，不支持多列联合索引的最左匹配规则，如果有大量重复键值的情况会产生哈希碰撞问题。</p>
-<p>　　只适用于静态搜索引擎，索引列的数据按照规则排序，查找数据可以直接二分查找，时间复杂度是O(log(N))支持范围查询。缺点是更新数据比较麻烦，需要移动记录。</p>
-	
-	</div>
-  <a type="button" href="/2020/07/16/数据库/深入浅出索引/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-           
-		
 
 		</div>
 
@@ -505,7 +504,7 @@ var _hmt = _hmt || [];
 		
 			<li><a href="/categories/效率/">效率<span>1</span></a></li>
 		
-			<li><a href="/categories/数据库/">数据库<span>7</span></a></li>
+			<li><a href="/categories/数据库/">数据库<span>8</span></a></li>
 		
 			<li><a href="/categories/算法/">算法<span>1</span></a></li>
 		
@@ -524,45 +523,45 @@ var _hmt = _hmt || [];
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/数据库/">数据库<span>2</span></a></li>
-		
-			<li><a href="/tags/Nosql/">Nosql<span>1</span></a></li>
-		
-			<li><a href="/tags/ignite/">ignite<span>1</span></a></li>
-		
-			<li><a href="/tags/基金/">基金<span>1</span></a></li>
-		
-			<li><a href="/tags/垃圾回收/">垃圾回收<span>1</span></a></li>
+			<li><a href="/tags/效率/">效率<span>1</span></a></li>
 		
 			<li><a href="/tags/消息队列/">消息队列<span>2</span></a></li>
 		
-			<li><a href="/tags/Linux/">Linux<span>2</span></a></li>
-		
-			<li><a href="/tags/从零开始写框架/">从零开始写框架<span>1</span></a></li>
+			<li><a href="/tags/股票/">股票<span>2</span></a></li>
 		
 			<li><a href="/tags/Java基础/">Java基础<span>2</span></a></li>
 		
-			<li><a href="/tags/Web/">Web<span>1</span></a></li>
-		
-			<li><a href="/tags/股票/">股票<span>2</span></a></li>
-		
-			<li><a href="/tags/JWT/">JWT<span>2</span></a></li>
+			<li><a href="/tags/Spring/">Spring<span>1</span></a></li>
 		
 			<li><a href="/tags/编程技巧/">编程技巧<span>16</span></a></li>
 		
-			<li><a href="/tags/Spring/">Spring<span>1</span></a></li>
-		
-			<li><a href="/tags/效率/">效率<span>1</span></a></li>
-		
 			<li><a href="/tags/redis/">redis<span>1</span></a></li>
-		
-			<li><a href="/tags/理哲/">理哲<span>1</span></a></li>
 		
 			<li><a href="/tags/数据源/">数据源<span>1</span></a></li>
 		
-			<li><a href="/tags/异常/">异常<span>1</span></a></li>
+			<li><a href="/tags/基金/">基金<span>1</span></a></li>
 		
-			<li><a href="/tags/投资/">投资<span>5</span></a></li>
+			<li><a href="/tags/技术学习/">技术学习<span>21</span></a></li>
+		
+			<li><a href="/tags/JWT/">JWT<span>2</span></a></li>
+		
+			<li><a href="/tags/数据库/">数据库<span>2</span></a></li>
+		
+			<li><a href="/tags/索引/">索引<span>1</span></a></li>
+		
+			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
+		
+			<li><a href="/tags/Linux/">Linux<span>2</span></a></li>
+		
+			<li><a href="/tags/垃圾回收/">垃圾回收<span>1</span></a></li>
+		
+			<li><a href="/tags/ignite/">ignite<span>1</span></a></li>
+		
+			<li><a href="/tags/缓存/">缓存<span>1</span></a></li>
+		
+			<li><a href="/tags/WebSocket/">WebSocket<span>1</span></a></li>
+		
+			<li><a href="/tags/ssr/">ssr<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>26</span></a></li>
@@ -578,23 +577,23 @@ var _hmt = _hmt || [];
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2021/09/25/Mac/"  title="mac优化配置常用记录" ><i class="fa fa-file-o"></i>Mac折腾</a>
+        <a href="/2021/11/25/Minio/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
+        <a href="/2021/10/25/NVM/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
+        <a href="/2021/10/21/数据库/MyBatisPlus/"  title="MyBatisPlus常用记录" ><i class="fa fa-file-o"></i>MyBatisPlus常用记录</a>
+      </li>
+    
+      <li>
+        <a href="/2021/09/25/mac/"  title="常用使用mac平台总结出的优良体验，日常的效率工具，有助提升个人工作效率" ><i class="fa fa-file-o"></i>Mac平台下工具总结</a>
       </li>
     
       <li>
         <a href="/2021/08/05/java/java/" ><i class="fa fa-file-o"></i>Java基础补全</a>
-      </li>
-    
-      <li>
-        <a href="/2020/12/25/Redis/Redis模糊删除key/" ><i class="fa fa-file-o"></i>Redis模糊删除key</a>
-      </li>
-    
-      <li>
-        <a href="/2020/11/28/vps/ignite迁移/"  title="ignite服务主机迁移，主要是docker容器的备份迁移" ><i class="fa fa-file-o"></i>ignite迁移</a>
-      </li>
-    
-      <li>
-        <a href="/2020/11/20/Navicat更新删除数据的正确姿势/" ><i class="fa fa-file-o"></i>Navicat更新删除数据的正确姿势</a>
       </li>
     
   </ul>

@@ -132,6 +132,33 @@ var _hmt = _hmt || [];
 	
 	<!-- display as entry -->	
 		<h3 class="title">
+			<div class="date"> 2021-10-21 </div>
+			<div class="article-title"><a href="/2021/10/21/数据库/MyBatisPlus/" title="MyBatisPlus常用记录">MyBatisPlus常用记录</a></div>						
+		</h3>
+	
+
+
+		     <div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="MyBatisPlus"><a href="#MyBatisPlus" class="headerlink" title="MyBatisPlus"></a>MyBatisPlus</h2><h2 id="时间范围查询"><a href="#时间范围查询" class="headerlink" title="时间范围查询"></a>时间范围查询</h2><h3 id="1-传入时间范围参数类型是字符串"><a href="#1-传入时间范围参数类型是字符串" class="headerlink" title="1.传入时间范围参数类型是字符串"></a>1.传入时间范围参数类型是字符串</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;if test&#x3D;&quot;startTime!&#x3D;null and startTime.trim() neq &#39;&#39;&quot;&gt;</span><br><span class="line">    and date_format(create_time,&#39;%Y-%m-%d %H:%i:%s&#39;) &gt;&#x3D; str_to_date(#&#123;startTime&#125;,&#39;%Y-%m-%d %H:%i:%s&#39;)</span><br><span class="line">  &lt;&#x2F;if&gt;</span><br><span class="line">  &lt;if test&#x3D;&quot;endTime!&#x3D;null and endTime.trim() neq &#39;&#39;&quot;&gt;</span><br><span class="line">    and date_format(create_time,&#39;%Y-%m-%d %H:%i:%s&#39;) &lt;&#x3D; str_to_date(#&#123;endTime&#125;,&#39;%Y-%m-%d %H:%i:%s&#39;)</span><br><span class="line">  &lt;&#x2F;if&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-传入时间范围参数类型是Date"><a href="#2-传入时间范围参数类型是Date" class="headerlink" title="2.传入时间范围参数类型是Date"></a>2.传入时间范围参数类型是Date</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;if test&#x3D;&quot;startTime!&#x3D;null and startTime.trim() neq &#39;&#39;&quot;&gt;</span><br><span class="line">   and date_format(create_time,&#39;%Y-%m-%d %H:%i:%s&#39;) &gt;&#x3D; date_format(#&#123;startTime&#125;,&#39;%Y-%m-%d %H:%i:%s&#39;)</span><br><span class="line"> &lt;&#x2F;if&gt;</span><br><span class="line"> &lt;if test&#x3D;&quot;endTime!&#x3D;null and endTime.trim() neq &#39;&#39;&quot;&gt;</span><br><span class="line">   and date_format(create_time,&#39;%Y-%m-%d %H:%i:%s&#39;) &lt;&#x3D; date_format(#&#123;endTime&#125;,&#39;%Y-%m-%d %H:%i:%s&#39;)</span><br><span class="line"> &lt;&#x2F;if&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Mybatis-Plus时间范围查询"><a href="#3-Mybatis-Plus时间范围查询" class="headerlink" title="3.Mybatis-Plus时间范围查询"></a>3.Mybatis-Plus时间范围查询</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Page&lt;Record&gt; page &#x3D; new Page&lt;&gt;(page, limit);</span><br><span class="line">IPage&lt;Record&gt; result &#x3D; iRecordService.page(page,</span><br><span class="line">       new LambdaQueryWrapper&lt;Record&gt;()</span><br><span class="line">           .apply(StrUtil.isNotBlank(start_date),</span><br><span class="line">                   &quot;date_format (optime,&#39;%Y-%m-%d&#39;) &gt;&#x3D; date_format(&#39;&quot; + start_date + &quot;&#39;,&#39;%Y-%m-%d&#39;)&quot;)</span><br><span class="line">           .apply(StrUtil.isNotBlank(end_date),</span><br><span class="line">                   &quot;date_format (optime,&#39;%Y-%m-%d&#39;) &lt;&#x3D; date_format(&#39;&quot; + end_date + &quot;&#39;,&#39;%Y-%m-%d&#39;)&quot;)</span><br><span class="line">           .orderByDesc(HmsFaceDetectLog::getOptime));</span><br></pre></td></tr></table></figure>
+
+
+	
+	</div>
+  <a type="button" href="/2021/10/21/数据库/MyBatisPlus/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
 			<div class="date"> 2020-07-16 </div>
 			<div class="article-title"><a href="/2020/07/16/数据库/深入浅出索引/" title="索引理论总结">深入浅出索引</a></div>						
 		</h3>
@@ -204,11 +231,12 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<h2 id="SQL常用"><a href="#SQL常用" class="headerlink" title="SQL常用"></a>SQL常用</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*sql: 去除数据库表中 tab、空格、回车符等特殊字符的解决方法</span></span><br><span class="line"><span class="comment">去除 tab、空格、回车符等使用 replace 语句</span></span><br><span class="line"><span class="comment">按照 ASCII 码*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">char</span>(<span class="number">64</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*例如 64 对应 @，则 */</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">REPLACE</span>(‘abc@qq.com’,<span class="built_in">char</span>(<span class="number">64</span>),’kk’)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*则结果为 abckkqq.com*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*依此类推，</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">去掉其他特殊符号，参考 ASCII 码对照表，去掉 tab 符号为*/</span></span><br><span class="line"> <span class="keyword">select</span> <span class="keyword">REPLACE</span>(‘要替换的字符或列名’,<span class="built_in">char</span>(<span class="number">9</span>),’替换的目标字符’)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*去掉空格符号为*/</span> </span><br><span class="line"><span class="keyword">select</span> <span class="keyword">REPLACE</span>(‘要替换的字符或列名’,<span class="built_in">char</span>(<span class="number">32</span>),’替换的目标字符’)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*去掉换行符号为*/</span> </span><br><span class="line"><span class="keyword">select</span> <span class="keyword">REPLACE</span>(‘要替换的字符或列名’,<span class="built_in">char</span>(<span class="number">10</span>),’替换的目标字符’)*/</span><br></pre></td></tr></table></figure>
+		<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*sql: 去除数据库表中 tab、空格、回车符等特殊字符的解决方法</span></span><br><span class="line"><span class="comment">去除 tab、空格、回车符等使用 replace 语句</span></span><br><span class="line"><span class="comment">按照 ASCII 码*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">char</span>(<span class="number">64</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*例如 64 对应 @，则 */</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">REPLACE</span>(‘abc@qq.com’,<span class="built_in">char</span>(<span class="number">64</span>),’kk’)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*则结果为 abckkqq.com*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*依此类推，</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">去掉其他特殊符号，参考 ASCII 码对照表，去掉 tab 符号为*/</span></span><br><span class="line"> <span class="keyword">select</span> <span class="keyword">REPLACE</span>(‘要替换的字符或列名’,<span class="built_in">char</span>(<span class="number">9</span>),’替换的目标字符’)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*去掉空格符号为*/</span> </span><br><span class="line"><span class="keyword">select</span> <span class="keyword">REPLACE</span>(‘要替换的字符或列名’,<span class="built_in">char</span>(<span class="number">32</span>),’替换的目标字符’)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*去掉换行符号为*/</span> </span><br><span class="line"><span class="keyword">select</span> <span class="keyword">REPLACE</span>(‘要替换的字符或列名’,<span class="built_in">char</span>(<span class="number">10</span>),’替换的目标字符’)*/</span><br></pre></td></tr></table></figure>
 
-<h2 id="获取近12个月"><a href="#获取近12个月" class="headerlink" title="获取近12个月"></a>获取近12个月</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>(<span class="keyword">CURDATE</span>(), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">1</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">2</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">3</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">4</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">5</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">6</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">7</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">8</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">9</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">10</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">11</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>(<span class="keyword">CURDATE</span>(), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">1</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">2</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">3</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">4</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">5</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">6</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">7</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">8</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">9</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">10</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">11</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span></span><br></pre></td></tr></table></figure>
 
-
+<p>时间处理</p>
+<p>字符串转日期-STR_TO_DATE</p>
 	
 	</div>
   <a type="button" href="/2019/11/11/数据库/SQL常用/#more" class="btn btn-default more">阅读此文</a>
@@ -377,7 +405,7 @@ var _hmt = _hmt || [];
 		
 			<li><a href="/categories/效率/">效率<span>1</span></a></li>
 		
-			<li><a href="/categories/数据库/">数据库<span>7</span></a></li>
+			<li><a href="/categories/数据库/">数据库<span>8</span></a></li>
 		
 			<li><a href="/categories/算法/">算法<span>1</span></a></li>
 		
@@ -396,45 +424,45 @@ var _hmt = _hmt || [];
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/编程技巧/">编程技巧<span>16</span></a></li>
+			<li><a href="/tags/基金/">基金<span>1</span></a></li>
 		
-			<li><a href="/tags/Web/">Web<span>1</span></a></li>
+			<li><a href="/tags/Spring/">Spring<span>1</span></a></li>
+		
+			<li><a href="/tags/效率/">效率<span>1</span></a></li>
+		
+			<li><a href="/tags/JWT/">JWT<span>2</span></a></li>
 		
 			<li><a href="/tags/股票/">股票<span>2</span></a></li>
 		
-			<li><a href="/tags/缓存/">缓存<span>1</span></a></li>
-		
-			<li><a href="/tags/投资/">投资<span>5</span></a></li>
+			<li><a href="/tags/编程技巧/">编程技巧<span>16</span></a></li>
 		
 			<li><a href="/tags/理哲/">理哲<span>1</span></a></li>
 		
-			<li><a href="/tags/数据源/">数据源<span>1</span></a></li>
+			<li><a href="/tags/Web/">Web<span>1</span></a></li>
+		
+			<li><a href="/tags/技术学习/">技术学习<span>21</span></a></li>
+		
+			<li><a href="/tags/消息队列/">消息队列<span>2</span></a></li>
+		
+			<li><a href="/tags/数据库/">数据库<span>2</span></a></li>
+		
+			<li><a href="/tags/索引/">索引<span>1</span></a></li>
 		
 			<li><a href="/tags/从零开始写框架/">从零开始写框架<span>1</span></a></li>
 		
-			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
+			<li><a href="/tags/Java基础/">Java基础<span>2</span></a></li>
 		
-			<li><a href="/tags/JWT/">JWT<span>2</span></a></li>
+			<li><a href="/tags/WebSocket/">WebSocket<span>1</span></a></li>
+		
+			<li><a href="/tags/Nosql/">Nosql<span>1</span></a></li>
+		
+			<li><a href="/tags/ignite/">ignite<span>1</span></a></li>
 		
 			<li><a href="/tags/Linux/">Linux<span>2</span></a></li>
 		
 			<li><a href="/tags/垃圾回收/">垃圾回收<span>1</span></a></li>
 		
 			<li><a href="/tags/异常/">异常<span>1</span></a></li>
-		
-			<li><a href="/tags/redis/">redis<span>1</span></a></li>
-		
-			<li><a href="/tags/消息队列/">消息队列<span>2</span></a></li>
-		
-			<li><a href="/tags/Java基础/">Java基础<span>2</span></a></li>
-		
-			<li><a href="/tags/效率/">效率<span>1</span></a></li>
-		
-			<li><a href="/tags/ssr/">ssr<span>1</span></a></li>
-		
-			<li><a href="/tags/Nosql/">Nosql<span>1</span></a></li>
-		
-			<li><a href="/tags/技术学习/">技术学习<span>21</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>26</span></a></li>
@@ -450,23 +478,23 @@ var _hmt = _hmt || [];
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2021/09/25/Mac/"  title="mac优化配置常用记录" ><i class="fa fa-file-o"></i>Mac折腾</a>
+        <a href="/2021/11/25/Minio/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
+        <a href="/2021/10/25/NVM/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
+        <a href="/2021/10/21/数据库/MyBatisPlus/"  title="MyBatisPlus常用记录" ><i class="fa fa-file-o"></i>MyBatisPlus常用记录</a>
+      </li>
+    
+      <li>
+        <a href="/2021/09/25/mac/"  title="常用使用mac平台总结出的优良体验，日常的效率工具，有助提升个人工作效率" ><i class="fa fa-file-o"></i>Mac平台下工具总结</a>
       </li>
     
       <li>
         <a href="/2021/08/05/java/java/" ><i class="fa fa-file-o"></i>Java基础补全</a>
-      </li>
-    
-      <li>
-        <a href="/2020/12/25/Redis/Redis模糊删除key/" ><i class="fa fa-file-o"></i>Redis模糊删除key</a>
-      </li>
-    
-      <li>
-        <a href="/2020/11/28/vps/ignite迁移/"  title="ignite服务主机迁移，主要是docker容器的备份迁移" ><i class="fa fa-file-o"></i>ignite迁移</a>
-      </li>
-    
-      <li>
-        <a href="/2020/11/20/Navicat更新删除数据的正确姿势/" ><i class="fa fa-file-o"></i>Navicat更新删除数据的正确姿势</a>
       </li>
     
   </ul>

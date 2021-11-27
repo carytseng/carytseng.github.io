@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Mac折腾 | CaryTseng</title>
+  <title>Mac平台下工具总结 | CaryTseng</title>
   <meta name="author" content="CaryTseng">
   
-  <meta name="description" content="mac优化配置常用记录">
+  <meta name="description" content="常用使用mac平台总结出的优良体验，日常的效率工具，有助提升个人工作效率">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="Mac折腾"/>
+  <meta property="og:title" content="Mac平台下工具总结"/>
   <meta property="og:site_name" content="CaryTseng"/>
 
   
@@ -114,7 +114,7 @@ var _hmt = _hmt || [];
 
 	
 		<div class="page-header ">		
-			<h1 class="title "> Mac折腾</h1>
+			<h1 class="title "> Mac平台下工具总结</h1>
 		</div>		
 	
 
@@ -134,16 +134,18 @@ var _hmt = _hmt || [];
 	<div class="mypage">		
 	  
 		 <div class="alert alert-success description">
-			<i class="fa fa-info-circle"></i> <p>mac优化配置常用记录</p>
+			<i class="fa fa-info-circle"></i> <p>常用使用mac平台总结出的优良体验，日常的效率工具，有助提升个人工作效率</p>
 			
 		 </div> <!-- alert -->
 	  		
 
-	  <h3 id="设置性能模式"><a href="#设置性能模式" class="headerlink" title="设置性能模式"></a>设置性能模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">开启性能模式</span><br><span class="line">sudo nvram boot-args&#x3D;&quot;serverperfmode&#x3D;1 $(nvram boot-args 2&gt;&#x2F;dev&#x2F;null | cut -f 2-)&quot;</span><br><span class="line"></span><br><span class="line">关闭性能模式</span><br><span class="line">sudo nvram boot-args&#x3D;&quot;$(nvram boot-args 2&gt;&#x2F;dev&#x2F;null | sed -e $&#39;s&#x2F;boot-args\t&#x2F;&#x2F;;s&#x2F;serverperfmode&#x3D;1&#x2F;&#x2F;&#39;)&quot;</span><br><span class="line"></span><br><span class="line">查看当前模式</span><br><span class="line">nvram boot-args</span><br></pre></td></tr></table></figure>
-
-
+	  <h2 id="必备工具"><a href="#必备工具" class="headerlink" title="必备工具"></a>必备工具</h2><p>解压：Bandizip<br>影音：IINA<br>终端替代：iTerm2<br>文档阅览：PDF Expert<br>浏览器下载：NeatDownloadManager<br>磁力链接必备：迅雷<br>系统清理：Disk diet<br>本地索引搜索：HapiGo<br>外网工具：Clash<br>文档编辑：wps<br>邮件收发（主要可设代理，方便gmail）：Formail<br>文件管理器替代：TotalFinder</p>
+<h2 id="工作必备"><a href="#工作必备" class="headerlink" title="工作必备"></a>工作必备</h2><p>MarkDown编辑：Typora<br>文本编辑：Sublime Text<br>Java开发：IDEA<br>数据库图形化：Navicat<br>git图形化工具：SourceTree<br>svn工具：Cornerstone<br>接口调试：PostMan<br>UML工具：draw.io<br>容器：docker<br>性能监控：JProfiler<br>文本对比：Beyond Compare<br>redis图形化工具：RDM<br>前端编辑：Visual Studio Code<br>ssh工具：Royal Tsx</p>
+<h2 id="系统性能设置提升"><a href="#系统性能设置提升" class="headerlink" title="系统性能设置提升"></a>系统性能设置提升</h2><h3 id="设置性能模式"><a href="#设置性能模式" class="headerlink" title="设置性能模式"></a>设置性能模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">开启性能模式</span><br><span class="line">sudo nvram boot-args&#x3D;&quot;serverperfmode&#x3D;1 $(nvram boot-args 2&gt;&#x2F;dev&#x2F;null | cut -f 2-)&quot;</span><br><span class="line"></span><br><span class="line">关闭性能模式</span><br><span class="line">sudo nvram boot-args&#x3D;&quot;$(nvram boot-args 2&gt;&#x2F;dev&#x2F;null | sed -e $&#39;s&#x2F;boot-args\t&#x2F;&#x2F;;s&#x2F;serverperfmode&#x3D;1&#x2F;&#x2F;&#39;)&quot;</span><br><span class="line"></span><br><span class="line">查看当前模式</span><br><span class="line">nvram boot-args</span><br></pre></td></tr></table></figure>
 
 <h3 id="设置显卡模式"><a href="#设置显卡模式" class="headerlink" title="设置显卡模式"></a>设置显卡模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo pmset -a GPUSwitch 0 &#x2F;&#x2F; 强制使用集显</span><br><span class="line"></span><br><span class="line">sudo pmset -a GPUSwitch 1 &#x2F;&#x2F; 强制使用独显</span><br><span class="line"></span><br><span class="line">sudo pmset -a GPUSwitch 2 &#x2F;&#x2F; 自动切换模式</span><br></pre></td></tr></table></figure>
+
+<h3 id="mac-上的-spotlight开关"><a href="#mac-上的-spotlight开关" class="headerlink" title="mac 上的 spotlight开关"></a>mac 上的 spotlight开关</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">关闭：</span><br><span class="line">sudo launchctl unload -w &#x2F;System&#x2F;Library&#x2F;LaunchDaemons&#x2F;com.apple.metadata.mds.plist</span><br><span class="line">打开：</span><br><span class="line">sudo launchctl load -w &#x2F;System&#x2F;Library&#x2F;LaunchDaemons&#x2F;com.apple.metadata.mds.plist</span><br></pre></td></tr></table></figure>
 
 	  
 	</div>
@@ -156,9 +158,9 @@ var _hmt = _hmt || [];
 	<div class="pagination">
 <ul class="pagination">
 	 
-		
-          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
-        
+				
+    	<li class="prev"><a href="/2021/10/21/数据库/MyBatisPlus/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
 
         <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
 
@@ -197,7 +199,7 @@ var _hmt = _hmt || [];
 		   no_comment: "暂时还没有留言呢，点击下面的按钮去留言吧！",
 		   go_to_comment: "去留言",
 		   no_issue: "no_issue",
-		   issue_title: "Mac折腾",
+		   issue_title: "Mac平台下工具总结",
 		   issue_id: "",
 		   btn_class: "btn btn-primary",
 		   comments_target: "#comment-thread",
@@ -244,7 +246,7 @@ var _hmt = _hmt || [];
 	
 	   <a data-toggle="collapse" data-target="#toc"><i class="fa fa-bars"></i></a>
 	   <div id="toc" class="toc collapse in">
-			<ol class="toc-article"><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#%E8%AE%BE%E7%BD%AE%E6%80%A7%E8%83%BD%E6%A8%A1%E5%BC%8F"><span class="toc-article-text">设置性能模式</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#%E8%AE%BE%E7%BD%AE%E6%98%BE%E5%8D%A1%E6%A8%A1%E5%BC%8F"><span class="toc-article-text">设置显卡模式</span></a></li></ol>
+			<ol class="toc-article"><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#%E5%BF%85%E5%A4%87%E5%B7%A5%E5%85%B7"><span class="toc-article-text">必备工具</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#%E5%B7%A5%E4%BD%9C%E5%BF%85%E5%A4%87"><span class="toc-article-text">工作必备</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#%E7%B3%BB%E7%BB%9F%E6%80%A7%E8%83%BD%E8%AE%BE%E7%BD%AE%E6%8F%90%E5%8D%87"><span class="toc-article-text">系统性能设置提升</span></a><ol class="toc-article-child"><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#%E8%AE%BE%E7%BD%AE%E6%80%A7%E8%83%BD%E6%A8%A1%E5%BC%8F"><span class="toc-article-text">设置性能模式</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#%E8%AE%BE%E7%BD%AE%E6%98%BE%E5%8D%A1%E6%A8%A1%E5%BC%8F"><span class="toc-article-text">设置显卡模式</span></a></li><li class="toc-article-item toc-article-level-3"><a class="toc-article-link" href="#mac-%E4%B8%8A%E7%9A%84-spotlight%E5%BC%80%E5%85%B3"><span class="toc-article-text">mac 上的 spotlight开关</span></a></li></ol></li></ol>
 		</div>
 	
 	</div>

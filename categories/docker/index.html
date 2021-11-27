@@ -133,38 +133,6 @@ var _hmt = _hmt || [];
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2017-07-21 </div>
-			<div class="article-title"><a href="/2017/07/21/docker/docker-compose/" >docker-compose</a></div>						
-		</h3>
-	
-
-
-		     <div class="entry">
-  <div class="row">
-	
-	
-		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -L &quot;https:&#x2F;&#x2F;github.com&#x2F;docker&#x2F;compose&#x2F;releases&#x2F;download&#x2F;1.24.1&#x2F;docker-compose-$(uname -s)-$(uname -m)&quot; -o &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose</span><br><span class="line"></span><br><span class="line">将可执行权限应用于二进制文件：</span><br><span class="line"></span><br><span class="line">sudo chmod +x &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose</span><br><span class="line">创建软链：</span><br><span class="line"></span><br><span class="line">sudo ln -s &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose &#x2F;usr&#x2F;bin&#x2F;docker-compose</span><br><span class="line">测试是否安装成功：</span><br><span class="line"></span><br><span class="line">docker-compose --version</span><br></pre></td></tr></table></figure>
-
-
-
-
-<p>Compose 使用的三个步骤：</p>
-<ul>
-<li>使用 Dockerfile 定义应用程序的环境。</li>
-<li>使用 docker-compose.yml 定义构成应用程序的服务，这样它们可以在隔离环境中一起运行。</li>
-<li>最后，执行 docker-compose up 命令来启动并运行整个应用程序。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># yaml 配置实例</span><br><span class="line"># 指定使用docker-compose哪个版本</span><br><span class="line">version: &#39;3&#39;</span><br><span class="line">services:</span><br><span class="line">  web:</span><br><span class="line">    build: .</span><br><span class="line">    ports:</span><br><span class="line">   - &quot;5000:5000&quot;</span><br><span class="line">    volumes:</span><br><span class="line">   - .:&#x2F;code</span><br><span class="line">    - logvolume01:&#x2F;var&#x2F;log</span><br><span class="line">    links:</span><br><span class="line">   - redis</span><br><span class="line">  redis:</span><br><span class="line">    image: redis</span><br><span class="line">volumes:</span><br><span class="line">  logvolume01: &#123;&#125;</span><br></pre></td></tr></table></figure>
-	
-	</div>
-  <a type="button" href="/2017/07/21/docker/docker-compose/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-	       
-		     
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2017-07-21 </div>
 			<div class="article-title"><a href="/2017/07/21/docker/docker-network/" >docker-network</a></div>						
 		</h3>
 	
@@ -224,7 +192,7 @@ var _hmt = _hmt || [];
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#方式1</span><br><span class="line">curl -fsSL https:&#x2F;&#x2F;get.docker.com | bash -s docker --mirror Aliyun</span><br><span class="line">#方式2</span><br><span class="line">curl -sSL https:&#x2F;&#x2F;get.daocloud.io&#x2F;docker | sh</span><br></pre></td></tr></table></figure>
 
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -aG docker [user]</span><br></pre></td></tr></table></figure>
 
 
 <ol>
@@ -241,11 +209,41 @@ var _hmt = _hmt || [];
 </ol>
 </li>
 </ol>
-
-<p>  docker image build命令会读取Dockerfile,并将应用容器化。使用-t打标签，使用-f指定Dockerfile的路径和名称，-f指定任意路径下的任意名称的Dockerfile</p>
 	
 	</div>
   <a type="button" href="/2017/07/21/docker/docker/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2017-07-21 </div>
+			<div class="article-title"><a href="/2017/07/21/docker/docker-compose/" >docker-compose</a></div>						
+		</h3>
+	
+
+
+		     <div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -L &quot;https:&#x2F;&#x2F;github.com&#x2F;docker&#x2F;compose&#x2F;releases&#x2F;download&#x2F;1.24.1&#x2F;docker-compose-$(uname -s)-$(uname -m)&quot; -o &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose</span><br><span class="line"></span><br><span class="line">将可执行权限应用于二进制文件：</span><br><span class="line"></span><br><span class="line">sudo chmod +x &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose</span><br><span class="line">创建软链：</span><br><span class="line"></span><br><span class="line">sudo ln -s &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker-compose &#x2F;usr&#x2F;bin&#x2F;docker-compose</span><br><span class="line">测试是否安装成功：</span><br><span class="line"></span><br><span class="line">docker-compose --version</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p>Compose 使用的三个步骤：</p>
+<ul>
+<li>使用 Dockerfile 定义应用程序的环境。</li>
+<li>使用 docker-compose.yml 定义构成应用程序的服务，这样它们可以在隔离环境中一起运行。</li>
+<li>最后，执行 docker-compose up 命令来启动并运行整个应用程序。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># yaml 配置实例</span><br><span class="line"># 指定使用docker-compose哪个版本</span><br><span class="line">version: &#39;3&#39;</span><br><span class="line">services:</span><br><span class="line">  web:</span><br><span class="line">    build: .</span><br><span class="line">    ports:</span><br><span class="line">   - &quot;5000:5000&quot;</span><br><span class="line">    volumes:</span><br><span class="line">   - .:&#x2F;code</span><br><span class="line">    - logvolume01:&#x2F;var&#x2F;log</span><br><span class="line">    links:</span><br><span class="line">   - redis</span><br><span class="line">  redis:</span><br><span class="line">    image: redis</span><br><span class="line">volumes:</span><br><span class="line">  logvolume01: &#123;&#125;</span><br></pre></td></tr></table></figure>
+	
+	</div>
+  <a type="button" href="/2017/07/21/docker/docker-compose/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
 	       
@@ -305,7 +303,7 @@ var _hmt = _hmt || [];
 		
 			<li><a href="/categories/效率/">效率<span>1</span></a></li>
 		
-			<li><a href="/categories/数据库/">数据库<span>7</span></a></li>
+			<li><a href="/categories/数据库/">数据库<span>8</span></a></li>
 		
 			<li><a href="/categories/算法/">算法<span>1</span></a></li>
 		
@@ -324,45 +322,45 @@ var _hmt = _hmt || [];
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/从零开始写框架/">从零开始写框架<span>1</span></a></li>
+			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
 		
 			<li><a href="/tags/投资/">投资<span>5</span></a></li>
 		
-			<li><a href="/tags/技术学习/">技术学习<span>21</span></a></li>
-		
-			<li><a href="/tags/数据源/">数据源<span>1</span></a></li>
-		
-			<li><a href="/tags/ignite/">ignite<span>1</span></a></li>
-		
-			<li><a href="/tags/消息队列/">消息队列<span>2</span></a></li>
-		
-			<li><a href="/tags/理哲/">理哲<span>1</span></a></li>
-		
-			<li><a href="/tags/Spring/">Spring<span>1</span></a></li>
-		
-			<li><a href="/tags/股票/">股票<span>2</span></a></li>
-		
-			<li><a href="/tags/redis/">redis<span>1</span></a></li>
-		
-			<li><a href="/tags/索引/">索引<span>1</span></a></li>
-		
-			<li><a href="/tags/效率/">效率<span>1</span></a></li>
-		
 			<li><a href="/tags/ssr/">ssr<span>1</span></a></li>
 		
-			<li><a href="/tags/异常/">异常<span>1</span></a></li>
+			<li><a href="/tags/技术学习/">技术学习<span>21</span></a></li>
 		
 			<li><a href="/tags/Nosql/">Nosql<span>1</span></a></li>
 		
-			<li><a href="/tags/缓存/">缓存<span>1</span></a></li>
+			<li><a href="/tags/数据库/">数据库<span>2</span></a></li>
 		
-			<li><a href="/tags/Linux/">Linux<span>2</span></a></li>
+			<li><a href="/tags/效率/">效率<span>1</span></a></li>
 		
-			<li><a href="/tags/Java基础/">Java基础<span>2</span></a></li>
+			<li><a href="/tags/索引/">索引<span>1</span></a></li>
 		
 			<li><a href="/tags/WebSocket/">WebSocket<span>1</span></a></li>
 		
-			<li><a href="/tags/编程技巧/">编程技巧<span>16</span></a></li>
+			<li><a href="/tags/消息队列/">消息队列<span>2</span></a></li>
+		
+			<li><a href="/tags/基金/">基金<span>1</span></a></li>
+		
+			<li><a href="/tags/股票/">股票<span>2</span></a></li>
+		
+			<li><a href="/tags/理哲/">理哲<span>1</span></a></li>
+		
+			<li><a href="/tags/垃圾回收/">垃圾回收<span>1</span></a></li>
+		
+			<li><a href="/tags/redis/">redis<span>1</span></a></li>
+		
+			<li><a href="/tags/Web/">Web<span>1</span></a></li>
+		
+			<li><a href="/tags/JWT/">JWT<span>2</span></a></li>
+		
+			<li><a href="/tags/Linux/">Linux<span>2</span></a></li>
+		
+			<li><a href="/tags/Spring/">Spring<span>1</span></a></li>
+		
+			<li><a href="/tags/数据源/">数据源<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>26</span></a></li>
@@ -378,23 +376,23 @@ var _hmt = _hmt || [];
   <ul class="entry list-unstyled">
     
       <li>
-        <a href="/2021/09/25/Mac/"  title="mac优化配置常用记录" ><i class="fa fa-file-o"></i>Mac折腾</a>
+        <a href="/2021/11/25/Minio/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
+        <a href="/2021/10/25/NVM/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
+        <a href="/2021/10/21/数据库/MyBatisPlus/"  title="MyBatisPlus常用记录" ><i class="fa fa-file-o"></i>MyBatisPlus常用记录</a>
+      </li>
+    
+      <li>
+        <a href="/2021/09/25/mac/"  title="常用使用mac平台总结出的优良体验，日常的效率工具，有助提升个人工作效率" ><i class="fa fa-file-o"></i>Mac平台下工具总结</a>
       </li>
     
       <li>
         <a href="/2021/08/05/java/java/" ><i class="fa fa-file-o"></i>Java基础补全</a>
-      </li>
-    
-      <li>
-        <a href="/2020/12/25/Redis/Redis模糊删除key/" ><i class="fa fa-file-o"></i>Redis模糊删除key</a>
-      </li>
-    
-      <li>
-        <a href="/2020/11/28/vps/ignite迁移/"  title="ignite服务主机迁移，主要是docker容器的备份迁移" ><i class="fa fa-file-o"></i>ignite迁移</a>
-      </li>
-    
-      <li>
-        <a href="/2020/11/20/Navicat更新删除数据的正确姿势/" ><i class="fa fa-file-o"></i>Navicat更新删除数据的正确姿势</a>
       </li>
     
   </ul>
