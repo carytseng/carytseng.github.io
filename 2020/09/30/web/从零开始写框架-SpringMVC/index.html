@@ -1,0 +1,364 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>从零开始写框架-SpringMVC | CaryTseng</title>
+  <meta name="author" content="CaryTseng">
+  
+  <meta name="description" content="我们所知不过沧海一粟，我们所不知却是汪洋大海">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="从零开始写框架-SpringMVC"/>
+  <meta property="og:site_name" content="CaryTseng"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+  
+    <link href="/face.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/readable.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+    <script src="/js/marked.js"></script>
+    <script src="/js/comment.js"></script>
+    <script src="/js/timeago.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+	<script src="/js/spin.min.js"></script>
+  
+  <!-- analytics -->
+  
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?f880ece5980fa96666aaebab89b33e81";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="CaryTseng" type="application/atom+xml">
+</head>
+
+<body>
+  <nav id="main-nav" class="navbar  navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">CaryTseng</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+
+	
+		<div class="page-header ">		
+			<h1 class="title "> 从零开始写框架-SpringMVC</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <blockquote>
+<p>前言：</p>
+<p>　　最近打算提升下源码能力，跟着相关教程实现Spring框架，巩固下前面的学习知识，像反射、设计模式等，顺带熟悉一些API。像设计模式这类知识，只能通过代码实践来提升对其核心思想的理解，毕竟设计模式不是凭空产生的，而是在代码实践的过程中，通过不断地重构提炼，发现其奥妙之处，才产生相关的程序思想。</p>
+</blockquote>
+<h3 id="1-0-MVC"><a href="#1-0-MVC" class="headerlink" title="1.0 MVC"></a>1.0 MVC</h3><h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><h4 id="配置文件application-properties"><a href="#配置文件application-properties" class="headerlink" title="配置文件application.properties"></a>配置文件application.properties</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scanPackage=com.gupaoedu.demo</span><br></pre></td></tr></table></figure>
+
+<h4 id="自定义注解"><a href="#自定义注解" class="headerlink" title="自定义注解"></a>自定义注解</h4><p>这部分主要模拟Spring中我们常用的Autowired，Controller，RequestMapping，RequestParam，Service等。</p>
+<p>注解文件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(&#123;ElementType.FIELD&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> GPAutowired &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Target(&#123;ElementType.TYPE&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> GPController &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Target(&#123;ElementType.TYPE,ElementType.METHOD&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> GPRequestMapping &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Target(&#123;ElementType.PARAMETER&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> GPRequestParam &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Target(&#123;ElementType.TYPE&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> GPService &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>web.xml文件：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">version</span>=<span class="string">&quot;4.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>gpmvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.gupaoedu.mvcframework.v1.servlet.GPDispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>application.properties<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>gpmvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>Controller类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GPController</span></span><br><span class="line"><span class="meta">@GPRequestMapping(&quot;/demo&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoAction</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GPAutowired</span></span><br><span class="line">    <span class="keyword">private</span> IDemoService demoService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GPRequestMapping(&quot;/query&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">query</span><span class="params">(HttpServletRequest req, HttpServletResponse resp, <span class="meta">@GPRequestParam(&quot;name&quot;)</span> String name)</span></span>&#123;</span><br><span class="line">        String result = demoService.get(name);</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            resp.getWriter().write(result);</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GPRequestMapping(&quot;/add&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(HttpServletRequest req,HttpServletResponse resp,<span class="meta">@GPRequestParam(&quot;a&quot;)</span>Integer a,<span class="meta">@GPRequestParam(&quot;b&quot;)</span> Integer b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            resp.getWriter().write(a+<span class="string">&quot;+&quot;</span>+b+<span class="string">&quot;=&quot;</span>+(a+b));</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GPRequestMapping(&quot;/remove&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">(HttpServletRequest req,HttpServletResponse resp,<span class="meta">@GPRequestParam(&quot;a&quot;)</span>Integer a,<span class="meta">@GPRequestParam(&quot;b&quot;)</span> Integer b)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Service接口：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IDemoService</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">get</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Service实现类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GPService</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoService</span> <span class="keyword">implements</span> <span class="title">IDemoService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">get</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;my name is &quot;</span> + name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="核心思路："><a href="#核心思路：" class="headerlink" title="核心思路："></a>核心思路：</h4><p>思路：首先我们要实现SpringMVC，思考下需要什么组件，第一肯定是IOC容器，暂时可以使用Map来代替。还有就是能通过url来找controller的这么一个路由器，我们也可以用一个Map来存。上面的注解是标记文件的，我们需要扫描这部分标记有注解的文件，我们需要利用反射初始化相关类的实例，放到Map中，并且我们还要实现属性注入功能。</p>
+<p>初始化中我们需要做以下工作：</p>
+<ul>
+<li>扫描配置文件</li>
+<li>通过项目路径将注解相关的类，通过反射实例化</li>
+<li>实现类中的属性注入功能</li>
+<li>实现url与handler的映射，也即路由。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GPDispatcherServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Map&lt;String, Object&gt; mapping = <span class="keyword">new</span> HashMap&lt;String, Object&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.doPost(req, resp);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            doDispatch(req, resp);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            resp.getWriter().write(<span class="string">&quot;500 error&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">doDispatch</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> IOException, InvocationTargetException, IllegalAccessException </span>&#123;</span><br><span class="line">        <span class="comment">//获取请求url</span></span><br><span class="line">        String url = req.getRequestURI();</span><br><span class="line">        String contextPath = req.getContextPath();</span><br><span class="line">        url = url.replace(contextPath, <span class="string">&quot;&quot;</span>).replaceAll(<span class="string">&quot;/+&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (!<span class="keyword">this</span>.mapping.containsKey(url)) &#123;</span><br><span class="line">            resp.getWriter().write(<span class="string">&quot;404....&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        Method method = (Method) <span class="keyword">this</span>.mapping.get(url);</span><br><span class="line">        Map&lt;String, String[]&gt; params = req.getParameterMap();</span><br><span class="line">        method.invoke(<span class="keyword">this</span>.mapping.get(method.getDeclaringClass().getName()), <span class="keyword">new</span> Object[]&#123;req, resp, params.get(<span class="string">&quot;name&quot;</span>)[<span class="number">0</span>]&#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  	<span class="comment">//简易版本实现全部在一个方法中</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(ServletConfig config)</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line">        InputStream is = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Properties configContext = <span class="keyword">new</span> Properties();</span><br><span class="line">            is = <span class="keyword">this</span>.getClass().getClassLoader().getResourceAsStream(config.getInitParameter(<span class="string">&quot;contextConfigLocation&quot;</span>)); </span><br><span class="line">          	<span class="comment">//读取配置文件</span></span><br><span class="line">            configContext.load(is);</span><br><span class="line">            String scanPackage = configContext.getProperty(<span class="string">&quot;scanPackage&quot;</span>);</span><br><span class="line">            <span class="comment">//扫描配置路径下的类</span></span><br><span class="line">            doScanner(scanPackage);</span><br><span class="line">          	<span class="comment">//实例化标有注解的类</span></span><br><span class="line">            <span class="keyword">for</span> (String className : mapping.keySet()) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!className.contains(<span class="string">&quot;.&quot;</span>)) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                Class&lt;?&gt; clazz = Class.forName(className);</span><br><span class="line">                <span class="keyword">if</span> (clazz.isAnnotationPresent(GPController.class)) &#123;</span><br><span class="line">                    mapping.put(className, clazz.newInstance());</span><br><span class="line">                    String baseUrl = <span class="string">&quot;&quot;</span>;</span><br><span class="line">                    <span class="keyword">if</span> (clazz.isAnnotationPresent(GPRequestMapping.class)) &#123;</span><br><span class="line">                        GPRequestMapping requestMapping = clazz.getAnnotation(GPRequestMapping.class);</span><br><span class="line">                        baseUrl = requestMapping.value();</span><br><span class="line">                    &#125;</span><br><span class="line">                    Method[] methods = clazz.getMethods();</span><br><span class="line">                    <span class="keyword">for</span> (Method method : methods) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (!method.isAnnotationPresent(GPRequestMapping.class)) &#123;</span><br><span class="line">                            <span class="keyword">continue</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                        GPRequestMapping requestMapping = method.getAnnotation(GPRequestMapping.class);</span><br><span class="line">                        String url = (baseUrl + <span class="string">&quot;/&quot;</span> + requestMapping.value()).replaceAll(<span class="string">&quot;/+&quot;</span>, <span class="string">&quot;/&quot;</span>);</span><br><span class="line">                        mapping.put(url, method);</span><br><span class="line">                        System.out.println(<span class="string">&quot;Mapped &quot;</span> + url + <span class="string">&quot;,&quot;</span> + method);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (clazz.isAnnotationPresent(GPService.class)) &#123;</span><br><span class="line">                    GPService service = clazz.getAnnotation(GPService.class);</span><br><span class="line">                    String beanName = service.value();</span><br><span class="line">                    <span class="keyword">if</span> (<span class="string">&quot;&quot;</span>.equals(beanName)) &#123;</span><br><span class="line">                        beanName = clazz.getName();</span><br><span class="line">                    &#125;</span><br><span class="line">                    Object instance = clazz.newInstance();</span><br><span class="line">                    mapping.put(beanName, instance);</span><br><span class="line">                    <span class="keyword">for</span> (Class&lt;?&gt; i : clazz.getInterfaces()) &#123;</span><br><span class="line">                        mapping.put(i.getName(), instance);</span><br><span class="line">                        System.out.println(i.getName());</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//进行类的属性注入</span></span><br><span class="line">            <span class="keyword">for</span> (Object object : mapping.values()) &#123;</span><br><span class="line">                <span class="keyword">if</span> (object == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                Class clazz = object.getClass();</span><br><span class="line">                <span class="keyword">if</span> (clazz.isAnnotationPresent(GPController.class)) &#123;</span><br><span class="line">                    Field[] fileds = clazz.getDeclaredFields();</span><br><span class="line">                    <span class="keyword">for</span> (Field field : fileds) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (!field.isAnnotationPresent(GPAutowired.class)) &#123;</span><br><span class="line">                            <span class="keyword">continue</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                        GPAutowired autowired = field.getAnnotation(GPAutowired.class);</span><br><span class="line">                        String beanName = autowired.value();</span><br><span class="line">                        <span class="keyword">if</span> (<span class="string">&quot;&quot;</span>.equals(beanName)) &#123;</span><br><span class="line">                            beanName = field.getType().getName();</span><br><span class="line">                        &#125;</span><br><span class="line">                        field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">                        <span class="comment">//对象的属性设置为value</span></span><br><span class="line">                        field.set(mapping.get(clazz.getName()), mapping.get(beanName));</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (is != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    is.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;GP mvc init...&quot;</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  	<span class="comment">//扫描所有的类</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">doScanner</span><span class="params">(String scanPackage)</span> </span>&#123;</span><br><span class="line">        URL url = <span class="keyword">this</span>.getClass().getClassLoader().getResource(<span class="string">&quot;/&quot;</span> + scanPackage.replaceAll(<span class="string">&quot;\\.&quot;</span>, <span class="string">&quot;/&quot;</span>));</span><br><span class="line">        File classDir = <span class="keyword">new</span> File(url.getFile());</span><br><span class="line">        <span class="keyword">for</span> (File file : classDir.listFiles()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (file.isDirectory()) &#123;</span><br><span class="line">                doScanner(scanPackage + <span class="string">&quot;.&quot;</span> + file.getName());</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (!file.getName().endsWith(<span class="string">&quot;.class&quot;</span>)) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                String clazzName = (scanPackage + <span class="string">&quot;.&quot;</span> + file.getName().replace(<span class="string">&quot;.class&quot;</span>, <span class="string">&quot;&quot;</span>));</span><br><span class="line">                mapping.put(clazzName, <span class="keyword">null</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-0-MVC"><a href="#2-0-MVC" class="headerlink" title="2.0 MVC"></a>2.0 MVC</h3><p>1.0版本将所有的代码逻辑都写在init方法内，我们需要将相关的步骤抽取出来，进行优化</p>
+<h4 id="init方法"><a href="#init方法" class="headerlink" title="init方法"></a>init方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(ServletConfig config)</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line">		<span class="comment">//加载配置文件</span></span><br><span class="line">    doLoadConfig(config.getInitParameter(<span class="string">&quot;contextConfigLocation&quot;</span>));</span><br><span class="line">		<span class="comment">//扫描类</span></span><br><span class="line">    doScanner(contextConfig.getProperty(<span class="string">&quot;scanPackage&quot;</span>));</span><br><span class="line">		<span class="comment">//反射实例化类</span></span><br><span class="line">    doInstance();</span><br><span class="line">		<span class="comment">//注入</span></span><br><span class="line">    doAutowired();</span><br><span class="line">		<span class="comment">//初始化url与方法映射关系</span></span><br><span class="line">    initHandlerMapping();</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">&quot;GP mvc init...&quot;</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="doLoadConfig方法"><a href="#doLoadConfig方法" class="headerlink" title="doLoadConfig方法"></a>doLoadConfig方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">doLoadConfig</span><span class="params">(String contextConfigLocation)</span> </span>&#123;</span><br><span class="line">    InputStream is = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        is = <span class="keyword">this</span>.getClass().getClassLoader().getResourceAsStream(contextConfigLocation);</span><br><span class="line">        contextConfig.load(is);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != is) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                is.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="doScanner方法"><a href="#doScanner方法" class="headerlink" title="doScanner方法"></a>doScanner方法</h4><p>递归扫描所有类，将扫描到的类到放到List中，后面需要进行实例化。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">doScanner</span><span class="params">(String scanPackage)</span> </span>&#123;</span><br><span class="line">    URL url = <span class="keyword">this</span>.getClass().getClassLoader().getResource(<span class="string">&quot;/&quot;</span> + scanPackage.replaceAll(<span class="string">&quot;\\.&quot;</span>, <span class="string">&quot;/&quot;</span>));</span><br><span class="line">    File classDir = <span class="keyword">new</span> File(url.getFile());</span><br><span class="line">    <span class="keyword">for</span> (File file : classDir.listFiles()) &#123;</span><br><span class="line">        <span class="keyword">if</span> (file.isDirectory()) &#123;</span><br><span class="line">            doScanner(scanPackage + <span class="string">&quot;.&quot;</span> + file.getName());</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (!file.getName().endsWith(<span class="string">&quot;.class&quot;</span>)) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            String clazzName = (scanPackage + <span class="string">&quot;.&quot;</span> + file.getName().replace(<span class="string">&quot;.class&quot;</span>, <span class="string">&quot;&quot;</span>));</span><br><span class="line">            classNames.add(clazzName);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="doInstance方法"><a href="#doInstance方法" class="headerlink" title="doInstance方法"></a>doInstance方法</h4><p>实例化Bean，模拟将实例化的Bean放进IOC中，我们用一个Map来代替。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">doInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (classNames.isEmpty()) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (String className : classNames) &#123;</span><br><span class="line">            Class&lt;?&gt; clazz = Class.forName(className);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (clazz.isAnnotationPresent(GPController.class)) &#123;</span><br><span class="line">                Object instance = clazz.newInstance();</span><br><span class="line">                String beanName = toLowerFirstCase(clazz.getSimpleName());</span><br><span class="line">                ioc.put(beanName, instance);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (clazz.isAnnotationPresent(GPService.class)) &#123;</span><br><span class="line">                GPService service = clazz.getAnnotation(GPService.class);</span><br><span class="line">                String beanName = service.value();</span><br><span class="line">                <span class="keyword">if</span> (<span class="string">&quot;&quot;</span>.equals(beanName)) &#123;</span><br><span class="line">                    beanName = toLowerFirstCase(clazz.getSimpleName());</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                Object instance = clazz.newInstance();</span><br><span class="line">                ioc.put(beanName, instance);</span><br><span class="line">                <span class="keyword">for</span> (Class&lt;?&gt; i : clazz.getInterfaces()) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (ioc.containsKey(i.getName())) &#123;</span><br><span class="line">                        <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">&quot;the &quot;</span> + i.getName() + <span class="string">&quot; is exists&quot;</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                    ioc.put(i.getName(), instance);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="doAutowired方法进行注入"><a href="#doAutowired方法进行注入" class="headerlink" title="doAutowired方法进行注入"></a>doAutowired方法进行注入</h4><p>这一步我们将容器内的类取出来，通过反射将属性给拿到，通过扫描注解，再从容器中拿到相关的Bean然后注入到当前类的属性中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">doAutowired</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (ioc.isEmpty()) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (Map.Entry&lt;String, Object&gt; entry : ioc.entrySet()) &#123;</span><br><span class="line">        <span class="comment">//取出所有的属性</span></span><br><span class="line">        Field[] fields = entry.getValue().getClass().getDeclaredFields();</span><br><span class="line">        <span class="keyword">for</span> (Field field : fields) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!field.isAnnotationPresent(GPAutowired.class)) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            GPAutowired autowired = field.getAnnotation(GPAutowired.class);</span><br><span class="line">            String beanName = autowired.value().trim();</span><br><span class="line">            <span class="keyword">if</span> (<span class="string">&quot;&quot;</span>.equals(beanName)) &#123;</span><br><span class="line">                beanName = field.getType().getName();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                field.set(entry.getValue(), ioc.get(beanName));</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IllegalAccessException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="initHandlerMapping方法"><a href="#initHandlerMapping方法" class="headerlink" title="initHandlerMapping方法"></a>initHandlerMapping方法</h4><p>这一步我们将所有Controller的方法拿到，并且拿到对应的url相对路径，并且将url与处理方法映射给保存起来，在请求路由的时候就根据url来找到相应的方法，通过反射执行对应方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initHandlerMapping</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (ioc.isEmpty()) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (Map.Entry&lt;String, Object&gt; entry : ioc.entrySet()) &#123;</span><br><span class="line">        Class&lt;?&gt; clazz = entry.getValue().getClass();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!clazz.isAnnotationPresent(GPController.class)) &#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        String baseUrl = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">if</span> (clazz.isAnnotationPresent(GPRequestMapping.class)) &#123;</span><br><span class="line">            GPRequestMapping gpRequestMapping = clazz.getAnnotation(GPRequestMapping.class);</span><br><span class="line">            baseUrl = gpRequestMapping.value();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (Method method : clazz.getMethods()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!method.isAnnotationPresent(GPRequestMapping.class)) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            GPRequestMapping gpRequestMapping = method.getAnnotation(GPRequestMapping.class);</span><br><span class="line"></span><br><span class="line">            String url = (<span class="string">&quot;/&quot;</span> + baseUrl + <span class="string">&quot;/&quot;</span> + gpRequestMapping.value()).replaceAll(<span class="string">&quot;/+&quot;</span>, <span class="string">&quot;/&quot;</span>);</span><br><span class="line"></span><br><span class="line">            handlerMapping.put(url, method);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="doDispatch路由逻辑"><a href="#doDispatch路由逻辑" class="headerlink" title="doDispatch路由逻辑"></a>doDispatch路由逻辑</h4><p>请求路由逻辑，思路是这样的，拿到请求url，通过url找到初始化的method，这时候就有了目标类的执行方法。接下来就是填充请求参数，填充完后执行method.invoke方法执行目标类的方法，完成请求。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">doDispatch</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> IOException, InvocationTargetException, IllegalAccessException </span>&#123;</span><br><span class="line">    String url = req.getRequestURI();</span><br><span class="line">    String contextPath = req.getContextPath();</span><br><span class="line">    url = url.replace(contextPath, <span class="string">&quot;&quot;</span>).replaceAll(<span class="string">&quot;//+&quot;</span>, <span class="string">&quot;/&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">this</span>.handlerMapping.containsKey(url)) &#123;</span><br><span class="line">        resp.getWriter().write(<span class="string">&quot;404....!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  	<span class="comment">//拿到url对应的controller请求方法</span></span><br><span class="line">    Method method = (Method) <span class="keyword">this</span>.handlerMapping.get(url);</span><br><span class="line">    <span class="comment">//请求传进来的实参</span></span><br><span class="line">    Map&lt;String, String[]&gt; parameterMap = req.getParameterMap();</span><br><span class="line">    <span class="comment">//取到形参类型</span></span><br><span class="line">    Class&lt;?&gt;[] parameterTypes = method.getParameterTypes();</span><br><span class="line">		<span class="comment">//实参数组初始化</span></span><br><span class="line">    Object[] paramValues = <span class="keyword">new</span> Object[parameterTypes.length];</span><br><span class="line">		<span class="comment">//这里只处理String类型</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; parameterTypes.length; i++) &#123;</span><br><span class="line">        Class paramterType = parameterTypes[i];</span><br><span class="line">        <span class="keyword">if</span> (paramterType == HttpServletRequest.class) &#123;</span><br><span class="line">            paramValues[i] = req;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (paramterType == HttpServletResponse.class) &#123;</span><br><span class="line">            paramValues[i] = resp;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (paramterType == String.class) &#123;</span><br><span class="line">            Annotation[][] pa = method.getParameterAnnotations();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; pa.length; j++) &#123;</span><br><span class="line">                <span class="keyword">for</span> (Annotation a : pa[i]) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (a <span class="keyword">instanceof</span> GPRequestParam) &#123;</span><br><span class="line">                        String paramName = ((GPRequestParam) a).value();</span><br><span class="line">                        <span class="keyword">if</span> (!<span class="string">&quot;&quot;</span>.equals(paramName.trim())) &#123;</span><br><span class="line">                            String value = Arrays.toString(parameterMap.get(paramName)).replaceAll(<span class="string">&quot;\\[|\\]&quot;</span>, <span class="string">&quot;&quot;</span>).replaceAll(<span class="string">&quot;\\s&quot;</span>, <span class="string">&quot;,&quot;</span>);</span><br><span class="line">                            paramValues[i] = value;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    String beanName = toLowerFirstCase(method.getDeclaringClass().getSimpleName());</span><br><span class="line">    method.invoke(<span class="keyword">this</span>.ioc.get(beanName), paramValues);</span><br><span class="line">    System.out.println(method);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-0-MVC"><a href="#3-0-MVC" class="headerlink" title="3.0 MVC"></a>3.0 MVC</h3><p>待更</p>
+	  
+	</div>
+
+	<!-- recommended posts -->
+	
+
+	<div>
+  	<center>
+	<div class="pagination">
+<ul class="pagination">
+	 
+				
+    	<li class="prev"><a href="/2020/10/07/web/Spring多数据源加载/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>上一页</a></li>
+  		
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2020/09/25/ES/" class="alignright next">下一页<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
+</ul>
+</div>
+
+    </center>
+	</div>
+
+    <!-- share -->
+    
+        
+
+        
+
+    
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">留言</h2>
+    	 
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
+	 <script type="text/javascript">
+	   getComments({
+           type: "github" ? "github" : "github",       
+	       user: "wzpan",
+	       repo: "hexo-theme-freemind-blog",
+		   client_id: "bf7d4ba11877db88543e",
+           client_secret: "bff8a6b06b745c0bfcdccbe225623ea8e2a057bb",
+		   no_comment: "暂时还没有留言呢，点击下面的按钮去留言吧！",
+		   go_to_comment: "去留言",
+		   no_issue: "no_issue",
+		   issue_title: "从零开始写框架-SpringMVC",
+		   issue_id: "",
+		   btn_class: "btn btn-primary",
+		   comments_target: "#comment-thread",
+		   loading_target: "#loading_spin"
+		   });
+	 </script>
+  
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2020-09-30 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a href="/categories/web/">web<span>9</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/技术学习/">技术学习<span>21</span></a></li> <li><a href="/tags/Spring/">Spring<span>1</span></a></li> <li><a href="/tags/从零开始写框架/">从零开始写框架<span>1</span></a></li>
+    </ul>
+	</div>
+	
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2021 CaryTseng
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+</body>
+</html>

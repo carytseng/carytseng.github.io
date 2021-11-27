@@ -1,0 +1,568 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>数据库 | CaryTseng</title>
+  <meta name="author" content="CaryTseng">
+  
+  <meta name="description" content="我们所知不过沧海一粟，我们所不知却是汪洋大海">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="CaryTseng"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+  
+    <link href="/face.png" rel="icon">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/themes/readable.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight-default.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/comment.css" media="screen" type="text/css">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+  
+    <script src="/js/marked.js"></script>
+    <script src="/js/comment.js"></script>
+    <script src="/js/timeago.min.js"></script>
+    <script src="/js/highlight.min.js"></script>
+	<script src="/js/spin.min.js"></script>
+  
+  <!-- analytics -->
+  
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?f880ece5980fa96666aaebab89b33e81";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="CaryTseng" type="application/atom+xml">
+</head>
+
+<body>
+  <nav id="main-nav" class="navbar  navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+       <a class="navbar-brand" href="/">CaryTseng</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class="fa fa-archive"></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class="fa fa-folder"></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class="fa fa-tags"></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class="fa fa-user"></i>About
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+    <div class="content">
+      
+
+<!-- title -->
+<div class="page-header ">
+  <h1 class="archive-title-category title ">数据库</h1>
+</div>
+
+<div class="row page">
+  <!-- cols -->
+  
+  <div class="col-md-9">
+	
+
+	  <div id="top_search"></div>
+
+      
+         <!-- display as entry -->
+	     <div class="mypage">
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2021-10-21 </div>
+			<div class="article-title"><a href="/2021/10/21/数据库/MyBatisPlus/" title="MyBatisPlus常用记录">MyBatisPlus常用记录</a></div>						
+		</h3>
+	
+
+
+		     <div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="MyBatisPlus"><a href="#MyBatisPlus" class="headerlink" title="MyBatisPlus"></a>MyBatisPlus</h2><h2 id="时间范围查询"><a href="#时间范围查询" class="headerlink" title="时间范围查询"></a>时间范围查询</h2><h3 id="1-传入时间范围参数类型是字符串"><a href="#1-传入时间范围参数类型是字符串" class="headerlink" title="1.传入时间范围参数类型是字符串"></a>1.传入时间范围参数类型是字符串</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;if test&#x3D;&quot;startTime!&#x3D;null and startTime.trim() neq &#39;&#39;&quot;&gt;</span><br><span class="line">    and date_format(create_time,&#39;%Y-%m-%d %H:%i:%s&#39;) &gt;&#x3D; str_to_date(#&#123;startTime&#125;,&#39;%Y-%m-%d %H:%i:%s&#39;)</span><br><span class="line">  &lt;&#x2F;if&gt;</span><br><span class="line">  &lt;if test&#x3D;&quot;endTime!&#x3D;null and endTime.trim() neq &#39;&#39;&quot;&gt;</span><br><span class="line">    and date_format(create_time,&#39;%Y-%m-%d %H:%i:%s&#39;) &lt;&#x3D; str_to_date(#&#123;endTime&#125;,&#39;%Y-%m-%d %H:%i:%s&#39;)</span><br><span class="line">  &lt;&#x2F;if&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-传入时间范围参数类型是Date"><a href="#2-传入时间范围参数类型是Date" class="headerlink" title="2.传入时间范围参数类型是Date"></a>2.传入时间范围参数类型是Date</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;if test&#x3D;&quot;startTime!&#x3D;null and startTime.trim() neq &#39;&#39;&quot;&gt;</span><br><span class="line">   and date_format(create_time,&#39;%Y-%m-%d %H:%i:%s&#39;) &gt;&#x3D; date_format(#&#123;startTime&#125;,&#39;%Y-%m-%d %H:%i:%s&#39;)</span><br><span class="line"> &lt;&#x2F;if&gt;</span><br><span class="line"> &lt;if test&#x3D;&quot;endTime!&#x3D;null and endTime.trim() neq &#39;&#39;&quot;&gt;</span><br><span class="line">   and date_format(create_time,&#39;%Y-%m-%d %H:%i:%s&#39;) &lt;&#x3D; date_format(#&#123;endTime&#125;,&#39;%Y-%m-%d %H:%i:%s&#39;)</span><br><span class="line"> &lt;&#x2F;if&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Mybatis-Plus时间范围查询"><a href="#3-Mybatis-Plus时间范围查询" class="headerlink" title="3.Mybatis-Plus时间范围查询"></a>3.Mybatis-Plus时间范围查询</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Page&lt;Record&gt; page &#x3D; new Page&lt;&gt;(page, limit);</span><br><span class="line">IPage&lt;Record&gt; result &#x3D; iRecordService.page(page,</span><br><span class="line">       new LambdaQueryWrapper&lt;Record&gt;()</span><br><span class="line">           .apply(StrUtil.isNotBlank(start_date),</span><br><span class="line">                   &quot;date_format (optime,&#39;%Y-%m-%d&#39;) &gt;&#x3D; date_format(&#39;&quot; + start_date + &quot;&#39;,&#39;%Y-%m-%d&#39;)&quot;)</span><br><span class="line">           .apply(StrUtil.isNotBlank(end_date),</span><br><span class="line">                   &quot;date_format (optime,&#39;%Y-%m-%d&#39;) &lt;&#x3D; date_format(&#39;&quot; + end_date + &quot;&#39;,&#39;%Y-%m-%d&#39;)&quot;)</span><br><span class="line">           .orderByDesc(HmsFaceDetectLog::getOptime));</span><br></pre></td></tr></table></figure>
+
+
+	
+	</div>
+  <a type="button" href="/2021/10/21/数据库/MyBatisPlus/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2020-07-16 </div>
+			<div class="article-title"><a href="/2020/07/16/数据库/深入浅出索引/" title="索引理论总结">深入浅出索引</a></div>						
+		</h3>
+	
+
+
+		     <div class="entry">
+  <div class="row">
+	
+	
+		
+<p> 索引常用的数据结构：</p>
+<ul>
+<li>哈希表</li>
+<li>有序数组</li>
+<li>搜索树</li>
+</ul>
+<p>　　适用于等值查询的场景，key通过哈希函数得到一个确定的位置，上面放对应的value。使用链表解决哈希冲突。不适合范围查询，因为需要全表扫描，无法利用索引完成排序，不支持多列联合索引的最左匹配规则，如果有大量重复键值的情况会产生哈希碰撞问题。</p>
+<p>　　只适用于静态搜索引擎，索引列的数据按照规则排序，查找数据可以直接二分查找，时间复杂度是O(log(N))支持范围查询。缺点是更新数据比较麻烦，需要移动记录。</p>
+	
+	</div>
+  <a type="button" href="/2020/07/16/数据库/深入浅出索引/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2020-06-30 </div>
+			<div class="article-title"><a href="/2020/06/30/数据库/事务/" >事务</a></div>						
+		</h3>
+	
+
+
+		     <div class="entry">
+  <div class="row">
+	
+	
+		<p><strong>事务的定义</strong></p>
+<blockquote>
+<p>事务是数据库管理系统执行过程的一个逻辑单位，通俗地讲，一件事要么一次做完，要么不做。</p>
+</blockquote>
+<p><strong>事务的特性（ACID）</strong></p>
+<ul>
+<li><strong>原子性（Atomicity）</strong>：事务作为一个整体被执行，包含在其中的对数据库的操作要么全部被执行，要么都不执行。</li>
+<li><strong>一致性（Consistency）</strong>：事务应确保数据库的状态从一个一致状态转变为另一个一致状态。<em>一致状态</em>的含义是数据库中的数据应满足完整性约束。</li>
+<li><strong>隔离性（Isolation）</strong>：多个事务并发执行时，一个事务的执行不应影响其他事务的执行。</li>
+<li><strong>持久性（Durability）</strong>：已被提交的事务对数据库的修改应该永久保存在数据库中。</li>
+</ul>
+<p><strong>例子</strong></p>
+<p>　　比如去银行存款这个事务，分为几个操作，首先查询账户余额，修改余额，然后提交，这就是一个事务。</p>
+	
+	</div>
+  <a type="button" href="/2020/06/30/数据库/事务/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2019-11-11 </div>
+			<div class="article-title"><a href="/2019/11/11/数据库/SQL常用/" >SQL常用</a></div>						
+		</h3>
+	
+
+
+		     <div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*sql: 去除数据库表中 tab、空格、回车符等特殊字符的解决方法</span></span><br><span class="line"><span class="comment">去除 tab、空格、回车符等使用 replace 语句</span></span><br><span class="line"><span class="comment">按照 ASCII 码*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="built_in">char</span>(<span class="number">64</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*例如 64 对应 @，则 */</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">REPLACE</span>(‘abc@qq.com’,<span class="built_in">char</span>(<span class="number">64</span>),’kk’)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*则结果为 abckkqq.com*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*依此类推，</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">去掉其他特殊符号，参考 ASCII 码对照表，去掉 tab 符号为*/</span></span><br><span class="line"> <span class="keyword">select</span> <span class="keyword">REPLACE</span>(‘要替换的字符或列名’,<span class="built_in">char</span>(<span class="number">9</span>),’替换的目标字符’)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*去掉空格符号为*/</span> </span><br><span class="line"><span class="keyword">select</span> <span class="keyword">REPLACE</span>(‘要替换的字符或列名’,<span class="built_in">char</span>(<span class="number">32</span>),’替换的目标字符’)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*去掉换行符号为*/</span> </span><br><span class="line"><span class="keyword">select</span> <span class="keyword">REPLACE</span>(‘要替换的字符或列名’,<span class="built_in">char</span>(<span class="number">10</span>),’替换的目标字符’)*/</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>(<span class="keyword">CURDATE</span>(), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">1</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">2</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">3</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">4</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">5</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">6</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">7</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">8</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">9</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">10</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span> </span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>((<span class="keyword">CURDATE</span>() - <span class="built_in">INTERVAL</span> <span class="number">11</span> <span class="keyword">MONTH</span>), <span class="string">&#x27;%Y-%m&#x27;</span>) <span class="keyword">AS</span> <span class="string">`month`</span></span><br></pre></td></tr></table></figure>
+
+<p>时间处理</p>
+<p>字符串转日期-STR_TO_DATE</p>
+	
+	</div>
+  <a type="button" href="/2019/11/11/数据库/SQL常用/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2019-11-11 </div>
+			<div class="article-title"><a href="/2019/11/11/数据库/sql-index/" >索引</a></div>						
+		</h3>
+	
+
+
+		     <div class="entry">
+  <div class="row">
+	
+	
+		
+<p> 索引常用的数据结构：</p>
+<ul>
+<li>哈希表</li>
+<li>有序数组</li>
+<li>搜索树</li>
+</ul>
+<p>　　适用于等值查询的场景，key通过哈希函数得到一个确定的位置，上面放对应的value。使用链表解决哈希冲突。不适合范围查询，因为需要全表扫描，无法利用索引完成排序，不支持多列联合索引的最左匹配规则，如果有大量重复键值的情况会产生哈希碰撞问题。</p>
+<p>　　只适用于静态搜索引擎，索引列的数据按照规则排序，查找数据可以直接二分查找，时间复杂度是O(log(N))支持范围查询。缺点是更新数据比较麻烦，需要移动记录。</p>
+	
+	</div>
+  <a type="button" href="/2019/11/11/数据库/sql-index/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2019-11-11 </div>
+			<div class="article-title"><a href="/2019/11/11/数据库/sql-optimize/" >SQL优化</a></div>						
+		</h3>
+	
+
+
+		     <div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li>不要超过5个表以上的表连接</li>
+<li>使用临时表存放中间结果</li>
+<li>减少使用子查询</li>
+<li>表连接前提前过滤数据，避免使用select*</li>
+</ul>
+<p>改操作符oracle会将其转换为多表连接，改为exists</p>
+<p>SELECT *</p>
+<p>FROM TBL_REBATE_DAY_COUNT</p>
+	
+	</div>
+  <a type="button" href="/2019/11/11/数据库/sql-optimize/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2018-05-28 </div>
+			<div class="article-title"><a href="/2018/05/28/数据库/缓存与DB数据操作问题/" >缓存与DB数据操作问题</a></div>						
+		</h3>
+	
+
+
+		     <div class="entry">
+  <div class="row">
+	
+	
+		<p>　　更新数据时，先删除缓存再更新DB，还是先更新DB再删除缓存。</p>
+<h4 id="先删除缓存再更新DB"><a href="#先删除缓存再更新DB" class="headerlink" title="先删除缓存再更新DB"></a>先删除缓存再更新DB</h4><p>　　出现脏数据的概率较大，假设系统存在两条线程，一条是查询，一条是更新，当更新时，先删除缓存，此时查询线程不能命中缓存，去查库，此时load的是旧数据，然后将旧数据缓存，更新线程此时才更新数据库。这样很大的概率缓存是脏数据。</p>
+<h4 id="先更新DB再删除缓存"><a href="#先更新DB再删除缓存" class="headerlink" title="先更新DB再删除缓存"></a>先更新DB再删除缓存</h4><p>　　产生脏数据的概率低，同样是上个例子两条线程，当更新DB时，查询线程查的是旧数据，此时删除缓存，下次查询则会去查库，保证新数据，不会影响后面的数据。这种情况产生脏数据的情形：查询线程命中不了缓存，去查库，此时更新操作删除缓存，尔后查询线程load旧数据进缓存，这才造成脏数据。出现的条件在于查库线程在更新操作之前，且在更新线程删除缓存之后load数据进缓存。条件比较苛刻，可以忽略。</p>
+
+	
+	</div>
+  <a type="button" href="/2018/05/28/数据库/缓存与DB数据操作问题/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+	       
+		     
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2017-02-17 </div>
+			<div class="article-title"><a href="/2017/02/17/数据库/sql-count的用法/" title="count(*)、count(id)、count(1)、count(字段)的区别，针对MySQL">count的用法</a></div>						
+		</h3>
+	
+
+
+		     <div class="entry">
+  <div class="row">
+	
+	
+		<p>*<em>count(</em>)、count(id)、count(1)、count(字段)的区别，针对MySQL**</p>
+<p>count(id)，InnoDB会遍历整张表，把每行的id取出来，返回给server层，判断不为空，按行累计。</p>
+<p>count(1)，InnoDB会遍历整张表，每行放数字1进去，返回给server层，判断不为空，按行累计。</p>
+<p>count(字段)</p>
+	
+	</div>
+  <a type="button" href="/2017/02/17/数据库/sql-count的用法/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+	       
+	     </div>
+	     <div>
+	       <center>
+	         <div class="pagination">
+<ul class="pagination">
+	 
+</ul>
+</div>
+
+	       </center>
+	     </div>	
+      
+
+</div> <!-- col-md-9/col-md-12 -->
+
+
+<div class="col-md-3">
+	<div id="sidebar">
+	
+			
+  <div id="site_search">
+   <div class="form-group">
+    <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索" class="st-search-input st-default-search-input form-control"/>
+   </div>  
+  <div id="local-search-result"></div>
+  </div>
+
+
+		
+			
+	<div class="widget">
+		<h4>分类</h4>
+		<ul class="tag_box inline list-unstyled">
+		
+			<li><a href="/categories/效率/Mac-OS/">Mac OS<span>1</span></a></li>
+		
+			<li><a href="/categories/Redis/">Redis<span>3</span></a></li>
+		
+			<li><a href="/categories/docker/">docker<span>3</span></a></li>
+		
+			<li><a href="/categories/git/">git<span>2</span></a></li>
+		
+			<li><a href="/categories/java/">java<span>3</span></a></li>
+		
+			<li><a href="/categories/jvm/">jvm<span>3</span></a></li>
+		
+			<li><a href="/categories/kafka/">kafka<span>3</span></a></li>
+		
+			<li><a href="/categories/linux/">linux<span>6</span></a></li>
+		
+			<li><a href="/categories/vps/">vps<span>3</span></a></li>
+		
+			<li><a href="/categories/web/">web<span>9</span></a></li>
+		
+			<li><a href="/categories/中间件/">中间件<span>1</span></a></li>
+		
+			<li><a href="/categories/效率/">效率<span>1</span></a></li>
+		
+			<li><a href="/categories/数据库/">数据库<span>8</span></a></li>
+		
+			<li><a href="/categories/算法/">算法<span>1</span></a></li>
+		
+			<li><a href="/categories/设计模式/">设计模式<span>13</span></a></li>
+		
+			<li><a href="/categories/金融/">金融<span>6</span></a></li>
+		
+			<li><a href="/categories/随笔/">随笔<span>13</span></a></li>
+		
+		</ul>
+	</div>
+
+		
+			
+	<div class="widget">
+		<h4>标签云</h4>
+		<ul class="tag_box inline list-unstyled">		
+		
+			<li><a href="/tags/JWT/">JWT<span>2</span></a></li>
+		
+			<li><a href="/tags/redis/">redis<span>1</span></a></li>
+		
+			<li><a href="/tags/WebSocket/">WebSocket<span>1</span></a></li>
+		
+			<li><a href="/tags/投资/">投资<span>5</span></a></li>
+		
+			<li><a href="/tags/股票/">股票<span>2</span></a></li>
+		
+			<li><a href="/tags/Nosql/">Nosql<span>1</span></a></li>
+		
+			<li><a href="/tags/数据库/">数据库<span>2</span></a></li>
+		
+			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
+		
+			<li><a href="/tags/垃圾回收/">垃圾回收<span>1</span></a></li>
+		
+			<li><a href="/tags/ignite/">ignite<span>1</span></a></li>
+		
+			<li><a href="/tags/从零开始写框架/">从零开始写框架<span>1</span></a></li>
+		
+			<li><a href="/tags/技术学习/">技术学习<span>21</span></a></li>
+		
+			<li><a href="/tags/Web/">Web<span>1</span></a></li>
+		
+			<li><a href="/tags/缓存/">缓存<span>1</span></a></li>
+		
+			<li><a href="/tags/Java基础/">Java基础<span>2</span></a></li>
+		
+			<li><a href="/tags/Spring/">Spring<span>1</span></a></li>
+		
+			<li><a href="/tags/理哲/">理哲<span>1</span></a></li>
+		
+			<li><a href="/tags/编程技巧/">编程技巧<span>16</span></a></li>
+		
+			<li><a href="/tags/基金/">基金<span>1</span></a></li>
+		
+			<li><a href="/tags/索引/">索引<span>1</span></a></li>
+		
+		
+		   <li><a href="/tags">...<span>26</span></a></li>
+		 
+		</ul>
+	</div>
+
+
+		
+			
+<div class="widget">
+  <h4>最新文章</h4>
+  <ul class="entry list-unstyled">
+    
+      <li>
+        <a href="/2021/11/25/Minio/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
+        <a href="/2021/10/25/NVM/" ><i class="fa fa-file-o"></i></a>
+      </li>
+    
+      <li>
+        <a href="/2021/10/21/数据库/MyBatisPlus/"  title="MyBatisPlus常用记录" ><i class="fa fa-file-o"></i>MyBatisPlus常用记录</a>
+      </li>
+    
+      <li>
+        <a href="/2021/09/25/mac/"  title="常年使用mac平台总结出的优良体验，日常的效率工具，有助提升个人工作效率" ><i class="fa fa-file-o"></i>Mac平台下工具总结</a>
+      </li>
+    
+      <li>
+        <a href="/2021/08/05/java/java/" ><i class="fa fa-file-o"></i>Java基础补全</a>
+      </li>
+    
+  </ul>
+</div>
+
+		
+	</div> <!-- sidebar -->
+</div> <!-- col-md-3 -->
+
+
+
+
+    </div>
+  </div>
+  <div class="container-narrow">
+    <footer> <p>
+  &copy; 2021 CaryTseng
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>.    
+</p> </footer>
+  </div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+</body>
+</html>
