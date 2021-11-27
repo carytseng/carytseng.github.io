@@ -137,7 +137,7 @@ var _hmt = _hmt || [];
 	<!-- display as entry -->	
 		<h3 class="title">
 			<div class="date"> 2019-11-11 </div>
-			<div class="article-title"><a href="/2019/11/11/nginx/Nginx/" >nginx</a></div>						
+			<div class="article-title"><a href="/2019/11/11/linux/linux/" >linux</a></div>						
 		</h3>
 	
 
@@ -146,46 +146,40 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line">    echo &#39;start install nginx...&#39;</span><br><span class="line">    wget http:&#x2F;&#x2F;nginx.org&#x2F;download&#x2F;nginx-1.10.2.tar.gz</span><br><span class="line">    tar -xvf nginx-1.10.2.tar.gz</span><br><span class="line">    cd nginx-1.10.2</span><br><span class="line">    yum -y install gcc pcre-devel openssl-devel</span><br><span class="line">    .&#x2F;configure</span><br><span class="line">    make</span><br><span class="line">    make install</span><br><span class="line">    echo &#39;install nginx successful.&#39;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx &#x2F;usr&#x2F;bin&#x2F;nginx</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 80:80 -p 443:443 --name nginx --restart&#x3D;always -e TZ&#x3D;&quot;Asia&#x2F;Shanghai&quot; \</span><br><span class="line">-v &#x2F;home&#x2F;appuser&#x2F;nginx&#x2F;html:&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html \</span><br><span class="line"> -v &#x2F;home&#x2F;appuser&#x2F;nginx&#x2F;conf&#x2F;nginx:&#x2F;etc&#x2F;nginx&#x2F;  \</span><br><span class="line"> -v &#x2F;home&#x2F;appuser&#x2F;nginx&#x2F;log:&#x2F;var&#x2F;log&#x2F;nginx nginx</span><br></pre></td></tr></table></figure>
-
-<p>假设下面四种情况分别用 <a target="_blank" rel="noopener" href="http://192.168.1.1/proxy/test.html">http://192.168.1.1/proxy/test.html</a> 进行访问。</p>
+		<ul>
+<li>df -hl：查看磁盘剩余空间</li>
+<li>df -h：查看每个根路径的分区大小</li>
+</ul>
+<ul>
+<li>.    当前目录</li>
+<li>..   上一层目录</li>
+<li>-    前一次目录</li>
+<li>~    当前用户所在home目录</li>
+</ul>
+<ul>
+<li>cd        切换目录</li>
+<li>pwd     显示当前目录路径</li>
+<li>mkdir  创建目录文件夹<ul>
+<li>-p  设置多层递归目录，创建不存在的子目录，例如：mkdir -p  a/b/c</li>
+<li>-m 设置目录权限 -m 711</li>
+</ul>
+</li>
+<li>rmdir   </li>
+<li>cp</li>
+<li>mv</li>
+<li>rm</li>
+</ul>
+<ul>
+<li><p>cat</p>
+</li>
+<li><p>head</p>
+</li>
+<li><p>tail</p>
+</li>
+</ul>
 	
 	</div>
-  <a type="button" href="/2019/11/11/nginx/Nginx/#more" class="btn btn-default more">阅读此文</a>
-</div>
-
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2019-11-11 </div>
-			<div class="article-title"><a href="/2019/11/11/vps/x-ui/" >x-ui</a></div>						
-		</h3>
-	
-
-
-			  <div class="entry">
-  <div class="row">
-	
-	
-		<h2 id="安装-amp-升级"><a href="#安装-amp-升级" class="headerlink" title="安装&amp;升级"></a>安装&amp;升级</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -Ls https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;sprov065&#x2F;x-ui&#x2F;master&#x2F;install.sh)</span><br></pre></td></tr></table></figure>
-
-<h2 id="x-ui-管理脚本使用方法"><a href="#x-ui-管理脚本使用方法" class="headerlink" title="x-ui 管理脚本使用方法:"></a>x-ui 管理脚本使用方法:</h2><p>x-ui              - 显示管理菜单 (功能更多)<br>x-ui start        - 启动 x-ui 面板<br>x-ui stop         - 停止 x-ui 面板<br>x-ui restart      - 重启 x-ui 面板<br>x-ui status       - 查看 x-ui 状态<br>x-ui enable       - 设置 x-ui 开机自启<br>x-ui disable      - 取消 x-ui 开机自启<br>x-ui log          - 查看 x-ui 日志<br>x-ui v2-ui        - 迁移本机器的 v2-ui 账号数据至 x-ui<br>x-ui update       - 更新 x-ui 面板<br>x-ui install      - 安装 x-ui 面板</p>
-<h2 id="x-ui-uninstall-卸载-x-ui-面板"><a href="#x-ui-uninstall-卸载-x-ui-面板" class="headerlink" title="x-ui uninstall    - 卸载 x-ui 面板"></a>x-ui uninstall    - 卸载 x-ui 面板</h2><h2 id="bbr"><a href="#bbr" class="headerlink" title="bbr"></a>bbr</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate &quot;https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;chiakge&#x2F;Linux-NetSpeed&#x2F;master&#x2F;tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; .&#x2F;tcp.sh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure>
-
-
-	
-	</div>
-  <a type="button" href="/2019/11/11/vps/x-ui/#more" class="btn btn-default more">阅读此文</a>
+  <a type="button" href="/2019/11/11/linux/linux/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
            
@@ -276,6 +270,37 @@ var _hmt = _hmt || [];
 	
 	</div>
   <a type="button" href="/2019/11/11/数据库/sql-optimize/#more" class="btn btn-default more">阅读此文</a>
+</div>
+
+           
+		
+           
+			  
+	
+	<!-- display as entry -->	
+		<h3 class="title">
+			<div class="date"> 2019-11-11 </div>
+			<div class="article-title"><a href="/2019/11/11/nginx/Nginx/" >nginx</a></div>						
+		</h3>
+	
+
+
+			  <div class="entry">
+  <div class="row">
+	
+	
+		<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line">    echo &#39;start install nginx...&#39;</span><br><span class="line">    wget http:&#x2F;&#x2F;nginx.org&#x2F;download&#x2F;nginx-1.10.2.tar.gz</span><br><span class="line">    tar -xvf nginx-1.10.2.tar.gz</span><br><span class="line">    cd nginx-1.10.2</span><br><span class="line">    yum -y install gcc pcre-devel openssl-devel</span><br><span class="line">    .&#x2F;configure</span><br><span class="line">    make</span><br><span class="line">    make install</span><br><span class="line">    echo &#39;install nginx successful.&#39;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx &#x2F;usr&#x2F;bin&#x2F;nginx</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 80:80 -p 443:443 --name nginx --restart&#x3D;always -e TZ&#x3D;&quot;Asia&#x2F;Shanghai&quot; \</span><br><span class="line">-v &#x2F;home&#x2F;appuser&#x2F;nginx&#x2F;html:&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html \</span><br><span class="line"> -v &#x2F;home&#x2F;appuser&#x2F;nginx&#x2F;conf&#x2F;nginx:&#x2F;etc&#x2F;nginx&#x2F;  \</span><br><span class="line"> -v &#x2F;home&#x2F;appuser&#x2F;nginx&#x2F;log:&#x2F;var&#x2F;log&#x2F;nginx nginx</span><br></pre></td></tr></table></figure>
+
+<p>假设下面四种情况分别用 <a target="_blank" rel="noopener" href="http://192.168.1.1/proxy/test.html">http://192.168.1.1/proxy/test.html</a> 进行访问。</p>
+	
+	</div>
+  <a type="button" href="/2019/11/11/nginx/Nginx/#more" class="btn btn-default more">阅读此文</a>
 </div>
 
            
@@ -561,45 +586,45 @@ var _hmt = _hmt || [];
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
-		
-			<li><a href="/tags/投资/">投资<span>5</span></a></li>
-		
-			<li><a href="/tags/WebSocket/">WebSocket<span>1</span></a></li>
-		
-			<li><a href="/tags/JWT/">JWT<span>2</span></a></li>
-		
-			<li><a href="/tags/数据源/">数据源<span>1</span></a></li>
-		
-			<li><a href="/tags/基金/">基金<span>1</span></a></li>
-		
-			<li><a href="/tags/Linux/">Linux<span>2</span></a></li>
-		
-			<li><a href="/tags/数据库/">数据库<span>2</span></a></li>
-		
-			<li><a href="/tags/Spring/">Spring<span>1</span></a></li>
-		
-			<li><a href="/tags/消息队列/">消息队列<span>2</span></a></li>
-		
-			<li><a href="/tags/Web/">Web<span>1</span></a></li>
-		
-			<li><a href="/tags/异常/">异常<span>1</span></a></li>
-		
-			<li><a href="/tags/Java基础/">Java基础<span>2</span></a></li>
-		
-			<li><a href="/tags/Nosql/">Nosql<span>1</span></a></li>
-		
-			<li><a href="/tags/缓存/">缓存<span>1</span></a></li>
+			<li><a href="/tags/ignite/">ignite<span>1</span></a></li>
 		
 			<li><a href="/tags/编程技巧/">编程技巧<span>16</span></a></li>
 		
-			<li><a href="/tags/从零开始写框架/">从零开始写框架<span>1</span></a></li>
+			<li><a href="/tags/Nosql/">Nosql<span>1</span></a></li>
 		
-			<li><a href="/tags/垃圾回收/">垃圾回收<span>1</span></a></li>
+			<li><a href="/tags/Java基础/">Java基础<span>2</span></a></li>
+		
+			<li><a href="/tags/效率/">效率<span>1</span></a></li>
+		
+			<li><a href="/tags/消息队列/">消息队列<span>2</span></a></li>
+		
+			<li><a href="/tags/索引/">索引<span>1</span></a></li>
+		
+			<li><a href="/tags/WebSocket/">WebSocket<span>1</span></a></li>
+		
+			<li><a href="/tags/redis/">redis<span>1</span></a></li>
+		
+			<li><a href="/tags/技术学习/">技术学习<span>21</span></a></li>
 		
 			<li><a href="/tags/股票/">股票<span>2</span></a></li>
 		
-			<li><a href="/tags/技术学习/">技术学习<span>21</span></a></li>
+			<li><a href="/tags/垃圾回收/">垃圾回收<span>1</span></a></li>
+		
+			<li><a href="/tags/数据源/">数据源<span>1</span></a></li>
+		
+			<li><a href="/tags/从零开始写框架/">从零开始写框架<span>1</span></a></li>
+		
+			<li><a href="/tags/Spring/">Spring<span>1</span></a></li>
+		
+			<li><a href="/tags/Web/">Web<span>1</span></a></li>
+		
+			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
+		
+			<li><a href="/tags/理哲/">理哲<span>1</span></a></li>
+		
+			<li><a href="/tags/异常/">异常<span>1</span></a></li>
+		
+			<li><a href="/tags/JWT/">JWT<span>2</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>26</span></a></li>

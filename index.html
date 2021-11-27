@@ -405,9 +405,8 @@ var _hmt = _hmt || [];
   <div class="row">
 	
 	
-		<h2 id="收藏软件网站"><a href="#收藏软件网站" class="headerlink" title="收藏软件网站"></a>收藏软件网站</h2><a target="_blank" rel="noopener" href="https://www.macwk.com/" title="macwk">
-
-<h2 id="必备工具"><a href="#必备工具" class="headerlink" title="必备工具"></a>必备工具</h2><ul>
+		<p><a target="_blank" rel="noopener" href="https://www.macwk.com/" title="macwk">macwk</a></p>
+<ul>
 <li>解压：Bandizip</li>
 <li>影音：IINA</li>
 <li>终端替代：iTerm2</li>
@@ -421,7 +420,7 @@ var _hmt = _hmt || [];
 <li>邮件收发（主要可设代理，方便gmail）：Formail</li>
 <li>文件管理器替代：TotalFinder</li>
 </ul>
-<h2 id="工作必备"><a href="#工作必备" class="headerlink" title="工作必备"></a>工作必备</h2><ul>
+<ul>
 <li>MarkDown编辑：Typora</li>
 <li>文本编辑：Sublime Text</li>
 <li>Java开发：IDEA</li>
@@ -437,20 +436,7 @@ var _hmt = _hmt || [];
 <li>前端编辑：Visual Studio Code</li>
 <li>ssh工具：Royal Tsx</li>
 </ul>
-<h3 id="文本编辑统一"><a href="#文本编辑统一" class="headerlink" title="文本编辑统一"></a>文本编辑统一</h3><p>将所有文本编辑类统一用visual studio code解决</p>
-<ul>
-<li>添加pretty json插件</li>
-<li>markdown all in one插件</li>
-</ul>
-<h2 id="系统性能设置提升"><a href="#系统性能设置提升" class="headerlink" title="系统性能设置提升"></a>系统性能设置提升</h2><h3 id="设置性能模式"><a href="#设置性能模式" class="headerlink" title="设置性能模式"></a>设置性能模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">开启性能模式</span><br><span class="line">sudo nvram boot-args&#x3D;&quot;serverperfmode&#x3D;1 $(nvram boot-args 2&gt;&#x2F;dev&#x2F;null | cut -f 2-)&quot;</span><br><span class="line"></span><br><span class="line">关闭性能模式</span><br><span class="line">sudo nvram boot-args&#x3D;&quot;$(nvram boot-args 2&gt;&#x2F;dev&#x2F;null | sed -e $&#39;s&#x2F;boot-args\t&#x2F;&#x2F;;s&#x2F;serverperfmode&#x3D;1&#x2F;&#x2F;&#39;)&quot;</span><br><span class="line"></span><br><span class="line">查看当前模式</span><br><span class="line">nvram boot-args</span><br></pre></td></tr></table></figure>
-
-<h3 id="设置显卡模式"><a href="#设置显卡模式" class="headerlink" title="设置显卡模式"></a>设置显卡模式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo pmset -a GPUSwitch 0 &#x2F;&#x2F; 强制使用集显</span><br><span class="line"></span><br><span class="line">sudo pmset -a GPUSwitch 1 &#x2F;&#x2F; 强制使用独显</span><br><span class="line"></span><br><span class="line">sudo pmset -a GPUSwitch 2 &#x2F;&#x2F; 自动切换模式</span><br></pre></td></tr></table></figure>
-
-<h3 id="mac-上的-spotlight开关"><a href="#mac-上的-spotlight开关" class="headerlink" title="mac 上的 spotlight开关"></a>mac 上的 spotlight开关</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">关闭：</span><br><span class="line">sudo launchctl unload -w &#x2F;System&#x2F;Library&#x2F;LaunchDaemons&#x2F;com.apple.metadata.mds.plist</span><br><span class="line">打开（注意要使用HapiGo必须要打开，依赖此引擎）：</span><br><span class="line">sudo launchctl load -w &#x2F;System&#x2F;Library&#x2F;LaunchDaemons&#x2F;com.apple.metadata.mds.plist</span><br></pre></td></tr></table></figure>
-
-
-
-
+<p>将所有文本编辑类统一用visual studio code解决</p>
 	
 	</div>
   <a type="button" href="/2021/09/25/mac/#more" class="btn btn-default more">阅读此文</a>
@@ -748,45 +734,45 @@ var _hmt = _hmt || [];
 		<h4>标签云</h4>
 		<ul class="tag_box inline list-unstyled">		
 		
-			<li><a href="/tags/数据库/">数据库<span>2</span></a></li>
-		
-			<li><a href="/tags/JWT/">JWT<span>2</span></a></li>
-		
-			<li><a href="/tags/消息队列/">消息队列<span>2</span></a></li>
-		
-			<li><a href="/tags/Nosql/">Nosql<span>1</span></a></li>
-		
-			<li><a href="/tags/技术学习/">技术学习<span>21</span></a></li>
-		
-			<li><a href="/tags/数据源/">数据源<span>1</span></a></li>
-		
-			<li><a href="/tags/Web/">Web<span>1</span></a></li>
-		
-			<li><a href="/tags/垃圾回收/">垃圾回收<span>1</span></a></li>
-		
-			<li><a href="/tags/Spring/">Spring<span>1</span></a></li>
-		
-			<li><a href="/tags/缓存/">缓存<span>1</span></a></li>
-		
-			<li><a href="/tags/从零开始写框架/">从零开始写框架<span>1</span></a></li>
+			<li><a href="/tags/ssr/">ssr<span>1</span></a></li>
 		
 			<li><a href="/tags/理哲/">理哲<span>1</span></a></li>
 		
-			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
+			<li><a href="/tags/数据库/">数据库<span>2</span></a></li>
 		
-			<li><a href="/tags/redis/">redis<span>1</span></a></li>
+			<li><a href="/tags/技术学习/">技术学习<span>21</span></a></li>
 		
-			<li><a href="/tags/效率/">效率<span>1</span></a></li>
+			<li><a href="/tags/缓存/">缓存<span>1</span></a></li>
 		
-			<li><a href="/tags/投资/">投资<span>5</span></a></li>
+			<li><a href="/tags/索引/">索引<span>1</span></a></li>
 		
-			<li><a href="/tags/基金/">基金<span>1</span></a></li>
+			<li><a href="/tags/异常/">异常<span>1</span></a></li>
+		
+			<li><a href="/tags/消息队列/">消息队列<span>2</span></a></li>
+		
+			<li><a href="/tags/股票/">股票<span>2</span></a></li>
+		
+			<li><a href="/tags/Nosql/">Nosql<span>1</span></a></li>
 		
 			<li><a href="/tags/Linux/">Linux<span>2</span></a></li>
 		
+			<li><a href="/tags/投资/">投资<span>5</span></a></li>
+		
+			<li><a href="/tags/Java基础/">Java基础<span>2</span></a></li>
+		
+			<li><a href="/tags/数据源/">数据源<span>1</span></a></li>
+		
 			<li><a href="/tags/ignite/">ignite<span>1</span></a></li>
 		
-			<li><a href="/tags/股票/">股票<span>2</span></a></li>
+			<li><a href="/tags/编程技巧/">编程技巧<span>16</span></a></li>
+		
+			<li><a href="/tags/中间件/">中间件<span>1</span></a></li>
+		
+			<li><a href="/tags/基金/">基金<span>1</span></a></li>
+		
+			<li><a href="/tags/Web/">Web<span>1</span></a></li>
+		
+			<li><a href="/tags/效率/">效率<span>1</span></a></li>
 		
 		
 		   <li><a href="/tags">...<span>26</span></a></li>
