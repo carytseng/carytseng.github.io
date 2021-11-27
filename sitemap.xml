@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://dogfun.top/2021/11/27/Minio/</loc>
+    <loc>https://dogfun.top/2021/09/25/mac/</loc>
     
     <lastmod>2021-11-27</lastmod>
     
@@ -16,7 +16,7 @@
   </url>
   
   <url>
-    <loc>https://dogfun.top/2021/09/25/mac/</loc>
+    <loc>https://dogfun.top/2021/11/27/Minio/</loc>
     
     <lastmod>2021-11-27</lastmod>
     
@@ -641,6 +641,13 @@
   </url>
   
   <url>
+    <loc>https://dogfun.top/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/</loc>
+    <lastmod>2021-11-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://dogfun.top/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2021-11-27</lastmod>
     <changefreq>daily</changefreq>
@@ -656,13 +663,6 @@
   
   <url>
     <loc>https://dogfun.top/tags/%E7%BC%93%E5%AD%98/</loc>
-    <lastmod>2021-11-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://dogfun.top/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/</loc>
     <lastmod>2021-11-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -732,13 +732,6 @@
   </url>
   
   <url>
-    <loc>https://dogfun.top/tags/%E6%95%B0%E6%8D%AE%E6%BA%90/</loc>
-    <lastmod>2021-11-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://dogfun.top/tags/JWT/</loc>
     <lastmod>2021-11-27</lastmod>
     <changefreq>daily</changefreq>
@@ -746,7 +739,7 @@
   </url>
   
   <url>
-    <loc>https://dogfun.top/tags/WebSocket/</loc>
+    <loc>https://dogfun.top/tags/%E6%95%B0%E6%8D%AE%E6%BA%90/</loc>
     <lastmod>2021-11-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -754,6 +747,13 @@
   
   <url>
     <loc>https://dogfun.top/tags/Web/</loc>
+    <lastmod>2021-11-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://dogfun.top/tags/WebSocket/</loc>
     <lastmod>2021-11-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
