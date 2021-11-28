@@ -3,21 +3,25 @@
 <head>
     <meta charset="utf-8">
     
-    <title>分类: vps | CaryTseng</title>
+    <title>Mysql主从复制搭建 | CaryTseng</title>
     
     
-        <meta name="keywords" content="CaryTseng" />
+        <meta name="keywords" content="Mysql主从复制搭建" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="我们所知不过沧海一粟，我们所不知却是汪洋大海">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CaryTseng">
-<meta property="og:url" content="https://dogfun.top/categories/vps/index.html">
+    <meta name="description" content="基于docker-compose搭建mysql主从架构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mysql主从复制搭建">
+<meta property="og:url" content="https://dogfun.top/2021/11/28/%E6%95%B0%E6%8D%AE%E5%BA%93/Mysql%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA/index.html">
 <meta property="og:site_name" content="CaryTseng">
-<meta property="og:description" content="我们所知不过沧海一粟，我们所不知却是汪洋大海">
+<meta property="og:description" content="基于docker-compose搭建mysql主从架构">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://dogfun.top/assets/blog_img/%E6%88%AA%E5%B1%8F2021-11-28.png">
+<meta property="article:published_time" content="2021-11-28T14:01:50.000Z">
+<meta property="article:modified_time" content="2021-11-28T14:22:26.778Z">
 <meta property="article:author" content="CaryTseng">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dogfun.top/assets/blog_img/%E6%88%AA%E5%B1%8F2021-11-28.png">
     
 
     
@@ -284,13 +288,13 @@ var _hmt = _hmt || [];
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/25/%E6%95%88%E7%8E%87/mac/">Mac平台下工具总结</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             数据库
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2017/02/17/%E6%95%B0%E6%8D%AE%E5%BA%93/sql-count%E7%9A%84%E7%94%A8%E6%B3%95/">count的用法</a></li>  <li class="file"><a href="/2018/05/28/%E6%95%B0%E6%8D%AE%E5%BA%93/%E7%BC%93%E5%AD%98%E4%B8%8EDB%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C%E9%97%AE%E9%A2%98/">缓存与DB数据操作问题</a></li>  <li class="file"><a href="/2019/11/11/%E6%95%B0%E6%8D%AE%E5%BA%93/SQL%E5%B8%B8%E7%94%A8/">SQL常用</a></li>  <li class="file"><a href="/2019/11/11/%E6%95%B0%E6%8D%AE%E5%BA%93/sql-index/">索引</a></li>  <li class="file"><a href="/2019/11/11/%E6%95%B0%E6%8D%AE%E5%BA%93/sql-optimize/">SQL优化</a></li>  <li class="file"><a href="/2020/06/30/%E6%95%B0%E6%8D%AE%E5%BA%93/%E4%BA%8B%E5%8A%A1/">事务</a></li>  <li class="file"><a href="/2020/07/16/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA%E7%B4%A2%E5%BC%95/">深入浅出索引</a></li>  <li class="file"><a href="/2020/09/25/%E6%95%B0%E6%8D%AE%E5%BA%93/ES/">ES</a></li>  <li class="file"><a href="/2020/11/20/%E6%95%B0%E6%8D%AE%E5%BA%93/Navicat%E6%9B%B4%E6%96%B0%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF/">Navicat更新删除数据的正确姿势</a></li>  <li class="file"><a href="/2021/10/21/%E6%95%B0%E6%8D%AE%E5%BA%93/MyBatisPlus/">MyBatisPlus常用记录</a></li>  <li class="file"><a href="/2021/11/28/%E6%95%B0%E6%8D%AE%E5%BA%93/Mysql%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA/">Mysql主从复制搭建</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2017/02/17/%E6%95%B0%E6%8D%AE%E5%BA%93/sql-count%E7%9A%84%E7%94%A8%E6%B3%95/">count的用法</a></li>  <li class="file"><a href="/2018/05/28/%E6%95%B0%E6%8D%AE%E5%BA%93/%E7%BC%93%E5%AD%98%E4%B8%8EDB%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C%E9%97%AE%E9%A2%98/">缓存与DB数据操作问题</a></li>  <li class="file"><a href="/2019/11/11/%E6%95%B0%E6%8D%AE%E5%BA%93/SQL%E5%B8%B8%E7%94%A8/">SQL常用</a></li>  <li class="file"><a href="/2019/11/11/%E6%95%B0%E6%8D%AE%E5%BA%93/sql-index/">索引</a></li>  <li class="file"><a href="/2019/11/11/%E6%95%B0%E6%8D%AE%E5%BA%93/sql-optimize/">SQL优化</a></li>  <li class="file"><a href="/2020/06/30/%E6%95%B0%E6%8D%AE%E5%BA%93/%E4%BA%8B%E5%8A%A1/">事务</a></li>  <li class="file"><a href="/2020/07/16/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA%E7%B4%A2%E5%BC%95/">深入浅出索引</a></li>  <li class="file"><a href="/2020/09/25/%E6%95%B0%E6%8D%AE%E5%BA%93/ES/">ES</a></li>  <li class="file"><a href="/2020/11/20/%E6%95%B0%E6%8D%AE%E5%BA%93/Navicat%E6%9B%B4%E6%96%B0%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF/">Navicat更新删除数据的正确姿势</a></li>  <li class="file"><a href="/2021/10/21/%E6%95%B0%E6%8D%AE%E5%BA%93/MyBatisPlus/">MyBatisPlus常用记录</a></li>  <li class="file active"><a href="/2021/11/28/%E6%95%B0%E6%8D%AE%E5%BA%93/Mysql%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA/">Mysql主从复制搭建</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -399,112 +403,132 @@ var _hmt = _hmt || [];
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-folder"></i></span>
-        <h1 class="title">vps</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-数据库/Mysql主从搭建" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2020/11/28/vps/ignite%E8%BF%81%E7%A7%BB/">ignite迁移</a>
-        </h1>
-    
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    </div>
 
-                <div class="article-meta">
-                    
+                        
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2020/11/28/vps/ignite%E8%BF%81%E7%A7%BB/">
-            <time datetime="2020-11-28T11:59:19.000Z" itemprop="datePublished">2020-11-28</time>
+        <a href="/2021/11/28/%E6%95%B0%E6%8D%AE%E5%BA%93/Mysql%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA/">
+            <time datetime="2021-11-28T14:01:50.000Z" itemprop="datePublished">2021-11-28</time>
         </a>
     </div>
 
 
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/vps/">vps</a>
-    </div>
-
-                    
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2019/11/11/vps/x-ui/">x-ui</a>
+        <h1 class="article-title" itemprop="name">
+            Mysql主从复制搭建
         </h1>
     
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2019/11/11/vps/x-ui/">
-            <time datetime="2019-11-11T10:24:58.000Z" itemprop="datePublished">2019-11-11</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/vps/">vps</a>
-    </div>
-
-                    
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">文件目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dock-compose-yml"><span class="toc-number">2.</span> <span class="toc-text">dock-compose.yml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#master%E8%8A%82%E7%82%B9"><span class="toc-number">3.</span> <span class="toc-text">master节点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#my-conf"><span class="toc-number">3.1.</span> <span class="toc-text">my.conf</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#slave%E8%8A%82%E7%82%B9"><span class="toc-number">4.</span> <span class="toc-text">slave节点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#my-conf-1"><span class="toc-number">4.1.</span> <span class="toc-text">my.conf</span></a></li></ol></li></ol>
                 </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
-                
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2018/02/26/vps/ssr-ignite-%E6%90%AD%E5%BB%BA/">ssr &amp; ignite 搭建</a>
-        </h1>
-    
+            
+        
+        
+            <h2 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h2><ul>
+<li>docker-compose.yml<ul>
+<li>master<ul>
+<li>conf<ul>
+<li>my.cnf</li>
+</ul>
+</li>
+<li>db</li>
+<li>init<ul>
+<li>init.sql</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>slave<ul>
+<li>conf<ul>
+<li>my.cnf</li>
+</ul>
+</li>
+<li>db</li>
+<li>init<ul>
+<li>init.sql</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="dock-compose-yml"><a href="#dock-compose-yml" class="headerlink" title="dock-compose.yml"></a>dock-compose.yml</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">version: &quot;3&quot;</span><br><span class="line">services:</span><br><span class="line">  db-master:</span><br><span class="line">    container_name: mysql-master</span><br><span class="line">    image: mysql:8.0</span><br><span class="line">    restart: always</span><br><span class="line">    environment:</span><br><span class="line">        MYSQL_ROOT_PASSWORD: &quot;12345678&quot;</span><br><span class="line">        MYSQL_USER: &#x27;test&#x27;</span><br><span class="line">        MYSQL_PASS: &#x27;12345678&#x27;</span><br><span class="line">    ports:</span><br><span class="line">      # &lt;Port exposed&gt; : &lt; MySQL Port running inside container&gt;</span><br><span class="line">      - &#x27;3306:3306&#x27;</span><br><span class="line">    # Where our data will be persisted</span><br><span class="line">    volumes:</span><br><span class="line">      - &quot;./master/db/:/var/lib/mysql&quot;</span><br><span class="line">      - &quot;./master/conf/my.cnf:/etc/my.cnf&quot;</span><br><span class="line">      - &quot;./master/init/:/docker-entrypoint-initdb.d/&quot;</span><br><span class="line">    networks:</span><br><span class="line">      - net-mysql</span><br><span class="line">  </span><br><span class="line">  db-slave:</span><br><span class="line">    container_name: mysql-slave</span><br><span class="line">    image: mysql:8.0</span><br><span class="line">    restart: always</span><br><span class="line">    environment:</span><br><span class="line">        MYSQL_ROOT_PASSWORD: &quot;12345678&quot;</span><br><span class="line">        MYSQL_USER: &#x27;test&#x27;</span><br><span class="line">        MYSQL_PASS: &#x27;12345678&#x27;</span><br><span class="line">    ports:</span><br><span class="line">      # &lt;Port exposed&gt; : &lt; MySQL Port running inside container&gt;</span><br><span class="line">      - &#x27;3307:3306&#x27;</span><br><span class="line">    # Where our data will be persisted</span><br><span class="line">    volumes:</span><br><span class="line">      - &quot;./slave/db/:/var/lib/mysql&quot;</span><br><span class="line">      - &quot;./slave/conf/my.cnf:/etc/my.cnf&quot;</span><br><span class="line">      - &quot;./slave/init/:/docker-entrypoint-initdb.d/&quot;</span><br><span class="line">    networks:</span><br><span class="line">      - net-mysql</span><br><span class="line">  </span><br><span class="line"># Names our volume</span><br><span class="line">volumes:</span><br><span class="line">  my-db-master:</span><br><span class="line">  my-db-slave: </span><br><span class="line"></span><br><span class="line">networks: </span><br><span class="line">  net-mysql:</span><br><span class="line">    driver: bridge</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2018/02/26/vps/ssr-ignite-%E6%90%AD%E5%BB%BA/">
-            <time datetime="2018-02-26T06:37:47.000Z" itemprop="datePublished">2018-02-26</time>
+<h2 id="master节点"><a href="#master节点" class="headerlink" title="master节点"></a>master节点</h2><h3 id="my-conf"><a href="#my-conf" class="headerlink" title="my.conf"></a>my.conf</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">log_bin = mysql-bin</span><br><span class="line">server_id = 10</span><br><span class="line">user=mysql</span><br><span class="line">default-storage-engine=INNODB</span><br><span class="line">character-set-server=utf8mb4</span><br><span class="line">[client]</span><br><span class="line">default-character-set=utf8mb4</span><br><span class="line">[mysql]</span><br><span class="line">default-character-set=utf8mb4</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="slave节点"><a href="#slave节点" class="headerlink" title="slave节点"></a>slave节点</h2><h3 id="my-conf-1"><a href="#my-conf-1" class="headerlink" title="my.conf"></a>my.conf</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">log_bin = mysql-bin</span><br><span class="line">server_id = 11</span><br><span class="line">relay_log = /var/lib/mysql/mysql-relay-bin</span><br><span class="line">log_slave_updates = 1</span><br><span class="line">read_only = 1</span><br><span class="line">character-set-server=utf8mb4</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>进入从节点</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">docker-compose exec db-slave bash</span><br><span class="line"></span><br><span class="line">mysql -u root -p</span><br><span class="line"></span><br><span class="line"># 创建用户授权</span><br><span class="line">GRANT SELECT,INSERT ON *.*</span><br><span class="line">     TO &#x27;testUser&#x27;@&#x27;localhost&#x27;</span><br><span class="line">     IDENTIFIED BY &#x27;testPwd&#x27;</span><br><span class="line">     WITH GRANT OPTION;</span><br><span class="line"></span><br><span class="line"># 配置从节点</span><br><span class="line">CHANGE MASTER TO MASTER_HOST=&#x27;172.21.0.2&#x27;, MASTER_USER=&#x27;root&#x27;, MASTER_PASSWORD=&#x27;12345678&#x27;, MASTER_LOG_FILE=&#x27;mysql-bin.000001&#x27;, MASTER_LOG_POS=0;</span><br><span class="line"></span><br><span class="line">查看状态</span><br><span class="line">mysql&gt; show slave status\G;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><img src="/assets/blog_img/%E6%88%AA%E5%B1%8F2021-11-28.png" alt="效果图"></p>
+</blockquote>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+    
+        <a href="/2021/11/28/index/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">思考仓库</div>
         </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/vps/">vps</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/ignite/" rel="tag">ignite</a>, <a class="tag-link-link" href="/tags/ssr/" rel="tag">ssr</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
     
-</div>
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
 </section>
         </div>
         <footer id="footer">
