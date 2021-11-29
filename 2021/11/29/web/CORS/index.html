@@ -3,19 +3,21 @@
 <head>
     <meta charset="utf-8">
     
-    <title>标签: Java基础 | CaryTseng</title>
+    <title>跨域CORS后端处理 | CaryTseng</title>
     
     
-        <meta name="keywords" content="CaryTseng" />
+        <meta name="keywords" content="跨域CORS后端处理" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="我们所知不过沧海一粟，我们所不知却是汪洋大海">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CaryTseng">
-<meta property="og:url" content="https://dogfun.top/tags/Java%E5%9F%BA%E7%A1%80/index.html">
+    <meta name="description" content="跨域    浏览器自身存在保护机制，当从一个域名访问另一个域名的资源时，域名、端口、协议任一不同，都会产生跨域问题  跨域限制 无法读取非同源网页的 Cookie、LocalStorage 和 IndexedDB 无法接触非同源网页的 DOM 无法向非同源地址发送 AJAX 请求（可以发送，但浏览器会拒绝接受响应）  解决方案跨域资源分享CORS后端添加Access-Control-Allow-O">
+<meta property="og:type" content="article">
+<meta property="og:title" content="跨域CORS后端处理">
+<meta property="og:url" content="https://dogfun.top/2021/11/29/web/CORS/index.html">
 <meta property="og:site_name" content="CaryTseng">
-<meta property="og:description" content="我们所知不过沧海一粟，我们所不知却是汪洋大海">
+<meta property="og:description" content="跨域    浏览器自身存在保护机制，当从一个域名访问另一个域名的资源时，域名、端口、协议任一不同，都会产生跨域问题  跨域限制 无法读取非同源网页的 Cookie、LocalStorage 和 IndexedDB 无法接触非同源网页的 DOM 无法向非同源地址发送 AJAX 请求（可以发送，但浏览器会拒绝接受响应）  解决方案跨域资源分享CORS后端添加Access-Control-Allow-O">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-11-29T07:15:50.000Z">
+<meta property="article:modified_time" content="2021-11-29T08:54:32.423Z">
 <meta property="article:author" content="CaryTseng">
 <meta name="twitter:card" content="summary">
     
@@ -358,13 +360,13 @@ var _hmt = _hmt || [];
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/02/26/vps/ssr-ignite-%E6%90%AD%E5%BB%BA/">ssr & ignite 搭建</a></li>  <li class="file"><a href="/2019/11/11/vps/x-ui/">x-ui</a></li>  <li class="file"><a href="/2020/11/28/vps/ignite%E8%BF%81%E7%A7%BB/">ignite迁移</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             web
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2017/08/06/web/%E4%BC%9A%E8%AF%9D%E6%8A%80%E6%9C%AFCookie%E4%B8%8ESession/">会话技术Cookie与Session</a></li>  <li class="file"><a href="/2019/12/20/web/Web%E5%AE%9E%E6%97%B6%E6%B6%88%E6%81%AF%E6%8E%A8%E9%80%81/">Web实时消息推送</a></li>  <li class="file"><a href="/2020/05/12/web/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/">布隆过滤器</a></li>  <li class="file"><a href="/2020/06/26/web/JSON-Web-Token/">JSON Web Token</a></li>  <li class="file"><a href="/2020/06/26/web/Validator%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C/">SpringMVC参数校验</a></li>  <li class="file"><a href="/2020/07/06/web/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">单点登录</a></li>  <li class="file"><a href="/2020/09/30/web/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%86%99%E6%A1%86%E6%9E%B6-SpringMVC/">从零开始写框架-SpringMVC</a></li>  <li class="file"><a href="/2020/10/07/web/Spring%E5%A4%9A%E6%95%B0%E6%8D%AE%E6%BA%90%E5%8A%A0%E8%BD%BD/">Spring多数据源加载</a></li>  <li class="file"><a href="/2020/11/04/web/CAP%E5%AE%9A%E7%90%86/">CAP定理</a></li>  <li class="file"><a href="/2021/10/25/web/NVM/">NVM</a></li>  <li class="file"><a href="/2021/11/29/web/CORS/">跨域CORS后端处理</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2017/08/06/web/%E4%BC%9A%E8%AF%9D%E6%8A%80%E6%9C%AFCookie%E4%B8%8ESession/">会话技术Cookie与Session</a></li>  <li class="file"><a href="/2019/12/20/web/Web%E5%AE%9E%E6%97%B6%E6%B6%88%E6%81%AF%E6%8E%A8%E9%80%81/">Web实时消息推送</a></li>  <li class="file"><a href="/2020/05/12/web/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/">布隆过滤器</a></li>  <li class="file"><a href="/2020/06/26/web/JSON-Web-Token/">JSON Web Token</a></li>  <li class="file"><a href="/2020/06/26/web/Validator%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C/">SpringMVC参数校验</a></li>  <li class="file"><a href="/2020/07/06/web/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">单点登录</a></li>  <li class="file"><a href="/2020/09/30/web/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%86%99%E6%A1%86%E6%9E%B6-SpringMVC/">从零开始写框架-SpringMVC</a></li>  <li class="file"><a href="/2020/10/07/web/Spring%E5%A4%9A%E6%95%B0%E6%8D%AE%E6%BA%90%E5%8A%A0%E8%BD%BD/">Spring多数据源加载</a></li>  <li class="file"><a href="/2020/11/04/web/CAP%E5%AE%9A%E7%90%86/">CAP定理</a></li>  <li class="file"><a href="/2021/10/25/web/NVM/">NVM</a></li>  <li class="file active"><a href="/2021/11/29/web/CORS/">跨域CORS后端处理</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -509,86 +511,99 @@ var _hmt = _hmt || [];
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-tag"></i></span>
-        <h1 class="title">#Java基础</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-web/CORS" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
-    
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2020/06/28/java/%E6%B5%85%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B7%B1%E6%8B%B7%E8%B4%9D/">浅拷贝与深拷贝</a>
-        </h1>
-    
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/web/">web</a>
+    </div>
 
-                <div class="article-meta">
-                    
+                        
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2020/06/28/java/%E6%B5%85%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B7%B1%E6%8B%B7%E8%B4%9D/">
-            <time datetime="2020-06-28T12:02:31.000Z" itemprop="datePublished">2020-06-28</time>
+        <a href="/2021/11/29/web/CORS/">
+            <time datetime="2021-11-29T07:15:50.000Z" itemprop="datePublished">2021-11-29</time>
         </a>
     </div>
 
 
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/java/">java</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/Java%E5%9F%BA%E7%A1%80/" rel="tag">Java基础</a>, <a class="tag-link-link" href="/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" rel="tag">技术学习</a>
-    </div>
-
-                </div>
-            </div>
-        </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2019/05/03/java/List%E9%81%8D%E5%8E%86%E8%BF%87%E7%A8%8Bremove%E7%9A%84ConcurrentModificationException/">List遍历过程remove的ConcurrentModificationException</a>
+        <h1 class="article-title" itemprop="name">
+            跨域CORS后端处理
         </h1>
     
 
-                <div class="article-meta">
-                    
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2019/05/03/java/List%E9%81%8D%E5%8E%86%E8%BF%87%E7%A8%8Bremove%E7%9A%84ConcurrentModificationException/">
-            <time datetime="2019-05-03T08:21:50.000Z" itemprop="datePublished">2019-05-03</time>
-        </a>
-    </div>
-
-
-                    
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/java/">java</a>
-    </div>
-
-                    
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/Java%E5%9F%BA%E7%A1%80/" rel="tag">Java基础</a>, <a class="tag-link-link" href="/tags/%E5%BC%82%E5%B8%B8/" rel="tag">异常</a>, <a class="tag-link-link" href="/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" rel="tag">技术学习</a>
-    </div>
-
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%A8%E5%9F%9F"><span class="toc-number">1.</span> <span class="toc-text">跨域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%A8%E5%9F%9F%E9%99%90%E5%88%B6"><span class="toc-number">2.</span> <span class="toc-text">跨域限制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">3.</span> <span class="toc-text">解决方案</span></a></li></ol>
                 </div>
+            
+        
+        
+            <h2 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h2><pre><code>    浏览器自身存在保护机制，当从一个域名访问另一个域名的资源时，域名、端口、协议任一不同，都会产生跨域问题
+</code></pre>
+<h2 id="跨域限制"><a href="#跨域限制" class="headerlink" title="跨域限制"></a>跨域限制</h2><ol>
+<li>无法读取非同源网页的 Cookie、LocalStorage 和 IndexedDB</li>
+<li>无法接触非同源网页的 DOM</li>
+<li>无法向非同源地址发送 AJAX 请求（可以发送，但浏览器会拒绝接受响应）</li>
+</ol>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>跨域资源分享CORS<br>后端添加Access-Control-Allow-Origin返回头，允许通过的域</p>
+
             </div>
-        </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
     
-</div>
+<nav id="article-nav">
+    
+    
+        <a href="/2021/11/28/%E6%95%B0%E6%8D%AE%E5%BA%93/Mysql%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">Mysql主从复制搭建</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
 </section>
         </div>
         <footer id="footer">
