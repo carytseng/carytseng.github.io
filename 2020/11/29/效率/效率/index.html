@@ -3,23 +3,25 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Redis模糊删除key | CaryTseng</title>
+    <title>CaryTseng</title>
     
     
-        <meta name="keywords" content="Redis模糊删除key" />
+        <meta name="keywords" content="CaryTseng" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="redis没有提供针对key的模糊删除支持，提供的keys命令会一次性扫描库中符合条件的记录，没有分页设置，可能由于数据量过大造成redis卡顿，影响正常业务进行，在生产中应该摒弃用keys命令来扫描。  Scan命令该命令是redis2.8提供的，相比keys命令，它是通过游标分步进行，不会对线程造成阻塞，提供匹配功能。游标的意思，redis的数据结构是基于hash的，类似java的hashm">
+    <meta name="description" content="IDEA快速代码生成12psvm  生成main方法sout  生成System.out.println  查找1234567891011121314151617181920cmd+o 定位类查找cmd+shift+f 查找文件shift+shift 所有文件查找option+f7. 定位使用到的地方cmd+b 声明或使用到的地方option+cmd+b 定位接口实现类cmd+u 定位实现的接口或">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Redis模糊删除key">
-<meta property="og:url" content="https://dogfun.top/2020/12/25/Redis/Redis%E6%A8%A1%E7%B3%8A%E5%88%A0%E9%99%A4key/index.html">
+<meta property="og:title" content="CaryTseng">
+<meta property="og:url" content="https://dogfun.top/2020/11/29/%E6%95%88%E7%8E%87/%E6%95%88%E7%8E%87/index.html">
 <meta property="og:site_name" content="CaryTseng">
-<meta property="og:description" content="redis没有提供针对key的模糊删除支持，提供的keys命令会一次性扫描库中符合条件的记录，没有分页设置，可能由于数据量过大造成redis卡顿，影响正常业务进行，在生产中应该摒弃用keys命令来扫描。  Scan命令该命令是redis2.8提供的，相比keys命令，它是通过游标分步进行，不会对线程造成阻塞，提供匹配功能。游标的意思，redis的数据结构是基于hash的，类似java的hashm">
+<meta property="og:description" content="IDEA快速代码生成12psvm  生成main方法sout  生成System.out.println  查找1234567891011121314151617181920cmd+o 定位类查找cmd+shift+f 查找文件shift+shift 所有文件查找option+f7. 定位使用到的地方cmd+b 声明或使用到的地方option+cmd+b 定位接口实现类cmd+u 定位实现的接口或">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-12-25T02:14:06.000Z">
-<meta property="article:modified_time" content="2021-11-28T03:51:13.743Z">
+<meta property="og:image" content="https://dogfun.top/2020/11/29/%E6%95%88%E7%8E%87/%E6%95%88%E7%8E%87/path">
+<meta property="article:published_time" content="2020-11-29T13:00:15.569Z">
+<meta property="article:modified_time" content="2021-01-15T07:20:52.454Z">
 <meta property="article:author" content="CaryTseng">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://dogfun.top/2020/11/29/%E6%95%88%E7%8E%87/%E6%95%88%E7%8E%87/path">
     
 
     
@@ -279,13 +281,13 @@ var _hmt = _hmt || [];
         
         
          <ul class="unstyled" id="tree" > 
-                    <li class="directory open">
+                    <li class="directory">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
+                            <i class="fa fa-folder"></i>
                             &nbsp;
                             Redis
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/07/02/Redis/redis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%AE%9E%E7%8E%B0%E7%A7%92%E6%9D%80%E4%B8%9A%E5%8A%A1/">redis分布式锁实现秒杀业务</a></li>  <li class="file"><a href="/2020/10/28/Redis/redis/">Redis探究</a></li>  <li class="file active"><a href="/2020/12/25/Redis/Redis%E6%A8%A1%E7%B3%8A%E5%88%A0%E9%99%A4key/">Redis模糊删除key</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/07/02/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%AE%9E%E7%8E%B0%E7%A7%92%E6%9D%80%E4%B8%9A%E5%8A%A1/">redis分布式锁实现秒杀业务</a></li>  <li class="file"><a href="/2020/10/28/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/">Redis探究</a></li>  <li class="file"><a href="/2020/12/25/%E4%B8%AD%E9%97%B4%E4%BB%B6/Redis%E6%A8%A1%E7%B3%8A%E5%88%A0%E9%99%A4key/">Redis模糊删除key</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -330,7 +332,7 @@ var _hmt = _hmt || [];
                             &nbsp;
                             kafka
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/02/11/kafka/kafka%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">kafka消息队列</a></li>  <li class="file"><a href="/2018/04/11/kafka/kafka%E7%94%9F%E4%BA%A7%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98/">kafka生产重复消费问题</a></li>  <li class="file"><a href="/2020/05/14/kafka/kafka/">Kafka</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/02/11/%E4%B8%AD%E9%97%B4%E4%BB%B6/kafka%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">kafka消息队列</a></li>  <li class="file"><a href="/2018/04/11/%E4%B8%AD%E9%97%B4%E4%BB%B6/kafka%E7%94%9F%E4%BA%A7%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98/">kafka生产重复消费问题</a></li>  <li class="file"><a href="/2020/05/14/%E4%B8%AD%E9%97%B4%E4%BB%B6/kafka/">Kafka</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -340,15 +342,6 @@ var _hmt = _hmt || [];
                             linux
                         </a>
                          <ul class="unstyled" id="tree" >  <li class="file"><a href="/2019/11/11/linux/linux-firewall/">firewall</a></li>  <li class="file"><a href="/2019/11/11/linux/linux/">linux</a></li>  <li class="file"><a href="/2020/05/14/linux/Linux%E6%96%87%E4%BB%B6%E5%88%A0%E9%99%A4%E5%8E%9F%E7%90%86/">Linux文件删除原理</a></li>  <li class="file"><a href="/2020/05/14/linux/NetworkManager/">NetworkManager</a></li>  <li class="file"><a href="/2020/05/21/linux/FTP%E6%A8%A1%E5%BC%8F%E8%AE%BE%E7%BD%AE%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98/">FTP模式设置引发的问题</a></li>  <li class="file"><a href="/2021/11/28/linux/vim/">Vim</a></li>  </ul> 
-                    </li> 
-                    
-                    <li class="directory">
-                        <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
-                            &nbsp;
-                            nginx
-                        </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2019/11/11/nginx/Nginx/">nginx</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -384,16 +377,16 @@ var _hmt = _hmt || [];
                             &nbsp;
                             中间件
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/09/25/%E4%B8%AD%E9%97%B4%E4%BB%B6/Nacos/">Nacos</a></li>  <li class="file"><a href="/2020/09/25/%E4%B8%AD%E9%97%B4%E4%BB%B6/presto/">Presto</a></li>  <li class="file"><a href="/2021/11/27/%E4%B8%AD%E9%97%B4%E4%BB%B6/Minio/">Minio</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2019/11/11/nginx/Nginx/">nginx</a></li>  <li class="file"><a href="/2019/11/11/%E4%B8%AD%E9%97%B4%E4%BB%B6/Nginx/">nginx</a></li>  <li class="file"><a href="/2020/09/25/%E4%B8%AD%E9%97%B4%E4%BB%B6/Nacos/">Nacos</a></li>  <li class="file"><a href="/2020/09/25/%E4%B8%AD%E9%97%B4%E4%BB%B6/presto/">Presto</a></li>  <li class="file"><a href="/2021/11/27/%E4%B8%AD%E9%97%B4%E4%BB%B6/Minio/">Minio</a></li>  </ul> 
                     </li> 
                     
-                    <li class="directory">
+                    <li class="directory open">
                         <a href="#" data-role="directory">
-                            <i class="fa fa-folder"></i>
+                            <i class="fa fa-folder-open"></i>
                             &nbsp;
                             效率
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/09/25/%E6%95%88%E7%8E%87/mac/">Mac平台下工具总结</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/2020/11/29/%E6%95%88%E7%8E%87/%E6%95%88%E7%8E%87/"></a></li>  <li class="file"><a href="/2021/09/25/%E6%95%88%E7%8E%87/mac/">Mac平台下工具总结</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -511,44 +504,9 @@ var _hmt = _hmt || [];
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
-            <section id="main"><article id="post-Redis/Redis模糊删除key" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-效率/效率" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Redis/">Redis</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2020/12/25/Redis/Redis%E6%A8%A1%E7%B3%8A%E5%88%A0%E9%99%A4key/">
-            <time datetime="2020-12-25T02:14:06.000Z" itemprop="datePublished">2020-12-25</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                    </div>
-                
-                
-    
-        <h1 class="article-title" itemprop="name">
-            Redis模糊删除key
-        </h1>
-    
-
-            </header>
         
         
         <div class="article-entry" itemprop="articleBody">
@@ -557,14 +515,139 @@ var _hmt = _hmt || [];
             
         
         
-            <blockquote>
-<p>redis没有提供针对key的模糊删除支持，提供的keys命令会一次性扫描库中符合条件的记录，没有分页设置，可能由于数据量过大造成redis卡顿，影响正常业务进行，在生产中应该摒弃用keys命令来扫描。</p>
-</blockquote>
-<h3 id="Scan命令"><a href="#Scan命令" class="headerlink" title="Scan命令"></a>Scan命令</h3><p>该命令是redis2.8提供的，相比keys命令，它是通过游标分步进行，不会对线程造成阻塞，提供匹配功能。游标的意思，redis的数据结构是基于hash的，类似java的hashmap，底层也是数组+链表，这里通过游标遍历。</p>
-<p>SCAN CURSOR [MATCH pattern] [COUNT count]</p>
-<p>CURSOR代表游标，每次扫描都会返回上次的游标以此来开始增量的扫描，count指扫描槽位的数量，可以理解为扫描hashmap中一维数组中多少个元素并返回这些槽组的数据，判断是否有符合的元素。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">scanAndDel</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           redisTemplate.execute((RedisCallback&lt;Boolean&gt;) redisConnection -&gt;</span><br><span class="line">           &#123;</span><br><span class="line">               Object nativeConnection = redisConnection.getNativeConnection();</span><br><span class="line"></span><br><span class="line">               <span class="comment">// lettuce 单机</span></span><br><span class="line">               <span class="keyword">if</span> (nativeConnection <span class="keyword">instanceof</span> RedisAsyncCommands) &#123;</span><br><span class="line">                   RedisAsyncCommands connection = (RedisAsyncCommands) nativeConnection;</span><br><span class="line"></span><br><span class="line">                   RedisCommands&lt;<span class="keyword">byte</span>[], String&gt; commands = connection.getStatefulConnection().sync();</span><br><span class="line"></span><br><span class="line">                   KeyScanCursor&lt;<span class="keyword">byte</span>[]&gt; scanCursor = <span class="keyword">null</span>;</span><br><span class="line">                   <span class="keyword">do</span> &#123;</span><br><span class="line">                       <span class="keyword">if</span> (scanCursor == <span class="keyword">null</span>) &#123;</span><br><span class="line">                           scanCursor = commands.scan(ScanArgs.Builder.matches(key));</span><br><span class="line">                       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                           scanCursor = commands.scan(scanCursor, ScanArgs.Builder.matches(key));</span><br><span class="line">                       &#125;</span><br><span class="line"></span><br><span class="line">                       List&lt;<span class="keyword">byte</span>[]&gt; byteKeys = scanCursor.getKeys();</span><br><span class="line">                       <span class="keyword">if</span> (byteKeys.size() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                           <span class="keyword">byte</span>[][] keys = <span class="keyword">new</span> <span class="keyword">byte</span>[byteKeys.size()][];</span><br><span class="line">                           <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; byteKeys.size(); i++) &#123;</span><br><span class="line">                               keys[i] = byteKeys.get(i);</span><br><span class="line">                           &#125;</span><br><span class="line"></span><br><span class="line">                           commands.del(keys);</span><br><span class="line">                           <span class="keyword">try</span> &#123;</span><br><span class="line">                               Thread.sleep(<span class="number">100</span>);</span><br><span class="line">                           &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                           &#125;</span><br><span class="line">                       &#125;</span><br><span class="line">                   &#125; <span class="keyword">while</span> (!scanCursor.isFinished());</span><br><span class="line">               &#125;</span><br><span class="line"></span><br><span class="line">               <span class="comment">// lettuce 集群</span></span><br><span class="line">               <span class="keyword">if</span> (nativeConnection <span class="keyword">instanceof</span> RedisAdvancedClusterAsyncCommands) &#123;</span><br><span class="line">                   RedisAdvancedClusterAsyncCommands connection = (RedisAdvancedClusterAsyncCommands) nativeConnection;</span><br><span class="line"></span><br><span class="line">                   RedisAdvancedClusterCommands&lt;<span class="keyword">byte</span>[], String&gt; commands = connection.getStatefulConnection().sync();</span><br><span class="line"></span><br><span class="line">                   KeyScanCursor&lt;<span class="keyword">byte</span>[]&gt; scanCursor = <span class="keyword">null</span>;</span><br><span class="line">                   <span class="keyword">do</span> &#123;</span><br><span class="line">                       <span class="keyword">if</span> (scanCursor == <span class="keyword">null</span>) &#123;</span><br><span class="line">                           scanCursor = commands.scan(ScanArgs.Builder.matches(key));</span><br><span class="line">                       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                           scanCursor = commands.scan(scanCursor, ScanArgs.Builder.matches(key));</span><br><span class="line">                       &#125;</span><br><span class="line"></span><br><span class="line">                       List&lt;<span class="keyword">byte</span>[]&gt; byteKeys = scanCursor.getKeys();</span><br><span class="line">                       <span class="keyword">if</span> (byteKeys.size() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                           <span class="keyword">byte</span>[][] keys = <span class="keyword">new</span> <span class="keyword">byte</span>[byteKeys.size()][];</span><br><span class="line">                           <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; byteKeys.size(); i++) &#123;</span><br><span class="line">                               keys[i] = byteKeys.get(i);</span><br><span class="line">                           &#125;</span><br><span class="line"></span><br><span class="line">                           commands.del(keys);</span><br><span class="line">                           <span class="keyword">try</span> &#123;</span><br><span class="line">                               Thread.sleep(<span class="number">100</span>);</span><br><span class="line">                           &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                           &#125;</span><br><span class="line">                       &#125;</span><br><span class="line">                   &#125; <span class="keyword">while</span> (!scanCursor.isFinished());</span><br><span class="line">               &#125;</span><br><span class="line">               <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">           &#125;);</span><br><span class="line">       &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+            <h2 id="IDEA"><a href="#IDEA" class="headerlink" title="IDEA"></a>IDEA</h2><h3 id="快速代码生成"><a href="#快速代码生成" class="headerlink" title="快速代码生成"></a>快速代码生成</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">psvm  生成main方法</span><br><span class="line">sout  生成System.out.println</span><br></pre></td></tr></table></figure>
 
+<h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">cmd+o 定位类查找</span><br><span class="line"></span><br><span class="line">cmd+shift+f 查找文件</span><br><span class="line"></span><br><span class="line">shift+shift 所有文件查找</span><br><span class="line"></span><br><span class="line">option+f7. 定位使用到的地方</span><br><span class="line"></span><br><span class="line">cmd+b 声明或使用到的地方</span><br><span class="line"></span><br><span class="line">option+cmd+b 定位接口实现类</span><br><span class="line"></span><br><span class="line">cmd+u 定位实现的接口或者继承类</span><br><span class="line"></span><br><span class="line">cmd+b 定位调用方</span><br><span class="line"></span><br><span class="line">cmd+\ 插件定位controller方法</span><br><span class="line"></span><br><span class="line">alt+cmd+b 定位实现类</span><br></pre></td></tr></table></figure>
+
+<h4 id="类生成"><a href="#类生成" class="headerlink" title="类生成"></a>类生成</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctrl+enter 类生成方法</span><br><span class="line"></span><br><span class="line">cmd+n 生成构造、test、equal、overwrite等</span><br></pre></td></tr></table></figure>
+
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cmd+shift+u 大小写切换</span><br><span class="line"></span><br><span class="line">cmd+l 定位文件行&amp;列</span><br><span class="line"></span><br><span class="line">cmd+b 回到调用位置</span><br><span class="line"></span><br><span class="line">cmd+[+]/[-]展开代码/折叠代码</span><br><span class="line"></span><br><span class="line">cmd+shift+[+]/[-]展开所有代码/折叠所有代码</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h4 id="系统监测"><a href="#系统监测" class="headerlink" title="系统监测"></a>系统监测</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ps -ef 显示运行进程</span><br><span class="line"></span><br><span class="line">top 实时显示系统进程及参数</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="bash"><a href="#bash" class="headerlink" title="bash"></a>bash</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">echo -n</span><br><span class="line">		 -e </span><br><span class="line">		 </span><br><span class="line">type</span><br></pre></td></tr></table></figure>
+
+<h2 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h2><table>
+<thead>
+<tr>
+<th>根据路径打开文件</th>
+<th>shirt+cmd+g</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>打开访达</td>
+<td>cmd+n</td>
+</tr>
+<tr>
+<td>搜词</td>
+<td>option+/</td>
+</tr>
+<tr>
+<td>全局搜索</td>
+<td>option+space</td>
+</tr>
+<tr>
+<td>我的电脑</td>
+<td>cmd+shirt+h</td>
+</tr>
+<tr>
+<td>新建文件夹</td>
+<td>cmd+shirt+n</td>
+</tr>
+<tr>
+<td>同一个应用多开切换</td>
+<td>cmd+`</td>
+</tr>
+<tr>
+<td>桌面</td>
+<td>f11</td>
+</tr>
+</tbody></table>
+<h2 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h2><table>
+<thead>
+<tr>
+<th>添加目录</th>
+<th>[toc]</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>h1</td>
+<td>#</td>
+</tr>
+<tr>
+<td>块引用</td>
+<td>&gt;</td>
+</tr>
+<tr>
+<td>列表</td>
+<td>* || 1.</td>
+</tr>
+<tr>
+<td>代码块</td>
+<td>```</td>
+</tr>
+<tr>
+<td>加粗</td>
+<td><strong>?</strong></td>
+</tr>
+<tr>
+<td>图片引入</td>
+<td><img src="path"></td>
+</tr>
+<tr>
+<td>下划线</td>
+<td>***</td>
+</tr>
+<tr>
+<td>表格</td>
+<td>||||</td>
+</tr>
+</tbody></table>
+<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><table>
+<thead>
+<tr>
+<th>新建文章</th>
+<th>hexo n “hello world”</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>新建页面</td>
+<td>hexo new page “pageName”</td>
+</tr>
+<tr>
+<td>生成静态页面至public目录</td>
+<td>hexo g</td>
+</tr>
+<tr>
+<td>开启预览访问端口</td>
+<td>hexo s</td>
+</tr>
+<tr>
+<td>上传部署</td>
+<td>hexo d</td>
+</tr>
+<tr>
+<td>帮助</td>
+<td>hexo help</td>
+</tr>
+<tr>
+<td>生成并本地预览</td>
+<td>hexo s -g</td>
+</tr>
+<tr>
+<td>生成并上传</td>
+<td>hexo d -g</td>
+</tr>
+</tbody></table>
+<h2 id="Alfred"><a href="#Alfred" class="headerlink" title="Alfred"></a>Alfred</h2><h4 id="文件目录搜索"><a href="#文件目录搜索" class="headerlink" title="文件目录搜索"></a>文件目录搜索</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find [file]</span><br><span class="line">open [file]</span><br></pre></td></tr></table></figure>
+
+<h4 id="文本内容搜索"><a href="#文本内容搜索" class="headerlink" title="文本内容搜索"></a>文本内容搜索</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">in [file]</span><br></pre></td></tr></table></figure>
+
+<h4 id="快捷网页搜索"><a href="#快捷网页搜索" class="headerlink" title="快捷网页搜索"></a>快捷网页搜索</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">google something</span><br><span class="line">wiki something</span><br><span class="line">bing something</span><br></pre></td></tr></table></figure>
+
+<h4 id="翻译"><a href="#翻译" class="headerlink" title="翻译"></a>翻译</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yd []</span><br></pre></td></tr></table></figure>
 
 
 
@@ -579,11 +662,11 @@ var _hmt = _hmt || [];
     
 <nav id="article-nav">
     
-        <a href="/2021/08/05/java/java/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2020/12/25/%E4%B8%AD%E9%97%B4%E4%BB%B6/Redis%E6%A8%A1%E7%B3%8A%E5%88%A0%E9%99%A4key/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    Java基础补全
+                    Redis模糊删除key
                 
             </div>
         </a>
