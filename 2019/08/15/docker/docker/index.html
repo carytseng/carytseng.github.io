@@ -6,20 +6,19 @@
     <title>docker | CaryTseng</title>
     
     
-        <meta name="keywords" content="编程技巧" />
+        <meta name="keywords" content="docker" />
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Docker 第一章.容器发展之路 单服务器运行单应用的时代，扩展服务容量需要添加服务器，成本高。   使用vmware，即虚拟机技术，会占用额外的cpu、ram和存储。但是虚拟机依赖操作系统，可移植性差，启动慢。 容器与虚拟机最大的区别是不会占用操作系统，而是共享宿主机的资源，而且启动快和便于迁移。 Docker之前有很多虚拟化技术，但由于使用复杂度高得不到广泛应用。 Kubernetes是Do">
+    <meta name="description" content="脚本1234#方式1curl -fsSL https:&#x2F;&#x2F;get.docker.com | bash -s docker --mirror Aliyun#方式2curl -sSL https:&#x2F;&#x2F;get.daocloud.io&#x2F;docker | sh  授权普通用户docker运行权限1sudo usermod -aG docker [user]  Dockerfile应用容器化 编写Docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="docker">
-<meta property="og:url" content="https://dogfun.top/2017/07/21/docker/docker/index.html">
+<meta property="og:url" content="https://dogfun.top/2019/08/15/docker/docker/index.html">
 <meta property="og:site_name" content="CaryTseng">
-<meta property="og:description" content="Docker 第一章.容器发展之路 单服务器运行单应用的时代，扩展服务容量需要添加服务器，成本高。   使用vmware，即虚拟机技术，会占用额外的cpu、ram和存储。但是虚拟机依赖操作系统，可移植性差，启动慢。 容器与虚拟机最大的区别是不会占用操作系统，而是共享宿主机的资源，而且启动快和便于迁移。 Docker之前有很多虚拟化技术，但由于使用复杂度高得不到广泛应用。 Kubernetes是Do">
+<meta property="og:description" content="脚本1234#方式1curl -fsSL https:&#x2F;&#x2F;get.docker.com | bash -s docker --mirror Aliyun#方式2curl -sSL https:&#x2F;&#x2F;get.daocloud.io&#x2F;docker | sh  授权普通用户docker运行权限1sudo usermod -aG docker [user]  Dockerfile应用容器化 编写Docker">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2017-07-21T02:14:13.000Z">
-<meta property="article:modified_time" content="2021-11-28T03:34:17.975Z">
+<meta property="article:published_time" content="2019-08-15T02:14:13.000Z">
+<meta property="article:modified_time" content="2021-12-06T08:50:37.345Z">
 <meta property="article:author" content="CaryTseng">
-<meta property="article:tag" content="编程技巧">
 <meta name="twitter:card" content="summary">
     
 
@@ -180,7 +179,7 @@ var _hmt = _hmt || [];
                             &nbsp;
                             docker
                         </a>
-                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2017/07/21/docker/docker-compose/">docker-compose</a></li>  <li class="file"><a href="/2017/07/21/docker/docker-network/">docker-network</a></li>  <li class="file active"><a href="/2017/07/21/docker/docker/">docker</a></li>  </ul> 
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2017/07/21/docker/docker-compose/">docker-compose</a></li>  <li class="file"><a href="/2017/07/21/docker/docker-network/">docker-network</a></li>  <li class="file active"><a href="/2019/08/15/docker/docker/">docker</a></li>  </ul> 
                     </li> 
                     
                     <li class="directory">
@@ -402,16 +401,11 @@ var _hmt = _hmt || [];
     </div>
 
                         
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a>
-    </div>
-
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2017/07/21/docker/docker/">
-            <time datetime="2017-07-21T02:14:13.000Z" itemprop="datePublished">2017-07-21</time>
+        <a href="/2019/08/15/docker/docker/">
+            <time datetime="2019-08-15T02:14:13.000Z" itemprop="datePublished">2019-08-15</time>
         </a>
     </div>
 
@@ -439,36 +433,15 @@ var _hmt = _hmt || [];
             
                 <div id="toc" class="toc-article">
                 <strong class="toc-title">文章目录</strong>
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%AE%B9%E5%99%A8%E5%8F%91%E5%B1%95%E4%B9%8B%E8%B7%AF"><span class="toc-number">1.</span> <span class="toc-text">第一章.容器发展之路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E8%B5%B0%E8%BF%9BDocker"><span class="toc-number">2.</span> <span class="toc-text">第二章.走进Docker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-Docker%E5%AE%89%E8%A3%85"><span class="toc-number">3.</span> <span class="toc-text">第三章.Docker安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%84%9A%E6%9C%AC"><span class="toc-number">3.1.</span> <span class="toc-text">脚本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%88%E6%9D%83%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7docker%E8%BF%90%E8%A1%8C%E6%9D%83%E9%99%90"><span class="toc-number">3.2.</span> <span class="toc-text">授权普通用户docker运行权限</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BA%B5%E8%A7%82Docker"><span class="toc-number">4.</span> <span class="toc-text">第四章.纵观Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Dockerfile%E5%BA%94%E7%94%A8%E5%AE%B9%E5%99%A8%E5%8C%96"><span class="toc-number">4.1.</span> <span class="toc-text">Dockerfile应用容器化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-Docker%E5%BC%95%E6%93%8E"><span class="toc-number">5.</span> <span class="toc-text">第五章.Docker引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-Docker%E9%95%9C%E5%83%8F"><span class="toc-number">6.</span> <span class="toc-text">第六章.Docker镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-Docker%E5%AE%B9%E5%99%A8"><span class="toc-number">7.</span> <span class="toc-text">第七章.Docker容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0-%E5%BA%94%E7%94%A8%E5%AE%B9%E5%99%A8%E5%8C%96"><span class="toc-number">8.</span> <span class="toc-text">第八章.应用容器化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">9.</span> <span class="toc-text">常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%95%9C%E5%83%8F%E7%B1%BB"><span class="toc-number">9.1.</span> <span class="toc-text">镜像类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E7%B1%BB"><span class="toc-number">9.2.</span> <span class="toc-text">容器类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%B1%BB"><span class="toc-number">9.3.</span> <span class="toc-text">网络类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E6%9F%A5%E8%AF%A2"><span class="toc-number">9.4.</span> <span class="toc-text">日志查询</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%84%9A%E6%9C%AC"><span class="toc-number">1.</span> <span class="toc-text">脚本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%88%E6%9D%83%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7docker%E8%BF%90%E8%A1%8C%E6%9D%83%E9%99%90"><span class="toc-number">2.</span> <span class="toc-text">授权普通用户docker运行权限</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Dockerfile%E5%BA%94%E7%94%A8%E5%AE%B9%E5%99%A8%E5%8C%96"><span class="toc-number">3.</span> <span class="toc-text">Dockerfile应用容器化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker%E5%BC%95%E6%93%8E"><span class="toc-number"></span> <span class="toc-text">Docker引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%AE%B9%E5%99%A8%E5%8C%96"><span class="toc-number"></span> <span class="toc-text">应用容器化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number"></span> <span class="toc-text">常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%95%9C%E5%83%8F%E7%B1%BB"><span class="toc-number">1.</span> <span class="toc-text">镜像类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text">容器类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%B1%BB"><span class="toc-number">3.</span> <span class="toc-text">网络类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E6%9F%A5%E8%AF%A2"><span class="toc-number">4.</span> <span class="toc-text">日志查询</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B5%84%E6%BA%90%E5%8D%A0%E7%94%A8%E5%88%86%E6%9E%90"><span class="toc-number">5.</span> <span class="toc-text">资源占用分析</span></a></li></ol>
                 </div>
             
         
         
-            <p>Docker</p>
-<h3 id="第一章-容器发展之路"><a href="#第一章-容器发展之路" class="headerlink" title="第一章.容器发展之路"></a>第一章.容器发展之路</h3><blockquote>
-<p>单服务器运行单应用的时代，扩展服务容量需要添加服务器，成本高。  </p>
-<p>使用vmware，即虚拟机技术，会占用额外的cpu、ram和存储。但是虚拟机依赖操作系统，可移植性差，启动慢。</p>
-<p>容器与虚拟机最大的区别是不会占用操作系统，而是共享宿主机的资源，而且启动快和便于迁移。</p>
-<p>Docker之前有很多虚拟化技术，但由于使用复杂度高得不到广泛应用。</p>
-<p>Kubernetes是Docker之上的一个平台，其采用Docker实现其底层容器相关的操作。</p>
-</blockquote>
-<h3 id="第二章-走进Docker"><a href="#第二章-走进Docker" class="headerlink" title="第二章.走进Docker"></a>第二章.走进Docker</h3><blockquote>
-<p> Docker是运行在Linux和Windows上的软件，用于创建、管理和编排容器。</p>
-<p>Docker引擎是用于运行和编排容器的基础设施工具.</p>
-<p>容器开放计划OCI是一个旨在对容器基础架构中的基础组建进行标准化的管理委员会。</p>
-</blockquote>
-<h3 id="第三章-Docker安装"><a href="#第三章-Docker安装" class="headerlink" title="第三章.Docker安装"></a>第三章.Docker安装</h3><blockquote>
-<p>Docker存储驱动选择，每个Docker容器都有一个存储空间，用于保存层叠的镜像层以及挂载的文件系统，Docker在Linux底层支持几种不同的存储驱动的具体实现，不同的驱动对Docker的稳定和性能有影响.</p>
-</blockquote>
-<h4 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#方式1</span><br><span class="line">curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</span><br><span class="line">#方式2</span><br><span class="line">curl -sSL https://get.daocloud.io/docker | sh</span><br></pre></td></tr></table></figure>
+            <h4 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#方式1</span><br><span class="line">curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</span><br><span class="line">#方式2</span><br><span class="line">curl -sSL https://get.daocloud.io/docker | sh</span><br></pre></td></tr></table></figure>
 
 <h4 id="授权普通用户docker运行权限"><a href="#授权普通用户docker运行权限" class="headerlink" title="授权普通用户docker运行权限"></a>授权普通用户docker运行权限</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -aG docker [user]</span><br></pre></td></tr></table></figure>
 
-<h3 id="第四章-纵观Docker"><a href="#第四章-纵观Docker" class="headerlink" title="第四章.纵观Docker"></a>第四章.纵观Docker</h3><blockquote>
-<p>Docker客户端和Docker daemon</p>
-<p>daemon实现了Docker引擎的API，客户端与daemon的通信是通过IPC/UNIX Socket完成的。</p>
-<p>镜像是包含了os文件系统和应用的对象，等价于未运行的容器。</p>
-</blockquote>
 <h4 id="Dockerfile应用容器化"><a href="#Dockerfile应用容器化" class="headerlink" title="Dockerfile应用容器化"></a>Dockerfile应用容器化</h4><ol>
 <li><p>编写Dockerfile</p>
 </li>
@@ -483,12 +456,12 @@ var _hmt = _hmt || [];
 </ol>
 </li>
 </ol>
-<h3 id="第五章-Docker引擎"><a href="#第五章-Docker引擎" class="headerlink" title="第五章.Docker引擎"></a>第五章.Docker引擎</h3><blockquote>
+<h3 id="Docker引擎"><a href="#Docker引擎" class="headerlink" title="Docker引擎"></a>Docker引擎</h3><blockquote>
 <p>Docker采用模块化设计</p>
 <p>Docker daemon实现了Docker API，基于HTTP</p>
 <p>对容器的操作由containerd完成，containerd主要负责容器的生命周期管理，它指挥与OCI兼容的容器运行时来创建容器，runc是OCI容器运行时规范的实现，其基于Docker公司开发的Libcontainer与系统内核交互，Libcontainer是为了代替LXC，达到平台无关化。containerd调用runc，确保Docker镜像以OCI bundle的格式给runc。Docker daemon剩下的主要职责有API、镜像管理、身份认证、安全特性、核心网络等。</p>
 </blockquote>
-<h3 id="第六章-Docker镜像"><a href="#第六章-Docker镜像" class="headerlink" title="第六章.Docker镜像"></a>第六章.Docker镜像</h3><h3 id="第七章-Docker容器"><a href="#第七章-Docker容器" class="headerlink" title="第七章.Docker容器"></a>第七章.Docker容器</h3><h3 id="第八章-应用容器化"><a href="#第八章-应用容器化" class="headerlink" title="第八章.应用容器化"></a>第八章.应用容器化</h3><p>  docker image build命令会读取Dockerfile,并将应用容器化。使用-t打标签，使用-f指定Dockerfile的路径和名称，-f指定任意路径下的任意名称的Dockerfile</p>
+<h3 id="应用容器化"><a href="#应用容器化" class="headerlink" title="应用容器化"></a>应用容器化</h3><p>  docker image build命令会读取Dockerfile,并将应用容器化。使用-t打标签，使用-f指定Dockerfile的路径和名称，-f指定任意路径下的任意名称的Dockerfile</p>
 <p>  from指定构建的镜像的基础镜像</p>
 <p>  run用于在镜像中执行命令，每个run创建一个新的镜像层</p>
 <p>  copy将新的层添加到镜像中</p>
@@ -513,6 +486,7 @@ var _hmt = _hmt || [];
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">查看从某个时间开始的日志</span><br><span class="line">docker logs -f -t --since=&quot;2018-02-08&quot; --tail=100 CONTAINER_ID</span><br><span class="line"></span><br><span class="line">查看时间段日志</span><br><span class="line">docker logs -t --since=&quot;2018-02-08T13:23:37&quot; --until &quot;2018-02-09T12:23:37&quot; CONTAINER_ID</span><br></pre></td></tr></table></figure>
 
 
+<h4 id="资源占用分析"><a href="#资源占用分析" class="headerlink" title="资源占用分析"></a>资源占用分析</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker stats</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
@@ -530,19 +504,19 @@ var _hmt = _hmt || [];
     
 <nav id="article-nav">
     
-        <a href="/2017/07/21/docker/docker-network/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2019/11/11/git/git/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">上一篇</strong>
             <div class="article-nav-title">
                 
-                    docker-network
+                    git
                 
             </div>
         </a>
     
     
-        <a href="/2017/07/21/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/design-pattern-%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2019/07/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/design-pattern-%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">抽象工厂模式</div>
+            <div class="article-nav-title">装饰器模式</div>
         </a>
     
 </nav>
