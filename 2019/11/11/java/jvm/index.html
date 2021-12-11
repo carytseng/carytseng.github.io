@@ -17,7 +17,7 @@
 <meta property="og:description" content="JVM 程序计数器：指向下一条需要执行的字节码；记录当前线程的位置便于线程切换与恢复；  唯一 一个不会出现 OOM 的区域   虚拟机栈：描述了Java方法执行的内存模型，创建栈帧，保存该本地方法的局部变量表、操作数栈、动态链接、出口信息。  本地方法栈：描述 native 的方法执行，会创建栈帧。也保存了该本地方法的局部变量表、操作数栈、动态链接、出口信息。  堆：主要用于存放对象   为什么">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-11-11T10:24:58.000Z">
-<meta property="article:modified_time" content="2021-12-11T09:56:25.931Z">
+<meta property="article:modified_time" content="2021-12-11T10:03:15.858Z">
 <meta property="article:author" content="CaryTseng">
 <meta name="twitter:card" content="summary">
     
@@ -413,6 +413,11 @@ var _hmt = _hmt || [];
         
         
             
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">文章目录</strong>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JVM"><span class="toc-number">1.</span> <span class="toc-text">JVM</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%85%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="toc-number">2.</span> <span class="toc-text">浅拷贝与深拷贝</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GC%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86"><span class="toc-number">3.</span> <span class="toc-text">GC垃圾收集</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%8F%AF%E5%90%A6%E5%9B%9E%E6%94%B6"><span class="toc-number">3.1.</span> <span class="toc-text">判断可否回收</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%BA%E3%80%81%E8%BD%AF%E3%80%81%E5%BC%B1%E3%80%81%E8%99%9A%E5%BC%95%E7%94%A8"><span class="toc-number">3.2.</span> <span class="toc-text">强、软、弱、虚引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E7%AE%97%E6%B3%95"><span class="toc-number">3.3.</span> <span class="toc-text">垃圾收集算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%95%86%E4%B8%9A%E5%8C%96%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="toc-number">3.4.</span> <span class="toc-text">商业化虚拟机的方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8"><span class="toc-number">3.5.</span> <span class="toc-text">垃圾收集器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Serial"><span class="toc-number">3.5.1.</span> <span class="toc-text">Serial</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ParNew"><span class="toc-number">3.5.2.</span> <span class="toc-text">ParNew</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Parallel-Scavenge"><span class="toc-number">3.5.3.</span> <span class="toc-text">Parallel Scavenge</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Serial-Old"><span class="toc-number">3.5.4.</span> <span class="toc-text">Serial Old</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Parallel-Old"><span class="toc-number">3.5.5.</span> <span class="toc-text">Parallel Old</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CMS"><span class="toc-number">3.5.6.</span> <span class="toc-text">CMS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#G1"><span class="toc-number">3.5.7.</span> <span class="toc-text">G1</span></a></li></ol></li></ol></li></ol>
+                </div>
+            
         
         
             <h1 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h1><ul>
@@ -564,9 +569,9 @@ var _hmt = _hmt || [];
         </a>
     
     
-        <a href="/2019/11/11/vps/x-ui/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2019/11/11/linux/linux/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
-            <div class="article-nav-title">x-ui</div>
+            <div class="article-nav-title">linux</div>
         </a>
     
 </nav>
