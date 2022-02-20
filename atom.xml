@@ -6,7 +6,7 @@
   <link href="https://dogfun.top/atom.xml" rel="self"/>
   
   <link href="https://dogfun.top/"/>
-  <updated>2022-02-20T09:59:28.049Z</updated>
+  <updated>2022-02-20T10:00:24.444Z</updated>
   <id>https://dogfun.top/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://dogfun.top/2022/02/20/%E9%9A%8F%E6%83%B3/%E9%9A%8F%E6%83%B32-20/"/>
     <id>https://dogfun.top/2022/02/20/%E9%9A%8F%E6%83%B3/%E9%9A%8F%E6%83%B32-20/</id>
     <published>2022-02-20T09:58:09.000Z</published>
-    <updated>2022-02-20T09:59:28.049Z</updated>
+    <updated>2022-02-20T10:00:24.444Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>渴望倾诉，也渴望独处，人就是矛盾二元对立的结合体。</p></blockquote>]]></content>
     
@@ -43,10 +43,10 @@
   
   <entry>
     <title>helm</title>
-    <link href="https://dogfun.top/2022/02/20/helm/"/>
-    <id>https://dogfun.top/2022/02/20/helm/</id>
+    <link href="https://dogfun.top/2022/02/20/%E5%AE%B9%E5%99%A8/helm/"/>
+    <id>https://dogfun.top/2022/02/20/%E5%AE%B9%E5%99%A8/helm/</id>
     <published>2022-02-20T02:14:13.000Z</published>
-    <updated>2022-02-20T03:30:17.729Z</updated>
+    <updated>2022-02-20T10:00:24.444Z</updated>
     
     <content type="html"><![CDATA[<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>Helm是k8s的包管理工具，使用helm可以简化k8s应用部署</p><ul><li><strong>Chart</strong>：一个 Helm 包，其中包含了运行一个应用所需要的镜像、依赖和资源定义等，还可能包含 Kubernetes 集群中的服务定义。</li><li><strong>Release</strong>：在 Kubernetes 集群上运行的 Chart 的一个实例。在同一个集群上，一个 Chart 可以安装很多次。每次安装都会创建一个新的 release。例如一个 MySQL Chart，如果想在服务器上运行两个数据库，就可以把这个 Chart 安装两次。每次安装都会生成自己的 Release，会有自己的 Release 名称。</li><li><strong>Repository</strong>：用于发布和存储 Chart 的存储库。</li></ul><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p><img src="https://img2018.cnblogs.com/i-beta/1356274/202001/1356274-20200104133425850-1349135834.png" alt="img"></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">myapp                                   - chart 包目录名</span><br><span class="line">├── charts                              - 依赖的子包目录，里面可以包含多个依赖的chart包</span><br><span class="line">├── Chart.yaml                          - chart定义，可以定义chart的名字，版本号信息。</span><br><span class="line">├── templates                           - k8s配置模版目录， 我们编写的k8s配置都在这个目录， 除了NOTES.txt和下划线开头命名的文件，其他文件可以随意命名。</span><br><span class="line">│   ├── deployment.yaml</span><br><span class="line">│   ├── _helpers.tpl                    - 下划线开头的文件，helm视为公共库定义文件，主要用于定义通用的子模版、函数等，helm不会将这些公共库文件的渲染结果提交给k8s处理。</span><br><span class="line">│   ├── ingress.yaml</span><br><span class="line">│   ├── NOTES.txt                       - chart包的帮助信息文件，执行helm install命令安装成功后会输出这个文件的内容。</span><br><span class="line">│   └── service.yaml</span><br><span class="line">└── values.yaml                         - chart包的参数配置文件，模版可以引用这里参数。</span><br></pre></td></tr></table></figure><h2 id="添加本地仓库"><a href="#添加本地仓库" class="headerlink" title="添加本地仓库"></a>添加本地仓库</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">  -p 8080:8080 \</span><br><span class="line">  -e DEBUG=1 \</span><br><span class="line">  -e STORAGE=local \</span><br><span class="line">  -e STORAGE_LOCAL_ROOTDIR=/charts \</span><br><span class="line">  -v /opt/charts:/charts \</span><br><span class="line">  chartmuseum/chartmuseum:latest</span><br><span class="line">  </span><br><span class="line">helm repo add localrepo http://192.168.2.19:8080</span><br></pre></td></tr></table></figure><h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"># 创建chart包</span><br><span class="line">helm create mychart</span><br><span class="line"></span><br><span class="line"># 验证文件合法性</span><br><span class="line">helm lint</span><br><span class="line"></span><br><span class="line"># 测试生成</span><br><span class="line">helm install web --dry-run demo/</span><br><span class="line"></span><br><span class="line"># 正式生成: helm install  --set key=value   chart包目录</span><br><span class="line">helm install local/web </span><br><span class="line"></span><br><span class="line"># 打包</span><br><span class="line">helm package mychart [--debug]</span><br><span class="line"></span><br><span class="line"># 本地仓库查找</span><br><span class="line">helm search repo mychart</span><br><span class="line">helm search</span><br><span class="line"></span><br><span class="line">从远程仓库查找:helm search hub [chart]</span><br><span class="line"></span><br><span class="line">helm repo list </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#命令格式: helm upgrade release名字  chart包目录</span><br><span class="line">helm upgrade myapp ./myapp</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -60,8 +60,34 @@
     
     
     
-    <category term="k8s" scheme="https://dogfun.top/categories/k8s/"/>
+    <category term="容器" scheme="https://dogfun.top/categories/%E5%AE%B9%E5%99%A8/"/>
     
+    
+  </entry>
+  
+  <entry>
+    <title>javacv抓取rtsp视频流</title>
+    <link href="https://dogfun.top/2022/02/20/web/javacv%E6%8A%93%E5%8F%96rtsp%E8%A7%86%E9%A2%91%E6%B5%81/"/>
+    <id>https://dogfun.top/2022/02/20/web/javacv%E6%8A%93%E5%8F%96rtsp%E8%A7%86%E9%A2%91%E6%B5%81/</id>
+    <published>2022-02-20T01:19:22.000Z</published>
+    <updated>2022-02-20T01:17:28.233Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="javacv"><a href="#javacv" class="headerlink" title="javacv"></a>javacv</h3><blockquote><p>java平台的流媒体开发包，对opencv、ffmpeg等库做了二次封装</p></blockquote><h3 id="流媒体协议"><a href="#流媒体协议" class="headerlink" title="流媒体协议"></a>流媒体协议</h3><blockquote><p>rtmp、rtsp、hls</p></blockquote><h3 id="封装格式"><a href="#封装格式" class="headerlink" title="封装格式"></a>封装格式</h3><blockquote><p>flv、jpeg、png</p></blockquote><h3 id="图像像素格式"><a href="#图像像素格式" class="headerlink" title="图像像素格式"></a>图像像素格式</h3><blockquote><p>没有经过编码的原始像素排列的数据</p></blockquote><h3 id="图片封装格式"><a href="#图片封装格式" class="headerlink" title="图片封装格式"></a>图片封装格式</h3><blockquote><p>png（无损）、bmp（无损不压缩）、gif/jpg（有损压缩）</p></blockquote><h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><blockquote><p>对图像像素格式进行编码才是视频帧，即压缩</p></blockquote><h1 id="FrameGrabber-帧抓取器-采集器-介绍"><a href="#FrameGrabber-帧抓取器-采集器-介绍" class="headerlink" title="FrameGrabber(帧抓取器/采集器)介绍"></a>FrameGrabber(帧抓取器/采集器)介绍</h1><p>用于采集/抓取视频图像和音频采样。封装了检索流信息，自动猜测视频解码格式，音视频解码等具体API，并把解码完的像素数据（可配置像素格式）或音频数据保存到Frame中返回等功</p><p><strong>FrameGrabber</strong>的子类/实现类包含以下几个：</p><p><strong>FFmpegFrameGrabber、OpenCVFrameGrabber、IPCameraFrameGrabber、VideoInputFrameGrabber、FlyCapture2FrameGrabber、DC1394FrameGrabber</strong></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;javacv&quot;&gt;&lt;a href=&quot;#javacv&quot; class=&quot;headerlink&quot; title=&quot;javacv&quot;&gt;&lt;/a&gt;javacv&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;java平台的流媒体开发包，对opencv、ffmpeg等库做了二次封装&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    <category term="web" scheme="https://dogfun.top/categories/web/"/>
+    
+    
+    <category term="技术学习" scheme="https://dogfun.top/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -107,32 +133,6 @@
     
     
     <category term="算法" scheme="https://dogfun.top/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-    <category term="技术学习" scheme="https://dogfun.top/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>javacv抓取rtsp视频流</title>
-    <link href="https://dogfun.top/2022/02/20/web/javacv%E6%8A%93%E5%8F%96rtsp%E8%A7%86%E9%A2%91%E6%B5%81/"/>
-    <id>https://dogfun.top/2022/02/20/web/javacv%E6%8A%93%E5%8F%96rtsp%E8%A7%86%E9%A2%91%E6%B5%81/</id>
-    <published>2022-02-20T01:19:22.000Z</published>
-    <updated>2022-02-20T01:17:28.233Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="javacv"><a href="#javacv" class="headerlink" title="javacv"></a>javacv</h3><blockquote><p>java平台的流媒体开发包，对opencv、ffmpeg等库做了二次封装</p></blockquote><h3 id="流媒体协议"><a href="#流媒体协议" class="headerlink" title="流媒体协议"></a>流媒体协议</h3><blockquote><p>rtmp、rtsp、hls</p></blockquote><h3 id="封装格式"><a href="#封装格式" class="headerlink" title="封装格式"></a>封装格式</h3><blockquote><p>flv、jpeg、png</p></blockquote><h3 id="图像像素格式"><a href="#图像像素格式" class="headerlink" title="图像像素格式"></a>图像像素格式</h3><blockquote><p>没有经过编码的原始像素排列的数据</p></blockquote><h3 id="图片封装格式"><a href="#图片封装格式" class="headerlink" title="图片封装格式"></a>图片封装格式</h3><blockquote><p>png（无损）、bmp（无损不压缩）、gif/jpg（有损压缩）</p></blockquote><h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><blockquote><p>对图像像素格式进行编码才是视频帧，即压缩</p></blockquote><h1 id="FrameGrabber-帧抓取器-采集器-介绍"><a href="#FrameGrabber-帧抓取器-采集器-介绍" class="headerlink" title="FrameGrabber(帧抓取器/采集器)介绍"></a>FrameGrabber(帧抓取器/采集器)介绍</h1><p>用于采集/抓取视频图像和音频采样。封装了检索流信息，自动猜测视频解码格式，音视频解码等具体API，并把解码完的像素数据（可配置像素格式）或音频数据保存到Frame中返回等功</p><p><strong>FrameGrabber</strong>的子类/实现类包含以下几个：</p><p><strong>FFmpegFrameGrabber、OpenCVFrameGrabber、IPCameraFrameGrabber、VideoInputFrameGrabber、FlyCapture2FrameGrabber、DC1394FrameGrabber</strong></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;javacv&quot;&gt;&lt;a href=&quot;#javacv&quot; class=&quot;headerlink&quot; title=&quot;javacv&quot;&gt;&lt;/a&gt;javacv&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;java平台的流媒体开发包，对opencv、ffmpeg等库做了二次封装&lt;/p&gt;
-</summary>
-      
-    
-    
-    
-    <category term="web" scheme="https://dogfun.top/categories/web/"/>
     
     
     <category term="技术学习" scheme="https://dogfun.top/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
@@ -514,28 +514,6 @@
   </entry>
   
   <entry>
-    <title>Elasticsearch</title>
-    <link href="https://dogfun.top/2020/09/25/%E6%95%B0%E6%8D%AE%E5%BA%93/es/"/>
-    <id>https://dogfun.top/2020/09/25/%E6%95%B0%E6%8D%AE%E5%BA%93/es/</id>
-    <published>2020-09-25T01:25:02.000Z</published>
-    <updated>2021-12-06T12:53:48.632Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="环境搭建-docker"><a href="#环境搭建-docker" class="headerlink" title="环境搭建(docker)"></a>环境搭建(docker)</h3><h4 id="Elasticsearch"><a href="#Elasticsearch" class="headerlink" title="Elasticsearch"></a>Elasticsearch</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 9200:9200 -p 9300:9300 -d  -e &quot;discovery.type=single-node&quot; --name elasticsearch \</span><br><span class="line">-v /Users/carytseng/envir/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml \</span><br><span class="line">-v /Users/carytseng/envir/elasticsearch/data:/usr/share/elasticsearch/data \</span><br><span class="line">-v /Users/carytseng/envir/elasticsearch/plugins:/usr/share/elasticsearch/plugins \</span><br><span class="line"> docker.elastic.co/elasticsearch/elasticsearch:7.12.0 </span><br></pre></td></tr></table></figure><h4 id="Kibana"><a href="#Kibana" class="headerlink" title="Kibana"></a>Kibana</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --link elasticsearch:elasticsearch --name kibana -p 5601:5601 -d docker.elastic.co/kibana/kibana:7.12.0</span><br></pre></td></tr></table></figure><h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">查看集群状态</span><br><span class="line">GET /_cat/health?v</span><br><span class="line"></span><br><span class="line">查询所有创建的索引</span><br><span class="line">GET /_cat/indices?v</span><br><span class="line"></span><br><span class="line">创建索引</span><br><span class="line">PUT [index]</span><br></pre></td></tr></table></figure><h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ul><li>text</li><li>keyword</li></ul><h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><ul><li>term：查询keyword类型，用于精确匹配。查询text类型若不知道分词器，会无法命中数据<ul><li>比如查text类型，关键词”Quick Foxes!”，该数据被分为[Quick,Foxes]，会出现无法命中</li><li>用关键词”Quick”，则能查出，因此对于模糊查询要用match查text类型的数据</li></ul></li><li>match：查询text类型，用于模糊查询</li></ul><h3 id="Nested"><a href="#Nested" class="headerlink" title="Nested"></a>Nested</h3><blockquote><p>es中object类型的数组会被扁平化，打破数组中对象属性的关联关系，需要定义nested即嵌套对象来处理数组，保证数组中的对象会被独立处理。</p></blockquote><h3 id="多层嵌套对象处理inner-hits"><a href="#多层嵌套对象处理inner-hits" class="headerlink" title="多层嵌套对象处理inner_hits"></a>多层嵌套对象处理inner_hits</h3><p>inner_hits是用于筛选出命中对象的对应属性，当层级过多时，条件中有多个inner_hits，需要使用name来防止覆盖问题</p><h3 id="删除所有文档数据"><a href="#删除所有文档数据" class="headerlink" title="删除所有文档数据"></a>删除所有文档数据</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">chinaunicom_medical_search_dev/_delete_by_query</span><br><span class="line">&#123;&quot;query&quot;:&#123;&quot;match_all&quot;:&#123;&#125;&#125;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># curl -XDELETE &#x27;http://127.0.0.1:9200/logstash&#x27; </span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;环境搭建-docker&quot;&gt;&lt;a href=&quot;#环境搭建-docker&quot; class=&quot;headerlink&quot; title=&quot;环境搭建(docker)&quot;&gt;&lt;/a&gt;环境搭建(docker)&lt;/h3&gt;&lt;h4 id=&quot;Elasticsearch&quot;&gt;&lt;a href=&quot;#El</summary>
-      
-    
-    
-    
-    <category term="数据库" scheme="https://dogfun.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Nacos</title>
     <link href="https://dogfun.top/2020/09/25/%E4%B8%AD%E9%97%B4%E4%BB%B6/nacos/"/>
     <id>https://dogfun.top/2020/09/25/%E4%B8%AD%E9%97%B4%E4%BB%B6/nacos/</id>
@@ -548,6 +526,28 @@
       
       
     <summary type="html">&lt;h1 id=&quot;Nacos&quot;&gt;&lt;a href=&quot;#Nacos&quot; class=&quot;headerlink&quot; title=&quot;Nacos&quot;&gt;&lt;/a&gt;Nacos&lt;/h1&gt;&lt;h2 id=&quot;docker启动&quot;&gt;&lt;a href=&quot;#docker启动&quot; class=&quot;headerlink&quot; titl</summary>
+      
+    
+    
+    
+    <category term="中间件" scheme="https://dogfun.top/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Presto</title>
+    <link href="https://dogfun.top/2020/09/25/%E4%B8%AD%E9%97%B4%E4%BB%B6/presto/"/>
+    <id>https://dogfun.top/2020/09/25/%E4%B8%AD%E9%97%B4%E4%BB%B6/presto/</id>
+    <published>2020-09-25T01:25:02.000Z</published>
+    <updated>2021-11-28T03:58:11.410Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Presto"><a href="#Presto" class="headerlink" title="Presto"></a>Presto</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>​        Facebook开发的分布式查询引擎，采用master-slave架构，由一个Coordinator节点，一个Discovery节点，多个Worker节点组成，Coordinator负责解析SQL，生成执行计划，分发执行任务给多个Worker节点，Worker节点负责实际执行查询任务。Worker节点启动后向Discovery Server服务注册，Coordinator从Discovery Server获得可以正常工作的Worker节点。</p><h3 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h3><ol><li>完全基于内存的并行计算</li><li>流水线</li><li>本地化计算</li><li>动态编译执行计划</li><li>小心使用内存和数据结构</li><li>类BlinkDB的近似查询</li><li>GC控制</li></ol><h2 id="隐式类型转换"><a href="#隐式类型转换" class="headerlink" title="隐式类型转换"></a>隐式类型转换</h2><p>手工处理：try_cast([] as [])</p><p>美团修改版：<a href="https://github.com/MTDATA/presto/commits/mt-0.60">https://github.com/MTDATA/presto/commits/mt-0.60</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Presto&quot;&gt;&lt;a href=&quot;#Presto&quot; class=&quot;headerlink&quot; title=&quot;Presto&quot;&gt;&lt;/a&gt;Presto&lt;/h1&gt;&lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;</summary>
       
     
     
