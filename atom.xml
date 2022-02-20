@@ -6,7 +6,7 @@
   <link href="https://dogfun.top/atom.xml" rel="self"/>
   
   <link href="https://dogfun.top/"/>
-  <updated>2022-02-20T01:17:28.233Z</updated>
+  <updated>2022-02-20T09:59:28.049Z</updated>
   <id>https://dogfun.top/</id>
   
   <author>
@@ -17,25 +17,72 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>javacv抓取rtsp视频流</title>
-    <link href="https://dogfun.top/2022/02/20/web/javacv%E6%8A%93%E5%8F%96rtsp%E8%A7%86%E9%A2%91%E6%B5%81/"/>
-    <id>https://dogfun.top/2022/02/20/web/javacv%E6%8A%93%E5%8F%96rtsp%E8%A7%86%E9%A2%91%E6%B5%81/</id>
-    <published>2022-02-20T01:19:22.000Z</published>
-    <updated>2022-02-20T01:17:28.233Z</updated>
+    <title>随想2-20</title>
+    <link href="https://dogfun.top/2022/02/20/%E9%9A%8F%E6%83%B3/%E9%9A%8F%E6%83%B32-20/"/>
+    <id>https://dogfun.top/2022/02/20/%E9%9A%8F%E6%83%B3/%E9%9A%8F%E6%83%B32-20/</id>
+    <published>2022-02-20T09:58:09.000Z</published>
+    <updated>2022-02-20T09:59:28.049Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="javacv"><a href="#javacv" class="headerlink" title="javacv"></a>javacv</h3><blockquote><p>java平台的流媒体开发包，对opencv、ffmpeg等库做了二次封装</p></blockquote><h3 id="流媒体协议"><a href="#流媒体协议" class="headerlink" title="流媒体协议"></a>流媒体协议</h3><blockquote><p>rtmp、rtsp、hls</p></blockquote><h3 id="封装格式"><a href="#封装格式" class="headerlink" title="封装格式"></a>封装格式</h3><blockquote><p>flv、jpeg、png</p></blockquote><h3 id="图像像素格式"><a href="#图像像素格式" class="headerlink" title="图像像素格式"></a>图像像素格式</h3><blockquote><p>没有经过编码的原始像素排列的数据</p></blockquote><h3 id="图片封装格式"><a href="#图片封装格式" class="headerlink" title="图片封装格式"></a>图片封装格式</h3><blockquote><p>png（无损）、bmp（无损不压缩）、gif/jpg（有损压缩）</p></blockquote><h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><blockquote><p>对图像像素格式进行编码才是视频帧，即压缩</p></blockquote><h1 id="FrameGrabber-帧抓取器-采集器-介绍"><a href="#FrameGrabber-帧抓取器-采集器-介绍" class="headerlink" title="FrameGrabber(帧抓取器/采集器)介绍"></a>FrameGrabber(帧抓取器/采集器)介绍</h1><p>用于采集/抓取视频图像和音频采样。封装了检索流信息，自动猜测视频解码格式，音视频解码等具体API，并把解码完的像素数据（可配置像素格式）或音频数据保存到Frame中返回等功</p><p><strong>FrameGrabber</strong>的子类/实现类包含以下几个：</p><p><strong>FFmpegFrameGrabber、OpenCVFrameGrabber、IPCameraFrameGrabber、VideoInputFrameGrabber、FlyCapture2FrameGrabber、DC1394FrameGrabber</strong></p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>渴望倾诉，也渴望独处，人就是矛盾二元对立的结合体。</p></blockquote>]]></content>
     
     
       
       
-    <summary type="html">&lt;h3 id=&quot;javacv&quot;&gt;&lt;a href=&quot;#javacv&quot; class=&quot;headerlink&quot; title=&quot;javacv&quot;&gt;&lt;/a&gt;javacv&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;java平台的流媒体开发包，对opencv、ffmpeg等库做了二次封装&lt;/p&gt;
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;渴望倾诉，也渴望独处，人就是矛盾二元对立的结合体。&lt;/p&gt;
+&lt;/blockquote&gt;
 </summary>
       
     
     
     
-    <category term="web" scheme="https://dogfun.top/categories/web/"/>
+    <category term="随想" scheme="https://dogfun.top/categories/%E9%9A%8F%E6%83%B3/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>helm</title>
+    <link href="https://dogfun.top/2022/02/20/helm/"/>
+    <id>https://dogfun.top/2022/02/20/helm/</id>
+    <published>2022-02-20T02:14:13.000Z</published>
+    <updated>2022-02-20T03:30:17.729Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>Helm是k8s的包管理工具，使用helm可以简化k8s应用部署</p><ul><li><strong>Chart</strong>：一个 Helm 包，其中包含了运行一个应用所需要的镜像、依赖和资源定义等，还可能包含 Kubernetes 集群中的服务定义。</li><li><strong>Release</strong>：在 Kubernetes 集群上运行的 Chart 的一个实例。在同一个集群上，一个 Chart 可以安装很多次。每次安装都会创建一个新的 release。例如一个 MySQL Chart，如果想在服务器上运行两个数据库，就可以把这个 Chart 安装两次。每次安装都会生成自己的 Release，会有自己的 Release 名称。</li><li><strong>Repository</strong>：用于发布和存储 Chart 的存储库。</li></ul><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p><img src="https://img2018.cnblogs.com/i-beta/1356274/202001/1356274-20200104133425850-1349135834.png" alt="img"></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">myapp                                   - chart 包目录名</span><br><span class="line">├── charts                              - 依赖的子包目录，里面可以包含多个依赖的chart包</span><br><span class="line">├── Chart.yaml                          - chart定义，可以定义chart的名字，版本号信息。</span><br><span class="line">├── templates                           - k8s配置模版目录， 我们编写的k8s配置都在这个目录， 除了NOTES.txt和下划线开头命名的文件，其他文件可以随意命名。</span><br><span class="line">│   ├── deployment.yaml</span><br><span class="line">│   ├── _helpers.tpl                    - 下划线开头的文件，helm视为公共库定义文件，主要用于定义通用的子模版、函数等，helm不会将这些公共库文件的渲染结果提交给k8s处理。</span><br><span class="line">│   ├── ingress.yaml</span><br><span class="line">│   ├── NOTES.txt                       - chart包的帮助信息文件，执行helm install命令安装成功后会输出这个文件的内容。</span><br><span class="line">│   └── service.yaml</span><br><span class="line">└── values.yaml                         - chart包的参数配置文件，模版可以引用这里参数。</span><br></pre></td></tr></table></figure><h2 id="添加本地仓库"><a href="#添加本地仓库" class="headerlink" title="添加本地仓库"></a>添加本地仓库</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">  -p 8080:8080 \</span><br><span class="line">  -e DEBUG=1 \</span><br><span class="line">  -e STORAGE=local \</span><br><span class="line">  -e STORAGE_LOCAL_ROOTDIR=/charts \</span><br><span class="line">  -v /opt/charts:/charts \</span><br><span class="line">  chartmuseum/chartmuseum:latest</span><br><span class="line">  </span><br><span class="line">helm repo add localrepo http://192.168.2.19:8080</span><br></pre></td></tr></table></figure><h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"># 创建chart包</span><br><span class="line">helm create mychart</span><br><span class="line"></span><br><span class="line"># 验证文件合法性</span><br><span class="line">helm lint</span><br><span class="line"></span><br><span class="line"># 测试生成</span><br><span class="line">helm install web --dry-run demo/</span><br><span class="line"></span><br><span class="line"># 正式生成: helm install  --set key=value   chart包目录</span><br><span class="line">helm install local/web </span><br><span class="line"></span><br><span class="line"># 打包</span><br><span class="line">helm package mychart [--debug]</span><br><span class="line"></span><br><span class="line"># 本地仓库查找</span><br><span class="line">helm search repo mychart</span><br><span class="line">helm search</span><br><span class="line"></span><br><span class="line">从远程仓库查找:helm search hub [chart]</span><br><span class="line"></span><br><span class="line">helm repo list </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#命令格式: helm upgrade release名字  chart包目录</span><br><span class="line">helm upgrade myapp ./myapp</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h2&gt;&lt;p&gt;Helm是k8s的包管理工具，使用helm可以简化k8s应用部署&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Chart&lt;/strong&gt;：一</summary>
+      
+    
+    
+    
+    <category term="k8s" scheme="https://dogfun.top/categories/k8s/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>剑指 Offer 09. 用两个栈实现队列</title>
+    <link href="https://dogfun.top/2022/02/20/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87%20Offer%2009.%20%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/"/>
+    <id>https://dogfun.top/2022/02/20/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87%20Offer%2009.%20%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/</id>
+    <published>2022-02-20T01:19:22.000Z</published>
+    <updated>2022-02-20T01:30:32.612Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">class CQueue &#123;</span><br><span class="line"></span><br><span class="line">  Stack&lt;Integer&gt; s1;</span><br><span class="line">  Stack&lt;Integer&gt; s2;</span><br><span class="line"></span><br><span class="line">  public CQueue() &#123;</span><br><span class="line">    s1 = new Stack();</span><br><span class="line">    s2 = new Stack();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  public void appendTail(int value) &#123;</span><br><span class="line">    while (s2.size() &gt; 0) &#123;</span><br><span class="line">      s1.push(s2.pop());</span><br><span class="line">    &#125;</span><br><span class="line">    s1.push(value);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  public int deleteHead() &#123;</span><br><span class="line">    while (s1.size() &gt; 0) &#123;</span><br><span class="line">      s2.push(s1.pop());</span><br><span class="line">    &#125;</span><br><span class="line">    return s2.size() == 0 ? -1 : s2.pop();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"></span><br><span class="line"> * Your CQueue object will be instantiated and called as such:</span><br><span class="line"> * CQueue obj = new CQueue();</span><br><span class="line"> * obj.appendTail(value);</span><br><span class="line"> * int param_2 = obj.deleteHead();</span><br><span class="line">   */</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span c</summary>
+      
+    
+    
+    
+    <category term="算法" scheme="https://dogfun.top/categories/%E7%AE%97%E6%B3%95/"/>
     
     
     <category term="技术学习" scheme="https://dogfun.top/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
@@ -67,23 +114,25 @@
   </entry>
   
   <entry>
-    <title>剑指 Offer 09. 用两个栈实现队列</title>
-    <link href="https://dogfun.top/2022/02/20/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87%20Offer%2009.%20%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/"/>
-    <id>https://dogfun.top/2022/02/20/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87%20Offer%2009.%20%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/</id>
+    <title>javacv抓取rtsp视频流</title>
+    <link href="https://dogfun.top/2022/02/20/web/javacv%E6%8A%93%E5%8F%96rtsp%E8%A7%86%E9%A2%91%E6%B5%81/"/>
+    <id>https://dogfun.top/2022/02/20/web/javacv%E6%8A%93%E5%8F%96rtsp%E8%A7%86%E9%A2%91%E6%B5%81/</id>
     <published>2022-02-20T01:19:22.000Z</published>
-    <updated>2022-02-20T01:30:32.612Z</updated>
+    <updated>2022-02-20T01:17:28.233Z</updated>
     
-    <content type="html"><![CDATA[<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">class CQueue &#123;</span><br><span class="line"></span><br><span class="line">  Stack&lt;Integer&gt; s1;</span><br><span class="line">  Stack&lt;Integer&gt; s2;</span><br><span class="line"></span><br><span class="line">  public CQueue() &#123;</span><br><span class="line">    s1 = new Stack();</span><br><span class="line">    s2 = new Stack();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  public void appendTail(int value) &#123;</span><br><span class="line">    while (s2.size() &gt; 0) &#123;</span><br><span class="line">      s1.push(s2.pop());</span><br><span class="line">    &#125;</span><br><span class="line">    s1.push(value);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  public int deleteHead() &#123;</span><br><span class="line">    while (s1.size() &gt; 0) &#123;</span><br><span class="line">      s2.push(s1.pop());</span><br><span class="line">    &#125;</span><br><span class="line">    return s2.size() == 0 ? -1 : s2.pop();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"></span><br><span class="line"> * Your CQueue object will be instantiated and called as such:</span><br><span class="line"> * CQueue obj = new CQueue();</span><br><span class="line"> * obj.appendTail(value);</span><br><span class="line"> * int param_2 = obj.deleteHead();</span><br><span class="line">   */</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h3 id="javacv"><a href="#javacv" class="headerlink" title="javacv"></a>javacv</h3><blockquote><p>java平台的流媒体开发包，对opencv、ffmpeg等库做了二次封装</p></blockquote><h3 id="流媒体协议"><a href="#流媒体协议" class="headerlink" title="流媒体协议"></a>流媒体协议</h3><blockquote><p>rtmp、rtsp、hls</p></blockquote><h3 id="封装格式"><a href="#封装格式" class="headerlink" title="封装格式"></a>封装格式</h3><blockquote><p>flv、jpeg、png</p></blockquote><h3 id="图像像素格式"><a href="#图像像素格式" class="headerlink" title="图像像素格式"></a>图像像素格式</h3><blockquote><p>没有经过编码的原始像素排列的数据</p></blockquote><h3 id="图片封装格式"><a href="#图片封装格式" class="headerlink" title="图片封装格式"></a>图片封装格式</h3><blockquote><p>png（无损）、bmp（无损不压缩）、gif/jpg（有损压缩）</p></blockquote><h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><blockquote><p>对图像像素格式进行编码才是视频帧，即压缩</p></blockquote><h1 id="FrameGrabber-帧抓取器-采集器-介绍"><a href="#FrameGrabber-帧抓取器-采集器-介绍" class="headerlink" title="FrameGrabber(帧抓取器/采集器)介绍"></a>FrameGrabber(帧抓取器/采集器)介绍</h1><p>用于采集/抓取视频图像和音频采样。封装了检索流信息，自动猜测视频解码格式，音视频解码等具体API，并把解码完的像素数据（可配置像素格式）或音频数据保存到Frame中返回等功</p><p><strong>FrameGrabber</strong>的子类/实现类包含以下几个：</p><p><strong>FFmpegFrameGrabber、OpenCVFrameGrabber、IPCameraFrameGrabber、VideoInputFrameGrabber、FlyCapture2FrameGrabber、DC1394FrameGrabber</strong></p>]]></content>
     
     
       
       
-    <summary type="html">&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span c</summary>
+    <summary type="html">&lt;h3 id=&quot;javacv&quot;&gt;&lt;a href=&quot;#javacv&quot; class=&quot;headerlink&quot; title=&quot;javacv&quot;&gt;&lt;/a&gt;javacv&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;java平台的流媒体开发包，对opencv、ffmpeg等库做了二次封装&lt;/p&gt;
+</summary>
       
     
     
     
-    <category term="算法" scheme="https://dogfun.top/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="web" scheme="https://dogfun.top/categories/web/"/>
     
     
     <category term="技术学习" scheme="https://dogfun.top/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
@@ -465,50 +514,6 @@
   </entry>
   
   <entry>
-    <title>Nacos</title>
-    <link href="https://dogfun.top/2020/09/25/%E4%B8%AD%E9%97%B4%E4%BB%B6/nacos/"/>
-    <id>https://dogfun.top/2020/09/25/%E4%B8%AD%E9%97%B4%E4%BB%B6/nacos/</id>
-    <published>2020-09-25T01:25:02.000Z</published>
-    <updated>2021-11-28T03:34:17.993Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Nacos"><a href="#Nacos" class="headerlink" title="Nacos"></a>Nacos</h1><h2 id="docker启动"><a href="#docker启动" class="headerlink" title="docker启动"></a>docker启动</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/nacos-group/nacos-docker.git</span><br><span class="line">cd nacos-docker</span><br><span class="line">docker-compose -f example/standalone-derby.yaml up</span><br></pre></td></tr></table></figure><h2 id="SpringCloud-namespaces"><a href="#SpringCloud-namespaces" class="headerlink" title="SpringCloud+namespaces"></a>SpringCloud+namespaces</h2><ol><li>添加命名空间</li><li>maven中定义多个环境profile</li></ol><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">id</span>&gt;</span>dev<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">activeByDefault</span>&gt;</span>true<span class="tag">&lt;/<span class="name">activeByDefault</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">runtime.env</span>&gt;</span>dev<span class="tag">&lt;/<span class="name">runtime.env</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">nacos.server-addr</span>&gt;</span>10.91.22.7:8888<span class="tag">&lt;/<span class="name">nacos.server-addr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">nacos.namespace</span>&gt;</span>aa96c495-c8fa-4078-b159-556c08592786<span class="tag">&lt;/<span class="name">nacos.namespace</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">id</span>&gt;</span>local<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">runtime.env</span>&gt;</span>local<span class="tag">&lt;/<span class="name">runtime.env</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">nacos.server-addr</span>&gt;</span>10.91.22.7:8888<span class="tag">&lt;/<span class="name">nacos.server-addr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">nacos.namespace</span>&gt;</span>aa96c495-c8fa-4078-b159-556c08592786<span class="tag">&lt;/<span class="name">nacos.namespace</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br></pre></td></tr></table></figure><p>![image-20210512144727556](/Users/carytseng/Library/Application Support/typora-user-images/image-20210512144727556.png)</p><p><strong>maven中指定生效的profile，idea的active-profile指定的是项目下的对应环境的profile，非nacos上的配置</strong></p><ol start="3"><li>spring.cloud.nacos.discovery.namespace指定注册到相应的命名空间的注册列表，默认会在public</li></ol><p>![image-20210512144838409](/Users/carytseng/Library/Application Support/typora-user-images/image-20210512144838409.png)</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;Nacos&quot;&gt;&lt;a href=&quot;#Nacos&quot; class=&quot;headerlink&quot; title=&quot;Nacos&quot;&gt;&lt;/a&gt;Nacos&lt;/h1&gt;&lt;h2 id=&quot;docker启动&quot;&gt;&lt;a href=&quot;#docker启动&quot; class=&quot;headerlink&quot; titl</summary>
-      
-    
-    
-    
-    <category term="中间件" scheme="https://dogfun.top/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Presto</title>
-    <link href="https://dogfun.top/2020/09/25/%E4%B8%AD%E9%97%B4%E4%BB%B6/presto/"/>
-    <id>https://dogfun.top/2020/09/25/%E4%B8%AD%E9%97%B4%E4%BB%B6/presto/</id>
-    <published>2020-09-25T01:25:02.000Z</published>
-    <updated>2021-11-28T03:58:11.410Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Presto"><a href="#Presto" class="headerlink" title="Presto"></a>Presto</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>​        Facebook开发的分布式查询引擎，采用master-slave架构，由一个Coordinator节点，一个Discovery节点，多个Worker节点组成，Coordinator负责解析SQL，生成执行计划，分发执行任务给多个Worker节点，Worker节点负责实际执行查询任务。Worker节点启动后向Discovery Server服务注册，Coordinator从Discovery Server获得可以正常工作的Worker节点。</p><h3 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h3><ol><li>完全基于内存的并行计算</li><li>流水线</li><li>本地化计算</li><li>动态编译执行计划</li><li>小心使用内存和数据结构</li><li>类BlinkDB的近似查询</li><li>GC控制</li></ol><h2 id="隐式类型转换"><a href="#隐式类型转换" class="headerlink" title="隐式类型转换"></a>隐式类型转换</h2><p>手工处理：try_cast([] as [])</p><p>美团修改版：<a href="https://github.com/MTDATA/presto/commits/mt-0.60">https://github.com/MTDATA/presto/commits/mt-0.60</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;Presto&quot;&gt;&lt;a href=&quot;#Presto&quot; class=&quot;headerlink&quot; title=&quot;Presto&quot;&gt;&lt;/a&gt;Presto&lt;/h1&gt;&lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;</summary>
-      
-    
-    
-    
-    <category term="中间件" scheme="https://dogfun.top/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Elasticsearch</title>
     <link href="https://dogfun.top/2020/09/25/%E6%95%B0%E6%8D%AE%E5%BA%93/es/"/>
     <id>https://dogfun.top/2020/09/25/%E6%95%B0%E6%8D%AE%E5%BA%93/es/</id>
@@ -531,28 +536,24 @@
   </entry>
   
   <entry>
-    <title>放量下跌</title>
-    <link href="https://dogfun.top/2020/09/10/%E9%87%91%E8%9E%8D/%E6%94%BE%E9%87%8F%E4%B8%8B%E8%B7%8C/"/>
-    <id>https://dogfun.top/2020/09/10/%E9%87%91%E8%9E%8D/%E6%94%BE%E9%87%8F%E4%B8%8B%E8%B7%8C/</id>
-    <published>2020-09-10T07:14:47.000Z</published>
-    <updated>2021-11-28T03:51:13.743Z</updated>
+    <title>Nacos</title>
+    <link href="https://dogfun.top/2020/09/25/%E4%B8%AD%E9%97%B4%E4%BB%B6/nacos/"/>
+    <id>https://dogfun.top/2020/09/25/%E4%B8%AD%E9%97%B4%E4%BB%B6/nacos/</id>
+    <published>2020-09-25T01:25:02.000Z</published>
+    <updated>2021-11-28T03:34:17.993Z</updated>
     
-    <content type="html"><![CDATA[<p>　　今日的市场放量下跌，现在持有500股21.95的招商证券下跌0.5，500股25.50的三安光电，没有精确拿到当天的低价，行情全日震荡幅度大，拿到这个筹码不算最好，但也算不错，留有30%的仓位等补仓用。前日受美股影响A股也下跌，今天突破了3260点下挫到3234附近，目前持有的基金收益已经亏损了，科技股受影响严重，也是因为之前重仓科技基金，只能说看错了入场点，但问题不大，中长期还是看涨的，毕竟大环境越差，股市肯定要逆行，年初放出的货币怎么也要流向股市的，只是看上层怎么控场了，既不想急速拉升把场子弄臭，也不想资金跑掉砸盘，这时候就看各个大资金大机构怎么做好这个工作了。平稳的一个点位一个点位往上调整，这也是符合大众对股票市场建立信心的。虽然手上拿点小钱在股票市场实践，但对于股票市场的风险，参与之后是深有体会，指数区间对于个股某个区间的价位十分难以把握，所以对于散户来讲，要拿到好的价位入场很难，在这种震荡市中，小资金用来走短线获利是十分有优势的，但同时一不小心就被套在高点了，所以散户只能说跟着趋势走，把握大趋势。从长远来看，手持蓝筹股是最稳的选择，走价值投资的路子。路漫漫其修远兮，学点理财技能，给出自己的判断观点，对于世界，经济趋势的把握十分有益，知行合一。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="Nacos"><a href="#Nacos" class="headerlink" title="Nacos"></a>Nacos</h1><h2 id="docker启动"><a href="#docker启动" class="headerlink" title="docker启动"></a>docker启动</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/nacos-group/nacos-docker.git</span><br><span class="line">cd nacos-docker</span><br><span class="line">docker-compose -f example/standalone-derby.yaml up</span><br></pre></td></tr></table></figure><h2 id="SpringCloud-namespaces"><a href="#SpringCloud-namespaces" class="headerlink" title="SpringCloud+namespaces"></a>SpringCloud+namespaces</h2><ol><li>添加命名空间</li><li>maven中定义多个环境profile</li></ol><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">id</span>&gt;</span>dev<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">activeByDefault</span>&gt;</span>true<span class="tag">&lt;/<span class="name">activeByDefault</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">runtime.env</span>&gt;</span>dev<span class="tag">&lt;/<span class="name">runtime.env</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">nacos.server-addr</span>&gt;</span>10.91.22.7:8888<span class="tag">&lt;/<span class="name">nacos.server-addr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">nacos.namespace</span>&gt;</span>aa96c495-c8fa-4078-b159-556c08592786<span class="tag">&lt;/<span class="name">nacos.namespace</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">id</span>&gt;</span>local<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">runtime.env</span>&gt;</span>local<span class="tag">&lt;/<span class="name">runtime.env</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">nacos.server-addr</span>&gt;</span>10.91.22.7:8888<span class="tag">&lt;/<span class="name">nacos.server-addr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">nacos.namespace</span>&gt;</span>aa96c495-c8fa-4078-b159-556c08592786<span class="tag">&lt;/<span class="name">nacos.namespace</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br></pre></td></tr></table></figure><p>![image-20210512144727556](/Users/carytseng/Library/Application Support/typora-user-images/image-20210512144727556.png)</p><p><strong>maven中指定生效的profile，idea的active-profile指定的是项目下的对应环境的profile，非nacos上的配置</strong></p><ol start="3"><li>spring.cloud.nacos.discovery.namespace指定注册到相应的命名空间的注册列表，默认会在public</li></ol><p>![image-20210512144838409](/Users/carytseng/Library/Application Support/typora-user-images/image-20210512144838409.png)</p>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;　　今日的市场放量下跌，现在持有500股21.95的招商证券下跌0.5，500股25.50的三安光电，没有精确拿到当天的低价，行情全日震荡幅度大，拿到这个筹码不算最好，但也算不错，留有30%的仓位等补仓用。前日受美股影响A股也下跌，今天突破了3260点下挫到3234附近，目</summary>
+    <summary type="html">&lt;h1 id=&quot;Nacos&quot;&gt;&lt;a href=&quot;#Nacos&quot; class=&quot;headerlink&quot; title=&quot;Nacos&quot;&gt;&lt;/a&gt;Nacos&lt;/h1&gt;&lt;h2 id=&quot;docker启动&quot;&gt;&lt;a href=&quot;#docker启动&quot; class=&quot;headerlink&quot; titl</summary>
       
     
     
     
-    <category term="金融" scheme="https://dogfun.top/categories/%E9%87%91%E8%9E%8D/"/>
+    <category term="中间件" scheme="https://dogfun.top/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
     
-    
-    <category term="投资" scheme="https://dogfun.top/tags/%E6%8A%95%E8%B5%84/"/>
-    
-    <category term="股票" scheme="https://dogfun.top/tags/%E8%82%A1%E7%A5%A8/"/>
     
   </entry>
   
