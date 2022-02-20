@@ -6,7 +6,7 @@
   <link href="https://dogfun.top/atom.xml" rel="self"/>
   
   <link href="https://dogfun.top/"/>
-  <updated>2022-01-06T16:02:21.459Z</updated>
+  <updated>2022-02-20T01:17:28.233Z</updated>
   <id>https://dogfun.top/</id>
   
   <author>
@@ -17,40 +17,44 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="https://dogfun.top/2021/12/15/javacv%E6%8A%93%E5%8F%96rtsp%E8%A7%86%E9%A2%91%E6%B5%81/"/>
-    <id>https://dogfun.top/2021/12/15/javacv%E6%8A%93%E5%8F%96rtsp%E8%A7%86%E9%A2%91%E6%B5%81/</id>
-    <published>2021-12-15T02:47:03.132Z</published>
-    <updated>2022-01-06T16:02:21.459Z</updated>
+    <title>javacv抓取rtsp视频流</title>
+    <link href="https://dogfun.top/2022/02/20/web/javacv%E6%8A%93%E5%8F%96rtsp%E8%A7%86%E9%A2%91%E6%B5%81/"/>
+    <id>https://dogfun.top/2022/02/20/web/javacv%E6%8A%93%E5%8F%96rtsp%E8%A7%86%E9%A2%91%E6%B5%81/</id>
+    <published>2022-02-20T01:19:22.000Z</published>
+    <updated>2022-02-20T01:17:28.233Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="javacv抓取rtsp视频流"><a href="#javacv抓取rtsp视频流" class="headerlink" title="javacv抓取rtsp视频流"></a>javacv抓取rtsp视频流</h2><p>​    </p><h3 id="javacv"><a href="#javacv" class="headerlink" title="javacv"></a>javacv</h3><blockquote><p>java平台的流媒体开发包，对opencv、ffmpeg等库做了二次封装</p></blockquote><h3 id="流媒体协议"><a href="#流媒体协议" class="headerlink" title="流媒体协议"></a>流媒体协议</h3><blockquote><p>rtmp、rtsp、hls</p></blockquote><h3 id="封装格式"><a href="#封装格式" class="headerlink" title="封装格式"></a>封装格式</h3><blockquote><p>flv、jpeg、png</p></blockquote><h3 id="图像像素格式"><a href="#图像像素格式" class="headerlink" title="图像像素格式"></a>图像像素格式</h3><blockquote><p>没有经过编码的原始像素排列的数据</p></blockquote><h3 id="图片封装格式"><a href="#图片封装格式" class="headerlink" title="图片封装格式"></a>图片封装格式</h3><blockquote><p>png（无损）、bmp（无损不压缩）、gif/jpg（有损压缩）</p></blockquote><h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><blockquote><p>对图像像素格式进行编码才是视频帧，即压缩</p></blockquote><h1 id="FrameGrabber-帧抓取器-采集器-介绍"><a href="#FrameGrabber-帧抓取器-采集器-介绍" class="headerlink" title="FrameGrabber(帧抓取器/采集器)介绍"></a>FrameGrabber(帧抓取器/采集器)介绍</h1><p>用于采集/抓取视频图像和音频采样。封装了检索流信息，自动猜测视频解码格式，音视频解码等具体API，并把解码完的像素数据（可配置像素格式）或音频数据保存到Frame中返回等功</p><p><strong>FrameGrabber</strong>的子类/实现类包含以下几个：</p><p><strong>FFmpegFrameGrabber、OpenCVFrameGrabber、IPCameraFrameGrabber、VideoInputFrameGrabber、FlyCapture2FrameGrabber、DC1394FrameGrabber</strong></p>]]></content>
+    <content type="html"><![CDATA[<h3 id="javacv"><a href="#javacv" class="headerlink" title="javacv"></a>javacv</h3><blockquote><p>java平台的流媒体开发包，对opencv、ffmpeg等库做了二次封装</p></blockquote><h3 id="流媒体协议"><a href="#流媒体协议" class="headerlink" title="流媒体协议"></a>流媒体协议</h3><blockquote><p>rtmp、rtsp、hls</p></blockquote><h3 id="封装格式"><a href="#封装格式" class="headerlink" title="封装格式"></a>封装格式</h3><blockquote><p>flv、jpeg、png</p></blockquote><h3 id="图像像素格式"><a href="#图像像素格式" class="headerlink" title="图像像素格式"></a>图像像素格式</h3><blockquote><p>没有经过编码的原始像素排列的数据</p></blockquote><h3 id="图片封装格式"><a href="#图片封装格式" class="headerlink" title="图片封装格式"></a>图片封装格式</h3><blockquote><p>png（无损）、bmp（无损不压缩）、gif/jpg（有损压缩）</p></blockquote><h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><blockquote><p>对图像像素格式进行编码才是视频帧，即压缩</p></blockquote><h1 id="FrameGrabber-帧抓取器-采集器-介绍"><a href="#FrameGrabber-帧抓取器-采集器-介绍" class="headerlink" title="FrameGrabber(帧抓取器/采集器)介绍"></a>FrameGrabber(帧抓取器/采集器)介绍</h1><p>用于采集/抓取视频图像和音频采样。封装了检索流信息，自动猜测视频解码格式，音视频解码等具体API，并把解码完的像素数据（可配置像素格式）或音频数据保存到Frame中返回等功</p><p><strong>FrameGrabber</strong>的子类/实现类包含以下几个：</p><p><strong>FFmpegFrameGrabber、OpenCVFrameGrabber、IPCameraFrameGrabber、VideoInputFrameGrabber、FlyCapture2FrameGrabber、DC1394FrameGrabber</strong></p>]]></content>
     
     
       
       
-    <summary type="html">&lt;h2 id=&quot;javacv抓取rtsp视频流&quot;&gt;&lt;a href=&quot;#javacv抓取rtsp视频流&quot; class=&quot;headerlink&quot; title=&quot;javacv抓取rtsp视频流&quot;&gt;&lt;/a&gt;javacv抓取rtsp视频流&lt;/h2&gt;&lt;p&gt;​    &lt;/p&gt;
-&lt;h3 id=&quot;</summary>
+    <summary type="html">&lt;h3 id=&quot;javacv&quot;&gt;&lt;a href=&quot;#javacv&quot; class=&quot;headerlink&quot; title=&quot;javacv&quot;&gt;&lt;/a&gt;javacv&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;java平台的流媒体开发包，对opencv、ffmpeg等库做了二次封装&lt;/p&gt;
+</summary>
       
     
     
     
+    <category term="web" scheme="https://dogfun.top/categories/web/"/>
+    
+    
+    <category term="技术学习" scheme="https://dogfun.top/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title></title>
-    <link href="https://dogfun.top/2021/12/06/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87%20Offer%2010-%20I.%20%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/"/>
-    <id>https://dogfun.top/2021/12/06/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87%20Offer%2010-%20I.%20%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/</id>
-    <published>2021-12-06T14:13:53.733Z</published>
-    <updated>2021-12-11T10:00:20.299Z</updated>
+    <link href="https://dogfun.top/2022/02/20/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87%20Offer%2009.%20%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/"/>
+    <id>https://dogfun.top/2022/02/20/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87%20Offer%2009.%20%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/</id>
+    <published>2022-02-20T01:19:22.000Z</published>
+    <updated>2022-02-20T01:16:40.411Z</updated>
     
-    <content type="html"><![CDATA[<p>class Solution {</p><p>  public int fib(int n) {<br>    if (n == 0 || n == 1) {<br>      return n;<br>    }<br>    int a = 1, b = 0;<br>    for (i = 1; i &lt; n; i++) {<br>      a = a + b;<br>      b = a - b;<br>      a %= 1000000007;<br>    }<br>    return a;<br>  }<br>}</p>]]></content>
+    <content type="html"><![CDATA[<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">class CQueue &#123;</span><br><span class="line"></span><br><span class="line">  Stack&lt;Integer&gt; s1;</span><br><span class="line">  Stack&lt;Integer&gt; s2;</span><br><span class="line"></span><br><span class="line">  public CQueue() &#123;</span><br><span class="line">    s1 = new Stack();</span><br><span class="line">    s2 = new Stack();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  public void appendTail(int value) &#123;</span><br><span class="line">    while (s2.size() &gt; 0) &#123;</span><br><span class="line">      s1.push(s2.pop());</span><br><span class="line">    &#125;</span><br><span class="line">    s1.push(value);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  public int deleteHead() &#123;</span><br><span class="line">    while (s1.size() &gt; 0) &#123;</span><br><span class="line">      s2.push(s1.pop());</span><br><span class="line">    &#125;</span><br><span class="line">    return s2.size() == 0 ? -1 : s2.pop();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"></span><br><span class="line"> * Your CQueue object will be instantiated and called as such:</span><br><span class="line"> * CQueue obj = new CQueue();</span><br><span class="line"> * obj.appendTail(value);</span><br><span class="line"> * int param_2 = obj.deleteHead();</span><br><span class="line">   */</span><br></pre></td></tr></table></figure>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;class Solution {&lt;/p&gt;
-&lt;p&gt;  public int fib(int n) {&lt;br&gt;    if (n == 0 || n == 1) {&lt;br&gt;      return n;&lt;br&gt;    }&lt;br&gt;    int a = 1, b = 0;&lt;br&gt;</summary>
+    <summary type="html">&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span c</summary>
       
     
     
@@ -58,29 +62,31 @@
     <category term="算法" scheme="https://dogfun.top/categories/%E7%AE%97%E6%B3%95/"/>
     
     
+    <category term="技术学习" scheme="https://dogfun.top/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
   </entry>
   
   <entry>
     <title></title>
-    <link href="https://dogfun.top/2021/12/06/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87%20Offer%2009.%20%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/"/>
-    <id>https://dogfun.top/2021/12/06/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87%20Offer%2009.%20%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/</id>
-    <published>2021-12-06T14:00:18.469Z</published>
-    <updated>2021-12-11T10:00:20.299Z</updated>
+    <link href="https://dogfun.top/2022/02/20/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87%20Offer%2010-%20I.%20%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/"/>
+    <id>https://dogfun.top/2022/02/20/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87%20Offer%2010-%20I.%20%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/</id>
+    <published>2022-02-20T01:19:22.000Z</published>
+    <updated>2022-02-20T01:16:18.614Z</updated>
     
-    <content type="html"><![CDATA[<p>class CQueue {</p><p>  Stack<Integer> s1;<br>  Stack<Integer> s2;</p><p>  public CQueue() {<br>    s1 = new Stack();<br>    s2 = new Stack();<br>  }</p><p>  public void appendTail(int value) {<br>    while (s2.size() &gt; 0) {<br>      s1.push(s2.pop());<br>    }<br>    s1.push(value);<br>  }</p><p>  public int deleteHead() {<br>    while (s1.size() &gt; 0) {<br>      s2.push(s1.pop());<br>    }<br>    return s2.size() == 0 ? -1 : s2.pop();<br>  }<br>}<br>/**</p><ul><li>Your CQueue object will be instantiated and called as such:</li><li>CQueue obj = new CQueue();</li><li>obj.appendTail(value);</li><li>int param_2 = obj.deleteHead();</li><li>/</li></ul>]]></content>
+    <content type="html"><![CDATA[<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line"></span><br><span class="line">  public int fib(int n) &#123;</span><br><span class="line">    if (n == 0 || n == 1) &#123;</span><br><span class="line">      return n;</span><br><span class="line">    &#125;</span><br><span class="line">    int a = 1, b = 0;</span><br><span class="line">    for (i = 1; i &lt; n; i++) &#123;</span><br><span class="line">      a = a + b;</span><br><span class="line">      b = a - b;</span><br><span class="line">      a %= 1000000007;</span><br><span class="line">    &#125;</span><br><span class="line">    return a;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;class CQueue {&lt;/p&gt;
-&lt;p&gt;  Stack&lt;Integer&gt; s1;&lt;br&gt;  Stack&lt;Integer&gt; s2;&lt;/p&gt;
-&lt;p&gt;  public CQueue() {&lt;br&gt;    s1 = new Stack();&lt;br&gt;    s2 = new St</summary>
+    <summary type="html">&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span c</summary>
       
     
     
     
     <category term="算法" scheme="https://dogfun.top/categories/%E7%AE%97%E6%B3%95/"/>
     
+    
+    <category term="技术学习" scheme="https://dogfun.top/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -114,7 +120,7 @@
     <published>2021-11-28T03:34:18.005Z</published>
     <updated>2021-12-04T12:48:05.241Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="Hi-there-👋-I’m-carytseng-a-goosy-coder"><a href="#Hi-there-👋-I’m-carytseng-a-goosy-coder" class="headerlink" title="Hi there 👋 I’m carytseng, a goosy coder."></a>Hi there 👋 I’m carytseng, a goosy coder.</h3><p>this is a repository for record my thinking and study.<br> <img src="https://github-readme-stats.vercel.app/api?username=carytseng"></p><ul><li>💬 Ask me about … email -&gt; <a href="mailto:&#x63;&#97;&#114;&#x79;&#116;&#x73;&#101;&#x6e;&#x67;&#46;&#107;&#105;&#114;&#97;&#x40;&#103;&#x6d;&#97;&#x69;&#x6c;&#46;&#x63;&#x6f;&#109;">&#x63;&#97;&#114;&#x79;&#116;&#x73;&#101;&#x6e;&#x67;&#46;&#107;&#105;&#114;&#97;&#x40;&#103;&#x6d;&#97;&#x69;&#x6c;&#46;&#x63;&#x6f;&#109;</a></li></ul><hr><!-- ### Tool and interest --><!-- [![](https://img.shields.io/badge/macOS-Big%20Sur-cd48a5?style=flat-square&logo=apple&logoColor=ffffff)](https://www.apple.com/macos/big-sur)[![](https://img.shields.io/badge/IDE-VSCode-1f9cf0?style=flat-square&logo=visual-studio-code&logoColor=ffffff)](https://code.visualstudio.com)[![](https://img.shields.io/badge/-Docker-2496ED?style=flat-square&logo=docker&logoColor=ffffff)](https://www.docker.com)[![](https://img.shields.io/badge/-Nginx-269539?style=flat-square&logo=nginx&logoColor=ffffff)](https://nginx.org)<img src="https://img.shields.io/badge/-Oracle-f80000.svg?logo=oracle&style=flat"><img src="https://img.shields.io/badge/-Redis-D82C20.svg?logo=redis&style=flat"><img src="https://img.shields.io/badge/-Elasticsearch-005571.svg?logo=elasticsearch&style=flat"><img src="https://img.shields.io/badge/-intellij%20IDEA-000.svg?logo=intellij-idea&style=flat"><img src="https://img.shields.io/badge/-GitHub-181717.svg?logo=github&style=flat"> -->]]></content>
+    <content type="html"><![CDATA[<h3 id="Hi-there-👋-I’m-carytseng-a-goosy-coder"><a href="#Hi-there-👋-I’m-carytseng-a-goosy-coder" class="headerlink" title="Hi there 👋 I’m carytseng, a goosy coder."></a>Hi there 👋 I’m carytseng, a goosy coder.</h3><p>this is a repository for record my thinking and study.<br> <img src="https://github-readme-stats.vercel.app/api?username=carytseng"></p><ul><li>💬 Ask me about … email -&gt; <a href="mailto:&#99;&#97;&#x72;&#121;&#x74;&#x73;&#x65;&#x6e;&#103;&#46;&#x6b;&#105;&#x72;&#x61;&#x40;&#x67;&#109;&#x61;&#x69;&#x6c;&#x2e;&#99;&#x6f;&#x6d;">&#99;&#97;&#x72;&#121;&#x74;&#x73;&#x65;&#x6e;&#103;&#46;&#x6b;&#105;&#x72;&#x61;&#x40;&#x67;&#109;&#x61;&#x69;&#x6c;&#x2e;&#99;&#x6f;&#x6d;</a></li></ul><hr><!-- ### Tool and interest --><!-- [![](https://img.shields.io/badge/macOS-Big%20Sur-cd48a5?style=flat-square&logo=apple&logoColor=ffffff)](https://www.apple.com/macos/big-sur)[![](https://img.shields.io/badge/IDE-VSCode-1f9cf0?style=flat-square&logo=visual-studio-code&logoColor=ffffff)](https://code.visualstudio.com)[![](https://img.shields.io/badge/-Docker-2496ED?style=flat-square&logo=docker&logoColor=ffffff)](https://www.docker.com)[![](https://img.shields.io/badge/-Nginx-269539?style=flat-square&logo=nginx&logoColor=ffffff)](https://nginx.org)<img src="https://img.shields.io/badge/-Oracle-f80000.svg?logo=oracle&style=flat"><img src="https://img.shields.io/badge/-Redis-D82C20.svg?logo=redis&style=flat"><img src="https://img.shields.io/badge/-Elasticsearch-005571.svg?logo=elasticsearch&style=flat"><img src="https://img.shields.io/badge/-intellij%20IDEA-000.svg?logo=intellij-idea&style=flat"><img src="https://img.shields.io/badge/-GitHub-181717.svg?logo=github&style=flat"> -->]]></content>
     
     
       
