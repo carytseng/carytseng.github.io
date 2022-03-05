@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>CaryTseng</title>
+  <title>Cary Tseng</title>
   <icon>https://www.gravatar.com/avatar/bac9080800c06a1b685d5f013601b128</icon>
-  <subtitle>大道至简，实干为要</subtitle>
+  <subtitle>stay humble</subtitle>
   <link href="https://dogfun.top/atom.xml" rel="self"/>
   
   <link href="https://dogfun.top/"/>
@@ -10,7 +10,7 @@
   <id>https://dogfun.top/</id>
   
   <author>
-    <name>CaryTseng</name>
+    <name>Cary Tseng</name>
     <email>carytseng.kira@gmail.com</email>
   </author>
   
