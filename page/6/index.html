@@ -1,5 +1,708 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="我们所知不过沧海一粟，我们所不知却是汪洋大海"><title>Cary Tseng | stay humble</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=1.0.0"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/normalize.css/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/pure-min.min.css"><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/purecss/build/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script type="text/javascript" src="//cdn.jsdelivr.net/npm/clipboard/dist/clipboard.min.js"></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.js"></script><link rel="stylesheet" href="//cdn.jsdelivr.net/gh/codeseven/toastr/build/toastr.min.css"><meta name="generator" content="Hexo 5.4.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Cary Tseng</h1><a id="logo" href="/.">Cary Tseng</a><p class="description">stay humble</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title"><a href="/2019/11/11/git/git/">git</a></h1><div class="post-meta">2019-11-11</div><div class="post-content"><h3 id="一-安装git"><a href="#一-安装git" class="headerlink" title="一. 安装git"></a>一. 安装git</h3><ol>
-<li><p>su<strong>do</strong> apt-<strong>get</strong> install git</p></div><p class="readmore"><a href="/2019/11/11/git/git/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2019/09/15/%E5%AE%B9%E5%99%A8/docker/">docker</a></h1><div class="post-meta">2019-09-15</div><div class="post-content"><h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><h4 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#方式1</span><br><span class="line">curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</span><br><span class="line">#方式2</span><br><span class="line">curl -sSL https://get.daocloud.io/docker | sh</span><br></pre></td></tr></table></figure></div><p class="readmore"><a href="/2019/09/15/%E5%AE%B9%E5%99%A8/docker/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2019/07/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/design-pattern-%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/">装饰器模式</a></h1><div class="post-meta">2019-07-26</div><div class="post-content"><p><strong>定义</strong></p>
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Cary Tseng</title>
+    
+    
+        <meta name="keywords" content="Cary Tseng" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="我们所知不过沧海一粟，我们所不知却是汪洋大海">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cary Tseng">
+<meta property="og:url" content="https://dogfun.top/page/6/index.html">
+<meta property="og:site_name" content="Cary Tseng">
+<meta property="og:description" content="我们所知不过沧海一粟，我们所不知却是汪洋大海">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="CaryTseng">
+<meta name="twitter:card" content="summary">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Cary Tseng" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/css/images/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?f880ece5980fa96666aaebab89b33e81# enter Baidu Analytics hash key";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                
+                <span class="site-title">Cary Tseng</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title"><span>最新文章</span></h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/03/03/%E6%95%B0%E6%8D%AE%E5%BA%93/es/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></p>
+                            <p class="item-title"><a href="/2022/03/03/%E6%95%B0%E6%8D%AE%E5%BA%93/es/" class="title">Elasticsearch</a></p>
+                            <p class="item-date"><time datetime="2022-03-03T01:25:02.000Z" itemprop="datePublished">2022-03-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/02/27/%E4%BF%84%E4%B9%8C%E5%86%B2%E7%AA%81/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2022/02/27/%E4%BF%84%E4%B9%8C%E5%86%B2%E7%AA%81/" class="title">俄乌冲突</a></p>
+                            <p class="item-date"><time datetime="2022-02-27T05:29:46.000Z" itemprop="datePublished">2022-02-27</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/02/22/%E5%AE%B9%E5%99%A8/k8/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E5%AE%B9%E5%99%A8/">容器</a></p>
+                            <p class="item-title"><a href="/2022/02/22/%E5%AE%B9%E5%99%A8/k8/" class="title">k8s</a></p>
+                            <p class="item-date"><time datetime="2022-02-22T03:24:58.000Z" itemprop="datePublished">2022-02-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/02/20/%E9%9A%8F%E6%83%B3/%E9%9A%8F%E6%83%B32-20/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E9%9A%8F%E6%83%B3/">随想</a></p>
+                            <p class="item-title"><a href="/2022/02/20/%E9%9A%8F%E6%83%B3/%E9%9A%8F%E6%83%B32-20/" class="title">随想2-20</a></p>
+                            <p class="item-date"><time datetime="2022-02-20T09:58:09.000Z" itemprop="datePublished">2022-02-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2022/02/20/%E5%AE%B9%E5%99%A8/helm/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/%E5%AE%B9%E5%99%A8/">容器</a></p>
+                            <p class="item-title"><a href="/2022/02/20/%E5%AE%B9%E5%99%A8/helm/" class="title">helm</a></p>
+                            <p class="item-date"><time datetime="2022-02-20T02:14:13.000Z" itemprop="datePublished">2022-02-20</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>分类</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            git
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2019/11/11/git/gitflow%E5%AE%9E%E8%B7%B5/">GitFlow</a></li>  <li class="file"><a href="/2019/11/11/git/git/">git</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            java
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2019/05/03/java/List%E9%81%8D%E5%8E%86%E8%BF%87%E7%A8%8Bremove%E7%9A%84ConcurrentModificationException/">List遍历过程remove的ConcurrentModificationException</a></li>  <li class="file"><a href="/2019/11/11/java/jvm/">jvm</a></li>  <li class="file"><a href="/2021/08/05/java/java/">Java基础补全</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            linux
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2019/11/11/linux/linux/">linux</a></li>  <li class="file"><a href="/2020/05/14/linux/Linux%E6%96%87%E4%BB%B6%E5%88%A0%E9%99%A4%E5%8E%9F%E7%90%86/">Linux文件删除原理</a></li>  <li class="file"><a href="/2020/05/14/linux/NetworkManager/">NetworkManager</a></li>  <li class="file"><a href="/2020/05/21/linux/FTP%E6%A8%A1%E5%BC%8F%E8%AE%BE%E7%BD%AE%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98/">FTP模式设置引发的问题</a></li>  <li class="file"><a href="/2021/11/28/linux/vim/">Vim</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            vps
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/02/26/vps/ssr-ignite-%E6%90%AD%E5%BB%BA/">ssr & ignite 搭建</a></li>  <li class="file"><a href="/2019/11/11/vps/x-ui/">x-ui</a></li>  <li class="file"><a href="/2020/11/28/vps/ignite%E8%BF%81%E7%A7%BB/">ignite迁移</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            web
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2017/08/06/web/%E4%BC%9A%E8%AF%9D%E6%8A%80%E6%9C%AFCookie%E4%B8%8ESession/">会话技术Cookie与Session</a></li>  <li class="file"><a href="/2019/12/20/web/Web%E5%AE%9E%E6%97%B6%E6%B6%88%E6%81%AF%E6%8E%A8%E9%80%81/">Web实时消息推送</a></li>  <li class="file"><a href="/2020/05/12/web/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/">布隆过滤器</a></li>  <li class="file"><a href="/2020/06/26/web/JSON-Web-Token/">JSON Web Token</a></li>  <li class="file"><a href="/2020/06/26/web/Validator%E5%8F%82%E6%95%B0%E6%A0%A1%E9%AA%8C/">SpringMVC参数校验</a></li>  <li class="file"><a href="/2020/07/06/web/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/">单点登录</a></li>  <li class="file"><a href="/2020/09/30/web/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%86%99%E6%A1%86%E6%9E%B6-SpringMVC/">从零开始写框架-SpringMVC</a></li>  <li class="file"><a href="/2020/10/07/web/Spring%E5%A4%9A%E6%95%B0%E6%8D%AE%E6%BA%90%E5%8A%A0%E8%BD%BD/">Spring多数据源加载</a></li>  <li class="file"><a href="/2020/11/04/web/CAP%E5%AE%9A%E7%90%86/">CAP定理</a></li>  <li class="file"><a href="/2021/10/25/web/NVM/">NVM</a></li>  <li class="file"><a href="/2021/11/29/web/CORS/">跨域CORS后端处理</a></li>  <li class="file"><a href="/2022/02/20/web/javacv%E6%8A%93%E5%8F%96rtsp%E8%A7%86%E9%A2%91%E6%B5%81/">javacv抓取rtsp视频流</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            个人思考
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/06/24/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/%E6%88%91%E4%BB%AC%E5%AF%B9%E5%BE%85%E8%87%AA%E5%B7%B1%E7%9A%84%E6%80%81%E5%BA%A6/">我们对待自己的态度</a></li>  <li class="file"><a href="/2018/06/24/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/%E5%AD%98%E5%9C%A8%E7%9A%84%E6%84%8F%E4%B9%89/">存在的意义</a></li>  <li class="file"><a href="/2018/06/24/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/%E5%9B%B0%E9%A1%BF%E4%B8%8E%E8%A7%89%E6%82%9F/">困顿与觉悟</a></li>  <li class="file"><a href="/2018/06/27/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/%E5%B9%B3%E5%B8%B8%E5%BF%83/">平常心</a></li>  <li class="file"><a href="/2018/06/28/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/%E5%86%99/">写</a></li>  <li class="file"><a href="/2018/06/29/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/%E6%9D%82%E8%B0%88/">杂谈</a></li>  <li class="file"><a href="/2018/07/04/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/%E5%AD%98%E5%9C%A8%E5%8D%B3%E6%98%AF%E5%90%88%E7%90%86/">存在即是合理</a></li>  <li class="file"><a href="/2018/07/07/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/%E5%85%89%E9%98%B4%E4%BC%BC%E7%AE%AD%E6%97%A5%E6%9C%88%E5%A6%82%E6%A2%AD/">光阴似箭日月如梭</a></li>  <li class="file"><a href="/2018/07/09/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/%E8%A1%A8%E6%88%91%E4%B8%8E%E8%87%AA%E6%88%91/">表我与自我</a></li>  <li class="file"><a href="/2018/07/13/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/%E5%A4%84%E4%B8%96/">处世</a></li>  <li class="file"><a href="/2020/05/09/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5/">软件工程实践</a></li>  <li class="file"><a href="/2020/06/26/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/%E8%B0%83%E7%90%86%E8%84%BE%E8%83%83/">调理脾胃</a></li>  <li class="file"><a href="/2020/08/15/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/%E8%8C%B6%E5%A4%9A%E9%85%9A%E7%9A%84%E5%8A%9F%E6%95%88/">茶多酚的功效</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            中间件
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/02/11/%E4%B8%AD%E9%97%B4%E4%BB%B6/kafka%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">kafka消息队列</a></li>  <li class="file"><a href="/2018/04/11/%E4%B8%AD%E9%97%B4%E4%BB%B6/kafka%E7%94%9F%E4%BA%A7%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98/">kafka生产重复消费问题</a></li>  <li class="file"><a href="/2019/11/11/%E4%B8%AD%E9%97%B4%E4%BB%B6/nginx/">nginx</a></li>  <li class="file"><a href="/2020/05/14/%E4%B8%AD%E9%97%B4%E4%BB%B6/kafka/">Kafka</a></li>  <li class="file"><a href="/2020/09/25/%E4%B8%AD%E9%97%B4%E4%BB%B6/nacos/">Nacos</a></li>  <li class="file"><a href="/2020/09/25/%E4%B8%AD%E9%97%B4%E4%BB%B6/presto/">Presto</a></li>  <li class="file"><a href="/2020/10/28/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/">redis</a></li>  <li class="file"><a href="/2021/11/27/%E4%B8%AD%E9%97%B4%E4%BB%B6/minio/">Minio</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            容器
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2019/09/15/%E5%AE%B9%E5%99%A8/docker/">docker</a></li>  <li class="file"><a href="/2022/02/20/%E5%AE%B9%E5%99%A8/helm/">helm</a></li>  <li class="file"><a href="/2022/02/22/%E5%AE%B9%E5%99%A8/k8/">k8s</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            效率
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/11/29/%E6%95%88%E7%8E%87/%E6%95%88%E7%8E%87/"></a></li>  <li class="file"><a href="/2021/09/25/%E6%95%88%E7%8E%87/mac/">Mac平台下工具总结</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            数据库
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2018/02/17/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql/">mysql</a></li>  <li class="file"><a href="/2022/03/03/%E6%95%B0%E6%8D%AE%E5%BA%93/es/">Elasticsearch</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            算法
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2022/02/20/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87%20Offer%2009.%20%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/">剑指 Offer 09. 用两个栈实现队列</a></li>  <li class="file"><a href="/2022/02/20/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87%20Offer%2010-%20I.%20%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/">剑指 Offer 10- I. 斐波那契数列</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            设计模式
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2017/02/16/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/design-pattern-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">单例模式</a></li>  <li class="file"><a href="/2017/04/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/design-pattern-%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">简单工厂模式</a></li>  <li class="file"><a href="/2017/07/21/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/design-pattern-%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">抽象工厂模式</a></li>  <li class="file"><a href="/2017/08/13/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/design-pattern-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">工厂模式</a></li>  <li class="file"><a href="/2018/03/24/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/design-pattern-%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/">代理模式</a></li>  <li class="file"><a href="/2018/05/27/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/design-pattern-%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/">外观模式</a></li>  <li class="file"><a href="/2019/03/24/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/design-pattern-%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/">责任链模式</a></li>  <li class="file"><a href="/2019/06/23/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/design-pattern-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/">适配器模式</a></li>  <li class="file"><a href="/2019/07/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/design-pattern-%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/">装饰器模式</a></li>  <li class="file"><a href="/2020/06/28/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/design-pattern-%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/">原型模式</a></li>  <li class="file"><a href="/2020/07/01/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/design-pattern-%E6%A8%A1%E6%9D%BF%E6%A8%A1%E5%BC%8F/">模板模式</a></li>  <li class="file"><a href="/2020/07/06/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/design-pattern-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/">策略模式</a></li>  <li class="file"><a href="/2020/07/14/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/design-pattern-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/">观察者模式</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            金融
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2020/02/21/%E9%87%91%E8%9E%8D/%E6%8A%95%E8%B5%84%E6%80%9D%E8%80%83/">投资思考</a></li>  <li class="file"><a href="/2020/06/30/%E9%87%91%E8%9E%8D/%E5%9F%BA%E9%87%91%E5%B8%83%E5%B1%80/">基金布局</a></li>  <li class="file"><a href="/2020/07/07/%E9%87%91%E8%9E%8D/%E5%85%A5%E5%9C%BA%E6%A2%AD%E5%93%88/">入场梭哈</a></li>  <li class="file"><a href="/2020/08/07/%E9%87%91%E8%9E%8D/%E5%BB%BA%E4%BB%93/">建仓</a></li>  <li class="file"><a href="/2020/08/17/%E9%87%91%E8%9E%8D/%E7%89%9B%E5%B8%82/">牛市?</a></li>  <li class="file"><a href="/2020/09/10/%E9%87%91%E8%9E%8D/%E6%94%BE%E9%87%8F%E4%B8%8B%E8%B7%8C/">放量下跌</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            随想
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/2021/11/27/%E9%9A%8F%E6%83%B3/%E9%9A%8F%E6%83%B311-27/">随想11-27</a></li>  <li class="file"><a href="/2022/02/20/%E9%9A%8F%E6%83%B3/%E9%9A%8F%E6%83%B32-20/">随想2-20</a></li>  </ul> 
+                    </li> 
+                     <li class="file"><a href="/2022/02/27/%E4%BF%84%E4%B9%8C%E5%86%B2%E7%AA%81/">俄乌冲突</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main">
+        <article id="post-git/git" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/git/">git</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2019/11/11/git/git/">
+            <time datetime="2019-11-11T10:24:58.000Z" itemprop="datePublished">2019-11-11</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2019/11/11/git/git/">git</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h3 id="一-安装git"><a href="#一-安装git" class="headerlink" title="一. 安装git"></a>一. 安装git</h3><ol>
+<li><p>su<strong>do</strong> apt-<strong>get</strong> install git</p>
+</li>
+<li><p>$ git config –global <a target="_blank" rel="noopener" href="http://user.name/">user.name</a> “Your Name”</p>
+</li>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2019/11/11/git/git/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-容器/docker" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E5%AE%B9%E5%99%A8/">容器</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2019/09/15/%E5%AE%B9%E5%99%A8/docker/">
+            <time datetime="2019-09-15T02:14:13.000Z" itemprop="datePublished">2019-09-15</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2019/09/15/%E5%AE%B9%E5%99%A8/docker/">docker</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><h4 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#方式1</span><br><span class="line">curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</span><br><span class="line">#方式2</span><br><span class="line">curl -sSL https://get.daocloud.io/docker | sh</span><br></pre></td></tr></table></figure>
+
+<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start docker</span><br><span class="line">sudo systemctl enable docker</span><br><span class="line"></span><br><span class="line">授权普通用户docker运行权限</span><br><span class="line">sudo usermod -aG docker [user]</span><br></pre></td></tr></table></figure>
+
+<h4 id="Dockerfile应用容器化"><a href="#Dockerfile应用容器化" class="headerlink" title="Dockerfile应用容器化"></a>Dockerfile应用容器化</h4><ol>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2019/09/15/%E5%AE%B9%E5%99%A8/docker/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-设计模式/design-pattern-装饰器模式" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2019/07/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/design-pattern-%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/">
+            <time datetime="2019-07-26T01:49:02.000Z" itemprop="datePublished">2019-07-26</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2019/07/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/design-pattern-%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/">装饰器模式</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                <p><p><strong>定义</strong></p>
 <blockquote>
 <p>用于向一个现有对象添加新的功能，同时不改变其现有结构。通过创建一个类的装饰类，包装原有类，并保证原有类的签名的前提下提供额外功能。</p>
 </blockquote>
@@ -10,7 +713,77 @@
 <p><strong>优点</strong></p>
 <blockquote>
 <p>装饰类和被装饰类能独立发展，不相互耦合。装饰模式是继承的一个替代，可以动态扩展一个实现类的功能。</p>
-</blockquote></div><p class="readmore"><a href="/2019/07/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/design-pattern-%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2019/06/23/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/design-pattern-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/">适配器模式</a></h1><div class="post-meta">2019-06-23</div><div class="post-content"><blockquote>
+</blockquote></p>
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2019/07/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/design-pattern-%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-设计模式/design-pattern-适配器模式" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2019/06/23/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/design-pattern-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/">
+            <time datetime="2019-06-23T02:41:34.000Z" itemprop="datePublished">2019-06-23</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2019/06/23/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/design-pattern-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/">适配器模式</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                <p><blockquote>
 <p>将一个类的接口转换成客户端希望的接口，通常用于使用现有类适配新的系统接口。优点是复用现有类。</p>
 </blockquote>
 <blockquote>
@@ -39,7 +812,147 @@
 <td>实现目标接口，依赖目标类</td>
 <td>实现目标接口，做接口兼容</td>
 </tr>
-</tbody></table></div><p class="readmore"><a href="/2019/06/23/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/design-pattern-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2019/05/03/java/List%E9%81%8D%E5%8E%86%E8%BF%87%E7%A8%8Bremove%E7%9A%84ConcurrentModificationException/">List遍历过程remove的ConcurrentModificationException</a></h1><div class="post-meta">2019-05-03</div><div class="post-content">List遍历过程调用remove方法发生ConcurrentModificationException异常</div><p class="readmore"><a href="/2019/05/03/java/List%E9%81%8D%E5%8E%86%E8%BF%87%E7%A8%8Bremove%E7%9A%84ConcurrentModificationException/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2019/03/24/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/design-pattern-%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/">责任链模式</a></h1><div class="post-meta">2019-03-24</div><div class="post-content"><blockquote>
+</tbody></table></p>
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2019/06/23/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/design-pattern-%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-java/List遍历过程remove的ConcurrentModificationException" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/java/">java</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Java%E5%9F%BA%E7%A1%80/" rel="tag">Java基础</a>, <a class="tag-link-link" href="/tags/%E5%BC%82%E5%B8%B8/" rel="tag">异常</a>, <a class="tag-link-link" href="/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" rel="tag">技术学习</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2019/05/03/java/List%E9%81%8D%E5%8E%86%E8%BF%87%E7%A8%8Bremove%E7%9A%84ConcurrentModificationException/">
+            <time datetime="2019-05-03T08:21:50.000Z" itemprop="datePublished">2019-05-03</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2019/05/03/java/List%E9%81%8D%E5%8E%86%E8%BF%87%E7%A8%8Bremove%E7%9A%84ConcurrentModificationException/">List遍历过程remove的ConcurrentModificationException</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                <p>List遍历过程调用remove方法发生ConcurrentModificationException异常</p>
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2019/05/03/java/List%E9%81%8D%E5%8E%86%E8%BF%87%E7%A8%8Bremove%E7%9A%84ConcurrentModificationException/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-设计模式/design-pattern-责任链模式" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2019/03/24/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/design-pattern-%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/">
+            <time datetime="2019-03-24T02:52:12.000Z" itemprop="datePublished">2019-03-24</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2019/03/24/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/design-pattern-%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/">责任链模式</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                <p><blockquote>
 <p>用来处理相关事务责任的一条执行链，执行链上有多个节点，每个节点都有机会根据匹配条件处理事务，处理完就根据实际业务需求传递给下一个节点或者返回。</p>
 </blockquote>
 <table>
@@ -57,16 +970,449 @@
 <tr>
 <td>具体节点处理类</td>
 </tr>
-</tbody></table></div><p class="readmore"><a href="/2019/03/24/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/design-pattern-%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2018/07/13/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/%E5%A4%84%E4%B8%96/">处世</a></h1><div class="post-meta">2018-07-13</div><div class="post-content"><blockquote>
+</tbody></table></p>
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2019/03/24/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/design-pattern-%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-个人思考/处世" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/">个人思考</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/07/13/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/%E5%A4%84%E4%B8%96/">
+            <time datetime="2018-07-13T13:01:27.000Z" itemprop="datePublished">2018-07-13</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/07/13/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/%E5%A4%84%E4%B8%96/">处世</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><blockquote>
 <p>　　当我们做一件事情的时候，不要寐心，可能很多时候为了达成目的，我们会着急，焦虑，眼看时间一点点在消逝，不得已而为之，未考虑清楚匆忙决定一件事情，最终发现事与愿违。当然太过谨慎思虑太多也会错失很多机会，青春给了我们试错的资本，敢于尝试是听得比较多的道理。</p>
-<p>　　对人对事，得与失之间，权衡利弊而后之。而立之年，太多的困惑会阻挡人的前进方向，选择的方向往往比努力重要，想成为什么样子，想达到什么目标，三思而后行。我们处在一个环境中往往会带有局限性，限制我们的视野与思维，当你慢慢接触更优秀的人与其共事交流，会开阔自身的思维与境界，很多时候我们更愿意处于一个舒适区，不想跳出来，害怕这份稳定与安宁被打破，宁愿在内做最优解，但是这样人就会不知不觉被环境所同化，带有其土壤所熏陶的气息，很难打破。如果我们选择的东西不是我们内心所想要的，必定有所困惑，怀疑自身的态度与原则，必要的调解都无法按捺内心那股冲突。我们处于世上，有着自身的底线，跨越这个底线，抛弃原则，可能最终自己都无法认清自己的模样，何苦呢？</p></div><p class="readmore"><a href="/2018/07/13/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/%E5%A4%84%E4%B8%96/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2018/07/09/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/%E8%A1%A8%E6%88%91%E4%B8%8E%E8%87%AA%E6%88%91/">表我与自我</a></h1><div class="post-meta">2018-07-09</div><div class="post-content"><blockquote>
+<p>　　对人对事，得与失之间，权衡利弊而后之。而立之年，太多的困惑会阻挡人的前进方向，选择的方向往往比努力重要，想成为什么样子，想达到什么目标，三思而后行。我们处在一个环境中往往会带有局限性，限制我们的视野与思维，当你慢慢接触更优秀的人与其共事交流，会开阔自身的思维与境界，很多时候我们更愿意处于一个舒适区，不想跳出来，害怕这份稳定与安宁被打破，宁愿在内做最优解，但是这样人就会不知不觉被环境所同化，带有其土壤所熏陶的气息，很难打破。如果我们选择的东西不是我们内心所想要的，必定有所困惑，怀疑自身的态度与原则，必要的调解都无法按捺内心那股冲突。我们处于世上，有着自身的底线，跨越这个底线，抛弃原则，可能最终自己都无法认清自己的模样，何苦呢？</p>
+<p>　　人必要忠于自己而后立生处事，对人对事亦然。</p>
+</blockquote>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2018/07/13/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/%E5%A4%84%E4%B8%96/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-个人思考/表我与自我" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/">个人思考</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/07/09/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/%E8%A1%A8%E6%88%91%E4%B8%8E%E8%87%AA%E6%88%91/">
+            <time datetime="2018-07-09T13:01:34.000Z" itemprop="datePublished">2018-07-09</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/07/09/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/%E8%A1%A8%E6%88%91%E4%B8%8E%E8%87%AA%E6%88%91/">表我与自我</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+            
+        
+        
+            <blockquote>
 <p>　　当我们认知一个人，最快速的方式是通过外表，穿着，走姿，来刻画一个人在我们心目中的印象，标签化是我们短期内记忆一个人最快的方法，反之亦然。</p>
-<p>　　一个人所呈现的表象是他想让我们看到的样子，表我和内我是截然不同的，在外界环境中，起作用的是表我，这个姿态是我们根据社会规则，道德伦理，他人所要求的样子所刻画出来的。形成一个人的表我，其行为细节，三观，态度等，其实都可以关联性分析。一个人最原生的自我来自于其原生家庭，所处的阶层，父母的教养，童年的经历，青春期的成长，都是塑造一个人的基石。其三观与原生家庭的教养会在社交细节中体现出来，其行为动机则需要关联构成其复杂性格的环境与经历。我们知道一个人的行事总是遵循其固定不变的性格构成，受动机和能力的制约，一个正常的人在其范围内作出的行为都是有根据的，处事，对人亦然。要了解一个人的自我，需要时间去了解，通过对其日常的行为细节，观其言察其色，对待一件事情的反应，面对责任时是推卸抑或主动承担。这些细节是掩饰不了的，会在其行为中体现出来。情商达练之人懂得在人群中把握分寸，与人相处时保持一种舒适的状态，适度展现自我在环境中的存在，但也往往成为其弱点。人与人相处时，其一言一行都会进入他人的印象中，言语是其动机产生的结果，达到一个如何的程度，希望事情走向一个什么样的结果，其实已经刻画在一个人的大致计划中，是其本我在事物发展过程当中的本能调控。这类动机行为是难以看穿的，因为当你不完全了解一个人时，这个结果你是无法推敲出来的。有一类人，处于人群中并不处于起眼的，但发生某事情时，为了调控事情走向，达到自我目的，会通过各类细节去调控，虽然抽象，但是若果最终的结果如他个人所愿，则必定有其达练之处。聪明人与聪明人交谈时，思维方式是跳跃的，正常人的交流顺序是按照123456，但聪明人之间交流的逻辑顺序是136，遵从跳跃式顺序。很多时候聪明人识破一个人的动机的时候，不会去揭穿，鉴于正常的社交尊重，让对方能够下台面或者利用话题周旋，若这个动机也是能够接受的范围内，且是双赢的，则会顺应对方的所求，有所求必有所图，这类人难以交心，其有着天生的防备心态，表面上关系融洽，但一旦希望关系深入时，你必然能感受到与对方的距离。大智若愚非常适用于形容高阶的聪明人，看似平淡无常，其背后的动机暗流涌动，当你对其产生疑惑但又无法说出个所以然来，这时候，明显的对方已经高你一阶。</p></div><p class="readmore"><a href="/2018/07/09/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/%E8%A1%A8%E6%88%91%E4%B8%8E%E8%87%AA%E6%88%91/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2018/07/07/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/%E5%85%89%E9%98%B4%E4%BC%BC%E7%AE%AD%E6%97%A5%E6%9C%88%E5%A6%82%E6%A2%AD/">光阴似箭日月如梭</a></h1><div class="post-meta">2018-07-07</div><div class="post-content"><blockquote>
-<p>　　光阴似箭，日月如梭，曾几何时写作文惯用的起手式只是应付当时那800字的心态加之自身时常慨叹时光易逝，因此，这两个四字词不知出现在我的作文里多少次。再次用起，总有一番不同的感觉。很多电影，很多文章，很多诗词，很多字句，当人有了一定的阅历后重新回味总会有一番不同的感受，如周星驰的电影，宫崎骏的动漫，童年1元杯的珍珠奶茶，街边小贩的牛杂，初高中写的文章，这种五味杂陈的感觉或许就是自身心智在不断成熟，对过去自我一种审视的反馈。不知不觉时间已到了2018，偶然间被叫了声叔叔犹感突兀，但貌似在提醒我已长大成人，95后的我们已经奔向社会，成为承担社会责任的一代，起承转合间备感压力，爱情婚姻，事业家庭，属于这个阶段去追求的东西，人生没有多少个十年，一个阶段又一个阶段的成长造就现在的我们，不断变化的自我与环境间的不断磨合，年轮棱角在角逐中被磨平，因此能够保持初心的人犹应珍惜。那一个个头顶掉发的中年大叔当年何不是意气风发的青年，带着梦想与期待步入社会，在生活面前，他们收起了那份锐气取而代之的是对生活的妥协，这或许是一种成熟吧，我不知道，但是自我抗拒成为他们，因此必须储备资本，你才有条件对生活说不，这个条件需要你为之付出，付出才有所得，任何事情亦然，空有目标而无执行力只是头脑发热之人的一时冲动，落实到逐步的目标实施中，有具体的可行性，才有机会达到想要的效果。</p></div><p class="readmore"><a href="/2018/07/07/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/%E5%85%89%E9%98%B4%E4%BC%BC%E7%AE%AD%E6%97%A5%E6%9C%88%E5%A6%82%E6%A2%AD/">阅读全文</a></p></div><div class="post"><h1 class="post-title"><a href="/2018/07/04/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/%E5%AD%98%E5%9C%A8%E5%8D%B3%E6%98%AF%E5%90%88%E7%90%86/">存在即是合理</a></h1><div class="post-meta">2018-07-04</div><div class="post-content"><blockquote>
-<p>　　存在即是合理，当环境变换时，周遭的一切都不是你知悉的一切，快速投入到工作中，你会发现周围的一切都那么模糊，快速的工作节奏，工作的deadline压力，抬头发现已经忘记时间，夜色已经降临，只是生活还是在继续。走出大楼，那各色的人匆匆茫茫到底在奔向何方，憧憬着什么。有时你会发现人最可怕的地方是不知道自己想要什么，任由生活摆布。但成年人的世界有时又无可奈何，责任在身，上级的压力，慢慢的就能够去接受，去承担这种变化，无事一身轻或许是最潇洒的状态，摆摆手或者就能让自己的生活轻松点，但是人要懂得居安思危，时间是很残酷的，不知不觉你的青春、你的时间就已然流逝。</p></div><p class="readmore"><a href="/2018/07/04/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/%E5%AD%98%E5%9C%A8%E5%8D%B3%E6%98%AF%E5%90%88%E7%90%86/">阅读全文</a></p></div><nav class="page-navigator"><a class="extend prev" rel="prev" href="/page/5/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/">下一页</a></nav></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/vps/">vps</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/">个人思考</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/">中间件</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%B9%E5%99%A8/">容器</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%88%E7%8E%87/">效率</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%87%91%E8%9E%8D/">金融</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E6%83%B3/">随想</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" style="font-size: 15px;">技术学习</a> <a href="/tags/Java%E5%9F%BA%E7%A1%80/" style="font-size: 15px;">Java基础</a> <a href="/tags/%E5%BC%82%E5%B8%B8/" style="font-size: 15px;">异常</a> <a href="/tags/ssr/" style="font-size: 15px;">ssr</a> <a href="/tags/ignite/" style="font-size: 15px;">ignite</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/JWT/" style="font-size: 15px;">JWT</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%BA%90/" style="font-size: 15px;">数据源</a> <a href="/tags/WebSocket/" style="font-size: 15px;">WebSocket</a> <a href="/tags/Web/" style="font-size: 15px;">Web</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" style="font-size: 15px;">编程技巧</a> <a href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" style="font-size: 15px;">消息队列</a> <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 15px;">中间件</a> <a href="/tags/%E6%8A%95%E8%B5%84/" style="font-size: 15px;">投资</a> <a href="/tags/%E5%9F%BA%E9%87%91/" style="font-size: 15px;">基金</a> <a href="/tags/%E8%82%A1%E7%A5%A8/" style="font-size: 15px;">股票</a> <a href="/tags/%E7%90%86%E5%93%B2/" style="font-size: 15px;">理哲</a> <a href="/tags/Spring/" style="font-size: 15px;">Spring</a> <a href="/tags/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%86%99%E6%A1%86%E6%9E%B6/" style="font-size: 15px;">从零开始写框架</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/03/03/%E6%95%B0%E6%8D%AE%E5%BA%93/es/">Elasticsearch</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/02/27/%E4%BF%84%E4%B9%8C%E5%86%B2%E7%AA%81/">俄乌冲突</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/02/22/%E5%AE%B9%E5%99%A8/k8/">k8s</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/02/20/%E9%9A%8F%E6%83%B3/%E9%9A%8F%E6%83%B32-20/">随想2-20</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/02/20/%E5%AE%B9%E5%99%A8/helm/">helm</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/02/20/web/javacv%E6%8A%93%E5%8F%96rtsp%E8%A7%86%E9%A2%91%E6%B5%81/">javacv抓取rtsp视频流</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/02/20/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87%20Offer%2009.%20%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/">剑指 Offer 09. 用两个栈实现队列</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/02/20/%E7%AE%97%E6%B3%95/%E5%89%91%E6%8C%87%20Offer%2010-%20I.%20%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/">剑指 Offer 10- I. 斐波那契数列</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/11/29/web/CORS/">跨域CORS后端处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/11/28/linux/vim/">Vim</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://www.zhihu.com/people/jacfrak" title="知乎" target="_blank">知乎</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2022 <a href="/." rel="nofollow">Cary Tseng.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=1.0.0" async></script><script type="text/javascript" src="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=1.0.0" async></script><link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox/dist/jquery.fancybox.min.css"><link rel="stylesheet" type="text/css" href="/css/search.css?v=1.0.0"><script type="text/javascript" src="/js/search.js?v=1.0.0"></script><script>var search_path = 'search.xml';
-if (search_path.length == 0) {
-   search_path = 'search.xml';
-}
-var path = '/' + search_path;
-searchFunc(path, 'local-search-input', 'local-search-result');
-</script><script type="text/javascript" src="/js/copycode.js" successtext="复制成功!"></script><link rel="stylesheet" type="text/css" href="/css/copycode.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=1.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=1.0.0"></script></div></body></html>
+<p>　　一个人所呈现的表象是他想让我们看到的样子，表我和内我是截然不同的，在外界环境中，起作用的是表我，这个姿态是我们根据社会规则，道德伦理，他人所要求的样子所刻画出来的。形成一个人的表我，其行为细节，三观，态度等，其实都可以关联性分析。一个人最原生的自我来自于其原生家庭，所处的阶层，父母的教养，童年的经历，青春期的成长，都是塑造一个人的基石。其三观与原生家庭的教养会在社交细节中体现出来，其行为动机则需要关联构成其复杂性格的环境与经历。我们知道一个人的行事总是遵循其固定不变的性格构成，受动机和能力的制约，一个正常的人在其范围内作出的行为都是有根据的，处事，对人亦然。要了解一个人的自我，需要时间去了解，通过对其日常的行为细节，观其言察其色，对待一件事情的反应，面对责任时是推卸抑或主动承担。这些细节是掩饰不了的，会在其行为中体现出来。情商达练之人懂得在人群中把握分寸，与人相处时保持一种舒适的状态，适度展现自我在环境中的存在，但也往往成为其弱点。人与人相处时，其一言一行都会进入他人的印象中，言语是其动机产生的结果，达到一个如何的程度，希望事情走向一个什么样的结果，其实已经刻画在一个人的大致计划中，是其本我在事物发展过程当中的本能调控。这类动机行为是难以看穿的，因为当你不完全了解一个人时，这个结果你是无法推敲出来的。有一类人，处于人群中并不处于起眼的，但发生某事情时，为了调控事情走向，达到自我目的，会通过各类细节去调控，虽然抽象，但是若果最终的结果如他个人所愿，则必定有其达练之处。聪明人与聪明人交谈时，思维方式是跳跃的，正常人的交流顺序是按照123456，但聪明人之间交流的逻辑顺序是136，遵从跳跃式顺序。很多时候聪明人识破一个人的动机的时候，不会去揭穿，鉴于正常的社交尊重，让对方能够下台面或者利用话题周旋，若这个动机也是能够接受的范围内，且是双赢的，则会顺应对方的所求，有所求必有所图，这类人难以交心，其有着天生的防备心态，表面上关系融洽，但一旦希望关系深入时，你必然能感受到与对方的距离。大智若愚非常适用于形容高阶的聪明人，看似平淡无常，其背后的动机暗流涌动，当你对其产生疑惑但又无法说出个所以然来，这时候，明显的对方已经高你一阶。</p>
+</blockquote>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-个人思考/光阴似箭日月如梭" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/">个人思考</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/07/07/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/%E5%85%89%E9%98%B4%E4%BC%BC%E7%AE%AD%E6%97%A5%E6%9C%88%E5%A6%82%E6%A2%AD/">
+            <time datetime="2018-07-07T13:01:50.000Z" itemprop="datePublished">2018-07-07</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/07/07/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/%E5%85%89%E9%98%B4%E4%BC%BC%E7%AE%AD%E6%97%A5%E6%9C%88%E5%A6%82%E6%A2%AD/">光阴似箭日月如梭</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+            
+        
+        
+            <blockquote>
+<p>　　光阴似箭，日月如梭，曾几何时写作文惯用的起手式只是应付当时那800字的心态加之自身时常慨叹时光易逝，因此，这两个四字词不知出现在我的作文里多少次。再次用起，总有一番不同的感觉。很多电影，很多文章，很多诗词，很多字句，当人有了一定的阅历后重新回味总会有一番不同的感受，如周星驰的电影，宫崎骏的动漫，童年1元杯的珍珠奶茶，街边小贩的牛杂，初高中写的文章，这种五味杂陈的感觉或许就是自身心智在不断成熟，对过去自我一种审视的反馈。不知不觉时间已到了2018，偶然间被叫了声叔叔犹感突兀，但貌似在提醒我已长大成人，95后的我们已经奔向社会，成为承担社会责任的一代，起承转合间备感压力，爱情婚姻，事业家庭，属于这个阶段去追求的东西，人生没有多少个十年，一个阶段又一个阶段的成长造就现在的我们，不断变化的自我与环境间的不断磨合，年轮棱角在角逐中被磨平，因此能够保持初心的人犹应珍惜。那一个个头顶掉发的中年大叔当年何不是意气风发的青年，带着梦想与期待步入社会，在生活面前，他们收起了那份锐气取而代之的是对生活的妥协，这或许是一种成熟吧，我不知道，但是自我抗拒成为他们，因此必须储备资本，你才有条件对生活说不，这个条件需要你为之付出，付出才有所得，任何事情亦然，空有目标而无执行力只是头脑发热之人的一时冲动，落实到逐步的目标实施中，有具体的可行性，才有机会达到想要的效果。</p>
+<p>　　勤奋的含义是今天的热血，而不是明天的决心，后天的保证。</p>
+</blockquote>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-个人思考/存在即是合理" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/">个人思考</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/07/04/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/%E5%AD%98%E5%9C%A8%E5%8D%B3%E6%98%AF%E5%90%88%E7%90%86/">
+            <time datetime="2018-07-04T13:02:00.000Z" itemprop="datePublished">2018-07-04</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/07/04/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/%E5%AD%98%E5%9C%A8%E5%8D%B3%E6%98%AF%E5%90%88%E7%90%86/">存在即是合理</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+            
+        
+        
+            <blockquote>
+<p>　　存在即是合理，当环境变换时，周遭的一切都不是你知悉的一切，快速投入到工作中，你会发现周围的一切都那么模糊，快速的工作节奏，工作的deadline压力，抬头发现已经忘记时间，夜色已经降临，只是生活还是在继续。走出大楼，那各色的人匆匆茫茫到底在奔向何方，憧憬着什么。有时你会发现人最可怕的地方是不知道自己想要什么，任由生活摆布。但成年人的世界有时又无可奈何，责任在身，上级的压力，慢慢的就能够去接受，去承担这种变化，无事一身轻或许是最潇洒的状态，摆摆手或者就能让自己的生活轻松点，但是人要懂得居安思危，时间是很残酷的，不知不觉你的青春、你的时间就已然流逝。</p>
+<p>　　生活要有点盼头，有点目标，你就会去期待，这个过程必须改变自我，坚持着一些事情，养成良好的习惯，保持自律，一点一点的积累，相信会在不久的将来收到回报。</p>
+</blockquote>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <nav id="page-nav">
+        <a class="extend prev" rel="prev" href="/page/5/">&amp;laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/">下一页 &amp;raquo;</a>
+        </nav>
+    
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            CaryTseng &copy; 2022 
+            <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>
