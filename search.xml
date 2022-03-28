@@ -326,25 +326,6 @@
     
     
     <entry>
-      <title></title>
-      <link href="/2020/11/29/%E6%95%88%E7%8E%87/%E6%95%88%E7%8E%87/"/>
-      <url>/2020/11/29/%E6%95%88%E7%8E%87/%E6%95%88%E7%8E%87/</url>
-      
-        <content type="html"><![CDATA[<h2 id="IDEA"><a href="#IDEA" class="headerlink" title="IDEA"></a>IDEA</h2><h3 id="快速代码生成"><a href="#快速代码生成" class="headerlink" title="快速代码生成"></a>快速代码生成</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">psvm  生成main方法</span><br><span class="line">sout  生成System.out.println</span><br></pre></td></tr></table></figure><h3 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">cmd+o 定位类查找</span><br><span class="line"></span><br><span class="line">cmd+shift+f 查找文件</span><br><span class="line"></span><br><span class="line">shift+shift 所有文件查找</span><br><span class="line"></span><br><span class="line">option+f7. 定位使用到的地方</span><br><span class="line"></span><br><span class="line">cmd+b 声明或使用到的地方</span><br><span class="line"></span><br><span class="line">option+cmd+b 定位接口实现类</span><br><span class="line"></span><br><span class="line">cmd+u 定位实现的接口或者继承类</span><br><span class="line"></span><br><span class="line">cmd+b 定位调用方</span><br><span class="line"></span><br><span class="line">cmd+\ 插件定位controller方法</span><br><span class="line"></span><br><span class="line">alt+cmd+b 定位实现类</span><br></pre></td></tr></table></figure><h4 id="类生成"><a href="#类生成" class="headerlink" title="类生成"></a>类生成</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctrl+enter 类生成方法</span><br><span class="line"></span><br><span class="line">cmd+n 生成构造、test、equal、overwrite等</span><br></pre></td></tr></table></figure><h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cmd+shift+u 大小写切换</span><br><span class="line"></span><br><span class="line">cmd+l 定位文件行&amp;列</span><br><span class="line"></span><br><span class="line">cmd+b 回到调用位置</span><br><span class="line"></span><br><span class="line">cmd+[+]/[-]展开代码/折叠代码</span><br><span class="line"></span><br><span class="line">cmd+shift+[+]/[-]展开所有代码/折叠所有代码</span><br></pre></td></tr></table></figure><h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h4 id="系统监测"><a href="#系统监测" class="headerlink" title="系统监测"></a>系统监测</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ps -ef 显示运行进程</span><br><span class="line"></span><br><span class="line">top 实时显示系统进程及参数</span><br><span class="line"></span><br></pre></td></tr></table></figure><h4 id="bash"><a href="#bash" class="headerlink" title="bash"></a>bash</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">echo -n</span><br><span class="line"> -e </span><br><span class="line"> </span><br><span class="line">type</span><br></pre></td></tr></table></figure><h2 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h2><table><thead><tr><th>根据路径打开文件</th><th>shirt+cmd+g</th></tr></thead><tbody><tr><td>打开访达</td><td>cmd+n</td></tr><tr><td>搜词</td><td>option+/</td></tr><tr><td>全局搜索</td><td>option+space</td></tr><tr><td>我的电脑</td><td>cmd+shirt+h</td></tr><tr><td>新建文件夹</td><td>cmd+shirt+n</td></tr><tr><td>同一个应用多开切换</td><td>cmd+`</td></tr><tr><td>桌面</td><td>f11</td></tr></tbody></table><h2 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h2><table><thead><tr><th>添加目录</th><th>[toc]</th></tr></thead><tbody><tr><td>h1</td><td>#</td></tr><tr><td>块引用</td><td>&gt;</td></tr><tr><td>列表</td><td>* || 1.</td></tr><tr><td>代码块</td><td>```</td></tr><tr><td>加粗</td><td><strong>?</strong></td></tr><tr><td>图片引入</td><td><img src="path"></td></tr><tr><td>下划线</td><td>***</td></tr><tr><td>表格</td><td>||||</td></tr></tbody></table><h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><table><thead><tr><th>新建文章</th><th>hexo n “hello world”</th></tr></thead><tbody><tr><td>新建页面</td><td>hexo new page “pageName”</td></tr><tr><td>生成静态页面至public目录</td><td>hexo g</td></tr><tr><td>开启预览访问端口</td><td>hexo s</td></tr><tr><td>上传部署</td><td>hexo d</td></tr><tr><td>帮助</td><td>hexo help</td></tr><tr><td>生成并本地预览</td><td>hexo s -g</td></tr><tr><td>生成并上传</td><td>hexo d -g</td></tr></tbody></table><h2 id="Alfred"><a href="#Alfred" class="headerlink" title="Alfred"></a>Alfred</h2><h4 id="文件目录搜索"><a href="#文件目录搜索" class="headerlink" title="文件目录搜索"></a>文件目录搜索</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find [file]</span><br><span class="line">open [file]</span><br></pre></td></tr></table></figure><h4 id="文本内容搜索"><a href="#文本内容搜索" class="headerlink" title="文本内容搜索"></a>文本内容搜索</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">in [file]</span><br></pre></td></tr></table></figure><h4 id="快捷网页搜索"><a href="#快捷网页搜索" class="headerlink" title="快捷网页搜索"></a>快捷网页搜索</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">google something</span><br><span class="line">wiki something</span><br><span class="line">bing something</span><br></pre></td></tr></table></figure><h4 id="翻译"><a href="#翻译" class="headerlink" title="翻译"></a>翻译</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yd []</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> 效率 </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>ignite迁移</title>
       <link href="/2020/11/28/vps/ignite%E8%BF%81%E7%A7%BB/"/>
       <url>/2020/11/28/vps/ignite%E8%BF%81%E7%A7%BB/</url>
@@ -869,11 +850,11 @@
     
     
     <entry>
-      <title>Linux文件删除原理</title>
-      <link href="/2020/05/14/linux/Linux%E6%96%87%E4%BB%B6%E5%88%A0%E9%99%A4%E5%8E%9F%E7%90%86/"/>
-      <url>/2020/05/14/linux/Linux%E6%96%87%E4%BB%B6%E5%88%A0%E9%99%A4%E5%8E%9F%E7%90%86/</url>
+      <title>NetworkManager</title>
+      <link href="/2020/05/14/linux/NetworkManager/"/>
+      <url>/2020/05/14/linux/NetworkManager/</url>
       
-        <content type="html"><![CDATA[<p>　　Linux磁盘上的文件有两个link计数器，分别是i_count和i_link，表示进程的引用计数和硬连接的数量。只有当i_count=0并且i_link=0才会删除文件。当我们使用rm命令时，只是使i_link减少，如果此时文件依然被进程引用，文件还未被真正的删除。</p><p><strong>实践场景</strong></p><p>　　实现的一个功能点是通过FTP将文件从其他机子同步到本机，需要删除本机当日的数据，覆写新的数据，并且这些数据会被一个程序定时读取使用。这里的问题是如果此时程序正在读取数据，而同步程序也在跑，会不会影响业务。首先这里程序不涉及写操作，只读，那么当同步程序删除文件时，应用程序load到内存中，完成业务操作都是在内存中，当然如果发生程序异常，那么重跑也会以最新的文件为基础。</p>]]></content>
+        <content type="html"><![CDATA[<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">nmcli connection 网络连接管理$ nmcli connection show  # 查看所有网卡配置</span><br><span class="line">$ nmcli connection reload # 重新加载网卡配置，不会立即生效</span><br><span class="line">$ nmcli connection down ens160 &amp;&amp; nmcli connection up ens160 # 立即生效Connection配置</span><br><span class="line">$ nmcli connection add type ethernet con-name ens160-con ifname ens160 ipv4.addr 1.1.1.2/24 ipv4.gateway 1.1.1.1 ipv4.method manual # 为device创建connection</span><br><span class="line">$ nmcli connection add type ethernet con-name ens160-con ifname ens160 ipv.method auto # dhcp</span><br><span class="line">$ nmcli connection modify ens160-con ipv.addr 1.1.1.3/24 &amp;&amp; nmcli connection up ens160-con # 修改IP地址并立即生效</span><br><span class="line">​</span><br><span class="line">交互方式修改IP</span><br><span class="line">$ nmcli connection edit ens160-con</span><br><span class="line">​</span><br><span class="line">nmcli device 网卡设备管理</span><br><span class="line">$ nmcli device status # 查看所有网卡设备状态</span><br><span class="line">$ nmcli device show ens160 # 查看网卡配置</span><br><span class="line">$ nmcli device reapply ens160 # 立即生效网卡配置</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -896,11 +877,11 @@
     
     
     <entry>
-      <title>NetworkManager</title>
-      <link href="/2020/05/14/linux/NetworkManager/"/>
-      <url>/2020/05/14/linux/NetworkManager/</url>
+      <title>Linux文件删除原理</title>
+      <link href="/2020/05/14/linux/Linux%E6%96%87%E4%BB%B6%E5%88%A0%E9%99%A4%E5%8E%9F%E7%90%86/"/>
+      <url>/2020/05/14/linux/Linux%E6%96%87%E4%BB%B6%E5%88%A0%E9%99%A4%E5%8E%9F%E7%90%86/</url>
       
-        <content type="html"><![CDATA[<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">nmcli connection 网络连接管理$ nmcli connection show  # 查看所有网卡配置</span><br><span class="line">$ nmcli connection reload # 重新加载网卡配置，不会立即生效</span><br><span class="line">$ nmcli connection down ens160 &amp;&amp; nmcli connection up ens160 # 立即生效Connection配置</span><br><span class="line">$ nmcli connection add type ethernet con-name ens160-con ifname ens160 ipv4.addr 1.1.1.2/24 ipv4.gateway 1.1.1.1 ipv4.method manual # 为device创建connection</span><br><span class="line">$ nmcli connection add type ethernet con-name ens160-con ifname ens160 ipv.method auto # dhcp</span><br><span class="line">$ nmcli connection modify ens160-con ipv.addr 1.1.1.3/24 &amp;&amp; nmcli connection up ens160-con # 修改IP地址并立即生效</span><br><span class="line">​</span><br><span class="line">交互方式修改IP</span><br><span class="line">$ nmcli connection edit ens160-con</span><br><span class="line">​</span><br><span class="line">nmcli device 网卡设备管理</span><br><span class="line">$ nmcli device status # 查看所有网卡设备状态</span><br><span class="line">$ nmcli device show ens160 # 查看网卡配置</span><br><span class="line">$ nmcli device reapply ens160 # 立即生效网卡配置</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<p>　　Linux磁盘上的文件有两个link计数器，分别是i_count和i_link，表示进程的引用计数和硬连接的数量。只有当i_count=0并且i_link=0才会删除文件。当我们使用rm命令时，只是使i_link减少，如果此时文件依然被进程引用，文件还未被真正的删除。</p><p><strong>实践场景</strong></p><p>　　实现的一个功能点是通过FTP将文件从其他机子同步到本机，需要删除本机当日的数据，覆写新的数据，并且这些数据会被一个程序定时读取使用。这里的问题是如果此时程序正在读取数据，而同步程序也在跑，会不会影响业务。首先这里程序不涉及写操作，只读，那么当同步程序删除文件时，应用程序load到内存中，完成业务操作都是在内存中，当然如果发生程序异常，那么重跑也会以最新的文件为基础。</p>]]></content>
       
       
       <categories>
@@ -1038,16 +1019,16 @@
     
     
     <entry>
-      <title>GitFlow</title>
-      <link href="/2019/11/11/git/gitflow%E5%AE%9E%E8%B7%B5/"/>
-      <url>/2019/11/11/git/gitflow%E5%AE%9E%E8%B7%B5/</url>
+      <title>x-ui</title>
+      <link href="/2019/11/11/vps/x-ui/"/>
+      <url>/2019/11/11/vps/x-ui/</url>
       
-        <content type="html"><![CDATA[<blockquote><p>团队中使用git来做版本管理，为尽可能贯彻gitflow的实践，做个总结</p></blockquote><h3 id="提交代码原则"><a href="#提交代码原则" class="headerlink" title="提交代码原则"></a>提交代码原则</h3><ul><li>提交的粒度是一个小功能点或一个bugfix</li><li>comment简练且描述清楚修改的位置或增加的功能</li><li>尽可能几次提交再进行一次推送</li></ul><h3 id="GitFlow"><a href="#GitFlow" class="headerlink" title="GitFlow"></a>GitFlow</h3><ul><li>master——最为稳定功能最为完整的随时可发布的代码；</li><li>hotfix——修复线上代码的 bug；</li><li>develop——永远是功能最新最全的分支；</li><li>feature——某个功能点正在开发阶段；</li><li>release——发布定期要上线的功能。</li></ul><p><strong>Master和develop需要保护起来，只有项目负责人可以推送和删除。</strong></p><h4 id="开发阶段"><a href="#开发阶段" class="headerlink" title="开发阶段"></a>开发阶段</h4><p>​    从develop拉取一条feature的新分支出来进行开发</p><h4 id="完成开发阶段"><a href="#完成开发阶段" class="headerlink" title="完成开发阶段"></a>完成开发阶段</h4><p>​    在develop合并feature分支，创建release版本分支，发布测试环境。相关bug问题都在release分支修改，没问题后发布master分支</p><h4 id="clear阶段"><a href="#clear阶段" class="headerlink" title="clear阶段"></a>clear阶段</h4><p>​    删除feature、release分支</p><h4 id="生产环境bug处理"><a href="#生产环境bug处理" class="headerlink" title="生产环境bug处理"></a>生产环境bug处理</h4><p>​    在master上创建hotfix分支，修改代码直接推，然后记得将hotfix分支合并到develop再删除hotfix，原则上要保证develop上的代码是最新的。因为在并行开发的阶段会有多种情况涉及对生产环境等代码的提交，而实践中开发人员很多时候没有定时更新feature分支，导致后面合并的时候将生产代码给覆盖了，引发生产问题</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="安装-amp-升级"><a href="#安装-amp-升级" class="headerlink" title="安装&amp;升级"></a>安装&amp;升级</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -Ls https://raw.githubusercontent.com/sprov065/x-ui/master/install.sh)</span><br></pre></td></tr></table></figure><h2 id="x-ui-管理脚本使用方法"><a href="#x-ui-管理脚本使用方法" class="headerlink" title="x-ui 管理脚本使用方法:"></a>x-ui 管理脚本使用方法:</h2><p>x-ui              - 显示管理菜单 (功能更多)<br>x-ui start        - 启动 x-ui 面板<br>x-ui stop         - 停止 x-ui 面板<br>x-ui restart      - 重启 x-ui 面板<br>x-ui status       - 查看 x-ui 状态<br>x-ui enable       - 设置 x-ui 开机自启<br>x-ui disable      - 取消 x-ui 开机自启<br>x-ui log          - 查看 x-ui 日志<br>x-ui v2-ui        - 迁移本机器的 v2-ui 账号数据至 x-ui<br>x-ui update       - 更新 x-ui 面板<br>x-ui install      - 安装 x-ui 面板</p><h2 id="x-ui-uninstall-卸载-x-ui-面板"><a href="#x-ui-uninstall-卸载-x-ui-面板" class="headerlink" title="x-ui uninstall    - 卸载 x-ui 面板"></a>x-ui uninstall    - 卸载 x-ui 面板</h2><h2 id="bbr"><a href="#bbr" class="headerlink" title="bbr"></a>bbr</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate &quot;https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
           
-          <category> git </category>
+          <category> vps </category>
           
       </categories>
       
@@ -1095,16 +1076,16 @@
     
     
     <entry>
-      <title>x-ui</title>
-      <link href="/2019/11/11/vps/x-ui/"/>
-      <url>/2019/11/11/vps/x-ui/</url>
+      <title>GitFlow</title>
+      <link href="/2019/11/11/git/gitflow%E5%AE%9E%E8%B7%B5/"/>
+      <url>/2019/11/11/git/gitflow%E5%AE%9E%E8%B7%B5/</url>
       
-        <content type="html"><![CDATA[<h2 id="安装-amp-升级"><a href="#安装-amp-升级" class="headerlink" title="安装&amp;升级"></a>安装&amp;升级</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -Ls https://raw.githubusercontent.com/sprov065/x-ui/master/install.sh)</span><br></pre></td></tr></table></figure><h2 id="x-ui-管理脚本使用方法"><a href="#x-ui-管理脚本使用方法" class="headerlink" title="x-ui 管理脚本使用方法:"></a>x-ui 管理脚本使用方法:</h2><p>x-ui              - 显示管理菜单 (功能更多)<br>x-ui start        - 启动 x-ui 面板<br>x-ui stop         - 停止 x-ui 面板<br>x-ui restart      - 重启 x-ui 面板<br>x-ui status       - 查看 x-ui 状态<br>x-ui enable       - 设置 x-ui 开机自启<br>x-ui disable      - 取消 x-ui 开机自启<br>x-ui log          - 查看 x-ui 日志<br>x-ui v2-ui        - 迁移本机器的 v2-ui 账号数据至 x-ui<br>x-ui update       - 更新 x-ui 面板<br>x-ui install      - 安装 x-ui 面板</p><h2 id="x-ui-uninstall-卸载-x-ui-面板"><a href="#x-ui-uninstall-卸载-x-ui-面板" class="headerlink" title="x-ui uninstall    - 卸载 x-ui 面板"></a>x-ui uninstall    - 卸载 x-ui 面板</h2><h2 id="bbr"><a href="#bbr" class="headerlink" title="bbr"></a>bbr</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate &quot;https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<blockquote><p>团队中使用git来做版本管理，为尽可能贯彻gitflow的实践，做个总结</p></blockquote><h3 id="提交代码原则"><a href="#提交代码原则" class="headerlink" title="提交代码原则"></a>提交代码原则</h3><ul><li>提交的粒度是一个小功能点或一个bugfix</li><li>comment简练且描述清楚修改的位置或增加的功能</li><li>尽可能几次提交再进行一次推送</li></ul><h3 id="GitFlow"><a href="#GitFlow" class="headerlink" title="GitFlow"></a>GitFlow</h3><ul><li>master——最为稳定功能最为完整的随时可发布的代码；</li><li>hotfix——修复线上代码的 bug；</li><li>develop——永远是功能最新最全的分支；</li><li>feature——某个功能点正在开发阶段；</li><li>release——发布定期要上线的功能。</li></ul><p><strong>Master和develop需要保护起来，只有项目负责人可以推送和删除。</strong></p><h4 id="开发阶段"><a href="#开发阶段" class="headerlink" title="开发阶段"></a>开发阶段</h4><p>​    从develop拉取一条feature的新分支出来进行开发</p><h4 id="完成开发阶段"><a href="#完成开发阶段" class="headerlink" title="完成开发阶段"></a>完成开发阶段</h4><p>​    在develop合并feature分支，创建release版本分支，发布测试环境。相关bug问题都在release分支修改，没问题后发布master分支</p><h4 id="clear阶段"><a href="#clear阶段" class="headerlink" title="clear阶段"></a>clear阶段</h4><p>​    删除feature、release分支</p><h4 id="生产环境bug处理"><a href="#生产环境bug处理" class="headerlink" title="生产环境bug处理"></a>生产环境bug处理</h4><p>​    在master上创建hotfix分支，修改代码直接推，然后记得将hotfix分支合并到develop再删除hotfix，原则上要保证develop上的代码是最新的。因为在并行开发的阶段会有多种情况涉及对生产环境等代码的提交，而实践中开发人员很多时候没有定时更新feature分支，导致后面合并的时候将生产代码给覆盖了，引发生产问题</p>]]></content>
       
       
       <categories>
           
-          <category> vps </category>
+          <category> git </category>
           
       </categories>
       
