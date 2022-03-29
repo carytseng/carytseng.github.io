@@ -1063,6 +1063,25 @@
     
     
     <entry>
+      <title>x-ui</title>
+      <link href="/2019/11/11/host/x-ui/"/>
+      <url>/2019/11/11/host/x-ui/</url>
+      
+        <content type="html"><![CDATA[<h2 id="安装-amp-升级"><a href="#安装-amp-升级" class="headerlink" title="安装&amp;升级"></a>安装&amp;升级</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -Ls https://raw.githubusercontent.com/sprov065/x-ui/master/install.sh)</span><br></pre></td></tr></table></figure><h2 id="x-ui-管理脚本使用方法"><a href="#x-ui-管理脚本使用方法" class="headerlink" title="x-ui 管理脚本使用方法:"></a>x-ui 管理脚本使用方法:</h2><p>x-ui              - 显示管理菜单 (功能更多)<br>x-ui start        - 启动 x-ui 面板<br>x-ui stop         - 停止 x-ui 面板<br>x-ui restart      - 重启 x-ui 面板<br>x-ui status       - 查看 x-ui 状态<br>x-ui enable       - 设置 x-ui 开机自启<br>x-ui disable      - 取消 x-ui 开机自启<br>x-ui log          - 查看 x-ui 日志<br>x-ui v2-ui        - 迁移本机器的 v2-ui 账号数据至 x-ui<br>x-ui update       - 更新 x-ui 面板<br>x-ui install      - 安装 x-ui 面板</p><h2 id="x-ui-uninstall-卸载-x-ui-面板"><a href="#x-ui-uninstall-卸载-x-ui-面板" class="headerlink" title="x-ui uninstall    - 卸载 x-ui 面板"></a>x-ui uninstall    - 卸载 x-ui 面板</h2><h2 id="bbr"><a href="#bbr" class="headerlink" title="bbr"></a>bbr</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate &quot;https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> host </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>nginx</title>
       <link href="/2019/11/11/middleware/nginx/"/>
       <url>/2019/11/11/middleware/nginx/</url>
@@ -1092,25 +1111,6 @@
       <categories>
           
           <category> record </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>x-ui</title>
-      <link href="/2019/11/11/host/x-ui/"/>
-      <url>/2019/11/11/host/x-ui/</url>
-      
-        <content type="html"><![CDATA[<h2 id="安装-amp-升级"><a href="#安装-amp-升级" class="headerlink" title="安装&amp;升级"></a>安装&amp;升级</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -Ls https://raw.githubusercontent.com/sprov065/x-ui/master/install.sh)</span><br></pre></td></tr></table></figure><h2 id="x-ui-管理脚本使用方法"><a href="#x-ui-管理脚本使用方法" class="headerlink" title="x-ui 管理脚本使用方法:"></a>x-ui 管理脚本使用方法:</h2><p>x-ui              - 显示管理菜单 (功能更多)<br>x-ui start        - 启动 x-ui 面板<br>x-ui stop         - 停止 x-ui 面板<br>x-ui restart      - 重启 x-ui 面板<br>x-ui status       - 查看 x-ui 状态<br>x-ui enable       - 设置 x-ui 开机自启<br>x-ui disable      - 取消 x-ui 开机自启<br>x-ui log          - 查看 x-ui 日志<br>x-ui v2-ui        - 迁移本机器的 v2-ui 账号数据至 x-ui<br>x-ui update       - 更新 x-ui 面板<br>x-ui install      - 安装 x-ui 面板</p><h2 id="x-ui-uninstall-卸载-x-ui-面板"><a href="#x-ui-uninstall-卸载-x-ui-面板" class="headerlink" title="x-ui uninstall    - 卸载 x-ui 面板"></a>x-ui uninstall    - 卸载 x-ui 面板</h2><h2 id="bbr"><a href="#bbr" class="headerlink" title="bbr"></a>bbr</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate &quot;https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh&quot; &amp;&amp; chmod +x tcp.sh &amp;&amp; ./tcp.sh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> host </category>
           
       </categories>
       
