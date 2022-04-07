@@ -6,7 +6,7 @@
   <link href="https://dogfun.top/atom.xml" rel="self"/>
   
   <link href="https://dogfun.top/"/>
-  <updated>2022-03-29T08:52:58.063Z</updated>
+  <updated>2022-04-02T03:44:08.972Z</updated>
   <id>https://dogfun.top/</id>
   
   <author>
@@ -17,50 +17,25 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>704.二分查找</title>
-    <link href="https://dogfun.top/2022/03/29/algorithm/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
-    <id>https://dogfun.top/2022/03/29/algorithm/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</id>
-    <published>2022-03-29T13:19:22.000Z</published>
-    <updated>2022-03-29T08:52:58.063Z</updated>
+    <title>canal</title>
+    <link href="https://dogfun.top/2022/03/20/middleware/canal/"/>
+    <id>https://dogfun.top/2022/03/20/middleware/canal/</id>
+    <published>2022-03-20T02:14:13.000Z</published>
+    <updated>2022-04-02T03:44:08.972Z</updated>
     
-    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> low=<span class="number">0</span>,high=nums.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(low&lt;=high)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = (low + high)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid]==target)&#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target&lt;nums[mid])&#123;</span><br><span class="line">                high = mid-<span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                low = mid+<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=</summary>
-      
-    
-    
-    
-    <category term="algorithm" scheme="https://dogfun.top/categories/algorithm/"/>
-    
-    
-    <category term="技术学习" scheme="https://dogfun.top/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>反转链表</title>
-    <link href="https://dogfun.top/2022/03/27/algorithm/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/"/>
-    <id>https://dogfun.top/2022/03/27/algorithm/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</id>
-    <published>2022-03-27T13:19:22.000Z</published>
-    <updated>2022-03-28T08:42:38.042Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="迭代法"><a href="#迭代法" class="headerlink" title="迭代法"></a>迭代法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">reverse</span><span class="params">(ListNode head)</span></span>&#123;</span><br><span class="line">  ListNode pre = <span class="keyword">null</span>;</span><br><span class="line">  ListNode cur = head;</span><br><span class="line">  <span class="keyword">while</span>(cur!=<span class="keyword">null</span>)&#123;</span><br><span class="line">    ListNode tmp = cur.next;</span><br><span class="line">    cur.next = pre;</span><br><span class="line">    pre = cur;</span><br><span class="line">    cur = tmp;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> pre;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="递归法"><a href="#递归法" class="headerlink" title="递归法"></a>递归法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">reverse</span><span class="params">(ListNode head)</span></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(head==<span class="keyword">null</span>||head.next=<span class="keyword">null</span>)&#123;</span><br><span class="line"><span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br><span class="line">  ListNode last = reverse(head.next);</span><br><span class="line">  head.next.next = head;</span><br><span class="line">  head.next = <span class="keyword">null</span>;</span><br><span class="line">  <span class="keyword">return</span> last;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h1 id="canal"><a href="#canal" class="headerlink" title="canal"></a>canal</h1><blockquote><p>工作遇到将mysql转储存到es的需求，提供查询性能，常规做法可用mq，但过于麻烦，用canal可以直接基于binlog进行数据同步，基于监听器编写业务即可</p></blockquote><h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><p>基于日志增量订阅和消费的业务包括</p><ul><li>数据库镜像</li><li>数据库实时备份</li><li>索引构建和实时维护(拆分异构索引、倒排索引等)</li><li>业务 cache 刷新</li><li>带业务逻辑的增量数据处理</li></ul><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><ul><li>canal 模拟 MySQL slave 的交互协议，伪装自己为 MySQL slave ，向 MySQL master 发送dump 协议</li><li>MySQL master 收到 dump 请求，开始推送 binary log 给 slave (即 canal )</li><li>canal 解析 binary log 对象(原始为 byte 流)</li></ul>]]></content>
     
     
       
       
-    <summary type="html">&lt;h2 id=&quot;迭代法&quot;&gt;&lt;a href=&quot;#迭代法&quot; class=&quot;headerlink&quot; title=&quot;迭代法&quot;&gt;&lt;/a&gt;迭代法&lt;/h2&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;sp</summary>
+    <summary type="html">&lt;h1 id=&quot;canal&quot;&gt;&lt;a href=&quot;#canal&quot; class=&quot;headerlink&quot; title=&quot;canal&quot;&gt;&lt;/a&gt;canal&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;工作遇到将mysql转储存到es的需求，提供查询性能，常规做法可用mq，但过于麻烦，用ca</summary>
       
     
     
     
-    <category term="algorithm" scheme="https://dogfun.top/categories/algorithm/"/>
+    <category term="middleware" scheme="https://dogfun.top/categories/middleware/"/>
     
-    
-    <category term="技术学习" scheme="https://dogfun.top/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -177,54 +152,6 @@
     
     <category term="middleware" scheme="https://dogfun.top/categories/middleware/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>剑指 Offer 09. 用两个栈实现队列</title>
-    <link href="https://dogfun.top/2022/02/20/algorithm/%E5%89%91%E6%8C%87%20Offer%2009.%20%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/"/>
-    <id>https://dogfun.top/2022/02/20/algorithm/%E5%89%91%E6%8C%87%20Offer%2009.%20%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/</id>
-    <published>2022-02-20T01:19:22.000Z</published>
-    <updated>2022-03-28T08:42:38.046Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">class CQueue &#123;</span><br><span class="line"></span><br><span class="line">  Stack&lt;Integer&gt; s1;</span><br><span class="line">  Stack&lt;Integer&gt; s2;</span><br><span class="line"></span><br><span class="line">  public CQueue() &#123;</span><br><span class="line">    s1 = new Stack();</span><br><span class="line">    s2 = new Stack();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  public void appendTail(int value) &#123;</span><br><span class="line">    while (s2.size() &gt; 0) &#123;</span><br><span class="line">      s1.push(s2.pop());</span><br><span class="line">    &#125;</span><br><span class="line">    s1.push(value);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  public int deleteHead() &#123;</span><br><span class="line">    while (s1.size() &gt; 0) &#123;</span><br><span class="line">      s2.push(s1.pop());</span><br><span class="line">    &#125;</span><br><span class="line">    return s2.size() == 0 ? -1 : s2.pop();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"></span><br><span class="line"> * Your CQueue object will be instantiated and called as such:</span><br><span class="line"> * CQueue obj = new CQueue();</span><br><span class="line"> * obj.appendTail(value);</span><br><span class="line"> * int param_2 = obj.deleteHead();</span><br><span class="line">   */</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span c</summary>
-      
-    
-    
-    
-    <category term="algorithm" scheme="https://dogfun.top/categories/algorithm/"/>
-    
-    
-    <category term="技术学习" scheme="https://dogfun.top/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>剑指 Offer 10- I. 斐波那契数列</title>
-    <link href="https://dogfun.top/2022/02/20/algorithm/%E5%89%91%E6%8C%87%20Offer%2010-%20I.%20%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/"/>
-    <id>https://dogfun.top/2022/02/20/algorithm/%E5%89%91%E6%8C%87%20Offer%2010-%20I.%20%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/</id>
-    <published>2022-02-20T01:19:22.000Z</published>
-    <updated>2022-03-28T08:42:38.042Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line"></span><br><span class="line">  public int fib(int n) &#123;</span><br><span class="line">    if (n == 0 || n == 1) &#123;</span><br><span class="line">      return n;</span><br><span class="line">    &#125;</span><br><span class="line">    int a = 1, b = 0;</span><br><span class="line">    for (i = 1; i &lt; n; i++) &#123;</span><br><span class="line">      a = a + b;</span><br><span class="line">      b = a - b;</span><br><span class="line">      a %= 1000000007;</span><br><span class="line">    &#125;</span><br><span class="line">    return a;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span c</summary>
-      
-    
-    
-    
-    <category term="algorithm" scheme="https://dogfun.top/categories/algorithm/"/>
-    
-    
-    <category term="技术学习" scheme="https://dogfun.top/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -432,47 +359,122 @@
   </entry>
   
   <entry>
-    <title>ignite迁移</title>
-    <link href="https://dogfun.top/2020/11/28/host/ignite%E8%BF%81%E7%A7%BB/"/>
-    <id>https://dogfun.top/2020/11/28/host/ignite%E8%BF%81%E7%A7%BB/</id>
-    <published>2020-11-28T11:59:19.000Z</published>
-    <updated>2022-03-28T08:42:38.042Z</updated>
+    <title>剑指 Offer 03. 数组中重复的数字</title>
+    <link href="https://dogfun.top/2021/03/31/algorithm/%E5%89%91%E6%8C%87%20Offer%2003.%20%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/"/>
+    <id>https://dogfun.top/2021/03/31/algorithm/%E5%89%91%E6%8C%87%20Offer%2003.%20%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/</id>
+    <published>2021-03-31T01:19:22.000Z</published>
+    <updated>2022-04-07T02:18:02.629Z</updated>
     
-    <content type="html"><![CDATA[<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">新主机docker脚本安装</span></span><br><span class="line">curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</span><br></pre></td></tr></table></figure><ul><li><p>docker-compose.yml&amp;ignite.db文件cp</p></li><li><p>容器服务导出导入</p><ul><li>生成容器快照，打出镜像<ul><li>docker commit -p [containerId] [alias]</li></ul></li><li>生成tar文件<ul><li>docker save -o ~/[filename].tar [imageName]</li></ul></li><li>导入tar文件<ul><li>cat [tarfile] |docker import - [name]</li></ul></li></ul></li><li><p>原主机获取容器启动命令相关参数</p><ul><li><p>安装runlike</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum install -y python-pip</span><br><span class="line">pip install runlike</span><br><span class="line"><span class="meta">#</span><span class="bash">查看启动参数</span></span><br><span class="line">runlike -p [containerid]</span><br><span class="line">cp</span><br></pre></td></tr></table></figure></li></ul></li><li><p>启动ssr子容器所有服务，获得所有containerid，修改ignite.db中表user的service_id</p></li><li><p>docker-compose run –rm ignite-admin /bin/sh -c ‘./ignite-admin recover’</p></li><li><p>docker-compose up -d</p></li></ul>]]></content>
-    
-    
-    <summary type="html">ignite服务主机迁移，主要是docker容器的备份迁移</summary>
+    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findRepeatNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        Set&lt;Integer&gt; s = <span class="keyword">new</span> HashSet();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s.contains(nums[i]))&#123;</span><br><span class="line">                <span class="keyword">return</span> nums[i];</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">              s.add(nums[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     
+      
+      
+    <summary type="html">&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=</summary>
+      
     
-    <category term="host" scheme="https://dogfun.top/categories/host/"/>
     
+    
+    <category term="algorithm" scheme="https://dogfun.top/categories/algorithm/"/>
+    
+    
+    <category term="技术学习" scheme="https://dogfun.top/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
-    <title>CAP定理</title>
-    <link href="https://dogfun.top/2020/11/04/record/CAP%E5%AE%9A%E7%90%86/"/>
-    <id>https://dogfun.top/2020/11/04/record/CAP%E5%AE%9A%E7%90%86/</id>
-    <published>2020-11-04T13:41:57.000Z</published>
-    <updated>2022-03-28T08:42:38.043Z</updated>
+    <title>704.二分查找</title>
+    <link href="https://dogfun.top/2021/03/29/algorithm/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
+    <id>https://dogfun.top/2021/03/29/algorithm/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</id>
+    <published>2021-03-29T13:19:22.000Z</published>
+    <updated>2022-04-07T02:17:46.510Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>面试被问到CAP定理，之前看过，真正问起来讲得不清楚，估计没有真正的理解这个定理，故作此文进行记录</p></blockquote><p>分布式系统有三个指标，也即一致性、可用性、分区容错</p><p>（C）一致性：多个节点的数据保持一致，当某个节点的数据修改后，需要同步修改所有节点的数据，保持一致</p><p>（A）可用性：即当某个节点宕机后，整个集群还能正常对外服务，保证服务健康</p><p>（P）分区容错：两个节点间可能会无法通信，P定理总是成立的。</p><p>一致性和可用性不可能同时成立，因为P即分区容错总是可能出现，如果要保证一致性，则必须保证所有节点都收到该数据的同步，才能对外服务，这就不满足可用性。如果满足可用性，即某个节点崩坏了也要提供服务，那么就不能保证一致性。</p><p>所以一般需要根据业务需要，保证C或A其中一个特性，例如网页更新可以采取可用性，因为最终用户都会看到最新的版本；如果是银行等金融数据，需要保证强一致性，则需要抛弃可用性。</p>]]></content>
+    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> low=<span class="number">0</span>,high=nums.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(low&lt;=high)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = (low + high)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid]==target)&#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target&lt;nums[mid])&#123;</span><br><span class="line">                high = mid-<span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                low = mid+<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     
       
       
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;面试被问到CAP定理，之前看过，真正问起来讲得不清楚，估计没有真正的理解这个定理，故作此文进行记录&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;分布式系统有三个指标，也即一致性、可用性、分区容错&lt;/p&gt;
-&lt;p&gt;（C）一致性：多个节点的数据保持一致，当</summary>
+    <summary type="html">&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=</summary>
       
     
     
     
-    <category term="record" scheme="https://dogfun.top/categories/record/"/>
+    <category term="algorithm" scheme="https://dogfun.top/categories/algorithm/"/>
     
+    
+    <category term="技术学习" scheme="https://dogfun.top/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>反转链表</title>
+    <link href="https://dogfun.top/2021/03/27/algorithm/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/"/>
+    <id>https://dogfun.top/2021/03/27/algorithm/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</id>
+    <published>2021-03-27T13:19:22.000Z</published>
+    <updated>2022-04-07T02:17:54.309Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="迭代法"><a href="#迭代法" class="headerlink" title="迭代法"></a>迭代法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">reverse</span><span class="params">(ListNode head)</span></span>&#123;</span><br><span class="line">  ListNode pre = <span class="keyword">null</span>;</span><br><span class="line">  ListNode cur = head;</span><br><span class="line">  <span class="keyword">while</span>(cur!=<span class="keyword">null</span>)&#123;</span><br><span class="line">    ListNode tmp = cur.next;</span><br><span class="line">    cur.next = pre;</span><br><span class="line">    pre = cur;</span><br><span class="line">    cur = tmp;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> pre;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="递归法"><a href="#递归法" class="headerlink" title="递归法"></a>递归法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">reverse</span><span class="params">(ListNode head)</span></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(head==<span class="keyword">null</span>||head.next=<span class="keyword">null</span>)&#123;</span><br><span class="line"><span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br><span class="line">  ListNode last = reverse(head.next);</span><br><span class="line">  head.next.next = head;</span><br><span class="line">  head.next = <span class="keyword">null</span>;</span><br><span class="line">  <span class="keyword">return</span> last;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;迭代法&quot;&gt;&lt;a href=&quot;#迭代法&quot; class=&quot;headerlink&quot; title=&quot;迭代法&quot;&gt;&lt;/a&gt;迭代法&lt;/h2&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;sp</summary>
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://dogfun.top/categories/algorithm/"/>
+    
+    
+    <category term="技术学习" scheme="https://dogfun.top/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>剑指 Offer 09. 用两个栈实现队列</title>
+    <link href="https://dogfun.top/2021/02/20/algorithm/%E5%89%91%E6%8C%87%20Offer%2009.%20%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/"/>
+    <id>https://dogfun.top/2021/02/20/algorithm/%E5%89%91%E6%8C%87%20Offer%2009.%20%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/</id>
+    <published>2021-02-20T01:19:22.000Z</published>
+    <updated>2022-04-07T02:18:07.625Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">class CQueue &#123;</span><br><span class="line"></span><br><span class="line">  Stack&lt;Integer&gt; s1;</span><br><span class="line">  Stack&lt;Integer&gt; s2;</span><br><span class="line"></span><br><span class="line">  public CQueue() &#123;</span><br><span class="line">    s1 = new Stack();</span><br><span class="line">    s2 = new Stack();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  public void appendTail(int value) &#123;</span><br><span class="line">    while (s2.size() &gt; 0) &#123;</span><br><span class="line">      s1.push(s2.pop());</span><br><span class="line">    &#125;</span><br><span class="line">    s1.push(value);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  public int deleteHead() &#123;</span><br><span class="line">    while (s1.size() &gt; 0) &#123;</span><br><span class="line">      s2.push(s1.pop());</span><br><span class="line">    &#125;</span><br><span class="line">    return s2.size() == 0 ? -1 : s2.pop();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"></span><br><span class="line"> * Your CQueue object will be instantiated and called as such:</span><br><span class="line"> * CQueue obj = new CQueue();</span><br><span class="line"> * obj.appendTail(value);</span><br><span class="line"> * int param_2 = obj.deleteHead();</span><br><span class="line">   */</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span c</summary>
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://dogfun.top/categories/algorithm/"/>
+    
+    
+    <category term="技术学习" scheme="https://dogfun.top/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>剑指 Offer 10- I. 斐波那契数列</title>
+    <link href="https://dogfun.top/2021/02/20/algorithm/%E5%89%91%E6%8C%87%20Offer%2010-%20I.%20%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/"/>
+    <id>https://dogfun.top/2021/02/20/algorithm/%E5%89%91%E6%8C%87%20Offer%2010-%20I.%20%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/</id>
+    <published>2021-02-20T01:19:22.000Z</published>
+    <updated>2022-04-07T02:18:13.337Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line"></span><br><span class="line">  public int fib(int n) &#123;</span><br><span class="line">    if (n == 0 || n == 1) &#123;</span><br><span class="line">      return n;</span><br><span class="line">    &#125;</span><br><span class="line">    int a = 1, b = 0;</span><br><span class="line">    for (i = 1; i &lt; n; i++) &#123;</span><br><span class="line">      a = a + b;</span><br><span class="line">      b = a - b;</span><br><span class="line">      a %= 1000000007;</span><br><span class="line">    &#125;</span><br><span class="line">    return a;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span c</summary>
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://dogfun.top/categories/algorithm/"/>
+    
+    
+    <category term="技术学习" scheme="https://dogfun.top/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
