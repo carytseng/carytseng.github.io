@@ -6,7 +6,7 @@
   <link href="https://dogfun.top/atom.xml" rel="self"/>
   
   <link href="https://dogfun.top/"/>
-  <updated>2022-04-17T15:06:59.699Z</updated>
+  <updated>2022-04-18T06:30:50.974Z</updated>
   <id>https://dogfun.top/</id>
   
   <author>
@@ -17,85 +17,13 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>剑指 Offer 05. 替换空格</title>
-    <link href="https://dogfun.top/2022/04/17/algorithm/%E5%89%91%E6%8C%87%20Offer%2005.%20%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/"/>
-    <id>https://dogfun.top/2022/04/17/algorithm/%E5%89%91%E6%8C%87%20Offer%2005.%20%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/</id>
-    <published>2022-04-17T02:19:22.000Z</published>
-    <updated>2022-04-17T15:06:59.699Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">replaceSpace</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">char</span>[] c = s.toCharArray();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;c.length;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(c[i] == <span class="string">&#x27; &#x27;</span>)&#123;</span><br><span class="line">                sb.append(<span class="string">&quot;%20&quot;</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                sb.append(c[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=</summary>
-      
-    
-    
-    
-    <category term="algorithm" scheme="https://dogfun.top/categories/algorithm/"/>
-    
-    
-    <category term="技术学习" scheme="https://dogfun.top/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>剑指 Offer 06. 从尾到头打印链表</title>
-    <link href="https://dogfun.top/2022/04/17/algorithm/%E5%89%91%E6%8C%87%20Offer%2006.%20%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8/"/>
-    <id>https://dogfun.top/2022/04/17/algorithm/%E5%89%91%E6%8C%87%20Offer%2006.%20%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8/</id>
-    <published>2022-04-17T02:19:22.000Z</published>
-    <updated>2022-04-17T15:07:39.978Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] reversePrint(ListNode head) &#123;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        ListNode cur = head;</span><br><span class="line">        <span class="keyword">while</span>(cur!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            cur = cur.next;</span><br><span class="line">            </span><br><span class="line">            ++count; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[] r = <span class="keyword">new</span> <span class="keyword">int</span>[count];</span><br><span class="line">        cur = head;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=count-<span class="number">1</span>;i&gt;=<span class="number">0</span>;--i)&#123;</span><br><span class="line">            r[i]=cur.val;</span><br><span class="line">            cur = cur.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=</summary>
-      
-    
-    
-    
-    <category term="algorithm" scheme="https://dogfun.top/categories/algorithm/"/>
-    
-    
-    <category term="技术学习" scheme="https://dogfun.top/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>剑指 Offer 04. 二维数组中的查找</title>
-    <link href="https://dogfun.top/2022/04/17/algorithm/%E5%89%91%E6%8C%87%20Offer%2004.%20%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE/"/>
-    <id>https://dogfun.top/2022/04/17/algorithm/%E5%89%91%E6%8C%87%20Offer%2004.%20%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE/</id>
-    <published>2022-04-17T01:19:22.000Z</published>
-    <updated>2022-04-17T14:39:07.166Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">findNumberIn2DArray</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> target)</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">if</span>(matrix.length == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=matrix[<span class="number">0</span>].length-<span class="number">1</span>,j=<span class="number">0</span>;i&gt;=<span class="number">0</span> &amp;&amp; j&lt;matrix.length;)&#123;</span><br><span class="line">            <span class="keyword">if</span>(matrix[j][i]==target)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target&lt;matrix[j][i])&#123;</span><br><span class="line">                i--;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=</summary>
-      
-    
-    
-    
-    <category term="algorithm" scheme="https://dogfun.top/categories/algorithm/"/>
-    
-    
-    <category term="技术学习" scheme="https://dogfun.top/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>JDK动态代理、cglib、aspectJ</title>
     <link href="https://dogfun.top/2022/04/15/record/%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/"/>
     <id>https://dogfun.top/2022/04/15/record/%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/</id>
     <published>2022-04-15T11:24:06.000Z</published>
-    <updated>2022-04-17T14:37:42.378Z</updated>
+    <updated>2022-04-18T06:30:50.974Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h1><p>​    简单来说就是在一个现有的类上添加功能，比如我们想在某个实现类的某个方法前后加入一些自定义的功能，最普遍的就是打印方法前后的日志。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ICaculate</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">caculate</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Add</span> <span class="keyword">implements</span> <span class="title">ICaculate</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">caculate</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a+b;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>​    我想在计算方法前后加入日志打印怎么做呢？</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> ProxyLog implements ICaculate&#123;</span><br><span class="line">  ICaculate obj;</span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">caculate</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    log.info(<span class="string">&quot;参数:&#123;&#125; , &#123;&#125;&quot;</span>,a,b);</span><br><span class="line">    <span class="keyword">int</span> result = obj.caculate(a,b);</span><br><span class="line">    log.info(result);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>​    思路就是通过持有被代理类的对象并且实现被代理类的接口，那么我们即可在实现方法中做我们的增强操作再调用被代理类的目标方法。</p><h1 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h1><p>​    动态代理核心也是代理模式，静态代理中，如果我们想要代理的类变多，那么我们就需要不断增加编写代理类持有不同的目标类，可维护性差。动态代理的思路在于代理类可以动态生成，代理类的代理逻辑可以统一维护，代理类与被代理类进行了解耦。</p><p>一、jdk动态代理基于接口</p><p>使用方法：</p><p>  1、定义接口</p><p>  2、定义中介类实现invocationHandler，实现invoke方法，编写切面逻辑，该类持有被代理类。</p><p>  3、构建代理类</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DynamicProxy</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">myInvocationHandler</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Object obj;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">myInvocationHandler</span><span class="params">(Object obj)</span></span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.obj=obj;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;before....&quot;</span>);</span><br><span class="line">      Object ret=method.invoke(obj,args);</span><br><span class="line">      System.out.println(<span class="string">&quot;after....&quot;</span>);</span><br><span class="line">      <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">    <span class="comment">// 目标对象</span></span><br><span class="line">    TargetSubject s=<span class="keyword">new</span> TargetSubject();    </span><br><span class="line">    <span class="comment">// 代理模板对象与目标对象进行逻辑</span></span><br><span class="line">    myInvocationHandler invocationHandler = <span class="keyword">new</span> myInvocationHandler(s);</span><br><span class="line">    <span class="comment">// 生成代理对象，这个代理对象是可以根据目标对象变化的，来个新的目标对象也是可以重新生成的</span></span><br><span class="line">    Subject subject=(Subject) Proxy.newProxyInstance(TargetSubject.class.getClassLoader(),s.getClass().getInterfaces(),invocationHandler);</span><br><span class="line">    subject.work();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>二、cglib</p><p>   CGLIB(Code Generation Library)是一个基于ASM的字节码生成库，它允许我们在运行时对字节码进行修改和动态生成。CGLIB通过继承方式实现代理。</p><p>// CGLIB动态代理</p><p>// 1. 首先实现一个MethodInterceptor，方法调用会被转发到该类的intercept()方法。</p><p>class MyMethodInterceptor implements MethodInterceptor{</p><p> …</p><p>  @Override</p><p>  public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {</p><p>​    logger.info(“You said: “ + Arrays.toString(args));</p><p>​    return proxy.invokeSuper(obj, args);</p><p>  }</p><p>}</p><p>// 2. 然后在需要使用HelloConcrete的时候，通过CGLIB动态代理获取代理对象。</p><p>Enhancer enhancer = new Enhancer();</p><p>enhancer.setSuperclass(HelloConcrete.class);</p><p>enhancer.setCallback(new MyMethodInterceptor());</p><p>HelloConcrete hello = (HelloConcrete)enhancer.create();</p><p>System.out.println(hello.sayHello(“I love you!”));</p><p>三、aspectJ</p><p>   AspectJ是一套独立的面向切面编程的解决方案，启用 Spring 对 @AspectJ 方面配置的支持，并保证 Spring 容器中的目标 Bean 被一个或多个方面自动增强。</p><p><a href="aop:aspectj-autoproxy/">aop:aspectj-autoproxy/</a></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h1><p>​    简单来说就是在一个现有的类上添加功能，比如我们想在某个实现类的某个方法前后加入一些自定义的功能，最普遍的就是打印方法前后的日志。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ICaculate</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">caculate</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Add</span> <span class="keyword">implements</span> <span class="title">ICaculate</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">caculate</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a+b;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>​    我想在计算方法前后加入日志打印怎么做呢？</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> ProxyLog implements ICaculate&#123;</span><br><span class="line">  ICaculate obj;</span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">caculate</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    log.info(<span class="string">&quot;参数:&#123;&#125; , &#123;&#125;&quot;</span>,a,b);</span><br><span class="line">    <span class="keyword">int</span> result = obj.caculate(a,b);</span><br><span class="line">    log.info(result);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>​    思路就是通过持有被代理类的对象并且实现被代理类的接口，那么我们即可在实现方法中做我们的增强操作再调用被代理类的目标方法。</p><h1 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h1><p>​    动态代理核心也是代理模式，静态代理中，如果我们想要代理的类变多，那么我们就需要不断增加编写代理类持有不同的目标类，可维护性差。动态代理的思路在于代理类可以动态生成，代理类的代理逻辑可以统一维护，代理类与被代理类进行了解耦。</p><h2 id="一、jdk动态代理基于接口"><a href="#一、jdk动态代理基于接口" class="headerlink" title="一、jdk动态代理基于接口"></a>一、jdk动态代理基于接口</h2><p>使用方法：</p><p>  1、定义接口</p><p>  2、定义中介类实现invocationHandler，实现invoke方法，编写切面逻辑，该类持有被代理类。</p><p>  3、构建代理类</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DynamicProxy</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">myInvocationHandler</span> <span class="keyword">implements</span> <span class="title">InvocationHandler</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Object obj;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">myInvocationHandler</span><span class="params">(Object obj)</span></span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.obj=obj;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;before....&quot;</span>);</span><br><span class="line">      Object ret=method.invoke(obj,args);</span><br><span class="line">      System.out.println(<span class="string">&quot;after....&quot;</span>);</span><br><span class="line">      <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">    <span class="comment">// 目标对象</span></span><br><span class="line">    TargetSubject s=<span class="keyword">new</span> TargetSubject();    </span><br><span class="line">    <span class="comment">// 代理模板对象与目标对象进行逻辑</span></span><br><span class="line">    myInvocationHandler invocationHandler = <span class="keyword">new</span> myInvocationHandler(s);</span><br><span class="line">    <span class="comment">// 生成代理对象，这个代理对象是可以根据目标对象变化的，来个新的目标对象也是可以重新生成的</span></span><br><span class="line">    Subject subject=(Subject) Proxy.newProxyInstance(TargetSubject.class.getClassLoader(),s.getClass().getInterfaces(),invocationHandler);</span><br><span class="line">    subject.work();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="cglib"><a href="#cglib" class="headerlink" title="cglib"></a>cglib</h2><p>   CGLIB(Code Generation Library)是一个基于ASM的字节码生成库，它允许我们在运行时对字节码进行修改和动态生成。CGLIB通过继承方式实现代理。</p><ol><li>首先实现一个MethodInterceptor，方法调用会被转发到该类的intercept()方法。</li></ol><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyMethodInterceptor</span> <span class="keyword">implements</span> <span class="title">MethodInterceptor</span></span>&#123;</span><br><span class="line"></span><br><span class="line"> ...</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> Object <span class="title">intercept</span><span class="params">(Object obj, Method method, Object[] args, MethodProxy proxy)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">    logger.info(<span class="string">&quot;You said: &quot;</span> + Arrays.toString(args));</span><br><span class="line">    <span class="keyword">return</span> proxy.invokeSuper(obj, args);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="2"><li>然后在需要使用HelloConcrete的时候，通过CGLIB动态代理获取代理对象。</li></ol><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Enhancer enhancer = <span class="keyword">new</span> Enhancer();</span><br><span class="line">enhancer.setSuperclass(HelloConcrete.class);</span><br><span class="line">enhancer.setCallback(<span class="keyword">new</span> MyMethodInterceptor());</span><br><span class="line">HelloConcrete hello = (HelloConcrete)enhancer.create();</span><br><span class="line">System.out.println(hello.sayHello(<span class="string">&quot;I love you!&quot;</span>));</span><br></pre></td></tr></table></figure><h2 id="aspectJ"><a href="#aspectJ" class="headerlink" title="aspectJ"></a>aspectJ</h2><p>   AspectJ是一套独立的面向切面编程的解决方案，启用 Spring 对 @AspectJ 方面配置的支持，并保证 Spring 容器中的目标 Bean 被一个或多个方面自动增强。</p><p><a href="aop:aspectj-autoproxy/">aop:aspectj-autoproxy/</a></p>]]></content>
     
     
       
@@ -323,6 +251,28 @@
   </entry>
   
   <entry>
+    <title>Minio</title>
+    <link href="https://dogfun.top/2021/11/27/middleware/minio/"/>
+    <id>https://dogfun.top/2021/11/27/middleware/minio/</id>
+    <published>2021-11-27T01:49:06.000Z</published>
+    <updated>2022-03-29T02:41:36.389Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="docker安装"><a href="#docker安装" class="headerlink" title="docker安装"></a>docker安装</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 9000:9000 -p 9001:9001 -d --name minio1 \</span><br><span class="line">  -v /Users/carytseng/envir/minio/data:/data \</span><br><span class="line">  -v /Users/carytseng/envir/minio/config:/root/.minio \</span><br><span class="line">  -e &#x27;MINIO_ROOT_USER=admin&#x27; \</span><br><span class="line">  -e &#x27;MINIO_ROOT_PASSWORD=admin123&#x27; \</span><br><span class="line">  minio/minio server /data --console-address &quot;:9001&quot;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;docker安装&quot;&gt;&lt;a href=&quot;#docker安装&quot; class=&quot;headerlink&quot; title=&quot;docker安装&quot;&gt;&lt;/a&gt;docker安装&lt;/h2&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t</summary>
+      
+    
+    
+    
+    <category term="middleware" scheme="https://dogfun.top/categories/middleware/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>随想11-27</title>
     <link href="https://dogfun.top/2021/11/27/thinking/%E9%9A%8F%E6%83%B311-27/"/>
     <id>https://dogfun.top/2021/11/27/thinking/%E9%9A%8F%E6%83%B311-27/</id>
@@ -341,28 +291,6 @@
     
     
     <category term="thinking" scheme="https://dogfun.top/categories/thinking/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Minio</title>
-    <link href="https://dogfun.top/2021/11/27/middleware/minio/"/>
-    <id>https://dogfun.top/2021/11/27/middleware/minio/</id>
-    <published>2021-11-27T01:49:06.000Z</published>
-    <updated>2022-03-29T02:41:36.389Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="docker安装"><a href="#docker安装" class="headerlink" title="docker安装"></a>docker安装</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 9000:9000 -p 9001:9001 -d --name minio1 \</span><br><span class="line">  -v /Users/carytseng/envir/minio/data:/data \</span><br><span class="line">  -v /Users/carytseng/envir/minio/config:/root/.minio \</span><br><span class="line">  -e &#x27;MINIO_ROOT_USER=admin&#x27; \</span><br><span class="line">  -e &#x27;MINIO_ROOT_PASSWORD=admin123&#x27; \</span><br><span class="line">  minio/minio server /data --console-address &quot;:9001&quot;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;docker安装&quot;&gt;&lt;a href=&quot;#docker安装&quot; class=&quot;headerlink&quot; title=&quot;docker安装&quot;&gt;&lt;/a&gt;docker安装&lt;/h2&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t</summary>
-      
-    
-    
-    
-    <category term="middleware" scheme="https://dogfun.top/categories/middleware/"/>
     
     
   </entry>
@@ -432,6 +360,78 @@
     
     <category term="record" scheme="https://dogfun.top/categories/record/"/>
     
+    
+  </entry>
+  
+  <entry>
+    <title>剑指 Offer 05. 替换空格</title>
+    <link href="https://dogfun.top/2021/04/17/algorithm/%E5%89%91%E6%8C%87%20Offer%2005.%20%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/"/>
+    <id>https://dogfun.top/2021/04/17/algorithm/%E5%89%91%E6%8C%87%20Offer%2005.%20%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/</id>
+    <published>2021-04-17T02:19:22.000Z</published>
+    <updated>2022-04-23T07:15:32.956Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">replaceSpace</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">char</span>[] c = s.toCharArray();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;c.length;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(c[i] == <span class="string">&#x27; &#x27;</span>)&#123;</span><br><span class="line">                sb.append(<span class="string">&quot;%20&quot;</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                sb.append(c[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=</summary>
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://dogfun.top/categories/algorithm/"/>
+    
+    
+    <category term="技术学习" scheme="https://dogfun.top/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>剑指 Offer 06. 从尾到头打印链表</title>
+    <link href="https://dogfun.top/2021/04/17/algorithm/%E5%89%91%E6%8C%87%20Offer%2006.%20%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8/"/>
+    <id>https://dogfun.top/2021/04/17/algorithm/%E5%89%91%E6%8C%87%20Offer%2006.%20%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8/</id>
+    <published>2021-04-17T02:19:22.000Z</published>
+    <updated>2022-04-23T07:15:50.437Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] reversePrint(ListNode head) &#123;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        ListNode cur = head;</span><br><span class="line">        <span class="keyword">while</span>(cur!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            cur = cur.next;</span><br><span class="line">            </span><br><span class="line">            ++count; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[] r = <span class="keyword">new</span> <span class="keyword">int</span>[count];</span><br><span class="line">        cur = head;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=count-<span class="number">1</span>;i&gt;=<span class="number">0</span>;--i)&#123;</span><br><span class="line">            r[i]=cur.val;</span><br><span class="line">            cur = cur.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=</summary>
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://dogfun.top/categories/algorithm/"/>
+    
+    
+    <category term="技术学习" scheme="https://dogfun.top/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>剑指 Offer 04. 二维数组中的查找</title>
+    <link href="https://dogfun.top/2021/04/17/algorithm/%E5%89%91%E6%8C%87%20Offer%2004.%20%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE/"/>
+    <id>https://dogfun.top/2021/04/17/algorithm/%E5%89%91%E6%8C%87%20Offer%2004.%20%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE/</id>
+    <published>2021-04-17T01:19:22.000Z</published>
+    <updated>2022-04-23T07:15:44.737Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">findNumberIn2DArray</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> target)</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">if</span>(matrix.length == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=matrix[<span class="number">0</span>].length-<span class="number">1</span>,j=<span class="number">0</span>;i&gt;=<span class="number">0</span> &amp;&amp; j&lt;matrix.length;)&#123;</span><br><span class="line">            <span class="keyword">if</span>(matrix[j][i]==target)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target&lt;matrix[j][i])&#123;</span><br><span class="line">                i--;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=</summary>
+      
+    
+    
+    
+    <category term="algorithm" scheme="https://dogfun.top/categories/algorithm/"/>
+    
+    
+    <category term="技术学习" scheme="https://dogfun.top/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
