@@ -1,91 +1,349 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-  <head><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Elasticsearch | dogfun</title>
+  <meta name="description" content="环境搭建(docker)Elasticsearch12345docker run -p 9200:9200 -p 9300:9300 -d  -e &quot;discovery.type&#x3D;single-node&quot; --name elasticsearch \-v &#x2F;Users&#x2F;carytseng&#x2F;envir&#x2F;elasticsearch&#x2F;config&#x2F;elasticsearch.yml:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Elasticsearch">
+<meta property="og:url" content="https://dogfun.top/2022/03/03/middleware/Elasticsearch/index.html">
+<meta property="og:site_name" content="Cary Tseng">
+<meta property="og:description" content="环境搭建(docker)Elasticsearch12345docker run -p 9200:9200 -p 9300:9300 -d  -e &quot;discovery.type&#x3D;single-node&quot; --name elasticsearch \-v &#x2F;Users&#x2F;carytseng&#x2F;envir&#x2F;elasticsearch&#x2F;config&#x2F;elasticsearch.yml:">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-03-03T01:25:02.000Z">
+<meta property="article:modified_time" content="2022-03-30T01:09:02.411Z">
+<meta property="article:author" content="CaryTseng">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://dogfun.top/2022/03/03/middleware/Elasticsearch/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Cary Tseng" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/carytseng" target="_blank">
+          <img class="img-circle img-rotate" src="/favicon.ico" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">Cary Tseng</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md"></h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Guangzhou, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
 
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-<meta name="description" content="Elasticsearch"/><link rel="alternate" href="/atom.xml" title="Cary Tseng" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.1" />
-<link rel="canonical" href="https://dogfun.top/2022/03/03/middleware/Elasticsearch/"/>
-
-<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
-<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.1" />
-
-<script>
-  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":false};
-</script>
-
-    <title>Elasticsearch - Cary Tseng</title>
-  <meta name="generator" content="Hexo 5.4.0"></head>
-
-  <body><div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/." class="logo">Cary Tseng</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list"><a href="/archives/">
-        <li class="mobile-menu-item">归档
-          </li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">分类
-          </li>
-      </a></ul>
-</nav>
-<div class="container" id="mobile-panel">
-      <header id="header" class="header"><div class="logo-wrapper">
-  <a href="/." class="logo">Cary Tseng</a>
-</div>
-
-<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
-          <a class="menu-item-link" href="/archives/">
-            归档
-            </a>
-        </li>
-      <li class="menu-item">
-          <a class="menu-item-link" href="/categories/">
-            分类
-            </a>
-        </li>
-      </ul></nav>
-</header>
-
-      <main id="main" class="main">
-        <div class="content-wrapper">
-          <div id="content" class="content"><article class="post">
-    <header class="post-header">
-      <h1 class="post-title">Elasticsearch
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2022-03-03
-        </span><span class="post-category">
-            <a href="/categories/middleware/">middleware</a>
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
             </span>
         </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-    <h2 class="post-toc-title">文章目录</h2>
-    <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-docker"><span class="toc-text">环境搭建(docker)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Elasticsearch"><span class="toc-text">Elasticsearch</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Kibana"><span class="toc-text">Kibana</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8docker-compose%E5%90%AF%E5%8A%A8"><span class="toc-text">使用docker-compose启动</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E8%B7%B5"><span class="toc-text">实践</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E9%9B%86%E7%BE%A4%E6%89%80%E6%9C%89%E7%B4%A2%E5%BC%95"><span class="toc-text">查看集群所有索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%B4%A2%E5%BC%95%E5%B9%B6%E8%AE%BE%E7%BD%AEmapping"><span class="toc-text">创建索引并设置mapping</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E5%88%B6%E5%8A%A8%E6%80%81mapping%E6%A8%A1%E6%9D%BF"><span class="toc-text">定制动态mapping模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8Bmapping"><span class="toc-text">查看mapping</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E6%96%87%E6%A1%A3"><span class="toc-text">插入文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E6%89%80%E6%9C%89%E6%96%87%E6%A1%A3"><span class="toc-text">查询所有文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AEid%E6%9F%A5%E8%AF%A2%E6%96%87%E6%A1%A3"><span class="toc-text">根据id查询文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E6%96%87%E6%A1%A3"><span class="toc-text">更新文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E7%B4%A2%E5%BC%95"><span class="toc-text">删除索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2"><span class="toc-text">查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Nested"><span class="toc-text">Nested</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E5%B1%82%E5%B5%8C%E5%A5%97%E5%AF%B9%E8%B1%A1%E5%A4%84%E7%90%86inner-hits"><span class="toc-text">多层嵌套对象处理inner_hits</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringBoot%E9%9B%86%E6%88%90Elasticsearch6-5"><span class="toc-text">SpringBoot集成Elasticsearch6.5</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96pom%E6%96%87%E4%BB%B6"><span class="toc-text">依赖pom文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%B1%BB"><span class="toc-text">配置类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="toc-text">工具类</span></a></li></ol></li></ol>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
     </div>
-  </div><div class="post-content"><h2 id="环境搭建-docker"><a href="#环境搭建-docker" class="headerlink" title="环境搭建(docker)"></a>环境搭建(docker)</h2><h4 id="Elasticsearch"><a href="#Elasticsearch" class="headerlink" title="Elasticsearch"></a>Elasticsearch</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 9200:9200 -p 9300:9300 -d  -e &quot;discovery.type=single-node&quot; --name elasticsearch \</span><br><span class="line">-v /Users/carytseng/envir/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml \</span><br><span class="line">-v /Users/carytseng/envir/elasticsearch/data:/usr/share/elasticsearch/data \</span><br><span class="line">-v /Users/carytseng/envir/elasticsearch/plugins:/usr/share/elasticsearch/plugins \</span><br><span class="line"> docker.elastic.co/elasticsearch/elasticsearch:7.12.0 </span><br></pre></td></tr></table></figure>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>联系我：carytseng.kira@gmail.com</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">algorithm</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/designpattern/">designpattern</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/flow/">flow</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/host/">host</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/middleware/">middleware</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/record/">record</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/thinking/">thinking</a><span class="category-list-count">22</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JWT/" rel="tag">JWT</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E5%9F%BA%E7%A1%80/" rel="tag">Java基础</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebSocket/" rel="tag">WebSocket</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ignite/" rel="tag">ignite</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssr/" rel="tag">ssr</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" rel="tag">中间件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%86%99%E6%A1%86%E6%9E%B6/" rel="tag">从零开始写框架</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E9%87%91/" rel="tag">基金</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8/" rel="tag">异常</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" rel="tag">技术学习</a><span class="tag-list-count">23</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%95%E8%B5%84/" rel="tag">投资</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E6%BA%90/" rel="tag">数据源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" rel="tag">消息队列</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E5%93%B2/" rel="tag">理哲</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%82%A1%E7%A5%A8/" rel="tag">股票</a><span class="tag-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/JWT/" style="font-size: 13.25px;">JWT</a> <a href="/tags/Java%E5%9F%BA%E7%A1%80/" style="font-size: 13px;">Java基础</a> <a href="/tags/Linux/" style="font-size: 13.25px;">Linux</a> <a href="/tags/Spring/" style="font-size: 13px;">Spring</a> <a href="/tags/Web/" style="font-size: 13px;">Web</a> <a href="/tags/WebSocket/" style="font-size: 13px;">WebSocket</a> <a href="/tags/ignite/" style="font-size: 13px;">ignite</a> <a href="/tags/ssr/" style="font-size: 13px;">ssr</a> <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 13px;">中间件</a> <a href="/tags/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%86%99%E6%A1%86%E6%9E%B6/" style="font-size: 13px;">从零开始写框架</a> <a href="/tags/%E5%9F%BA%E9%87%91/" style="font-size: 13px;">基金</a> <a href="/tags/%E5%BC%82%E5%B8%B8/" style="font-size: 13px;">异常</a> <a href="/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" style="font-size: 14px;">技术学习</a> <a href="/tags/%E6%8A%95%E8%B5%84/" style="font-size: 13.5px;">投资</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%BA%90/" style="font-size: 13px;">数据源</a> <a href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" style="font-size: 13.25px;">消息队列</a> <a href="/tags/%E7%90%86%E5%93%B2/" style="font-size: 13px;">理哲</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" style="font-size: 13.75px;">编程技巧</a> <a href="/tags/%E8%82%A1%E7%A5%A8/" style="font-size: 13.25px;">股票</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">五月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/record/">record</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/05/11/record/2022-05-11-SpringCloud-Gateway/" class="title">SpringCloud Gateway</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-05-11T01:24:58.000Z" itemprop="datePublished">2022-05-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/record/">record</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/04/15/record/%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/" class="title">JDK动态代理、cglib、aspectJ</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-04-15T11:24:06.000Z" itemprop="datePublished">2022-04-15</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/middleware/">middleware</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/03/20/middleware/canal/" class="title">canal</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-03-20T02:14:13.000Z" itemprop="datePublished">2022-03-20</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/middleware/">middleware</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/03/03/middleware/Elasticsearch/" class="title">Elasticsearch</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-03-03T01:25:02.000Z" itemprop="datePublished">2022-03-03</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/thinking/">thinking</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/02/27/thinking/%E4%BF%84%E4%B9%8C%E5%86%B2%E7%AA%81/" class="title">俄乌冲突</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-02-27T05:29:46.000Z" itemprop="datePublished">2022-02-27</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+  <aside class="sidebar sidebar-toc collapse " id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-docker"><span class="toc-number">1.</span> <span class="toc-text">环境搭建(docker)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Elasticsearch"><span class="toc-number">1.0.1.</span> <span class="toc-text">Elasticsearch</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Kibana"><span class="toc-number">1.0.2.</span> <span class="toc-text">Kibana</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8docker-compose%E5%90%AF%E5%8A%A8"><span class="toc-number">1.0.3.</span> <span class="toc-text">使用docker-compose启动</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">2.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E8%B7%B5"><span class="toc-number">3.</span> <span class="toc-text">实践</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E9%9B%86%E7%BE%A4%E6%89%80%E6%9C%89%E7%B4%A2%E5%BC%95"><span class="toc-number">3.1.</span> <span class="toc-text">查看集群所有索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%B4%A2%E5%BC%95%E5%B9%B6%E8%AE%BE%E7%BD%AEmapping"><span class="toc-number">3.2.</span> <span class="toc-text">创建索引并设置mapping</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E5%88%B6%E5%8A%A8%E6%80%81mapping%E6%A8%A1%E6%9D%BF"><span class="toc-number">3.3.</span> <span class="toc-text">定制动态mapping模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8Bmapping"><span class="toc-number">3.4.</span> <span class="toc-text">查看mapping</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E6%96%87%E6%A1%A3"><span class="toc-number">3.5.</span> <span class="toc-text">插入文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E6%89%80%E6%9C%89%E6%96%87%E6%A1%A3"><span class="toc-number">3.6.</span> <span class="toc-text">查询所有文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AEid%E6%9F%A5%E8%AF%A2%E6%96%87%E6%A1%A3"><span class="toc-number">3.7.</span> <span class="toc-text">根据id查询文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E6%96%87%E6%A1%A3"><span class="toc-number">3.8.</span> <span class="toc-text">更新文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E7%B4%A2%E5%BC%95"><span class="toc-number">3.9.</span> <span class="toc-text">删除索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.10.</span> <span class="toc-text">数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2"><span class="toc-number">3.11.</span> <span class="toc-text">查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Nested"><span class="toc-number">3.12.</span> <span class="toc-text">Nested</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E5%B1%82%E5%B5%8C%E5%A5%97%E5%AF%B9%E8%B1%A1%E5%A4%84%E7%90%86inner-hits"><span class="toc-number">3.13.</span> <span class="toc-text">多层嵌套对象处理inner_hits</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringBoot%E9%9B%86%E6%88%90Elasticsearch6-5"><span class="toc-number">4.</span> <span class="toc-text">SpringBoot集成Elasticsearch6.5</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96pom%E6%96%87%E4%BB%B6"><span class="toc-number">4.1.</span> <span class="toc-text">依赖pom文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">4.2.</span> <span class="toc-text">配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%B1%BB"><span class="toc-number">4.3.</span> <span class="toc-text">配置类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="toc-number">4.4.</span> <span class="toc-text">工具类</span></a></li></ol></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-middleware/Elasticsearch" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Elasticsearch
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/03/03/middleware/Elasticsearch/" class="article-date">
+	  <time datetime="2022-03-03T01:25:02.000Z" itemprop="datePublished">2022-03-03</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/middleware/">middleware</a>
+  </span>
+
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/03/03/middleware/Elasticsearch/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="环境搭建-docker"><a href="#环境搭建-docker" class="headerlink" title="环境搭建(docker)"></a>环境搭建(docker)</h2><h4 id="Elasticsearch"><a href="#Elasticsearch" class="headerlink" title="Elasticsearch"></a>Elasticsearch</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 9200:9200 -p 9300:9300 -d  -e &quot;discovery.type=single-node&quot; --name elasticsearch \</span><br><span class="line">-v /Users/carytseng/envir/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml \</span><br><span class="line">-v /Users/carytseng/envir/elasticsearch/data:/usr/share/elasticsearch/data \</span><br><span class="line">-v /Users/carytseng/envir/elasticsearch/plugins:/usr/share/elasticsearch/plugins \</span><br><span class="line"> docker.elastic.co/elasticsearch/elasticsearch:7.12.0 </span><br></pre></td></tr></table></figure>
 
 <h4 id="Kibana"><a href="#Kibana" class="headerlink" title="Kibana"></a>Kibana</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run --link elasticsearch:elasticsearch --name kibana -p 5601:5601 -d docker.elastic.co/kibana/kibana:7.12.0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker run -it -d -e ELASTICSEARCH_URL=http://10.91.22.6:9200 --name kibana --restart=always -p 5602:5601 kibana:6.5.0</span><br></pre></td></tr></table></figure>
 
@@ -158,63 +416,183 @@
 <h3 id="工具类"><a href="#工具类" class="headerlink" title="工具类"></a>工具类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br><span class="line">495</span><br><span class="line">496</span><br><span class="line">497</span><br><span class="line">498</span><br><span class="line">499</span><br><span class="line">500</span><br><span class="line">501</span><br><span class="line">502</span><br><span class="line">503</span><br><span class="line">504</span><br><span class="line">505</span><br><span class="line">506</span><br><span class="line">507</span><br><span class="line">508</span><br><span class="line">509</span><br><span class="line">510</span><br><span class="line">511</span><br><span class="line">512</span><br><span class="line">513</span><br><span class="line">514</span><br><span class="line">515</span><br><span class="line">516</span><br><span class="line">517</span><br><span class="line">518</span><br><span class="line">519</span><br><span class="line">520</span><br><span class="line">521</span><br><span class="line">522</span><br><span class="line">523</span><br><span class="line">524</span><br><span class="line">525</span><br><span class="line">526</span><br><span class="line">527</span><br><span class="line">528</span><br><span class="line">529</span><br><span class="line">530</span><br><span class="line">531</span><br><span class="line">532</span><br><span class="line">533</span><br><span class="line">534</span><br><span class="line">535</span><br><span class="line">536</span><br><span class="line">537</span><br><span class="line">538</span><br><span class="line">539</span><br><span class="line">540</span><br><span class="line">541</span><br><span class="line">542</span><br><span class="line">543</span><br><span class="line">544</span><br><span class="line">545</span><br><span class="line">546</span><br><span class="line">547</span><br><span class="line">548</span><br><span class="line">549</span><br><span class="line">550</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.chinaunicom.medical.business.util;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.hutool.core.collection.CollectionUtil;</span><br><span class="line"><span class="keyword">import</span> cn.hutool.core.util.ObjectUtil;</span><br><span class="line"><span class="keyword">import</span> cn.hutool.core.util.StrUtil;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSON;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSONArray;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSONObject;</span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;</span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.core.toolkit.Wrappers;</span><br><span class="line"><span class="keyword">import</span> com.carrotsearch.hppc.cursors.ObjectObjectCursor;</span><br><span class="line"><span class="keyword">import</span> com.chinaunicom.medical.business.constants.PortalConstants;</span><br><span class="line"><span class="keyword">import</span> com.chinaunicom.medical.business.dto.DataSetFieldCondition;</span><br><span class="line"><span class="keyword">import</span> com.chinaunicom.medical.business.entity.UniresearchProjectVisitAnswer;</span><br><span class="line"><span class="keyword">import</span> com.chinaunicom.medical.business.entity.UniresearchProjectVisitQuestion;</span><br><span class="line"><span class="keyword">import</span> com.chinaunicom.medical.business.enums.DataSetFieldInnerType;</span><br><span class="line"><span class="keyword">import</span> com.chinaunicom.medical.business.mapper.UniresearchProjectVisitQuestionMapper;</span><br><span class="line"><span class="keyword">import</span> org.elasticsearch.action.admin.indices.create.CreateIndexRequest;</span><br><span class="line"><span class="keyword">import</span> org.elasticsearch.action.admin.indices.create.CreateIndexResponse;</span><br><span class="line"><span class="keyword">import</span> org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;</span><br><span class="line"><span class="keyword">import</span> org.elasticsearch.action.admin.indices.get.GetIndexRequest;</span><br><span class="line"><span class="keyword">import</span> org.elasticsearch.action.admin.indices.mapping.get.GetMappingsRequest;</span><br><span class="line"><span class="keyword">import</span> org.elasticsearch.action.admin.indices.mapping.get.GetMappingsResponse;</span><br><span class="line"><span class="keyword">import</span> org.elasticsearch.action.bulk.BulkRequest;</span><br><span class="line"><span class="keyword">import</span> org.elasticsearch.action.bulk.BulkResponse;</span><br><span class="line"><span class="keyword">import</span> org.elasticsearch.action.delete.DeleteRequest;</span><br><span class="line"><span class="keyword">import</span> org.elasticsearch.action.index.IndexRequest;</span><br><span class="line"><span class="keyword">import</span> org.elasticsearch.action.index.IndexResponse;</span><br><span class="line"><span class="keyword">import</span> org.elasticsearch.action.search.SearchRequest;</span><br><span class="line"><span class="keyword">import</span> org.elasticsearch.action.search.SearchResponse;</span><br><span class="line"><span class="keyword">import</span> org.elasticsearch.action.support.master.AcknowledgedResponse;</span><br><span class="line"><span class="keyword">import</span> org.elasticsearch.action.update.UpdateRequest;</span><br><span class="line"><span class="keyword">import</span> org.elasticsearch.action.update.UpdateResponse;</span><br><span class="line"><span class="keyword">import</span> org.elasticsearch.client.RequestOptions;</span><br><span class="line"><span class="keyword">import</span> org.elasticsearch.client.RestHighLevelClient;</span><br><span class="line"><span class="keyword">import</span> org.elasticsearch.cluster.metadata.MappingMetaData;</span><br><span class="line"><span class="keyword">import</span> org.elasticsearch.common.collect.ImmutableOpenMap;</span><br><span class="line"><span class="keyword">import</span> org.elasticsearch.common.unit.TimeValue;</span><br><span class="line"><span class="keyword">import</span> org.elasticsearch.common.xcontent.XContentBuilder;</span><br><span class="line"><span class="keyword">import</span> org.elasticsearch.common.xcontent.XContentFactory;</span><br><span class="line"><span class="keyword">import</span> org.elasticsearch.common.xcontent.XContentType;</span><br><span class="line"><span class="keyword">import</span> org.elasticsearch.index.query.*;</span><br><span class="line"><span class="keyword">import</span> org.elasticsearch.search.SearchHit;</span><br><span class="line"><span class="keyword">import</span> org.elasticsearch.search.SearchHits;</span><br><span class="line"><span class="keyword">import</span> org.elasticsearch.search.builder.SearchSourceBuilder;</span><br><span class="line"><span class="keyword">import</span> org.elasticsearch.search.sort.SortOrder;</span><br><span class="line"><span class="keyword">import</span> org.exframework.support.common.entity.FilterCondition;</span><br><span class="line"><span class="keyword">import</span> org.exframework.support.common.entity.Page;</span><br><span class="line"><span class="keyword">import</span> org.exframework.support.common.entity.PageModel;</span><br><span class="line"><span class="keyword">import</span> org.exframework.support.common.entity.Pager;</span><br><span class="line"><span class="keyword">import</span> org.exframework.support.common.util.StrUtils;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.Logger;</span><br><span class="line"><span class="keyword">import</span> org.slf4j.LoggerFactory;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.annotation.Resource;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Field;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"><span class="keyword">import</span> java.util.stream.Collectors;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span> es工具类封装</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> 郑剑锋</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@updateTime</span> 2022/3/18 08:57</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EsUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Logger log = LoggerFactory.getLogger(EsUtil.class);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> RestHighLevelClient restHighLevelClient;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    UniresearchProjectVisitQuestionMapper uniresearchProjectVisitQuestionMapper;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String STATUS = <span class="string">&quot;OK&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建索引</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> indexs 索引名称</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> true 创建成功,false创建失败</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">createIndex</span><span class="params">(String... indexs)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (String index : indexs) &#123;</span><br><span class="line">            GetIndexRequest request = <span class="keyword">new</span> GetIndexRequest();</span><br><span class="line">            request.indices(index);</span><br><span class="line">            <span class="keyword">if</span> (restHighLevelClient.indices().exists(request, RequestOptions.DEFAULT)) &#123;</span><br><span class="line">                log.info(<span class="string">&quot;index: &#123;&#125; exists&quot;</span>, index);</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">//创建索引请求</span></span><br><span class="line">                CreateIndexRequest createIndexRequest = <span class="keyword">new</span> CreateIndexRequest(index);</span><br><span class="line">                <span class="comment">//设置mapping映射-实现字段分词,暂时没有装ik，暂时先注释</span></span><br><span class="line">                <span class="comment">//创建执行请求</span></span><br><span class="line">                CreateIndexResponse createIndexResponse = restHighLevelClient.indices().create(createIndexRequest, RequestOptions.DEFAULT);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建索引</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> index 索引名称</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> obj   对象</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> true 创建成功,false创建失败</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">createIndex</span><span class="params">(String index, Object obj)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        GetIndexRequest request = <span class="keyword">new</span> GetIndexRequest();</span><br><span class="line">        request.indices(index);</span><br><span class="line">        <span class="keyword">if</span> (restHighLevelClient.indices().exists(request, RequestOptions.DEFAULT)) &#123;</span><br><span class="line">            log.info(<span class="string">&quot;索引:&#123;&#125;已存在&quot;</span>, index);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//创建索引请求</span></span><br><span class="line">        CreateIndexRequest createIndexRequest = <span class="keyword">new</span> CreateIndexRequest(index);</span><br><span class="line">        <span class="comment">//设置mapping映射-实现字段分词,暂时没有装ik，暂时先注释</span></span><br><span class="line">        XContentBuilder builder = XContentFactory.jsonBuilder();</span><br><span class="line"></span><br><span class="line">        Map&lt;String, Object&gt; mappObj = getObjectToMap(obj);</span><br><span class="line">        builder.startObject();</span><br><span class="line">        <span class="comment">//properties固定</span></span><br><span class="line">        builder.startObject(<span class="string">&quot;properties&quot;</span>);</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//设置字段</span></span><br><span class="line">            <span class="keyword">for</span> (String key : mappObj.keySet()) &#123;</span><br><span class="line">                builder.startObject(key);</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="comment">//设置字段类型</span></span><br><span class="line">                    builder.field(<span class="string">&quot;type&quot;</span>, <span class="string">&quot;text&quot;</span>) <span class="comment">//text:分词  keyword:不分词 都是字符串</span></span><br><span class="line">                            <span class="comment">//是否索引</span></span><br><span class="line">                            .field(<span class="string">&quot;index&quot;</span>, <span class="string">&quot;true&quot;</span>)</span><br><span class="line">                            <span class="comment">//插入时分词ik_smart</span></span><br><span class="line">                            <span class="comment">//分词器选择：0-not_analyzed 1-ik_smart 2-ik_max_word 3-ik-index(自定义分词器)</span></span><br><span class="line">                            .field(<span class="string">&quot;analyzer&quot;</span>, <span class="string">&quot;ik_max_word&quot;</span>)</span><br><span class="line">                            .field(<span class="string">&quot;search_analyzer&quot;</span>, <span class="string">&quot;ik_smart&quot;</span>)</span><br><span class="line">                            .startObject(<span class="string">&quot;fields&quot;</span>)</span><br><span class="line">                            .startObject(<span class="string">&quot;keyword&quot;</span>)</span><br><span class="line">                            .field(<span class="string">&quot;type&quot;</span>, <span class="string">&quot;keyword&quot;</span>)</span><br><span class="line">                            .endObject()</span><br><span class="line">                            .endObject();</span><br><span class="line">                &#125;</span><br><span class="line">                builder.endObject();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        builder.endObject();</span><br><span class="line">        builder.endObject();</span><br><span class="line">        <span class="comment">//设置mapping映射</span></span><br><span class="line">        createIndexRequest.mapping(<span class="string">&quot;doc&quot;</span>, builder);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建执行请求</span></span><br><span class="line">        CreateIndexResponse createIndexResponse = restHighLevelClient.indices().create(createIndexRequest, RequestOptions.DEFAULT);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 查看索引是否存在</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> true存在 false不存在</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> IOException es连接异常</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">getIndex</span><span class="params">(String index)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        GetIndexRequest getIndexRequest = <span class="keyword">new</span> GetIndexRequest();</span><br><span class="line">        getIndexRequest.indices(index);</span><br><span class="line">        <span class="keyword">return</span> restHighLevelClient.indices().exists(getIndexRequest, RequestOptions.DEFAULT);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 删除索引</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> true删除成功 false删除失败或索引不存在</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">deleteIndex</span><span class="params">(String index)</span> </span>&#123;</span><br><span class="line">        DeleteIndexRequest deleteIndexRequest = <span class="keyword">new</span> DeleteIndexRequest(index);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            AcknowledgedResponse delete = restHighLevelClient.indices().delete(deleteIndexRequest, RequestOptions.DEFAULT);</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">existMapping</span><span class="params">(String index)</span></span>&#123;</span><br><span class="line">        GetMappingsRequest getMappingsRequest = <span class="keyword">new</span> GetMappingsRequest();</span><br><span class="line">        getMappingsRequest.indices(index);</span><br><span class="line">        GetMappingsResponse getMappingResponse;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            getMappingResponse = restHighLevelClient.indices().getMapping(getMappingsRequest, RequestOptions.DEFAULT);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        ImmutableOpenMap&lt;String, ImmutableOpenMap&lt;String, MappingMetaData&gt;&gt; mappings = getMappingResponse.mappings();</span><br><span class="line">        <span class="keyword">for</span>(ObjectObjectCursor&lt;String, ImmutableOpenMap&lt;String, MappingMetaData&gt;&gt; indexEntry : mappings)&#123;</span><br><span class="line">            <span class="keyword">if</span>(indexEntry.value.isEmpty() )&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 插入数据</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> index 索引名称</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> data  数据 可以为单个对象也可以为数组</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> true 插入成功 false插入失败</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> IOException es连接异常</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">insertBathData</span><span class="params">(String index, JSONArray data)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//判断索引是否存在</span></span><br><span class="line">        <span class="keyword">boolean</span> flag = getIndex(index);</span><br><span class="line">        <span class="keyword">if</span> (!flag) &#123;</span><br><span class="line">            createIndex(index);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (CollectionUtil.isEmpty(data)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        BulkRequest bulkRequest = <span class="keyword">new</span> BulkRequest();</span><br><span class="line">        bulkRequest.timeout(<span class="string">&quot;15s&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; data.size(); i++) &#123;</span><br><span class="line">            JSONObject m = (JSONObject) data.get(i);</span><br><span class="line">            String id = (String) m.get(<span class="string">&quot;id&quot;</span>);</span><br><span class="line">            bulkRequest.add(<span class="keyword">new</span> IndexRequest(index).id(id).source(JSON.toJSONString(data.get(i)), XContentType.JSON).type(<span class="string">&quot;doc&quot;</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        BulkResponse bulk = restHighLevelClient.bulk(bulkRequest, RequestOptions.DEFAULT);</span><br><span class="line">        <span class="comment">//是否失败 bulk.hasFailures()=false 代表成功</span></span><br><span class="line">        <span class="keyword">return</span> !bulk.hasFailures();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 插入数据</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> index 索引名称</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> data  数据 可以为单个对象也可以为数组</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> true 插入成功 false插入失败</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> IOException es连接异常</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">insertData</span><span class="params">(String index, Object data)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//判断索引是否存在</span></span><br><span class="line">        <span class="keyword">boolean</span> flag = getIndex(index);</span><br><span class="line">        <span class="keyword">if</span> (!flag) &#123;</span><br><span class="line">            createIndex(index);</span><br><span class="line">        &#125;</span><br><span class="line">        IndexRequest indexRequest = <span class="keyword">new</span> IndexRequest(index);</span><br><span class="line"></span><br><span class="line">        indexRequest.timeout(<span class="string">&quot;1s&quot;</span>);      <span class="comment">// 设置超时时间</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 4. 将数据放入到请求中</span></span><br><span class="line">        indexRequest.source(JSON.toJSONString(data), XContentType.JSON).type(<span class="string">&quot;doc&quot;</span>);</span><br><span class="line">        Map&lt;String, Object&gt; obj = getObjectToMap(data);</span><br><span class="line">        String id = (String) obj.get(<span class="string">&quot;id&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (StrUtil.isNotBlank(id)) &#123;</span><br><span class="line">            indexRequest.id(id);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 5. 使用客户端发送请求</span></span><br><span class="line">        IndexResponse response = restHighLevelClient.index(indexRequest, RequestOptions.DEFAULT);</span><br><span class="line">        <span class="comment">//是否失败 bulk.hasFailures()=false 代表成功</span></span><br><span class="line">        <span class="keyword">return</span> STATUS.equals(response.status().toString());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 修改数据</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> index 索引</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id    esId</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> data  修改后的数据</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> true修改成功 false修改失败</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> IOException es连接异常</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">updateData</span><span class="params">(String index, String id, Object data)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        UpdateRequest updateRequest = <span class="keyword">new</span> UpdateRequest(index, <span class="string">&quot;doc&quot;</span>, id);</span><br><span class="line">        updateRequest.timeout(<span class="string">&quot;1s&quot;</span>);</span><br><span class="line">        UpdateRequest doc = updateRequest.doc(JSON.toJSONString(data), XContentType.JSON);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//XContentBuilder builder = XContentFactory.jsonBuilder();</span></span><br><span class="line"></span><br><span class="line">        UpdateResponse update = restHighLevelClient.update(updateRequest, RequestOptions.DEFAULT);</span><br><span class="line"></span><br><span class="line">       <span class="comment">/* //测试批量</span></span><br><span class="line"><span class="comment">        UpdateByQueryRequest updateByQueryRequest = new UpdateByQueryRequest(index, id);</span></span><br><span class="line"><span class="comment">        //updateByQueryRequest.setDocTypes(JSON.toJSONString(data));</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">        BulkB yScrollResponse bulkByScrollResponse = restHighLevelClient.updateByQuery(updateByQueryRequest, RequestOptions.DEFAULT);*/</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> STATUS.equals(update.status().toString());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 删除数据(可批量删除，可单条删除)</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> index 索引</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id    esId</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> true删除成功 false删除失败</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> IOException es连接异常</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">deleteData</span><span class="params">(String index, String... id)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line"></span><br><span class="line">        BulkRequest request = <span class="keyword">new</span> BulkRequest();</span><br><span class="line">        <span class="keyword">for</span> (String s : id) &#123;</span><br><span class="line">            DeleteRequest deleteRequest = <span class="keyword">new</span> DeleteRequest(index, <span class="string">&quot;doc&quot;</span>, s);</span><br><span class="line">            deleteRequest.timeout(<span class="string">&quot;1s&quot;</span>);</span><br><span class="line">            request.add(deleteRequest);</span><br><span class="line">        &#125;</span><br><span class="line">        BulkResponse bulk = restHighLevelClient.bulk(request, RequestOptions.DEFAULT);</span><br><span class="line">        <span class="comment">//DeleteResponse deleteResponse = restHighLevelClient.delete(deleteRequest, RequestOptions.DEFAULT);</span></span><br><span class="line">        <span class="keyword">return</span> STATUS.equals(bulk.status().toString());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据分页查询数据 查询全部</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> index 索引名称</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> form  页数 如果查看第一页传1</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> size  数量 默认传10</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 查询好的SearchHit数组</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> IOException es连接异常</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> SearchHits <span class="title">queryPage</span><span class="params">(String index, Integer form, Integer size)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        SearchRequest searchRequest = <span class="keyword">new</span> SearchRequest(index);</span><br><span class="line">        <span class="comment">//构建搜索条件</span></span><br><span class="line">        SearchSourceBuilder searchSourceBuilder = <span class="keyword">new</span> SearchSourceBuilder();</span><br><span class="line">        <span class="comment">//QueryBuilders.matchAllQuery查询所有</span></span><br><span class="line">        MatchAllQueryBuilder matchAllQueryBuilder = QueryBuilders.matchAllQuery();</span><br><span class="line">        searchSourceBuilder.query(matchAllQueryBuilder);</span><br><span class="line">        <span class="comment">//构建分页</span></span><br><span class="line">        <span class="keyword">if</span> (form == <span class="number">1</span>) &#123;</span><br><span class="line">            searchSourceBuilder.from();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            searchSourceBuilder.from(form);</span><br><span class="line">        &#125;</span><br><span class="line">        searchSourceBuilder.size(size);</span><br><span class="line">        searchSourceBuilder.timeout(<span class="keyword">new</span> TimeValue(<span class="number">60</span>, TimeUnit.SECONDS));</span><br><span class="line">        searchRequest.source(searchSourceBuilder);</span><br><span class="line">        SearchResponse search = restHighLevelClient.search(searchRequest, RequestOptions.DEFAULT);</span><br><span class="line">        <span class="keyword">return</span> search.getHits();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  查询全部</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> index      索引名称</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 查询好的SearchHit数组</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> IOException es连接异常</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;Map&lt;String, Object&gt;&gt; queryAllData(String index) <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        SearchRequest searchRequest = <span class="keyword">new</span> SearchRequest(index);</span><br><span class="line">        <span class="comment">//构建搜索条件</span></span><br><span class="line">        SearchSourceBuilder searchSourceBuilder = <span class="keyword">new</span> SearchSourceBuilder();</span><br><span class="line">        <span class="comment">//构建分页</span></span><br><span class="line">        searchSourceBuilder.from();</span><br><span class="line">        searchSourceBuilder.size(<span class="number">10000</span>);</span><br><span class="line">        searchSourceBuilder.timeout(<span class="keyword">new</span> TimeValue(<span class="number">60</span>, TimeUnit.SECONDS));</span><br><span class="line">        searchRequest.source(searchSourceBuilder);</span><br><span class="line">        SearchResponse search = restHighLevelClient.search(searchRequest, RequestOptions.DEFAULT);</span><br><span class="line">        List&lt;Map&lt;String, Object&gt;&gt; resultMap = toList(search.getHits());</span><br><span class="line">        <span class="keyword">return</span> resultMap;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 分词查找</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> index 索引名称</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> form  页数 如果查看第一页传1</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> size  数量 默认传10</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> name  查询参数名</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> value 查询值</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 查询好的SearchHit数组</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> IOException es连接异常</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> SearchHit[] boolPage(String index, Integer form, Integer size, String name, String value) <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        SearchRequest searchRequest = <span class="keyword">new</span> SearchRequest(index);</span><br><span class="line">        <span class="comment">//构建搜索条件</span></span><br><span class="line">        SearchSourceBuilder searchSourceBuilder = <span class="keyword">new</span> SearchSourceBuilder();</span><br><span class="line">        <span class="comment">//QueryBuilders.termQuery(); //精确查找</span></span><br><span class="line">        <span class="comment">/*TermQueryBuilder termQueryBuilder = QueryBuilders.termQuery(name, value);</span></span><br><span class="line"><span class="comment">        searchSourceBuilder.query(termQueryBuilder);*/</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//使用bool检索</span></span><br><span class="line">        <span class="comment">/*bool:几种格式</span></span><br><span class="line"><span class="comment">        must:所有分句都必须匹配，与 AND 相同。</span></span><br><span class="line"><span class="comment">        must_not:所有分句都必须不匹配，与 NOT 相同。</span></span><br><span class="line"><span class="comment">        should: 至少有一个分句匹配，与 OR 相同。</span></span><br><span class="line"><span class="comment">        1 term查询（精准查询）</span></span><br><span class="line"><span class="comment">        2 math查询（分词匹配查询）</span></span><br><span class="line"><span class="comment">        3 fuzzy查询（模糊查询）</span></span><br><span class="line"><span class="comment">        4 wildcard(通配符查询)</span></span><br><span class="line"><span class="comment">        5 bool查询（布尔查询）</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery()</span><br><span class="line">                .should(QueryBuilders.matchQuery(name, value)</span><br><span class="line">                        .analyzer(<span class="string">&quot;ik_max_word&quot;</span>)</span><br><span class="line">                        .operator(Operator.OR));</span><br><span class="line">        searchSourceBuilder.query(boolQueryBuilder);</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * math查询（分词匹配查询），只要与其中一个关键字匹配就可以查出来</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">       <span class="comment">/* MatchQueryBuilder matchQueryBuilder = QueryBuilders.matchQuery(name, value);</span></span><br><span class="line"><span class="comment">        searchSourceBuilder.query(matchQueryBuilder);*/</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// math查询（分词匹配查询）可以支持多个字段检索</span></span><br><span class="line">        <span class="comment">/*QueryBuilder multiMatch = QueryBuilders.multiMatchQuery(&quot;zhou&quot;, &quot;first_name&quot;,&quot;last_name&quot;);</span></span><br><span class="line"><span class="comment">        searchSourceBuilder.query(multiMatch);*/</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// math查询（分词匹配查询）一定要包含全部关键字</span></span><br><span class="line">        <span class="comment">/*MatchPhraseQueryBuilder matchPhraseQueryBuilder = QueryBuilders.matchPhraseQuery(&quot;about&quot;, &quot;in this world&quot;);</span></span><br><span class="line"><span class="comment">        searchSourceBuilder.query(matchPhraseQueryBuilder);*/</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//构建分页</span></span><br><span class="line">        <span class="keyword">if</span> (form == <span class="number">1</span>) &#123;</span><br><span class="line">            searchSourceBuilder.from();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            searchSourceBuilder.from(form);</span><br><span class="line">        &#125;</span><br><span class="line">        searchSourceBuilder.size(size);</span><br><span class="line">        searchSourceBuilder.timeout(<span class="keyword">new</span> TimeValue(<span class="number">60</span>, TimeUnit.SECONDS));</span><br><span class="line">        searchRequest.source(searchSourceBuilder);</span><br><span class="line">        SearchResponse search = restHighLevelClient.search(searchRequest, RequestOptions.DEFAULT);</span><br><span class="line">        <span class="keyword">return</span> search.getHits().getHits();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 精确查找</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> index 索引名称</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> form  页数 如果查看第一页传1</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> size  数量 默认传10</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> name  查询参数名</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> value 查询值</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 查询好的SearchHit数组</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> IOException es连接异常</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> SearchHit[] queryPage(String index, Integer form, Integer size, String name, String value) <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        SearchRequest searchRequest = <span class="keyword">new</span> SearchRequest(index);</span><br><span class="line">        <span class="comment">//构建搜索条件</span></span><br><span class="line">        SearchSourceBuilder searchSourceBuilder = <span class="keyword">new</span> SearchSourceBuilder();</span><br><span class="line">        <span class="comment">//QueryBuilders.termQuery(); //精确查找</span></span><br><span class="line">        TermQueryBuilder termQueryBuilder = QueryBuilders.termQuery(name, value);</span><br><span class="line">        searchSourceBuilder.query(termQueryBuilder);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//使用bool检索</span></span><br><span class="line">        <span class="comment">/*bool:几种格式</span></span><br><span class="line"><span class="comment">        must:所有分句都必须匹配，与 AND 相同。</span></span><br><span class="line"><span class="comment">        must_not:所有分句都必须不匹配，与 NOT 相同。</span></span><br><span class="line"><span class="comment">        should: 至少有一个分句匹配，与 OR 相同。</span></span><br><span class="line"><span class="comment">        1 term查询（精准查询）</span></span><br><span class="line"><span class="comment">        2 math查询（分词匹配查询）</span></span><br><span class="line"><span class="comment">        3 fuzzy查询（模糊查询）</span></span><br><span class="line"><span class="comment">        4 wildcard(通配符查询)</span></span><br><span class="line"><span class="comment">        5 bool查询（布尔查询）</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        <span class="comment">/*BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery()</span></span><br><span class="line"><span class="comment">                .should(QueryBuilders.matchQuery(name,value)</span></span><br><span class="line"><span class="comment">                        .analyzer(&quot;ik_max_word&quot;)</span></span><br><span class="line"><span class="comment">                        .operator(Operator.OR));</span></span><br><span class="line"><span class="comment">        searchSourceBuilder.query(boolQueryBuilder);*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * math查询（分词匹配查询），只要与其中一个关键字匹配就可以查出来</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="comment">/*MatchQueryBuilder matchQueryBuilder = QueryBuilders.matchQuery(name, value);</span></span><br><span class="line"><span class="comment">        searchSourceBuilder.query(matchQueryBuilder);*/</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// math查询（分词匹配查询）可以支持多个字段检索</span></span><br><span class="line">        <span class="comment">/*QueryBuilder multiMatch = QueryBuilders.multiMatchQuery(&quot;zhou&quot;, &quot;first_name&quot;,&quot;last_name&quot;);</span></span><br><span class="line"><span class="comment">        searchSourceBuilder.query(multiMatch);*/</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// math查询（分词匹配查询）一定要包含全部关键字</span></span><br><span class="line">        <span class="comment">/*MatchPhraseQueryBuilder matchPhraseQueryBuilder = QueryBuilders.matchPhraseQuery(&quot;about&quot;, &quot;in this world&quot;);</span></span><br><span class="line"><span class="comment">        searchSourceBuilder.query(matchPhraseQueryBuilder);*/</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//构建分页</span></span><br><span class="line">        <span class="keyword">if</span> (form == <span class="number">1</span>) &#123;</span><br><span class="line">            searchSourceBuilder.from();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            searchSourceBuilder.from(form);</span><br><span class="line">        &#125;</span><br><span class="line">        searchSourceBuilder.size(size);</span><br><span class="line">        searchSourceBuilder.timeout(<span class="keyword">new</span> TimeValue(<span class="number">60</span>, TimeUnit.SECONDS));</span><br><span class="line">        searchRequest.source(searchSourceBuilder);</span><br><span class="line">        SearchResponse search = restHighLevelClient.search(searchRequest, RequestOptions.DEFAULT);</span><br><span class="line">        <span class="keyword">return</span> search.getHits().getHits();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 转换格式</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> searchHits</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;Map&lt;String, Object&gt;&gt; toList(SearchHits searchHits) &#123;</span><br><span class="line"></span><br><span class="line">        List&lt;Map&lt;String, Object&gt;&gt; sourceAsMap = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (SearchHit searchHit : searchHits) &#123;</span><br><span class="line">            Map&lt;String, Object&gt; orginMap = searchHit.getSourceAsMap();</span><br><span class="line">            Map&lt;String, Object&gt; newMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">            <span class="comment">//sourceAsMap1.put(&quot;esId&quot;, searchHit.getId());</span></span><br><span class="line">            <span class="comment">//sourceAsMap1.put(&quot;index&quot;, searchHit.getIndex());</span></span><br><span class="line">            <span class="comment">// key是个jsonObject则把对象打平，处理矩阵数据</span></span><br><span class="line">            <span class="keyword">for</span> (String parentKey : orginMap.keySet()) &#123;</span><br><span class="line">                Object obj = orginMap.get(parentKey);</span><br><span class="line">                <span class="keyword">if</span> (obj <span class="keyword">instanceof</span> Map) &#123;</span><br><span class="line">                    Map&lt;String, Object&gt; childMap = (Map) obj;</span><br><span class="line">                    <span class="keyword">for</span> (String childKey : childMap.keySet()) &#123;</span><br><span class="line">                        String newKey = parentKey + <span class="string">&quot;.&quot;</span> + childKey;</span><br><span class="line">                        Object childValue = childMap.get(childKey);</span><br><span class="line">                        <span class="keyword">if</span> (childValue <span class="keyword">instanceof</span> List) &#123;</span><br><span class="line">                            newMap.put(newKey, JSON.toJSONString(childMap.get(childKey)));</span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                            newMap.put(newKey, childMap.get(childKey));</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (obj <span class="keyword">instanceof</span> List) &#123;</span><br><span class="line">                    newMap.put(parentKey, JSON.toJSONString(obj));</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    newMap.put(parentKey, orginMap.get(parentKey));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            sourceAsMap.add(newMap);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sourceAsMap;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Map&lt;String, Object&gt; <span class="title">getObjectToMap</span><span class="params">(Object obj)</span> <span class="keyword">throws</span> IllegalAccessException </span>&#123;</span><br><span class="line">        Map&lt;String, Object&gt; map = <span class="keyword">new</span> LinkedHashMap&lt;String, Object&gt;();</span><br><span class="line">        Class&lt;?&gt; clazz = obj.getClass();</span><br><span class="line">        <span class="keyword">for</span> (Field field : clazz.getDeclaredFields()) &#123;</span><br><span class="line">            field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">            String fieldName = field.getName();</span><br><span class="line">            Object value = field.get(obj);</span><br><span class="line">            <span class="keyword">if</span> (value == <span class="keyword">null</span>) &#123;</span><br><span class="line">                value = <span class="string">&quot;&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            map.put(fieldName, value);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> map;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://dogfun.top/2022/03/03/middleware/Elasticsearch/" title="Elasticsearch" target="_blank" rel="external">https://dogfun.top/2022/03/03/middleware/Elasticsearch/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/carytseng" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/favicon.ico" class="img-rounded w-full" alt="">
+        </a>
       </div>
-      <div class="post-copyright">
-    <p class="copyright-item">
-      <span>原文作者: </span>
-      <a href="https://dogfun.top">CaryTseng</a>
-    </p>
-    <p class="copyright-item">
-      <span>原文链接: </span>
-      <a href="https://dogfun.top/2022/03/03/middleware/Elasticsearch/">https://dogfun.top/2022/03/03/middleware/Elasticsearch/</a>
-    </p>
-    <p class="copyright-item">
-      <span>许可协议: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
-    </p>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/carytseng" target="_blank"><span class="text-dark">Cary Tseng</span><small class="ml-1x"></small></a></h3>
+        <div>无聊的人</div>
+      </div>
+    </figure>
   </div>
-      <footer class="post-footer">
-        
-        <nav class="post-nav"><a class="prev" href="/2022/03/20/middleware/canal/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">canal</span>
-        <span class="prev-text nav-mobile">上一篇</span>
-      </a>
-    <a class="next" href="/2022/02/27/thinking/%E4%BF%84%E4%B9%8C%E5%86%B2%E7%AA%81/">
-        <span class="next-text nav-default">俄乌冲突</span>
-        <span class="prev-text nav-mobile">下一篇</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-    </nav></footer>
-    </article></div><div class="comments" id="comments"></div></div>
-      </main>
-
-      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
-        <a target="_blank" rel="noopener" href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
-        <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
-    </div><div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/ahonn/hexo-theme-even">Even</a>
-  </span>
-
-  <span class="copyright-year">&copy;2015 - 2022<span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">CaryTseng</span>
-  </span>
 </div>
-</footer>
 
-      <div class="back-to-top" id="back-to-top">
-        <i class="iconfont icon-up"></i>
-      </div>
-    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/src/even.js?v=2.11.1"></script>
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2022/03/20/middleware/canal/" title="canal"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2022/02/27/thinking/%E4%BF%84%E4%B9%8C%E5%86%B2%E7%AA%81/" title="俄乌冲突"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn   collapsed  " data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">    <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2022 CaryTseng
+        
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
 </body>
 </html>

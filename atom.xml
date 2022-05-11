@@ -273,6 +273,28 @@
   </entry>
   
   <entry>
+    <title>Minio</title>
+    <link href="https://dogfun.top/2021/11/27/middleware/minio/"/>
+    <id>https://dogfun.top/2021/11/27/middleware/minio/</id>
+    <published>2021-11-27T01:49:06.000Z</published>
+    <updated>2022-03-29T02:41:36.389Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="docker安装"><a href="#docker安装" class="headerlink" title="docker安装"></a>docker安装</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 9000:9000 -p 9001:9001 -d --name minio1 \</span><br><span class="line">  -v /Users/carytseng/envir/minio/data:/data \</span><br><span class="line">  -v /Users/carytseng/envir/minio/config:/root/.minio \</span><br><span class="line">  -e &#x27;MINIO_ROOT_USER=admin&#x27; \</span><br><span class="line">  -e &#x27;MINIO_ROOT_PASSWORD=admin123&#x27; \</span><br><span class="line">  minio/minio server /data --console-address &quot;:9001&quot;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;docker安装&quot;&gt;&lt;a href=&quot;#docker安装&quot; class=&quot;headerlink&quot; title=&quot;docker安装&quot;&gt;&lt;/a&gt;docker安装&lt;/h2&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t</summary>
+      
+    
+    
+    
+    <category term="middleware" scheme="https://dogfun.top/categories/middleware/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>随想11-27</title>
     <link href="https://dogfun.top/2021/11/27/thinking/%E9%9A%8F%E6%83%B311-27/"/>
     <id>https://dogfun.top/2021/11/27/thinking/%E9%9A%8F%E6%83%B311-27/</id>
@@ -291,28 +313,6 @@
     
     
     <category term="thinking" scheme="https://dogfun.top/categories/thinking/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Minio</title>
-    <link href="https://dogfun.top/2021/11/27/middleware/minio/"/>
-    <id>https://dogfun.top/2021/11/27/middleware/minio/</id>
-    <published>2021-11-27T01:49:06.000Z</published>
-    <updated>2022-03-29T02:41:36.389Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="docker安装"><a href="#docker安装" class="headerlink" title="docker安装"></a>docker安装</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 9000:9000 -p 9001:9001 -d --name minio1 \</span><br><span class="line">  -v /Users/carytseng/envir/minio/data:/data \</span><br><span class="line">  -v /Users/carytseng/envir/minio/config:/root/.minio \</span><br><span class="line">  -e &#x27;MINIO_ROOT_USER=admin&#x27; \</span><br><span class="line">  -e &#x27;MINIO_ROOT_PASSWORD=admin123&#x27; \</span><br><span class="line">  minio/minio server /data --console-address &quot;:9001&quot;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;docker安装&quot;&gt;&lt;a href=&quot;#docker安装&quot; class=&quot;headerlink&quot; title=&quot;docker安装&quot;&gt;&lt;/a&gt;docker安装&lt;/h2&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t</summary>
-      
-    
-    
-    
-    <category term="middleware" scheme="https://dogfun.top/categories/middleware/"/>
     
     
   </entry>
