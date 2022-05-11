@@ -1,519 +1,150 @@
 <!DOCTYPE html>
-<html lang=zh>
-<head>
-  <meta charset="utf-8">
-  
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="Cache-Control" content="no-transform" />
-  <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="format-detection" content="telephone=no,email=no,adress=no">
-  <!-- Color theme for statusbar -->
-  <meta name="theme-color" content="#000000" />
-  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
-  <meta http-equiv="window-target" content="_top" />
-  
-  
-  <title>Linux文件删除原理 | dogfun</title>
-  <meta name="description" content="Linux磁盘上的文件有两个link计数器，分别是i_count和i_link，表示进程的引用计数和硬连接的数量。只有当i_count&#x3D;0并且i_link&#x3D;0才会删除文件。当我们使用rm命令时，只是使i_link减少，如果此时文件依然被进程引用，文件还未被真正的删除。 实践场景 　　实现的一个功能点是通过FTP将文件从其他机子同步到本机，需要删除本机当日的数据，覆写新的数据，并且这些数据会被一">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Linux文件删除原理">
-<meta property="og:url" content="https://dogfun.top/2020/05/14/flow/Linux%E6%96%87%E4%BB%B6%E5%88%A0%E9%99%A4%E5%8E%9F%E7%90%86/index.html">
-<meta property="og:site_name" content="Cary Tseng">
-<meta property="og:description" content="Linux磁盘上的文件有两个link计数器，分别是i_count和i_link，表示进程的引用计数和硬连接的数量。只有当i_count&#x3D;0并且i_link&#x3D;0才会删除文件。当我们使用rm命令时，只是使i_link减少，如果此时文件依然被进程引用，文件还未被真正的删除。 实践场景 　　实现的一个功能点是通过FTP将文件从其他机子同步到本机，需要删除本机当日的数据，覆写新的数据，并且这些数据会被一">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-05-14T03:15:15.000Z">
-<meta property="article:modified_time" content="2022-03-28T08:42:38.046Z">
-<meta property="article:author" content="CaryTseng">
-<meta property="article:tag" content="技术学习">
-<meta property="article:tag" content="Linux">
-<meta name="twitter:card" content="summary">
-  <!-- Canonical links -->
-  <link rel="canonical" href="https://dogfun.top/2020/05/14/flow/Linux%E6%96%87%E4%BB%B6%E5%88%A0%E9%99%A4%E5%8E%9F%E7%90%86/index.html">
-  
-    <link rel="alternate" href="/atom.xml" title="Cary Tseng" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  
-  
-  
-  
-<meta name="generator" content="Hexo 5.4.0"></head>
+<html lang="zh-CN">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
-<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
-  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-  <div class="slimContent">
-    <div class="navbar-header">
-      
-      
-      <div class="profile-block text-center">
-        <a id="avatar" href="https://github.com/carytseng" target="_blank">
-          <img class="img-circle img-rotate" src="/favicon.ico" width="200" height="200">
-        </a>
-        <h2 id="name" class="hidden-xs hidden-sm">Cary Tseng</h2>
-        <h3 id="title" class="hidden-xs hidden-sm hidden-md"></h3>
-        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Guangzhou, China</small>
-      </div>
-      
-      <div class="search" id="search-form-wrap">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
-    <form class="search-form sidebar-form">
-        <div class="input-group">
-            <input type="text" class="search-form-input form-control" placeholder="搜索" />
-            <span class="input-group-btn">
-                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
-            </span>
-        </div>
-    </form>
-    <div class="ins-search">
-  <div class="ins-search-mask"></div>
-  <div class="ins-search-container">
-    <div class="ins-input-wrapper">
-      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
-      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-    </div>
-    <div class="ins-section-wrapper">
-      <div class="ins-section-container"></div>
-    </div>
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="Linux文件删除原理"/><meta name="keywords" content="技术学习, Linux, Cary Tseng" /><link rel="alternate" href="/atom.xml" title="Cary Tseng" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.1" />
+<link rel="canonical" href="https://dogfun.top/2020/05/14/flow/Linux文件删除原理/"/>
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.1" />
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":false};
+</script>
+
+    <title>Linux文件删除原理 - Cary Tseng</title>
+  <meta name="generator" content="Hexo 5.4.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Cary Tseng</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
 </div>
 
-
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/archives/">
+        <li class="mobile-menu-item">归档
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Cary Tseng</a>
 </div>
-      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
-      <ul class="nav navbar-nav main-nav ">
-        
-        
-        <li class="menu-item menu-item-home">
-          <a href="/.">
-            
-            <i class="icon icon-home-fill"></i>
-            
-            <span class="menu-title">首页</span>
-          </a>
-        </li>
-        
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives">
-            
-            <i class="icon icon-archives-fill"></i>
-            
-            <span class="menu-title">归档</span>
-          </a>
-        </li>
-        
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories">
-            
-            <i class="icon icon-folder"></i>
-            
-            <span class="menu-title">分类</span>
-          </a>
-        </li>
-        
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags">
-            
-            <i class="icon icon-tags"></i>
-            
-            <span class="menu-title">标签</span>
-          </a>
-        </li>
-        
-      </ul>
-      
-	
-    <ul class="social-links">
-    	
-        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
-        
-    </ul>
 
-    </nav>
-  </div>
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            归档
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            分类
+            </a>
+        </li>
+      </ul></nav>
 </header>
 
-  
-    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
-  <div class="slimContent">
-    
-      <div class="widget">
-    <h3 class="widget-title">公告</h3>
-    <div class="widget-body">
-        <div id="board">
-            <div class="content">
-                <p>联系我：carytseng.kira@gmail.com</p>
-            </div>
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">Linux文件删除原理
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2020-05-14
+        </span><span class="post-category">
+            <a href="/categories/flow/">flow</a>
+            </span>
         </div>
-    </div>
-</div>
+    </header>
 
-    
-      
-  <div class="widget">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">algorithm</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/designpattern/">designpattern</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/flow/">flow</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/host/">host</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/middleware/">middleware</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/record/">record</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/thinking/">thinking</a><span class="category-list-count">22</span></li></ul>
-    </div>
-  </div>
-
-
-    
-      
-  <div class="widget">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JWT/" rel="tag">JWT</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E5%9F%BA%E7%A1%80/" rel="tag">Java基础</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Web/" rel="tag">Web</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebSocket/" rel="tag">WebSocket</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ignite/" rel="tag">ignite</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssr/" rel="tag">ssr</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" rel="tag">中间件</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%86%99%E6%A1%86%E6%9E%B6/" rel="tag">从零开始写框架</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E9%87%91/" rel="tag">基金</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E5%B8%B8/" rel="tag">异常</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" rel="tag">技术学习</a><span class="tag-list-count">23</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%95%E8%B5%84/" rel="tag">投资</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E6%BA%90/" rel="tag">数据源</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" rel="tag">消息队列</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E5%93%B2/" rel="tag">理哲</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" rel="tag">编程技巧</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%82%A1%E7%A5%A8/" rel="tag">股票</a><span class="tag-list-count">2</span></li></ul>
-    </div>
-  </div>
-
-
-    
-      
-  <div class="widget">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget-body tagcloud">
-      <a href="/tags/JWT/" style="font-size: 13.25px;">JWT</a> <a href="/tags/Java%E5%9F%BA%E7%A1%80/" style="font-size: 13px;">Java基础</a> <a href="/tags/Linux/" style="font-size: 13.25px;">Linux</a> <a href="/tags/Spring/" style="font-size: 13px;">Spring</a> <a href="/tags/Web/" style="font-size: 13px;">Web</a> <a href="/tags/WebSocket/" style="font-size: 13px;">WebSocket</a> <a href="/tags/ignite/" style="font-size: 13px;">ignite</a> <a href="/tags/ssr/" style="font-size: 13px;">ssr</a> <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 13px;">中间件</a> <a href="/tags/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%86%99%E6%A1%86%E6%9E%B6/" style="font-size: 13px;">从零开始写框架</a> <a href="/tags/%E5%9F%BA%E9%87%91/" style="font-size: 13px;">基金</a> <a href="/tags/%E5%BC%82%E5%B8%B8/" style="font-size: 13px;">异常</a> <a href="/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" style="font-size: 14px;">技术学习</a> <a href="/tags/%E6%8A%95%E8%B5%84/" style="font-size: 13.5px;">投资</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E6%BA%90/" style="font-size: 13px;">数据源</a> <a href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" style="font-size: 13.25px;">消息队列</a> <a href="/tags/%E7%90%86%E5%93%B2/" style="font-size: 13px;">理哲</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" style="font-size: 13.75px;">编程技巧</a> <a href="/tags/%E8%82%A1%E7%A5%A8/" style="font-size: 13.25px;">股票</a>
-    </div>
-  </div>
-
-    
-      
-  <div class="widget">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">四月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">三月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">五月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">二月 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">八月 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">七月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a><span class="archive-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-    
-      
-  <div class="widget">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget-body">
-      <ul class="recent-post-list list-unstyled no-thumbnail">
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/record/">record</a>
-              </p>
-              <p class="item-title">
-                <a href="/2022/04/15/record/%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/" class="title">JDK动态代理、cglib、aspectJ</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2022-04-15T11:24:06.000Z" itemprop="datePublished">2022-04-15</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/middleware/">middleware</a>
-              </p>
-              <p class="item-title">
-                <a href="/2022/03/20/middleware/canal/" class="title">canal</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2022-03-20T02:14:13.000Z" itemprop="datePublished">2022-03-20</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/middleware/">middleware</a>
-              </p>
-              <p class="item-title">
-                <a href="/2022/03/03/middleware/Elasticsearch/" class="title">Elasticsearch</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2022-03-03T01:25:02.000Z" itemprop="datePublished">2022-03-03</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/thinking/">thinking</a>
-              </p>
-              <p class="item-title">
-                <a href="/2022/02/27/thinking/%E4%BF%84%E4%B9%8C%E5%86%B2%E7%AA%81/" class="title">俄乌冲突</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2022-02-27T05:29:46.000Z" itemprop="datePublished">2022-02-27</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/middleware/">middleware</a>
-              </p>
-              <p class="item-title">
-                <a href="/2022/02/22/middleware/k8/" class="title">K8S</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2022-02-22T03:24:58.000Z" itemprop="datePublished">2022-02-22</time>
-              </p>
-            </div>
-          </li>
-          
-      </ul>
-    </div>
-  </div>
-  
-
-    
-  </div>
-</aside>
-
-  
-  
-<main class="main" role="main">
-  <div class="content">
-  <article id="post-flow/Linux文件删除原理" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-    
-    <div class="article-header">
-      
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Linux文件删除原理
-    </h1>
-  
-
-      
-      <div class="article-meta">
-        <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2020/05/14/flow/Linux%E6%96%87%E4%BB%B6%E5%88%A0%E9%99%A4%E5%8E%9F%E7%90%86/" class="article-date">
-	  <time datetime="2020-05-14T03:15:15.000Z" itemprop="datePublished">2020-05-14</time>
-	</a>
-</span>
-        
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/flow/">flow</a>
-  </span>
-
-        
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/Linux/" rel="tag">Linux</a>, <a class="article-tag-link-link" href="/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" rel="tag">技术学习</a>
-  </span>
-
-
-        
-
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/05/14/flow/Linux%E6%96%87%E4%BB%B6%E5%88%A0%E9%99%A4%E5%8E%9F%E7%90%86/#comments" class="article-comment-link">评论</a></span>
-        
-      </div>
-    </div>
-    <div class="article-entry marked-body" itemprop="articleBody">
-      
-        <p>　　Linux磁盘上的文件有两个link计数器，分别是i_count和i_link，表示进程的引用计数和硬连接的数量。只有当i_count=0并且i_link=0才会删除文件。当我们使用rm命令时，只是使i_link减少，如果此时文件依然被进程引用，文件还未被真正的删除。</p>
+    <div class="post-content"><p>　　Linux磁盘上的文件有两个link计数器，分别是i_count和i_link，表示进程的引用计数和硬连接的数量。只有当i_count=0并且i_link=0才会删除文件。当我们使用rm命令时，只是使i_link减少，如果此时文件依然被进程引用，文件还未被真正的删除。</p>
 <p><strong>实践场景</strong></p>
 <p>　　实现的一个功能点是通过FTP将文件从其他机子同步到本机，需要删除本机当日的数据，覆写新的数据，并且这些数据会被一个程序定时读取使用。这里的问题是如果此时程序正在读取数据，而同步程序也在跑，会不会影响业务。首先这里程序不涉及写操作，只读，那么当同步程序删除文件时，应用程序load到内存中，完成业务操作都是在内存中，当然如果发生程序异常，那么重跑也会以最新的文件为基础。</p>
 
-      
-    </div>
-    <div class="article-footer">
-      <blockquote class="mt-2x">
-  <ul class="post-copyright list-unstyled">
-    
-    <li class="post-copyright-link hidden-xs">
-      <strong>本文链接：</strong>
-      <a href="https://dogfun.top/2020/05/14/flow/Linux%E6%96%87%E4%BB%B6%E5%88%A0%E9%99%A4%E5%8E%9F%E7%90%86/" title="Linux文件删除原理" target="_blank" rel="external">https://dogfun.top/2020/05/14/flow/Linux文件删除原理/</a>
-    </li>
-    
-    <li class="post-copyright-license">
-      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
-    </li>
-  </ul>
-</blockquote>
-
-
-<div class="panel panel-default panel-badger">
-  <div class="panel-body">
-    <figure class="media">
-      <div class="media-left">
-        <a href="https://github.com/carytseng" target="_blank" class="img-burn thumb-sm visible-lg">
-          <img src="/favicon.ico" class="img-rounded w-full" alt="">
-        </a>
       </div>
-      <div class="media-body">
-        <h3 class="media-heading"><a href="https://github.com/carytseng" target="_blank"><span class="text-dark">Cary Tseng</span><small class="ml-1x"></small></a></h3>
-        <div>无聊的人</div>
-      </div>
-    </figure>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="https://dogfun.top">CaryTseng</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="https://dogfun.top/2020/05/14/flow/Linux%E6%96%87%E4%BB%B6%E5%88%A0%E9%99%A4%E5%8E%9F%E7%90%86/">https://dogfun.top/2020/05/14/flow/Linux%E6%96%87%E4%BB%B6%E5%88%A0%E9%99%A4%E5%8E%9F%E7%90%86/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
   </div>
-</div>
-
-
-    </div>
-  </article>
-  
-    
-  <section id="comments">
-  	
-      <div id="vcomments"></div>
-    
-  </section>
-
-
-  
-</div>
-
-  <nav class="bar bar-footer clearfix" data-stick-bottom>
-  <div class="bar-inner">
-  
-  <ul class="pager pull-left">
-    
-    <li class="prev">
-      <a href="/2020/05/21/flow/FTP%E6%A8%A1%E5%BC%8F%E8%AE%BE%E7%BD%AE%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98/" title="FTP模式设置引发的问题"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
-    
-    <li class="next">
-      <a href="/2020/05/14/flow/NetworkManager/" title="NetworkManager"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
-    </li>
-    
-    
-  </ul>
-  
-  
-  
-  <div class="bar-right">
-    
-    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
-    
-  </div>
-  </div>
-</nav>
-  
-
-
-</main>
-
-  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
-	
-	
-    <ul class="social-links">
-    	
-        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a>
+            <a href="/tags/Linux/">Linux</a>
+            </div>
         
-    </ul>
+        <nav class="post-nav"><a class="prev" href="/2020/05/21/flow/FTP%E6%A8%A1%E5%BC%8F%E8%AE%BE%E7%BD%AE%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">FTP模式设置引发的问题</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    <a class="next" href="/2020/05/14/flow/NetworkManager/">
+        <span class="next-text nav-default">NetworkManager</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"></div></div>
+      </main>
 
-    <div class="copyright">
-    	
-        &copy; 2022 CaryTseng
-        
-        <div class="publishby">
-        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
-        </div>
-    </div>
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    </div><div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2015 - 2022<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">CaryTseng</span>
+  </span>
+</div>
 </footer>
-  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-<script>
-window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
-</script>
 
-<script src="/js/plugin.min.js"></script>
-
-
-<script src="/js/application.js"></script>
-
-
-    <script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: '文章',
-            PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
-            UNTITLED: '(未命名)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
-
-<script src="/js/insight.js"></script>
-
-
-
-
-
-
-   
-
-
-
-
-   
-    
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/valine"></script>
-  <script type="text/javascript">
-  var GUEST = ['nick', 'mail', 'link'];
-  var meta = 'nick,mail,link';
-  meta = meta.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#vcomments',
-    verify: false,
-    notify: false,
-    appId: '',
-    appKey: '',
-    placeholder: 'Just go go',
-    avatar: 'mm',
-    meta: meta,
-    pageSize: '10' || 10,
-    visitor: false
-  });
-  </script>
-
-     
-
-
-
-
-
-
-
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.1"></script>
 </body>
 </html>
