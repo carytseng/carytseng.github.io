@@ -10,18 +10,15 @@
     <meta name="author" content="CaryTseng">
   
   
-    <meta name="description" content="生产环境中kafka出现消息积压的情况，消费者重复消费的情况
-
-分析
-业务代码中消费端主要做消息存储与消息推送，http推数据。定位消费端的日志逻辑，发现http连接超时，应该是厂家设的推送地址有问题，导致超时。用的kafka版本是0.10.0，查阅了超时配置在10s，思路就改动消费端的逻辑，改成用线程池去异步推，把自动提交改成手动提交，解决了我的问题。
-0.10.0以后的版本与消费者相关的几个">
+    <meta name="description" content="分析
+业务代码中消费端主要做消息存储与消息推送，http推数据。定位消费端的日志逻辑，发现http连接超时，应该是厂家设的推送地址有问题，导致超时。用的kafka版本是0.10.0，查阅了超时配置在10s，思路就改动消费端的逻辑，改成用线程池去异步推，把自动提交改成手动提交，解决了我的问题。">
   
-  <meta name="description" content="生产环境中kafka出现消息积压的情况，消费者重复消费的情况  分析 业务代码中消费端主要做消息存储与消息推送，http推数据。定位消费端的日志逻辑，发现http连接超时，应该是厂家设的推送地址有问题，导致超时。用的kafka版本是0.10.0，查阅了超时配置在10s，思路就改动消费端的逻辑，改成用线程池去异步推，把自动提交改成手动提交，解决了我的问题。 0.10.0以后的版本与消费者相关的几个">
+  <meta name="description" content="分析 业务代码中消费端主要做消息存储与消息推送，http推数据。定位消费端的日志逻辑，发现http连接超时，应该是厂家设的推送地址有问题，导致超时。用的kafka版本是0.10.0，查阅了超时配置在10s，思路就改动消费端的逻辑，改成用线程池去异步推，把自动提交改成手动提交，解决了我的问题。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="kafka生产重复消费问题">
 <meta property="og:url" content="https://dogfun.top/2018/04/11/middleware/kafka%E7%94%9F%E4%BA%A7%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Cary Tseng">
-<meta property="og:description" content="生产环境中kafka出现消息积压的情况，消费者重复消费的情况  分析 业务代码中消费端主要做消息存储与消息推送，http推数据。定位消费端的日志逻辑，发现http连接超时，应该是厂家设的推送地址有问题，导致超时。用的kafka版本是0.10.0，查阅了超时配置在10s，思路就改动消费端的逻辑，改成用线程池去异步推，把自动提交改成手动提交，解决了我的问题。 0.10.0以后的版本与消费者相关的几个">
+<meta property="og:description" content="分析 业务代码中消费端主要做消息存储与消息推送，http推数据。定位消费端的日志逻辑，发现http连接超时，应该是厂家设的推送地址有问题，导致超时。用的kafka版本是0.10.0，查阅了超时配置在10s，思路就改动消费端的逻辑，改成用线程池去异步推，把自动提交改成手动提交，解决了我的问题。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-04-11T04:20:07.000Z">
 <meta property="article:modified_time" content="2022-03-29T02:41:36.388Z">

@@ -64,112 +64,39 @@
   <header>
     
       <div class="icon"></div>
-      <a href="/2019/09/15/middleware/docker/">
-  <time datetime="2019-09-15T02:14:13.000Z">
-    2019-09-15
+      <a href="/2020/09/25/middleware/presto/">
+  <time datetime="2020-09-25T01:25:02.000Z">
+    2020-09-25
   </time>
 </a>
     
     
   
-    <h1 class="title"><a href="/2019/09/15/middleware/docker/">docker</a></h1>
+    <h1 class="title"><a href="/2020/09/25/middleware/presto/">Presto</a></h1>
   
 
   </header>
   
   <div class="entry">
     
-      <h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><h4 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#方式1</span><br><span class="line">curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</span><br><span class="line">#方式2</span><br><span class="line">curl -sSL https://get.daocloud.io/docker | sh</span><br></pre></td></tr></table></figure>
-
-<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start docker</span><br><span class="line">sudo systemctl enable docker</span><br><span class="line"></span><br><span class="line">授权普通用户docker运行权限</span><br><span class="line">sudo usermod -aG docker [user]</span><br></pre></td></tr></table></figure>
-
-<h4 id="Dockerfile应用容器化"><a href="#Dockerfile应用容器化" class="headerlink" title="Dockerfile应用容器化"></a>Dockerfile应用容器化</h4><ol>
-<li><p>编写Dockerfile</p>
-</li>
-<li><p>在应用代码和Dockerfile目录下执行命令</p>
+      <p>​        Facebook开发的分布式查询引擎，采用master-slave架构，由一个Coordinator节点，一个Discovery节点，多个Worker节点组成，Coordinator负责解析SQL，生成执行计划，分发执行任务给多个Worker节点，Worker节点负责实际执行查询任务。Worker节点启动后向Discovery Server服务注册，Coordinator从Discovery Server获得可以正常工作的Worker节点。</p>
 <ol>
-<li>docker image build . -t test:latest</li>
+<li>完全基于内存的并行计算</li>
+<li>流水线</li>
+<li>本地化计算</li>
+<li>动态编译执行计划</li>
+<li>小心使用内存和数据结构</li>
+<li>类BlinkDB的近似查询</li>
+<li>GC控制</li>
 </ol>
-</li>
-<li><p>运行</p>
-<ol>
-<li>docker container run -d —- name web1 —publish 8080:8080 test:latest</li>
-</ol>
-</li>
-</ol>
-<h3 id="Docker引擎"><a href="#Docker引擎" class="headerlink" title="Docker引擎"></a>Docker引擎</h3><blockquote>
-<p>Docker采用模块化设计</p>
-<p>Docker daemon实现了Docker API，基于HTTP</p>
-<p>对容器的操作由containerd完成，containerd主要负责容器的生命周期管理，它指挥与OCI兼容的容器运行时来创建容器，runc是OCI容器运行时规范的实现，其基于Docker公司开发的Libcontainer与系统内核交互，Libcontainer是为了代替LXC，达到平台无关化。containerd调用runc，确保Docker镜像以OCI bundle的格式给runc。Docker daemon剩下的主要职责有API、镜像管理、身份认证、安全特性、核心网络等。</p>
-</blockquote>
-<h3 id="应用容器化"><a href="#应用容器化" class="headerlink" title="应用容器化"></a>应用容器化</h3><p>  docker image build命令会读取Dockerfile,并将应用容器化。使用-t打标签，使用-f指定Dockerfile的路径和名称，-f指定任意路径下的任意名称的Dockerfile</p>
-<p>  from指定构建的镜像的基础镜像</p>
-<p>  run用于在镜像中执行命令，每个run创建一个新的镜像层</p>
-<p>  copy将新的层添加到镜像中</p>
-<p>  EXPOSE用于记录应用所用的网络端口</p>
-<p>  ENTRYPOINT用于指定镜像以容器方式启动默认</p>
-<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><h4 id="镜像类"><a href="#镜像类" class="headerlink" title="镜像类"></a>镜像类</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">查看远程仓库镜像所有版本，需要安装jq工具处理json响应</span><br><span class="line">curl -s https://registry.hub.docker.com/v1/repositories/mysql/tags | jq | grep name | awk &#x27;&#123;print $2&#125;&#x27; | sed -e &#x27;s/&quot;//g&#x27;</span><br><span class="line"></span><br><span class="line">docker build --rm=true . 构建镜像</span><br><span class="line"></span><br><span class="line">docker pull $&#123;IMAGE&#125; 安装镜像</span><br><span class="line"></span><br><span class="line">docker images 显示已经安装的镜像</span><br><span class="line"></span><br><span class="line">docker images --no-trunc 显示已经安装镜像的详细内容</span><br><span class="line"></span><br><span class="line">docker rmi $&#123;IMAGE_ID&#125; 删除指定镜像</span><br><span class="line"></span><br><span class="line">docker rmi $(docker images | grep &quot;^&quot; | awk &quot;&#123;print $3&#125;&quot;) 删除所有没有标签的镜像</span><br><span class="line"></span><br><span class="line">docker rm $(docker ps -aq) 删除所有的镜像</span><br><span class="line"></span><br><span class="line">docker rmi $(docker images --quiet --filter &amp;quot;dangling=true&amp;quot;) 删除未使用的镜像</span><br><span class="line"></span><br><span class="line">docker save -o ubuntu_14.04.tar ubuntu:14.04 导出镜像，打出tar包</span><br><span class="line"></span><br><span class="line">cat ubuntu-14.04-x86_64-minimal.tar.gz |docker import - ubuntu:14.04 导入镜像</span><br><span class="line"></span><br><span class="line">sudo docker load --input ubuntu_14.04.tar   =  $ sudo docker load &lt; ubuntu_14.04.tar 载入镜像</span><br></pre></td></tr></table></figure>
-
-<h4 id="容器类"><a href="#容器类" class="headerlink" title="容器类"></a>容器类</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">docker run 运行容器</span><br><span class="line"></span><br><span class="line">docker ps 显示正在运行的容器</span><br><span class="line"></span><br><span class="line">docker ps -a 显示所有的容器</span><br><span class="line"></span><br><span class="line">docker stop $&#123;CID&#125; 停止指定容器</span><br><span class="line"></span><br><span class="line">docker stop docker ps -q 停止所有正在运行的容器</span><br><span class="line"></span><br><span class="line">docker ps -a --filter &amp;quot;exited=1&amp;quot; 显示所有退出状态为1的容器</span><br><span class="line"></span><br><span class="line">docker rm $&#123;CID&#125; 删除指定容器</span><br><span class="line"></span><br><span class="line">docker ps -a | grep wildfly | awk &#x27;&#123;print $1&#125;&#x27; | xargs docker rm -f 使用正则表达式删除容器</span><br><span class="line"></span><br><span class="line">docker rm -f $(docker ps -a | grep Exit | awk &#x27;&#123; print $1 &#125;&#x27;) 删除所有退出的容器</span><br><span class="line"></span><br><span class="line">docker rm $(docker ps -aq) 删除所有的容器</span><br><span class="line"></span><br><span class="line">docker inspect --format &#x27;&#123;&#123; .NetworkSettings.IPAddress &#125;&#125;&#x27; $&#123;CID&#125; 显示指定容器的IP</span><br><span class="line"></span><br><span class="line">docker attach $&#123;CID&#125; 进入容器</span><br><span class="line"></span><br><span class="line">docker exec -it $&#123;CID&#125; bash 进入容器打开一个shell</span><br><span class="line"></span><br><span class="line">docker ps | grep wildfly | awk &#x27;&#123;print $1&#125;&#x27; 通过正则表达式查找容器的镜像ID</span><br></pre></td></tr></table></figure>
-
-<h4 id="网络类"><a href="#网络类" class="headerlink" title="网络类"></a>网络类</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">查看所有网络</span><br><span class="line">docker network ls</span><br><span class="line"></span><br><span class="line">创建自定义网络</span><br><span class="line">docker network create --driver bridge name</span><br><span class="line"></span><br><span class="line">查看指定网络详情</span><br><span class="line">docker network inspect [cid]</span><br></pre></td></tr></table></figure>
-
-<h4 id="日志查询"><a href="#日志查询" class="headerlink" title="日志查询"></a>日志查询</h4><p>docker logs [option] [container]</p>
-<p> Options:</p>
-<ul>
-<li>–details        显示更多的信息</li>
-<li>-f, –follow         跟踪实时日志</li>
-<li>–since string   显示自某个timestamp之后的日志，或相对时间，如42m（即42分钟）</li>
-<li>–tail string    从日志末尾显示多少行日志， 默认是all</li>
-<li>-t, –timestamps     显示时间戳</li>
-<li>–until string   显示自某个timestamp之前的日志，或相对时间，如42m（即42分钟）</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">查看从某个时间开始的日志</span><br><span class="line">docker logs -f -t --since=&quot;2018-02-08&quot; --tail=100 CONTAINER_ID</span><br><span class="line"></span><br><span class="line">查看时间段日志</span><br><span class="line">docker logs -t --since=&quot;2018-02-08T13:23:37&quot; --until &quot;2018-02-09T12:23:37&quot; CONTAINER_ID</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="资源占用分析"><a href="#资源占用分析" class="headerlink" title="资源占用分析"></a>资源占用分析</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker stats</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="Docker-compose"><a href="#Docker-compose" class="headerlink" title="Docker-compose"></a>Docker-compose</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -L &quot;https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose</span><br><span class="line"></span><br><span class="line">将可执行权限应用于二进制文件：</span><br><span class="line"></span><br><span class="line">sudo chmod +x /usr/local/bin/docker-compose</span><br><span class="line">创建软链：</span><br><span class="line"></span><br><span class="line">sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose</span><br><span class="line">测试是否安装成功：</span><br><span class="line"></span><br><span class="line">docker-compose --version</span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote>
-<p>用于定义和运行多容器 Docker 应用程序的工具。通过 Compose，您可以使用 YML 文件来配置应用程序需要的所有服务。然后，使用一个命令，就可以从 YML 文件配置中创建并启动所有服务。</p>
-</blockquote>
-<p>Compose 使用的三个步骤：</p>
-<ul>
-<li>使用 Dockerfile 定义应用程序的环境。</li>
-<li>使用 docker-compose.yml 定义构成应用程序的服务，这样它们可以在隔离环境中一起运行。</li>
-<li>最后，执行 docker-compose up 命令来启动并运行整个应用程序。</li>
-</ul>
-<h3 id="docker-compose-yml"><a href="#docker-compose-yml" class="headerlink" title="docker-compose.yml"></a>docker-compose.yml</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># yaml 配置实例</span><br><span class="line"># 指定使用docker-compose哪个版本</span><br><span class="line">version: &#x27;3&#x27;</span><br><span class="line">services:</span><br><span class="line">  web:</span><br><span class="line">    build: .</span><br><span class="line">    ports:</span><br><span class="line">   - &quot;5000:5000&quot;</span><br><span class="line">    volumes:</span><br><span class="line">   - .:/code</span><br><span class="line">    - logvolume01:/var/log</span><br><span class="line">    links:</span><br><span class="line">   - redis</span><br><span class="line">  redis:</span><br><span class="line">    image: redis</span><br><span class="line">volumes:</span><br><span class="line">  logvolume01: &#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="常用命令-1"><a href="#常用命令-1" class="headerlink" title="常用命令"></a>常用命令</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//默认启动</span><br><span class="line">docker-compose up </span><br><span class="line"></span><br><span class="line">//指定文件启动 -f  </span><br><span class="line">docker-compose -f docker-compose-redis.yml up -d</span><br><span class="line"></span><br><span class="line">//停止服务</span><br><span class="line">docker-compose down</span><br><span class="line"></span><br><span class="line">docker-compose ps # lists all services (id, name) </span><br><span class="line">docker-compose stop &lt;id/name&gt; #this will stop only the selected container </span><br><span class="line">docker-compose rm &lt;id/name&gt; # this will remove the docker container permanently </span><br><span class="line">docker-compose up # builds/rebuilds all not already built container </span><br></pre></td></tr></table></figure>
-
-<h2 id="Docker-network"><a href="#Docker-network" class="headerlink" title="Docker-network"></a>Docker-network</h2><ul>
-<li>bridge：桥接方式，宿主机与容器间的网络进行桥接，进行端口映射，共用ip</li>
-<li>host：去除宿主机与容器间的网络隔离，直接用宿主机的ip</li>
-<li>overlay：将多个Docker守护程序连接在一起，并使群集服务能够相互通信。</li>
-<li>None：禁止联网</li>
-</ul>
-<h3 id="常用命令-2"><a href="#常用命令-2" class="headerlink" title="常用命令"></a>常用命令</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#展示所有网络</span><br><span class="line">docker network ls</span><br><span class="line"></span><br><span class="line">#查看网络详情</span><br><span class="line">docker network inspect [id]</span><br><span class="line"></span><br><span class="line">#创建自定义网络</span><br><span class="line">docker network create --driver [bridge|host|overlay] [name]</span><br></pre></td></tr></table></figure>
-
-<h3 id="场景选择"><a href="#场景选择" class="headerlink" title="场景选择"></a>场景选择</h3><ul>
-<li>多个容器在同一个主机上通信，使用桥接。默认的桥接会加入同一个网络，生产上建议使用自定义的桥接网络</li>
-<li>当不与主机隔离，直接使用主机网络</li>
-<li>集群服务选择overlay</li>
-</ul>
-<h3 id="自定义桥接网络"><a href="#自定义桥接网络" class="headerlink" title="自定义桥接网络"></a>自定义桥接网络</h3><ol>
-<li><p>创建桥接网络</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network create --driver bridge sample</span><br></pre></td></tr></table></figure></li>
-<li><p>docker-compose.yml文件添加networks配置引入外部链接</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">version: &#x27;2.1&#x27;</span><br><span class="line">services:</span><br><span class="line">  zookeeper:</span><br><span class="line">    container_name: zookeeper_kafka</span><br><span class="line">    image: wurstmeister/zookeeper</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;2181:2181&quot;</span><br><span class="line">    networks:</span><br><span class="line">      - sms</span><br><span class="line">      </span><br><span class="line">#通过链接外部创建的网络</span><br><span class="line">networks:</span><br><span class="line">  sms:</span><br><span class="line">    external: true</span><br></pre></td></tr></table></figure></li>
-</ol>
-
     
   </div>
   <footer class="end-sep">
     
+      
+        <div class="alignleft">
+          <a href="/2020/09/25/middleware/presto/#more" class="more-link">阅读全文</a>
+        </div>
       
       
     
@@ -183,15 +110,326 @@
   <header>
     
       <div class="icon"></div>
-      <a href="/2019/07/26/designpattern/design-pattern-装饰器模式/">
-  <time datetime="2019-07-26T01:49:02.000Z">
-    2019-07-26
+      <a href="/2020/09/10/thinking/放量下跌/">
+  <time datetime="2020-09-10T07:14:47.000Z">
+    2020-09-10
   </time>
 </a>
     
     
   
-    <h1 class="title"><a href="/2019/07/26/designpattern/design-pattern-装饰器模式/">装饰器模式</a></h1>
+    <h1 class="title"><a href="/2020/09/10/thinking/放量下跌/">放量下跌</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p>　　今日的市场放量下跌，现在持有500股21.95的招商证券下跌0.5，500股25.50的三安光电，没有精确拿到当天的低价，行情全日震荡幅度大，拿到这个筹码不算最好，但也算不错，留有30%的仓位等补仓用。前日受美股影响A股也下跌，今天突破了3260点下挫到3234附近，目前持有的基金收益已经亏损了，科技股受影响严重，也是因为之前重仓科技基金，只能说看错了入场点，但问题不大，中长期还是看涨的，毕竟大环境越差，股市肯定要逆行，年初放出的货币怎么也要流向股市的，只是看上层怎么控场了，既不想急速拉升把场子弄臭，也不想资金跑掉砸盘，这时候就看各个大资金大机构怎么做好这个工作了。平稳的一个点位一个点位往上调整，这也是符合大众对股票市场建立信心的。虽然手上拿点小钱在股票市场实践，但对于股票市场的风险，参与之后是深有体会，指数区间对于个股某个区间的价位十分难以把握，所以对于散户来讲，要拿到好的价位入场很难，在这种震荡市中，小资金用来走短线获利是十分有优势的，但同时一不小心就被套在高点了，所以散户只能说跟着趋势走，把握大趋势。从长远来看，手持蓝筹股是最稳的选择，走价值投资的路子。路漫漫其修远兮，学点理财技能，给出自己的判断观点，对于世界，经济趋势的把握十分有益，知行合一。</p>
+
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2020/09/10/thinking/放量下跌/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2020/08/17/thinking/牛市/">
+  <time datetime="2020-08-17T10:51:34.000Z">
+    2020-08-17
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2020/08/17/thinking/牛市/">牛市?</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p>　　8.17今天的股市红红火火，浙商证券在上周的震荡盘中，亏了6、7个点，后续也没有补仓，虽然看多，600股成本16.44，上周收盘15.50，一块钱的亏损，受可转债转股的影响，担心股价受影响，因此打算换股，看好招商证券20块的价位，但最终没有买入。今天证券板块拉升，招商当了把领头羊，涨停，虽然上周就看出来机构在打压股价，不断地低吸拉成本，可惜了，一波短线没有买入。今天的大盘站到3400以上，拉升过大，后面的量能支撑表示有所怀疑，k线站到了5日线以上，明天之后也会有所回调，今天将手上的浙商16.60清仓了，防止风险，没什么盈利，三安光电25.78的300股，今天到达29.50，比较满意，手上的持仓也没有满上。今天的行情就是撬动金融板块，拉升指数，个股普遍没有大涨，二八行情。后续应该是大盘的板块轮动，今天加仓了手上的科技基金，科技基金之前高拉减仓了，震荡行情中没有什么亏损，提前埋伏科技板，等大盘资金轮动的时候能吃点肉，顺应国家的慢牛行情，小股民跟着赚点小钱，还是要对股市有所敬畏，看好中国的资本市场。</p>
+
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2020/08/17/thinking/牛市/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2020/08/15/thinking/茶多酚的功效/">
+  <time datetime="2020-08-15T03:37:32.000Z">
+    2020-08-15
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2020/08/15/thinking/茶多酚的功效/">茶多酚的功效</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p>　　英德特产绿茶，号称绿茶中的茶王，期间特别驱车前往本地试茶，相比红茶的烈性，绿茶的茶性比较收敛，就茶感上比较中性，对中枢神经的兴奋作用没有那么大，有促排，消肿的功效 ，个人本身有鼻炎，鼻甲长期处于肿胀的状态，喝绿茶发现鼻甲的肿胀有减缓，脸上的油脂减少，查阅相关资料，发现绿茶中的茶多酚含量相比其他茶种含量较高，因为绿茶的发酵程度低，故而茶多酚含量高。茶多酚对人体有多重功效，特别是一些慢性疾病有一定的疗效。</p>
+<ul>
+<li>抗氧化</li>
+<li>抗炎，鼻炎患者能够有效消肿，对鼻腔的炎症有一定的抑制作用</li>
+<li>抗高血脂</li>
+<li>延缓衰老</li>
+<li>防水肿、抗过敏</li>
+</ul>
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2020/08/15/thinking/茶多酚的功效/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2020/08/07/thinking/建仓/">
+  <time datetime="2020-08-07T08:51:55.000Z">
+    2020-08-07
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2020/08/07/thinking/建仓/">建仓</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p>　　8.4入场建仓，300股的浙商证券，成本16.65，500股的三安光电，成本26.14。基本是买在跌位，8.6涨了一块钱，在8.7又猛跌猛拉，基本上没有多大的盈利，后续看好，持股不动。</p>
+<p>　　8.11，今天尾盘跳水，将这段时间的收益吐回去了，尾盘还加仓了浙商证券，拉低成本到16.44，虽然大盘整体下挫，但是聪明的钱，北上资金净流入60亿，说明在买筹，还是看好后市，持股不动。</p>
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2020/08/07/thinking/建仓/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2020/07/14/designpattern/design-pattern-观察者模式/">
+  <time datetime="2020-07-14T01:44:08.000Z">
+    2020-07-14
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2020/07/14/designpattern/design-pattern-观察者模式/">观察者模式</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>　　定义对象的一种一对多的依赖关系，当一个对象的状态发生改变，所有依赖它的对象都得到通知并自动更新。</p>
+<h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><p>　　当一个对象状态发生变化时，依赖的对象需要得到通知时使用。</p>
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2020/07/14/designpattern/design-pattern-观察者模式/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2020/07/07/thinking/入场梭哈/">
+  <time datetime="2020-07-07T10:29:26.000Z">
+    2020-07-07
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2020/07/07/thinking/入场梭哈/">入场梭哈</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p>　　今天是7.7号，距离昨天开始宣传牛市启动仅一天之隔，作为一条韭菜，进场梭哈300股的招商证券，入手价是29.6，收市价是28.4，额……可以说进场就没了300多块钱，个人预期这波外资短时间不会那么快退场，因为资金吸水的作用还未曾达到，现在的资金来源是外资+机构在烘托，一波氛围烘托出来势必需要有人顶上，没错就是像楼主这样的韭菜，我的看法是现在还在中期，没到下跳的时候，如果我是外资，A股的股价这么低，加上长期的熊市周期，这波疫情下发的货币，总得有地方释放，没错，就是来圈释放的rmb，几天时间靠外资和机构拉到3300多点，剩下的就是要等散户进场，抬到3500以上，然后下跳。我个人预期股价到32块就清掉，不贪心，没错典型的韭菜思维，现在市场的空军是大于多军的，很多人在这波上涨中，吸取了年前的教训不恋战，及早止盈，离场，但我的看法还是那句话，增量的资金在对冲这些放量，大盘是下不来的，所以会造成及早下车的人在揪心少了几个点，其实都是没意义的，市场的变化太快没人能判断准，只要还在赌盘上，就没有赢家，我一直是这个思维，有人的地方就会一直有市场，有市场就会一直有买卖，资产总是放在那里，就看是否有交易的价值了，这些逃跑的资金我猜测它们的心理变化是会再度杀回来，而且会无比地猛烈，好了就看明天打脸了。</p>
+<p>　　2020.7.8</p>
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2020/07/07/thinking/入场梭哈/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2020/07/06/record/单点登录/">
+  <time datetime="2020-07-06T06:24:01.000Z">
+    2020-07-06
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2020/07/06/record/单点登录/">单点登录</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p><strong>定义</strong></p>
+
+<p><strong>概览</strong>　　</p>
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2020/07/06/record/单点登录/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2020/07/06/designpattern/design-pattern-策略模式/">
+  <time datetime="2020-07-06T02:40:45.000Z">
+    2020-07-06
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2020/07/06/designpattern/design-pattern-策略模式/">策略模式</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p><strong>定义</strong></p>
+<p>　　类的行为在运行时可以更改，根据策略选择不同的执行算法。</p>
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2020/07/06/designpattern/design-pattern-策略模式/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2020/07/01/designpattern/design-pattern-模板模式/">
+  <time datetime="2020-07-01T02:48:58.000Z">
+    2020-07-01
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2020/07/01/designpattern/design-pattern-模板模式/">模板模式</a></h1>
   
 
   </header>
@@ -200,875 +438,18 @@
     
       <p><strong>定义</strong></p>
 <blockquote>
-<p>用于向一个现有对象添加新的功能，同时不改变其现有结构。通过创建一个类的装饰类，包装原有类，并保证原有类的签名的前提下提供额外功能。</p>
+<p>在一个抽象类中定义了方法的模板，子类可以按照需要重写，调用以抽象类中定义的方式执行。</p>
 </blockquote>
-<p><strong>为什么及什么时候应用</strong></p>
-<blockquote>
-<p>一般拓展一个类的功能会先想到使用继承的基础上添加，但那样会对原有类的层级结构增添多个子类，且往往我们的需求仅仅是针对某个类做一下简单的功能拓展，而并不是为了定义一个新的子类。此时仅仅增加一个装饰类即可。</p>
-</blockquote>
-<p><strong>优点</strong></p>
-<blockquote>
-<p>装饰类和被装饰类能独立发展，不相互耦合。装饰模式是继承的一个替代，可以动态扩展一个实现类的功能。</p>
-</blockquote>
+<p><strong>什么时候使用</strong></p>
+<p>　　有一些通用的方法时，步骤基本一样，可以将通用的步骤抽象出来，具体的实现方法留给子类去实现。</p>
     
   </div>
   <footer class="end-sep">
     
       
         <div class="alignleft">
-          <a href="/2019/07/26/designpattern/design-pattern-装饰器模式/#more" class="more-link">阅读全文</a>
+          <a href="/2020/07/01/designpattern/design-pattern-模板模式/#more" class="more-link">阅读全文</a>
         </div>
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2019/06/23/designpattern/design-pattern-适配器模式/">
-  <time datetime="2019-06-23T02:41:34.000Z">
-    2019-06-23
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2019/06/23/designpattern/design-pattern-适配器模式/">适配器模式</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <blockquote>
-<p>将一个类的接口转换成客户端希望的接口，通常用于使用现有类适配新的系统接口。优点是复用现有类。</p>
-</blockquote>
-<blockquote>
-<p>代码层面：适配器类继承或依赖已有的对象，实现想要的目标接口。</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>组成</th>
-<th>关系</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>客户接口</td>
-<td>适配的接口</td>
-<td>客户端想要的接口形式</td>
-</tr>
-<tr>
-<td>现有目标类</td>
-<td>现有的可被复用的类</td>
-<td>提供现有接口实现</td>
-</tr>
-<tr>
-<td>适配器类</td>
-<td>实现目标接口，依赖目标类</td>
-<td>实现目标接口，做接口兼容</td>
-</tr>
-</tbody></table>
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-        <div class="alignleft">
-          <a href="/2019/06/23/designpattern/design-pattern-适配器模式/#more" class="more-link">阅读全文</a>
-        </div>
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2019/05/03/record/List遍历过程remove的ConcurrentModificationException/">
-  <time datetime="2019-05-03T08:21:50.000Z">
-    2019-05-03
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2019/05/03/record/List遍历过程remove的ConcurrentModificationException/">List遍历过程remove的ConcurrentModificationException</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">list.add(<span class="number">2</span>);</span><br><span class="line">Iterator&lt;Integer&gt; iterator = list.iterator();</span><br><span class="line"><span class="keyword">while</span>(iterator.hasNext())&#123;</span><br><span class="line">  Integer integer = iterator.next();</span><br><span class="line">  <span class="keyword">if</span>(integer==<span class="number">2</span>)</span><br><span class="line">    list.remove(integer);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>　　以上代码List在遍历的过程中，通过判定索引，移除List的元素，程序抛出ConcurrentModificationException异常。</p>
-<p><strong>原因</strong>　　</p>
-<p>　　在迭代器的实现中，checkForComodification()方法会检查List的modCount与expectedModCount的值，不相等则抛出该异常。我们调用的是List的remove方法， 可以看到程序修改了modeCount的值，但是没有修改expectedModCount的值，导致问题的产生。modCount表示List被修改的次数，expectedModCount表示期待值。</p>
-<p><strong>List的remove方法</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">  rangeCheck(index);</span><br><span class="line"></span><br><span class="line">  modCount++;</span><br><span class="line">  E oldValue = elementData(index);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> numMoved = size - index - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">if</span> (numMoved &gt; <span class="number">0</span>)</span><br><span class="line">    System.arraycopy(elementData, index+<span class="number">1</span>, elementData, index,</span><br><span class="line">                     numMoved);</span><br><span class="line">  elementData[--size] = <span class="keyword">null</span>; <span class="comment">// clear to let GC do its work</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> oldValue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>迭代器的遍历实现</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    checkForComodification();</span><br><span class="line">    <span class="keyword">int</span> i = cursor;</span><br><span class="line">    <span class="keyword">if</span> (i &gt;= size)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> NoSuchElementException();</span><br><span class="line">    Object[] elementData = ArrayList.<span class="keyword">this</span>.elementData;</span><br><span class="line">    <span class="keyword">if</span> (i &gt;= elementData.length)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ConcurrentModificationException();</span><br><span class="line">    cursor = i + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> (E) elementData[lastRet = i];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">final</span> <span class="keyword">void</span> <span class="title">checkForComodification</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (modCount != expectedModCount)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ConcurrentModificationException();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>解决方案</strong></p>
-<p>　　调用iterator的remove方法取代List的remove方法， 该方法多了一步操作，expectedModCount=modCount。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (lastRet &lt; <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException();</span><br><span class="line">  checkForComodification();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    ArrayList.<span class="keyword">this</span>.remove(lastRet);</span><br><span class="line">    cursor = lastRet;</span><br><span class="line">    lastRet = -<span class="number">1</span>;</span><br><span class="line">    expectedModCount = modCount;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (IndexOutOfBoundsException ex) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> ConcurrentModificationException();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2019/03/24/designpattern/design-pattern-责任链模式/">
-  <time datetime="2019-03-24T02:52:12.000Z">
-    2019-03-24
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2019/03/24/designpattern/design-pattern-责任链模式/">责任链模式</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <blockquote>
-<p>用来处理相关事务责任的一条执行链，执行链上有多个节点，每个节点都有机会根据匹配条件处理事务，处理完就根据实际业务需求传递给下一个节点或者返回。</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>组成</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>抽象责任处理类</td>
-</tr>
-<tr>
-<td>请求类</td>
-</tr>
-<tr>
-<td>具体节点处理类</td>
-</tr>
-</tbody></table>
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-        <div class="alignleft">
-          <a href="/2019/03/24/designpattern/design-pattern-责任链模式/#more" class="more-link">阅读全文</a>
-        </div>
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2018/07/13/thinking/处世/">
-  <time datetime="2018-07-13T13:01:27.000Z">
-    2018-07-13
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2018/07/13/thinking/处世/">处世</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <blockquote>
-<p>　　当我们做一件事情的时候，不要寐心，可能很多时候为了达成目的，我们会着急，焦虑，眼看时间一点点在消逝，不得已而为之，未考虑清楚匆忙决定一件事情，最终发现事与愿违。当然太过谨慎思虑太多也会错失很多机会，青春给了我们试错的资本，敢于尝试是听得比较多的道理。</p>
-<p>　　对人对事，得与失之间，权衡利弊而后之。而立之年，太多的困惑会阻挡人的前进方向，选择的方向往往比努力重要，想成为什么样子，想达到什么目标，三思而后行。我们处在一个环境中往往会带有局限性，限制我们的视野与思维，当你慢慢接触更优秀的人与其共事交流，会开阔自身的思维与境界，很多时候我们更愿意处于一个舒适区，不想跳出来，害怕这份稳定与安宁被打破，宁愿在内做最优解，但是这样人就会不知不觉被环境所同化，带有其土壤所熏陶的气息，很难打破。如果我们选择的东西不是我们内心所想要的，必定有所困惑，怀疑自身的态度与原则，必要的调解都无法按捺内心那股冲突。我们处于世上，有着自身的底线，跨越这个底线，抛弃原则，可能最终自己都无法认清自己的模样，何苦呢？</p>
-<p>　　人必要忠于自己而后立生处事，对人对事亦然。</p>
-</blockquote>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2018/07/09/thinking/表我与自我/">
-  <time datetime="2018-07-09T13:01:34.000Z">
-    2018-07-09
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2018/07/09/thinking/表我与自我/">表我与自我</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <blockquote>
-<p>　　当我们认知一个人，最快速的方式是通过外表，穿着，走姿，来刻画一个人在我们心目中的印象，标签化是我们短期内记忆一个人最快的方法，反之亦然。</p>
-<p>　　一个人所呈现的表象是他想让我们看到的样子，表我和内我是截然不同的，在外界环境中，起作用的是表我，这个姿态是我们根据社会规则，道德伦理，他人所要求的样子所刻画出来的。形成一个人的表我，其行为细节，三观，态度等，其实都可以关联性分析。一个人最原生的自我来自于其原生家庭，所处的阶层，父母的教养，童年的经历，青春期的成长，都是塑造一个人的基石。其三观与原生家庭的教养会在社交细节中体现出来，其行为动机则需要关联构成其复杂性格的环境与经历。我们知道一个人的行事总是遵循其固定不变的性格构成，受动机和能力的制约，一个正常的人在其范围内作出的行为都是有根据的，处事，对人亦然。要了解一个人的自我，需要时间去了解，通过对其日常的行为细节，观其言察其色，对待一件事情的反应，面对责任时是推卸抑或主动承担。这些细节是掩饰不了的，会在其行为中体现出来。情商达练之人懂得在人群中把握分寸，与人相处时保持一种舒适的状态，适度展现自我在环境中的存在，但也往往成为其弱点。人与人相处时，其一言一行都会进入他人的印象中，言语是其动机产生的结果，达到一个如何的程度，希望事情走向一个什么样的结果，其实已经刻画在一个人的大致计划中，是其本我在事物发展过程当中的本能调控。这类动机行为是难以看穿的，因为当你不完全了解一个人时，这个结果你是无法推敲出来的。有一类人，处于人群中并不处于起眼的，但发生某事情时，为了调控事情走向，达到自我目的，会通过各类细节去调控，虽然抽象，但是若果最终的结果如他个人所愿，则必定有其达练之处。聪明人与聪明人交谈时，思维方式是跳跃的，正常人的交流顺序是按照123456，但聪明人之间交流的逻辑顺序是136，遵从跳跃式顺序。很多时候聪明人识破一个人的动机的时候，不会去揭穿，鉴于正常的社交尊重，让对方能够下台面或者利用话题周旋，若这个动机也是能够接受的范围内，且是双赢的，则会顺应对方的所求，有所求必有所图，这类人难以交心，其有着天生的防备心态，表面上关系融洽，但一旦希望关系深入时，你必然能感受到与对方的距离。大智若愚非常适用于形容高阶的聪明人，看似平淡无常，其背后的动机暗流涌动，当你对其产生疑惑但又无法说出个所以然来，这时候，明显的对方已经高你一阶。</p>
-</blockquote>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2018/07/07/thinking/光阴似箭日月如梭/">
-  <time datetime="2018-07-07T13:01:50.000Z">
-    2018-07-07
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2018/07/07/thinking/光阴似箭日月如梭/">光阴似箭日月如梭</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <blockquote>
-<p>　　光阴似箭，日月如梭，曾几何时写作文惯用的起手式只是应付当时那800字的心态加之自身时常慨叹时光易逝，因此，这两个四字词不知出现在我的作文里多少次。再次用起，总有一番不同的感觉。很多电影，很多文章，很多诗词，很多字句，当人有了一定的阅历后重新回味总会有一番不同的感受，如周星驰的电影，宫崎骏的动漫，童年1元杯的珍珠奶茶，街边小贩的牛杂，初高中写的文章，这种五味杂陈的感觉或许就是自身心智在不断成熟，对过去自我一种审视的反馈。不知不觉时间已到了2018，偶然间被叫了声叔叔犹感突兀，但貌似在提醒我已长大成人，95后的我们已经奔向社会，成为承担社会责任的一代，起承转合间备感压力，爱情婚姻，事业家庭，属于这个阶段去追求的东西，人生没有多少个十年，一个阶段又一个阶段的成长造就现在的我们，不断变化的自我与环境间的不断磨合，年轮棱角在角逐中被磨平，因此能够保持初心的人犹应珍惜。那一个个头顶掉发的中年大叔当年何不是意气风发的青年，带着梦想与期待步入社会，在生活面前，他们收起了那份锐气取而代之的是对生活的妥协，这或许是一种成熟吧，我不知道，但是自我抗拒成为他们，因此必须储备资本，你才有条件对生活说不，这个条件需要你为之付出，付出才有所得，任何事情亦然，空有目标而无执行力只是头脑发热之人的一时冲动，落实到逐步的目标实施中，有具体的可行性，才有机会达到想要的效果。</p>
-<p>　　勤奋的含义是今天的热血，而不是明天的决心，后天的保证。</p>
-</blockquote>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2018/07/04/thinking/存在即是合理/">
-  <time datetime="2018-07-04T13:02:00.000Z">
-    2018-07-04
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2018/07/04/thinking/存在即是合理/">存在即是合理</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <blockquote>
-<p>　　存在即是合理，当环境变换时，周遭的一切都不是你知悉的一切，快速投入到工作中，你会发现周围的一切都那么模糊，快速的工作节奏，工作的deadline压力，抬头发现已经忘记时间，夜色已经降临，只是生活还是在继续。走出大楼，那各色的人匆匆茫茫到底在奔向何方，憧憬着什么。有时你会发现人最可怕的地方是不知道自己想要什么，任由生活摆布。但成年人的世界有时又无可奈何，责任在身，上级的压力，慢慢的就能够去接受，去承担这种变化，无事一身轻或许是最潇洒的状态，摆摆手或者就能让自己的生活轻松点，但是人要懂得居安思危，时间是很残酷的，不知不觉你的青春、你的时间就已然流逝。</p>
-<p>　　生活要有点盼头，有点目标，你就会去期待，这个过程必须改变自我，坚持着一些事情，养成良好的习惯，保持自律，一点一点的积累，相信会在不久的将来收到回报。</p>
-</blockquote>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2018/06/29/thinking/杂谈/">
-  <time datetime="2018-06-29T13:02:05.000Z">
-    2018-06-29
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2018/06/29/thinking/杂谈/">杂谈</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <blockquote>
-<p>　　成长，爱情，婚姻，可能是20多岁这个年龄段比较苦恼的三件事情，一方面我们步向社会，慢慢适应社会的节奏，从学生到社会一员这一角色的转变，带着金字塔尖那份骄傲走出来，发现这份骄傲带给你的只有一时的光环作用，社会更看重个人价值，能力贡献，说白了就是等价交换，不管是技能、资本、人脉抑或其他可利用的资源，都被他人当作你的价值所在，你身上会自带一个标签，大家会利用那个标签来评判你的利用价值，这些都在人际交往的细节中能体现出来，社交就是一种互利互惠的活动，标签化印象化是你能给与他人对你认知最快的方式。在社会中不再像学生阶段般，大家都是平等地接受教育，学习，考试，以成绩来定论一个人。不得承认好多在校成绩优秀的学生进入社会会有一份失落感，不再以成绩来定论一个人的价值，而是多方面的能力，这能力是个笼统的概念，也即是如上所说，不再是你个人产生的影响，涉及到各个层面的关系，利用好这各方面的资源，对于个人的发展有各种好处。</p>
-<p>　　关于爱情，私以为触不可及，也不算，只不过在遇到适合的人之前都不愿随便发展一段感情，毕竟爱情需要成本，不管感情上、精力上抑或经济上，很多时候，上层建筑是需要下层建筑来支撑的，这一点在初中政治课上早有认知，爱情亦然，这个社会越来越不相信爱情，讲究门当户对，高中课上年过半百的数学老师直言道，但我们不以为然，我们相信着那没有面包的爱情，纯真动人，可以为了爱不顾一切。但随着成长，你会发觉这个世界很不公平，爱情是一件很奢侈的东西，见过一些人和事，发现爱情有时不堪一击，那般脆弱，因为我们身处这个大环境中，我们的观念，视角不再受那书中狭隘的爱情观所枷锁，欲望在膨胀，观念在刷新，影响着我们的选择，我们的考虑。但不管如何，谁都享有爱情的权利，既然两情相悦，惺惺相惜，那就去体验吧，至少不会成为人生的一大遗憾。</p>
-<p>　　关于婚姻，常听说婚姻是爱情的坟墓，貌似爱情的终点就是婚姻，成为枷锁两个人一生的苦链，我无法评判先辈的经验之谈，未到那个年纪未有那般体会也不好说什么。但至少我是向往婚姻的，婚姻应该是两个人爱情的结晶，是对彼此相依为命，厮守终生的一种承诺，未来的事情我们不能预测与知晓，但我们在那一刻的选择就是我们那一刻所相信着的想法，既然相信着那就相信自己的选择，一起去面对生活的柴米油盐，面对生活的欢声笑语。生活不可能永远一帆风顺，婚姻也如此，任何一段成功的婚姻无不是两个人共同参与，共同构建的结果，这其中的酸甜苦辣也只有你们两个知道，正是一起走过，一起面对，齐步并进，婚姻才会幸福而美满，只向往美好而不考虑艰辛，只憧憬快乐而忽视痛苦，那是自私者的想法 ，爱与被爱都是相互的，好的婚姻应当是相互扶持，相互关爱，包容理解，所以见到一些老年后依然彼此关爱，互相尊重的夫妻，才会感叹好的婚姻的难能可贵，因为生活的重担很容易消耗感情，消耗彼此的耐心，一旦风雨来临，就能见证婚姻的坚固性。</p>
-<p>　　杂谈629</p>
-</blockquote>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2018/06/28/thinking/写/">
-  <time datetime="2018-06-28T13:02:10.000Z">
-    2018-06-28
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2018/06/28/thinking/写/">写</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <blockquote>
-<p>　　写，是一种心情，是一种态度，是对生活的思考，庆幸我生而为人，庆幸我学会了读与写，庆幸我有了思想，只需要一支笔，一个大脑便能对抗全世界，对抗消极的一切。当你有了写的冲动，那抑制不住的倾诉欲，涌现的灵感，流露的情绪只需执笔下纸。那文字是你面对生活的武器，是你激荡的思考留下的结晶，是你迸发的心情，是你不屈的态度，想写就写，有想法就写，多么惬意舒适，自由自在。你升华着，成长着，什么都无法阻挡枷锁你自由的思想，任其倾泻吧，那是你生活源源不断的动力，是面对困难的武器，是面对消极的解药。</p>
-<p>　　给我一支笔，一个自由的思想，我不再畏惧。</p>
-</blockquote>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2018/06/27/thinking/平常心/">
-  <time datetime="2018-06-27T13:02:14.000Z">
-    2018-06-27
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2018/06/27/thinking/平常心/">平常心</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <blockquote>
-<p>　　世上有一些东西，是你自己支配不了的，比如运气和机会、舆论和毁誉，那就不去管它们，顺气自然吧！</p>
-<p>　　世上有一些东西，是你自己可以支配的，比如兴趣和志向、处世和做人，那就在这些方面好好地努力，至于努力的结果是什么，也顺气自然吧！</p>
-<p>　　我们不妨去追求最好——最好的生活、最好的职业、最好的婚姻、最好的友谊，等等。但是，是否得到最好，取决于许多因素，不是光靠努力就能成功。因此，如果我们尽了力，结果得到的不是最好，而是次好、次次好，我们也应该坦然地接受。人生原本就是有缺憾的，在人生中需要妥协。不肯妥协，和自己过不去，其实是一种痴愚，是对人生的物质。</p>
-<p>　　在青年时期，人有虚荣心和野心是很正常的。成熟的标志是自我认识，认清了自己的天赋方向，于是外在的虚荣心和野心被内在的目标取代。</p>
-<p>　　野心倘若肯下降为平常心，同时也就上升成了慧心。</p>
-</blockquote>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2018/06/24/thinking/困顿与觉悟/">
-  <time datetime="2018-06-24T13:02:23.000Z">
-    2018-06-24
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2018/06/24/thinking/困顿与觉悟/">困顿与觉悟</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <blockquote>
-<p>　　人生的困惑无非色与空，色代表情感的困惑，空代表生命意义的困惑。想来想去，到头仍是困惑。不过想的好处是，在困惑中有了方向，困惑中的寻求形成了人的精神生活。因为色的诱惑，男人走向女人，女人走向男人，走进彼此的心灵，有色入情，于是有了爱。因为空的疑惑，人类呼唤世界之本相，由空入悟，于是有了哲学和宗教。</p>
-<p>　　不去想人生的大问题，不是会快乐点吗？不是因为思考所以痛苦，而是因为痛苦所以思考。想不想不是自己能选择的，由天生的禀赋决定。想这类问题的人多半生性敏感而认真，实在身不由己，欲罢不能。</p>
-<p>　　喜欢想人生问题的人，所谓喜欢想，并不是刻意去想，而是问题自己找上来，躲也躲不掉。想这类问题当然痛苦，但痛苦在先，你不去思考，痛苦仍然在，成为隐痛。既然如此，不如去面对它，看一看那些有智慧的人是怎么想这类问题的，开阔自己的思路，把痛苦变成人生的积极力量。</p>
-</blockquote>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2018/06/24/thinking/存在的意义/">
-  <time datetime="2018-06-24T12:10:27.000Z">
-    2018-06-24
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2018/06/24/thinking/存在的意义/">存在的意义</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <blockquote>
-<p>　　每个人生于世上，都不免会对自己存在的意义产生疑惑。不知何时有了意识，对这个世界有了清晰的认知，当问起自己这个问题时，仿佛呱呱落地的我们就在昨天，但今日我们已成为这个世界整体的一部分，不可否认的存在着。对于世界来讲，人是客体，对于人来讲，这个世界的一切都是客体。人作为一种有思考能力的动物，在进化的过程中区别与其他生物，我不免有疑惑我们的思维方式是否受限于我们的物质构成，如果将整个世界，扩大至宇宙，我们也不过是时间长河的一瞬，空间上的一点尘埃。换个角度，人不是这个世上的主体，也不过如其他物质，生物那般只是这个有机世界的一部分，以世界作为主体的角度来看，人与其他一切客体都是等同的，无非就是分子在不断运动，产生，分化，死亡。无他，也就是物质的形态以一种方式产生凋零转化为另一种形态。</p>
-<p>　　每个人终其一生的寿命十分短暂，但走过的轨迹都是唯一的，认识的人经历的事情，我们身处这个时代，也受制于这个时代，我们享受着21世纪的便利，也遵循着社会运行法则，在这个车轮不停滚动的社会中生存，作为一种有思想的生物，我们接受的教育一方面完善我们的认知，但不可否认，一方面抑制了我们的思维。我们的三观，父母、老师的教育这些潜移默化的观念在我们青年时期已然写入我们的生命中，认知了世界的运行法则，然后在此之上，在生存着抑或有着各式各样的梦想，在个体生命中不断追逐。我们按照这个世界的规律，受教育，成长，工作，结婚，生子，退休，死亡，千篇一律，可能是每个人的轨迹路线了。</p>
-<p>　　其实，对于每个个体来讲，体验一遍生命我认为就是其存在的意义，不管如何，这个世界有你存在的痕迹，到过，经历过，了解过，何其不是一种幸运，不管出生前的你处于什么，死亡后的你处于什么，你在这个起点与终点之间走过了一段路，感受自我与周遭世界的一切，那便是对于个体来讲存在的最大意义，放平心态，去感受生命的美好，感受世界带给你的风景，是我们作为人来讲最幸运的一种能力了。</p>
-</blockquote>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2018/06/24/thinking/我们对待自己的态度/">
-  <time datetime="2018-06-24T11:57:32.000Z">
-    2018-06-24
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2018/06/24/thinking/我们对待自己的态度/">我们对待自己的态度</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <blockquote>
-<p>　　一个人的个性越独特、越具价值和意义，那么，他就越有必要不时地认清自己生命总体发展的大致脉络和自己的计划，为此必须要踏上认识自己的道路，清楚自己的首要和真正的意愿——这些对于他的幸福而言是至关重要的东西，然后对于何者排在第二和第三位置必须心中有数。同时他也应该大致明白自己应该从事何种职业、需要扮演何种角色以及自己与这个世界的关系。如果一个人具备非凡的个性，那么，对自己的生命计划有一个大致的了解，能够比任何一切都更有效地增强自己的勇气，振作、鼓足信心，激励自己行动起来，避免走弯路。</p>
-<p>　　只有登上峰顶才能够回头总体，连贯的看到自己所走过的迂回曲折的道路，同样，只有当我们度过了生命中的一段时间，或者在我们整体生命终结的时候，我们才能把我们做的事、业绩真正联系起来，包括其中的因果关联，甚至才能了解到它们的价值。只要我们置身其中，那我们的行事就只能总是遵循我们那固定不变的性格构成，受着动机的左右和我们能力的制约。由此可见，我们的行事自始至终都有其必然性。我们在每一刻都做着我们在那一刻认为合理和适当的事情，只有事后的结果才让我们看清到底发生了什么事；对事情整体的惠顾才使我们明白事情的如何和为什么。</p>
-<p>　　人生的智慧的重要一点就是在关注现在和计划将来这两者之间达致恰到好处的平衡，这样，现在与将来才不至于互相干扰。许多人太过沉迷现在，这些是无忧无虑、漫不经心的人；也有的人则更多地活在将来，他们则是谨小甚微、忧心忡忡的杞人。人们很少能够在处理现在和将来两者当中把握一个恰到好处的尺度。那些以希望和努力生活在将来的人眼睛盯着前面，不耐烦地等待将要发生的事情，仿佛将来的事情才会为他们带来真正的幸福。在这期间，他们却对现在不予理会、不加咀嚼，听任现时匆匆逝去。</p>
-<p>　　我们应该愉快地迎接现时此刻，从而有意识地享受每一可忍受的、没有直接烦恼和痛苦的短暂时光，也就是说，不要由于在过去我们的希望落空现在就变得忧郁寡欢，或者为了将来操心伤神以致和败坏现时。</p>
-<p>　　对已经发生的</p>
-<p>　　无论事情多么悲痛，我们必须让过去的事情成为过去，或许我们难以做到这一点，但我们必须降伏我们的乖僻心情。</p>
-<p>　　对将来的事情</p>
-<p>　　在上帝的安排之中。</p>
-<p>　　应该把每一天都视为一段特别的生活。</p>
-<p>　　我们只能为那些肯定发生的灾祸忧心，对于不可肯定的，我们必须养成习惯，把并不肯定发生的灾祸视为永远不会发生。</p>
-<p>　　我们的安宁越少受到担忧和害怕的打扰，那它就越会被我们的愿望、欲念和期待所刺激。只有当人挣脱了所有各种可能的期望，从而返回赤裸和冰冷的存在本身，人才能领会到精神上的安宁，而精神的安宁却是幸福的构成基础。如果人要享受现时，乃至整个一生，精神的安宁是必不可少的。我们应该永远记住今天只有一次，它不会再来。但在我们的想象中，今天又在明天重现。其实明天又是另外的一天，它也只来一次。在我们患病、困顿的时候，每当念及在这之前没有疾病和痛苦的时光，就陡然让人心生羡慕——那些美好的日子就犹如不曾得到我们珍惜的朋友，它们简直就是失去了的天堂。在健康、美好的日子里，这种情形应被我们牢记在心，这样我们就会倍加珍惜和享受此刻的好时光。</p>
-<p>　　我们的视线、活动和接触的范围越狭窄，我们就越幸福；范围圈子越大，我们感受的焦虑或者担忧就越多。因为随着这一范围圈子的扩大，我们的愿望、恐惧、担忧也就相应增加。痛苦是肯定的，幸福是否定的。我们感受到欢乐还是痛苦，归根到底取决于我们意识的内涵。我们的一生中，我们关系和目标的范围总是不断伸展。在童年时期，我们的视野只局限于周围的环境和狭窄的关系。到了青年，视野明显扩大；进入成年期，我们的整个生命轨迹，甚至最遥远的联系、别的国家和民族都被纳入我们的视线之内；局限制约有助于增进我们的幸福，原因就在于意欲受到的刺激越少，我们的痛苦也就越少。我们的生活关系应尽可能的简单，越少感觉到生活，并因此更少地感觉到生活的重负，重负本来就是生活的本质。这样生活流淌就像一条波澜不惊、旋涡不起的小溪。</p>
-</blockquote>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2018/05/27/designpattern/design-pattern-外观模式/">
-  <time datetime="2018-05-27T01:41:00.000Z">
-    2018-05-27
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2018/05/27/designpattern/design-pattern-外观模式/">外观模式</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <p><strong>定义</strong></p>
-<blockquote>
-<p>外部与一个子系统的通信通过一个统一的外观对象进行，为一组接口提供一个统一的界面，外部与其只通过这个抽象的接口，隐藏背后的复杂性。</p>
-</blockquote>
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-        <div class="alignleft">
-          <a href="/2018/05/27/designpattern/design-pattern-外观模式/#more" class="more-link">阅读全文</a>
-        </div>
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2018/04/11/middleware/kafka生产重复消费问题/">
-  <time datetime="2018-04-11T04:20:07.000Z">
-    2018-04-11
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2018/04/11/middleware/kafka生产重复消费问题/">kafka生产重复消费问题</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <blockquote>
-<p>生产环境中kafka出现消息积压的情况，消费者重复消费的情况</p>
-</blockquote>
-<p><strong>分析</strong></p>
-<p>业务代码中消费端主要做消息存储与消息推送，http推数据。定位消费端的日志逻辑，发现http连接超时，应该是厂家设的推送地址有问题，导致超时。用的kafka版本是0.10.0，查阅了超时配置在10s，思路就改动消费端的逻辑，改成用线程池去异步推，把自动提交改成手动提交，解决了我的问题。</p>
-<p>0.10.0以后的版本与消费者相关的几个重要参数</p>
-<ul>
-<li>enable.auto.commit 默认值true，表示消费者会周期性自动提交消费的offset</li>
-<li>auto.commit.interval.ms 在enable.auto.commit 为true的情况下， 自动提交的间隔，默认值5000ms</li>
-<li>max.poll.records 单次消费者拉取的最大数据条数，默认值</li>
-<li>500 max.poll.interval.ms 默认值5分钟，表示若5分钟之内消费者没有消费完上一次poll的消息，那么consumer会主动发起离开group的请求</li>
-</ul>
-<p>使用0.10.0后的版本，重要的特性是多了个poll线程，一个心跳线程维持心跳，另一个poll线程拉取数据，当消费了拉取的数据后，消费端会重新poll。当超过指定时间没有poll，也即consume*条数&gt;poll的间隔时间就会发生rebalance</p>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2018/03/24/designpattern/design-pattern-代理模式/">
-  <time datetime="2018-03-24T03:19:26.000Z">
-    2018-03-24
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2018/03/24/designpattern/design-pattern-代理模式/">代理模式</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <blockquote>
-<p>一个类代表另一个类的功能，创建现有对象的对象，向外提供功能接口。增加了中间层，目标对象职责明确，不同的代理类能够按照场景去做不同的额外业务操作，不影响被代理类的业务。</p>
-</blockquote>
-<p><img src="/assets/blog_img/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F.png"></p>
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-        <div class="alignleft">
-          <a href="/2018/03/24/designpattern/design-pattern-代理模式/#more" class="more-link">阅读全文</a>
-        </div>
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2018/02/26/host/ssr-ignite-搭建/">
-  <time datetime="2018-02-26T06:37:47.000Z">
-    2018-02-26
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2018/02/26/host/ssr-ignite-搭建/">ssr &amp; ignite 搭建</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <h4 id="shadowsocks安装"><a href="#shadowsocks安装" class="headerlink" title="shadowsocks安装"></a>shadowsocks安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">yum -y update</span><br><span class="line"></span><br><span class="line">yum -y install wget</span><br><span class="line"></span><br><span class="line">wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh</span><br><span class="line"></span><br><span class="line">chmod +x shadowsocks.sh</span><br><span class="line"></span><br><span class="line">./shadowsocks.sh 2&gt;&amp;1 | tee shadowsocks.log</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>编辑：vi /etc/shadowsocks.json</p>
-<p>启动：/etc/init.d/shadowsocks start</p>
-<p>停止：/etc/init.d/shadowsocks stop</p>
-<p>重启：/etc/init.d/shadowsocks restart</p>
-<p>状态：/etc/init.d/shadowsocks status</p>
-<p>卸载：./shadowsocks-go.sh uninstall</p>
-</blockquote>
-<h4 id="bbr安装"><a href="#bbr安装" class="headerlink" title="bbr安装"></a>bbr安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh</span><br><span class="line"></span><br><span class="line">chmod +x bbr.sh</span><br><span class="line"></span><br><span class="line">./bbr.sh</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">确认bbr开启</span></span><br><span class="line">lsmod | grep bbr</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="SSR安装"><a href="#SSR安装" class="headerlink" title="SSR安装"></a>SSR安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">yum -y install git </span><br><span class="line">yum --enablerepo=extras install epel-release</span><br><span class="line">yum -y install python-pip</span><br><span class="line"></span><br><span class="line">git clone https://github.com/hao35954514/shadowsocksR-b.git</span><br><span class="line"></span><br><span class="line">cd shadowsocksR-b/ </span><br><span class="line">bash initcfg.sh</span><br><span class="line"></span><br><span class="line">sed -i &quot;s/API_INTERFACE = &#x27;sspanelv2&#x27;/API_INTERFACE = &#x27;mudbjson&#x27;/&quot; userapiconfig.py</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>使用说明:</p>
-<p>python mujson_mgr.py -a|-d|-e|-c|-l [选项( -u|-p|-k|-m|-O|-o|-G|-g|-t|-f|-i|-s|-S )]</p>
-<p>操作:</p>
-<p>-a ADD        添加 用户</p>
-<p>-d DELETE      删除 用户</p>
-<p>-e EDIT       编辑 用户</p>
-<p>-c CLEAR       清零 上传/下载 已使用流量</p>
-<p>-l LIST       显示用户信息 或 所有用户信息</p>
-<p>选项:</p>
-<p>-u USER       用户名</p>
-<p>-p PORT       服务器 端口</p>
-<p>-k PASSWORD     服务器 密码</p>
-<p>-m METHOD      服务器 加密方式，默认: aes-128-ctr</p>
-<p>-O PROTOCOL     服务器 协议插件，默认: auth_aes128_md5</p>
-<p>-o OBFS       服务器 混淆插件，默认: tls1.2_ticket_auth_compatible</p>
-<p>-G PROTOCOL_PARAM  服务器 协议插件参数，可用于限制设备连接数，-G 5 代表限制5个</p>
-<p>-g OBFS_PARAM    服务器 混淆插件参数，可省略</p>
-<p>-t TRANSFER     限制总使用流量，单位: GB，默认:838868GB(即 8PB/8192TB 可理解为无限)</p>
-<p>-f FORBID      设置禁止访问使用的端口</p>
-<p>​            – 例如：禁止25,465,233~266这些端口，那么这样写: -f “25,465,233-266”</p>
-<p>-i MUID       设置子ID显示（仅适用与 -l 操作）</p>
-<p>-s value       当前用户(端口)单线程限速，单位: KB/s(speed_limit_per_con)</p>
-<p>-S value       当前用户(端口)端口总限速，单位: KB/s(speed_limit_per_user)</p>
-<p>一般选项:</p>
-<p>-h, –help      显示此帮助消息并退出</p>
-<p>多用户的本地JSON数据库文件位置：shadowsocksR-b/mudb.json</p>
-</blockquote>
-<blockquote>
-<p>#添加用户</p>
-<p>python mujson_mgr.py -a -u fuck -p 8989 -k panzer1230 -m aes-256-cfb -O auth_aes128_md5 -G 10 -o tls1.2_ticket_auth -s 10000 -S 10000 -t 10</p>
-<p>#编辑用户</p>
-<p>python mujson_mgr.py -e -u lightime -t 100 #以用户修改</p>
-<p>python mujson_mgr.py -e -p 3333 -t 100 #以端口修改</p>
-<p>#删除用户</p>
-<p>python mujson_mgr.py -d -u lightime #以用户为依据删除</p>
-<p>python mujson_mgr.py -d -p 3333 #以端口为依据删除</p>
-<p>#其他操作</p>
-<p>python mujson_mgr.py -l #查看所有用户信息</p>
-<p>python mujson_mgr.py -l -u lightime #查看单个用户信息(包括流量使用情况)</p>
-<p>python mujson_mgr.py -c -u lightime #用户使用流量清零</p>
-<p>#服务端控制</p>
-<p>./run.sh #后台运行 但不记录日志</p>
-<p>./logrun.sh #后台运行 且 记录日志</p>
-<p>./tail.sh #查看日志./stop.sh #停止服务端</p>
-</blockquote>
-<h4 id="go-ignite"><a href="#go-ignite" class="headerlink" title="go-ignite"></a>go-ignite</h4><blockquote>
-<p>go-ignite是一个基于Docker实现，由Golang开发的多账户SS(R)管理面板。<br>对用户来说，SS(R)服务被隔离在单独的容器中，安全高效，一键创建服务，简单方便。<br>对管理员，提供后台管理页面，能够快捷的管理用户服务，重置流量等。</p>
-<p>用户面板：<br>支持创建 SS 和 SSR，但是仅提供自定义加密方式，且只能在初始化激活账号的时候，创建之后无法更改；<br>SS 支持 AEAD 系加密；<br>SSR 密码由随机生成、协议默认 auth_aes128_md5、混淆默认 tls1.2_ticket_auth_compatible。</p>
-<p>管理面板：<br>无法更改用户端口、服务类型；<br>用户使用的端口并非随机创建。</p>
-<p>因为需要使用 Docker，所以请使用非 OpenVZ 构架的 VPS 进行。</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">curl -sSL https://get.daocloud.io/docker | sh</span><br><span class="line">service docker start</span><br><span class="line">curl -L https://get.daocloud.io/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` &gt; /usr/local/bin/docker-compose</span><br><span class="line">chmod +x /usr/local/bin/docker-compose</span><br><span class="line">usermod -aG docker root</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /opt</span><br><span class="line">vi docker-compose.yml</span><br></pre></td></tr></table></figure>
-
-<h5 id="通过ip访问"><a href="#通过ip访问" class="headerlink" title="通过ip访问"></a>通过ip访问</h5><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">ignite:</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">ignite</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">goignite/ignite</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;./data:/root/ignite/data&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;/var/run/docker.sock:/var/run/docker.sock&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">HOST_ADDRESS=8.8.8.8</span></span><br><span class="line">      <span class="comment"># 此处修改为VPS IP，是展示在用户界面上的 SS/R 的连接 IP</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">HOST_FROM=5001</span></span><br><span class="line">      <span class="comment"># SS/R 容器的起始可用端口范围，默认 5001</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">HOST_TO=6000</span></span><br><span class="line">      <span class="comment"># SS/R 容器的截止可用端口范围，默认 6000</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;80:5000&quot;</span></span><br><span class="line">      <span class="comment"># 用户界面访问端口，默认 80</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">ignite-admin:</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">ignite-admin</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">goignite/ignite-admin</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;./data:/root/ignite/data&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;/var/run/docker.sock:/var/run/docker.sock&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">AUTH_USERNAME=admin</span></span><br><span class="line">      <span class="comment"># 管理员用户名</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">AUTH_PASSWORD=admin_password</span></span><br><span class="line">      <span class="comment"># 管理员密码</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">Auth_SECRET=ignite2017</span></span><br><span class="line">      <span class="comment"># 生成 JWT Token 的密钥，随便修改</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;8080:8000&quot;</span></span><br><span class="line">      <span class="comment"># 管理界面访问端口，默认 8080</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="通过域名访问（中文为了说明，使用时请删除）"><a href="#通过域名访问（中文为了说明，使用时请删除）" class="headerlink" title="通过域名访问（中文为了说明，使用时请删除）"></a>通过域名访问（中文为了说明，使用时请删除）</h5><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"> <span class="attr">version:</span> <span class="string">&#x27;3&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">nginx-proxy:</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">nginx-proxy</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">jwilder/nginx-proxy</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;80:80&quot;</span></span><br><span class="line">      <span class="comment"># 访问端口，可以无需修改</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/var/run/docker.sock:/tmp/docker.sock:ro</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">ignite:</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">ignite</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">goignite/ignite</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;./data:/root/ignite/data&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;/var/run/docker.sock:/var/run/docker.sock&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">HOST_ADDRESS=8.8.8.8</span></span><br><span class="line">      <span class="comment"># 此处修改为 VPS IP，是展示在用户界面上的 SS/R 的连接 IP</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">HOST_FROM=5001</span></span><br><span class="line">      <span class="comment"># SS/R 容器的起始可用端口范围，默认 5001</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">HOST_TO=6000</span></span><br><span class="line">      <span class="comment"># SS/R 容器的截止可用端口范围，默认 6000</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">VIRTUAL_PORT=5000</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">VIRTUAL_HOST=domain.com</span></span><br><span class="line">      <span class="comment"># 用户面板的访问域名</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">ignite-admin:</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">ignite-admin</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">goignite/ignite-admin</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;./data:/root/ignite/data&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;/var/run/docker.sock:/var/run/docker.sock&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">AUTH_USERNAME=admin</span></span><br><span class="line">      <span class="comment"># 管理员用户名</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">AUTH_PASSWORD=admin_password</span></span><br><span class="line">      <span class="comment"># 管理员密码</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">Auth_SECRET=ignite2017</span></span><br><span class="line">      <span class="comment"># 生成 JWT Token 的密钥，随便修改</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">VIRTUAL_PORT=8000</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">VIRTUAL_HOST=admin.domain.com</span></span><br><span class="line">      <span class="comment"># 管理面板的访问域名</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cd /opt</span><br><span class="line">docker-compose up -d</span><br><span class="line"></span><br><span class="line">docker-compose up -d</span><br><span class="line"># 运行</span><br><span class="line">docker-compose down</span><br><span class="line"># 停止</span><br><span class="line">docker-compose pull</span><br><span class="line"># 更新</span><br></pre></td></tr></table></figure>
-
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2018/02/11/middleware/kafka消息队列/">
-  <time datetime="2018-02-11T03:10:34.000Z">
-    2018-02-11
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2018/02/11/middleware/kafka消息队列/">kafka消息队列</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
-<p>在项目中使用到了kafka中间件，作为消费队列，下文对该组件的一些概念和特性做一些概括性总结。</p>
-</blockquote>
-<h1 id="消息队列作用"><a href="#消息队列作用" class="headerlink" title="消息队列作用"></a>消息队列作用</h1><p>解耦：降低系统间的耦合度，方便日后扩展</p>
-<p>削峰：通过异步处理消息，并且提供多消费端来消费消息，达到削峰的作用</p>
-<p>冗余</p>
-<p>可恢复</p>
-<h1 id="Kafka特点"><a href="#Kafka特点" class="headerlink" title="Kafka特点"></a>Kafka特点</h1><p>Kakfa是一个分布式流处理平台，特点是高性能、分布式、高吞吐，底层写消息是顺序写磁盘，因此写入和读取速度非常快。大部分用于大数据处理平台和日志处理，其出身的原因也是LinkIn公司为了处理海量日志</p>
-<p>支持消息模型</p>
-<ul>
-<li><p>队列模型</p>
-<p>同一个消息会被多个消费者一个个处理，不会重复处理</p>
-</li>
-<li><p>发布订阅模型</p>
-<p>同一个消息会被所有消费者消费，类似通知</p>
-</li>
-</ul>
-<h1 id="组件概念"><a href="#组件概念" class="headerlink" title="组件概念"></a>组件概念</h1><p>Producer：消息生产者</p>
-<p>Consumer：消息消费者</p>
-<p>Broker：实例，一般可以理解为服务器，一台服务器部署一个broker</p>
-<p>Topic：主题，消息是通过主题作为载体发送到队列中的</p>
-<p>Partition：分区，主题下的分区概念，分区是可以在多个broker中，消息是写到多个partition上，每个partition上的数据是有序的，但多个消息间是无序的，若要保证消息有序消费，则可以设置一个topic一个partition</p>
-<h1 id="消费模型"><a href="#消费模型" class="headerlink" title="消费模型"></a>消费模型</h1><p>topic下的多个partition可以分布在多个broker中，一般N个partition分布在N个broker上，或者N个partition分布在M个broker，尽量保证N&lt;M，并且消费者数量&lt;=N，多余的消费者是拿不到partition的</p>
-<h2 id="副本机制"><a href="#副本机制" class="headerlink" title="副本机制"></a>副本机制</h2><p>Kakfa提供副本机制来保证高可用，副本不用于消费，仅用来冗余数据。比如一个topic有N个partition，分布在N个broker上。一个partition可以有多个副本，副本间有一个leader和多个follower，读写都是在leader中，follower和leader会保持数据同步。假设topic有3个partition设置3个副本，则第一个partition的数据会复制到2、3上，最简单的策略就是2存储1的数据副本，3存储2的数据副本，当某个broker宕了，则保证另外的broker中有数据冗余，这就保证了消息能继续消费，保证高可用</p>
-<p><strong>存在情况</strong> </p>
-<p> 假设leader所在的broker挂了，其他的follower还来不及同步消息，导致数据丢失，这种情况可以设置acks=all，表示当所有follower都收到该消息才算发送成功。</p>
-
-    
-  </div>
-  <footer class="end-sep">
-    
       
       
     

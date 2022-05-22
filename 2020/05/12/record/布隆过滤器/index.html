@@ -10,19 +10,15 @@
     <meta name="author" content="CaryTseng">
   
   
-    <meta name="description" content="布隆过滤器
-在防止缓存穿透场景中，接触到布隆过滤器这个东西，总结下个人对这玩意的理解
-
-组成简单来说，这个东西就是由一个bit数组和几个哈希函数组成，数组上只存放0或1，好处就是这个数组可以搞得非常大，毕竟bit数组，100w的数据，撑死 1000000Bit / 8 = 125000 Byte = 125000/1024 kb ≈ 122kb 的空间。
-用法加入元素
-　　加入元素先拿这个元素通过">
+    <meta name="description" content="简单来说，这个东西就是由一个bit数组和几个哈希函数组成，数组上只存放0或1，好处就是这个数组可以搞得非常大，毕竟bit数组，100w的数据，撑死 1000000Bit / 8 = 125000 Byte = 125000/1024 kb ≈ 122kb 的空间。
+加入元素">
   
-  <meta name="description" content="布隆过滤器 在防止缓存穿透场景中，接触到布隆过滤器这个东西，总结下个人对这玩意的理解  组成简单来说，这个东西就是由一个bit数组和几个哈希函数组成，数组上只存放0或1，好处就是这个数组可以搞得非常大，毕竟bit数组，100w的数据，撑死 1000000Bit &#x2F; 8 &#x3D; 125000 Byte &#x3D; 125000&#x2F;1024 kb ≈ 122kb 的空间。 用法加入元素 　　加入元素先拿这个元素通过">
+  <meta name="description" content="简单来说，这个东西就是由一个bit数组和几个哈希函数组成，数组上只存放0或1，好处就是这个数组可以搞得非常大，毕竟bit数组，100w的数据，撑死 1000000Bit &#x2F; 8 &#x3D; 125000 Byte &#x3D; 125000&#x2F;1024 kb ≈ 122kb 的空间。 加入元素">
 <meta property="og:type" content="article">
 <meta property="og:title" content="布隆过滤器">
 <meta property="og:url" content="https://dogfun.top/2020/05/12/record/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8/index.html">
 <meta property="og:site_name" content="Cary Tseng">
-<meta property="og:description" content="布隆过滤器 在防止缓存穿透场景中，接触到布隆过滤器这个东西，总结下个人对这玩意的理解  组成简单来说，这个东西就是由一个bit数组和几个哈希函数组成，数组上只存放0或1，好处就是这个数组可以搞得非常大，毕竟bit数组，100w的数据，撑死 1000000Bit &#x2F; 8 &#x3D; 125000 Byte &#x3D; 125000&#x2F;1024 kb ≈ 122kb 的空间。 用法加入元素 　　加入元素先拿这个元素通过">
+<meta property="og:description" content="简单来说，这个东西就是由一个bit数组和几个哈希函数组成，数组上只存放0或1，好处就是这个数组可以搞得非常大，毕竟bit数组，100w的数据，撑死 1000000Bit &#x2F; 8 &#x3D; 125000 Byte &#x3D; 125000&#x2F;1024 kb ≈ 122kb 的空间。 加入元素">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-05-12T09:19:22.000Z">
 <meta property="article:modified_time" content="2022-03-28T08:42:38.043Z">

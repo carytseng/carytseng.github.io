@@ -64,60 +64,29 @@
   <header>
     
       <div class="icon"></div>
-      <a href="/2017/08/13/designpattern/design-pattern-工厂模式/">
-  <time datetime="2017-08-13T02:14:08.000Z">
-    2017-08-13
+      <a href="/2020/06/30/thinking/基金布局/">
+  <time datetime="2020-06-30T04:20:39.000Z">
+    2020-06-30
   </time>
 </a>
     
     
   
-    <h1 class="title"><a href="/2017/08/13/designpattern/design-pattern-工厂模式/">工厂模式</a></h1>
+    <h1 class="title"><a href="/2020/06/30/thinking/基金布局/">基金布局</a></h1>
   
 
   </header>
   
   <div class="entry">
     
-      <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
-<p>对比简单工厂模式集中工厂类生产，工厂模式将对象的创建交给相应的子类工厂，延迟创建，降低扩展对工厂接口的影响。这里有个要求就是工厂创建对象的细节不依赖于客户端。</p>
-</blockquote>
-<h1 id="对象关系"><a href="#对象关系" class="headerlink" title="对象关系"></a>对象关系</h1><table>
-<thead>
-<tr>
-<th>组成</th>
-<th>关系</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>抽象产品</td>
-<td>具体产品的父类</td>
-<td>产品的公共接口</td>
-</tr>
-<tr>
-<td>具体产品</td>
-<td>抽象产品的子类</td>
-<td>生产的具体产品</td>
-</tr>
-<tr>
-<td>抽象工厂</td>
-<td>工厂抽象类</td>
-<td>定义工厂的生产行为</td>
-</tr>
-<tr>
-<td>具体的工厂</td>
-<td>工厂抽象类的具体实现</td>
-<td>根据参数创建不同的具体产品</td>
-</tr>
-</tbody></table>
+      <p>　　上半年疫情看好的医疗板块，没有坚定持有，当时的想法是持有至六月份，判定依据是国内是最早稳定疫情的，外部环境的综合生产能力或者控制能力相对中国这种集大力办大事的处理能力肯定是完全不在一个等级上的，因此中国这个外贸型国家在一段时间内必然是医疗设备输出国，有需必有供，在此认为下半年医疗还是可以持有的。另外就是布局消费、航空、军工、科技。</p>
     
   </div>
   <footer class="end-sep">
     
       
         <div class="alignleft">
-          <a href="/2017/08/13/designpattern/design-pattern-工厂模式/#more" class="more-link">阅读全文</a>
+          <a href="/2020/06/30/thinking/基金布局/#more" class="more-link">阅读全文</a>
         </div>
       
       
@@ -132,94 +101,37 @@
   <header>
     
       <div class="icon"></div>
-      <a href="/2017/08/06/record/会话技术Cookie与Session/">
-  <time datetime="2017-08-06T13:06:53.000Z">
-    2017-08-06
+      <a href="/2020/06/28/designpattern/design-pattern-原型模式/">
+  <time datetime="2020-06-28T06:06:33.000Z">
+    2020-06-28
   </time>
 </a>
     
     
   
-    <h1 class="title"><a href="/2017/08/06/record/会话技术Cookie与Session/">会话技术Cookie与Session</a></h1>
+    <h1 class="title"><a href="/2020/06/28/designpattern/design-pattern-原型模式/">原型模式</a></h1>
   
 
   </header>
   
   <div class="entry">
     
-      <h3 id="序"><a href="#序" class="headerlink" title="序"></a>序</h3><p>　　什么是会话？按照理解就是人与人之间建立的一次谈话称为会话，放到Web的语义下就是浏览器与服务端的一次数据交互。我们知道Http协议是无状态的，一次连接建立后，数据交互完就结束了，第二次请求如果浏览器的请求不带点标识，服务端是无从知道是哪个客户发消息来，这也就引出我们的主题，Web的会话跟踪技术—Cookie与Session。</p>
-<h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><p>　　Cookie意为饼干，是一种客户端技术，当浏览器访问服务端时，服务端可以向响应Cookie中写入想要的内容，客户端就会保留相应的Cookie内容，在其后的请求中都会带上相应的内容，也就可以带上我们的用户标识。</p>
-<h4 id="常见方法"><a href="#常见方法" class="headerlink" title="常见方法"></a>常见方法</h4><ul>
-<li>public Cookie(String name,String value)</li>
-<li>setValue与getValue方法</li>
-<li>setMaxAge与getMaxAge方法</li>
-<li>setPath与getPath方法</li>
-<li>setDomain与getDomain方法</li>
-<li>getName方法</li>
+      <p><strong>定义</strong></p>
+<blockquote>
+<p>根据原型实例创建对象的种类，并通过拷贝原型来创建新的对象。</p>
+</blockquote>
+<p><strong>实现方式</strong></p>
+<ul>
+<li>实现Cloneable接口。在java中实现了此接口的类才可以被拷贝。</li>
+<li>重写Object的clone方法，Object的clone方法作用域是protected类型，需要重写修改作用域为public。</li>
 </ul>
-<h4 id="不可跨域名"><a href="#不可跨域名" class="headerlink" title="不可跨域名"></a>不可跨域名</h4><p>　　Cookie是不能跨域名的，也就是a网站的Cookie是不能发到b网站去的。</p>
-<h4 id="有效时间"><a href="#有效时间" class="headerlink" title="有效时间"></a>有效时间</h4><p>　　使用setMaxAge来设置过期时间，如果是整数，则表示在MaxAge秒前有效，会写入磁盘；如果是负数，则表明Cookie是临时的，在浏览器关闭前是有效的。</p>
-<h4 id="没有修改和删除功能"><a href="#没有修改和删除功能" class="headerlink" title="没有修改和删除功能"></a>没有修改和删除功能</h4><p>　　修改就是用新值去覆盖旧值。</p>
-<h4 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h4><p>　　domain属性决定了Cookie的域名，规定为”.域名”。</p>
-<h3 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h3><p>　　是一种服务端技术，服务端会记录当前用户的相关信息，返回一个sessionId给客户端，那么下个请求就以sessionId唯一关联当前用户身份信息。</p>
-<h4 id="常见方法-1"><a href="#常见方法-1" class="headerlink" title="常见方法"></a>常见方法</h4><ul>
-<li>long getCreationTime();【获取Session被创建时间】</li>
-<li><strong>String getId();【获取Session的id】</strong></li>
-<li>long getLastAccessedTime();【返回Session最后活跃的时间】</li>
-<li>ServletContext getServletContext();【获取ServletContext对象】</li>
-<li><strong>void setMaxInactiveInterval(int var1);【设置Session超时时间】</strong></li>
-<li><strong>int getMaxInactiveInterval();【获取Session超时时间】</strong></li>
-<li><strong>Object getAttribute(String var1);【获取Session属性</strong>】</li>
-<li>Enumeration getAttributeNames();【获取Session所有的属性名】</li>
-<li><strong>void setAttribute(String var1, Object var2);【设置Session属性】</strong></li>
-<li><strong>void removeAttribute(String var1);【移除Session属性】</strong></li>
-<li><strong>void invalidate();【销毁该Session】</strong></li>
-<li>boolean isNew();【该Session是否为新的】</li>
-</ul>
-<h4 id="生命周期与有效期"><a href="#生命周期与有效期" class="headerlink" title="生命周期与有效期"></a>生命周期与有效期</h4><p>　　用户首次访问服务端servlet则会创建session对象。只要用户持续访问，服务端都会更新session的最后访问时间，而为了防止内存溢出，会把长时间没有访问的session干掉。默认的超时时间是30min，可以修改。</p>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2017/07/21/designpattern/design-pattern-抽象工厂模式/">
-  <time datetime="2017-07-21T02:14:13.000Z">
-    2017-07-21
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2017/07/21/designpattern/design-pattern-抽象工厂模式/">抽象工厂模式</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
-<p>相比工厂模式，抽象工厂可以生产多类产品。抽象出产品类，比如电视类、空调类两类别产品，具体的产品子类对应子品牌，如海尔的电视，三星的电视或海尔的空调，三星的空调。工厂具体类主要包含需要生产的产品的组合，需要组合时只需扩展一个新的工厂具体类。</p>
-</blockquote>
     
   </div>
   <footer class="end-sep">
     
       
         <div class="alignleft">
-          <a href="/2017/07/21/designpattern/design-pattern-抽象工厂模式/#more" class="more-link">阅读全文</a>
+          <a href="/2020/06/28/designpattern/design-pattern-原型模式/#more" class="more-link">阅读全文</a>
         </div>
       
       
@@ -234,55 +146,39 @@
   <header>
     
       <div class="icon"></div>
-      <a href="/2017/04/26/designpattern/design-pattern-简单工厂模式/">
-  <time datetime="2017-04-26T03:18:49.000Z">
-    2017-04-26
+      <a href="/2020/06/26/record/JSON-Web-Token/">
+  <time datetime="2020-06-26T10:28:44.000Z">
+    2020-06-26
   </time>
 </a>
     
     
   
-    <h1 class="title"><a href="/2017/04/26/designpattern/design-pattern-简单工厂模式/">简单工厂模式</a></h1>
+    <h1 class="title"><a href="/2020/06/26/record/JSON-Web-Token/">JSON Web Token</a></h1>
   
 
   </header>
   
   <div class="entry">
     
-      <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
-<p>通过一个工厂类的静态方法根据需要生产需要的对象，客户端直接调用工厂类，而不需要知道创建的细节。</p>
+      <p><strong>定义</strong></p>
+<blockquote>
+<p>是一种跨域认证的令牌技术。</p>
 </blockquote>
-<h1 id="对象关系"><a href="#对象关系" class="headerlink" title="对象关系"></a>对象关系</h1><table>
-<thead>
-<tr>
-<th>组成</th>
-<th>关系</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>抽象产品</td>
-<td>具体产品的父类</td>
-<td>产品的公共接口</td>
-</tr>
-<tr>
-<td>具体产品</td>
-<td>抽象产品的子类</td>
-<td>生产的具体产品</td>
-</tr>
-<tr>
-<td>工厂</td>
-<td>被客户端调用</td>
-<td>根据参数创建不同的具体产品</td>
-</tr>
-</tbody></table>
+<p><strong>解决场景</strong></p>
+<ol>
+<li><p>用户向服务器发送用户名和密码。</p>
+</li>
+<li><p>服务器验证通过后，则在session中保存用户的相关信息，如用户角色，权限等。</p>
+</li>
+<li><p>服务器返回一个sessionId给客户端 ，写入浏览器的cookie中。</p>
     
   </div>
   <footer class="end-sep">
     
       
         <div class="alignleft">
-          <a href="/2017/04/26/designpattern/design-pattern-简单工厂模式/#more" class="more-link">阅读全文</a>
+          <a href="/2020/06/26/record/JSON-Web-Token/#more" class="more-link">阅读全文</a>
         </div>
       
       
@@ -297,33 +193,266 @@
   <header>
     
       <div class="icon"></div>
-      <a href="/2017/02/16/designpattern/design-pattern-单例模式/">
-  <time datetime="2017-02-16T02:13:50.000Z">
-    2017-02-16
+      <a href="/2020/06/26/record/Validator参数校验/">
+  <time datetime="2020-06-26T10:28:44.000Z">
+    2020-06-26
   </time>
 </a>
     
     
   
-    <h1 class="title"><a href="/2017/02/16/designpattern/design-pattern-单例模式/">单例模式</a></h1>
+    <h1 class="title"><a href="/2020/06/26/record/Validator参数校验/">SpringMVC参数校验</a></h1>
   
 
   </header>
   
   <div class="entry">
     
-      <blockquote>
-<p>只有一个实例，类只创建一个对象，这个类提供一种访问其唯一对象的方式。</p>
-</blockquote>
-<p>懒汉式：只有实例用到的时候才会去加载，加载时判断是否生成实例，没有就立刻创建并返回，有则返回已有的唯一实例。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LazySingleton</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> LazySingleton instance;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">LazySingleton</span><span class="params">()</span></span>;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> LazySingleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(instance==<span class="keyword">null</span>)&#123;</span><br><span class="line">			instance = <span class="keyword">new</span> LazySingleton();	</span><br><span class="line">		&#125;	</span><br><span class="line">		<span class="keyword">return</span> instance;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--jsr 303 参数校验start--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.validation<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>validation-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.0.Final<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- hibernate validator--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.hibernate<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hibernate-validator<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.2.0.Final<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--jsr 303 参数校验end--&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Validated：在多个参数校验,或者@RequestParam 形式时候,需要在controller上加注@Validated</span><br><span class="line"></span><br><span class="line">@Valid：对象参数，存在嵌套，则在嵌套属性标识</span><br></pre></td></tr></table></figure>
     
   </div>
   <footer class="end-sep">
     
       
         <div class="alignleft">
-          <a href="/2017/02/16/designpattern/design-pattern-单例模式/#more" class="more-link">阅读全文</a>
+          <a href="/2020/06/26/record/Validator参数校验/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2020/06/26/thinking/调理脾胃/">
+  <time datetime="2020-06-26T02:28:13.000Z">
+    2020-06-26
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2020/06/26/thinking/调理脾胃/">调理脾胃</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p>　　近来生活不规律，饮食好生冷，多熬夜，作息不规律，感觉脾胃瘀滞，气机不畅感明显。查阅中医相关资料，是为脾胃虚弱之症。</p>
+<ol>
+<li>舌头边缘有齿痕，湿气重，脾胃虚</li>
+<li>食欲下降，转化率差</li>
+<li>早起不适，起床就胸闷气短，头晕。</li>
+<li>湿气重</li>
+</ol>
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2020/06/26/thinking/调理脾胃/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2020/05/21/flow/FTP模式设置引发的问题/">
+  <time datetime="2020-05-21T00:49:28.000Z">
+    2020-05-21
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2020/05/21/flow/FTP模式设置引发的问题/">FTP模式设置引发的问题</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p>　　最近写了一个程序使用FTP去服务器批量下载文件，按道理应该是比较简单的。但上了生产环境就发生了异常，程序下载的过程中莫名其妙进入假死状态，日志也没有继续打，起初以为是递归加载文件的时候找不到出口，后来经过排查原因是FTP的工作模式问题引起的。</p>
+<p>FTP工作端口默认有两个，通常21是命令端口，20是数据端口，当混入主被动模式，数据端口就不一定是20了。</p>
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2020/05/21/flow/FTP模式设置引发的问题/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2020/05/14/flow/Linux文件删除原理/">
+  <time datetime="2020-05-14T03:15:15.000Z">
+    2020-05-14
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2020/05/14/flow/Linux文件删除原理/">Linux文件删除原理</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p>　　Linux磁盘上的文件有两个link计数器，分别是i_count和i_link，表示进程的引用计数和硬连接的数量。只有当i_count=0并且i_link=0才会删除文件。当我们使用rm命令时，只是使i_link减少，如果此时文件依然被进程引用，文件还未被真正的删除。</p>
+<p><strong>实践场景</strong></p>
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2020/05/14/flow/Linux文件删除原理/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2020/05/14/flow/NetworkManager/">
+  <time datetime="2020-05-14T03:15:15.000Z">
+    2020-05-14
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2020/05/14/flow/NetworkManager/">NetworkManager</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">nmcli connection 网络连接管理$ nmcli connection show  # 查看所有网卡配置</span><br><span class="line">$ nmcli connection reload # 重新加载网卡配置，不会立即生效</span><br><span class="line">$ nmcli connection down ens160 &amp;&amp; nmcli connection up ens160 # 立即生效Connection配置</span><br><span class="line">$ nmcli connection add type ethernet con-name ens160-con ifname ens160 ipv4.addr 1.1.1.2/24 ipv4.gateway 1.1.1.1 ipv4.method manual # 为device创建connection</span><br><span class="line">$ nmcli connection add type ethernet con-name ens160-con ifname ens160 ipv.method auto # dhcp</span><br><span class="line">$ nmcli connection modify ens160-con ipv.addr 1.1.1.3/24 &amp;&amp; nmcli connection up ens160-con # 修改IP地址并立即生效</span><br><span class="line">​</span><br><span class="line">交互方式修改IP</span><br><span class="line">$ nmcli connection edit ens160-con</span><br><span class="line">​</span><br><span class="line">nmcli device 网卡设备管理</span><br><span class="line">$ nmcli device status # 查看所有网卡设备状态</span><br><span class="line">$ nmcli device show ens160 # 查看网卡配置</span><br><span class="line">$ nmcli device reapply ens160 # 立即生效网卡配置</span><br></pre></td></tr></table></figure>
+
+
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2020/05/14/flow/NetworkManager/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2020/05/14/middleware/kafka/">
+  <time datetime="2020-05-14T03:15:15.000Z">
+    2020-05-14
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2020/05/14/middleware/kafka/">Kafka</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p>解耦：降低系统间的耦合度，方便日后扩展</p>
+<p>削峰：通过异步处理消息，并且提供多消费端来消费消息，达到削峰的作用</p>
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2020/05/14/middleware/kafka/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2020/05/12/record/布隆过滤器/">
+  <time datetime="2020-05-12T09:19:22.000Z">
+    2020-05-12
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2020/05/12/record/布隆过滤器/">布隆过滤器</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      
+<p>简单来说，这个东西就是由一个bit数组和几个哈希函数组成，数组上只存放0或1，好处就是这个数组可以搞得非常大，毕竟bit数组，100w的数据，撑死 1000000Bit / 8 = 125000 Byte = 125000/1024 kb ≈ 122kb 的空间。</p>
+<p><strong>加入元素</strong></p>
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2020/05/12/record/布隆过滤器/#more" class="more-link">阅读全文</a>
         </div>
       
       
@@ -339,6 +468,8 @@
   
     <a href="/page/4/" class="prev">上一页</a>
   
+  
+    <a href="/page/6/" class="next">下一页</a>
   
   <div class="clearfix"></div>
 </nav>

@@ -64,6 +64,388 @@
   <header>
     
       <div class="icon"></div>
+      <a href="/2021/11/27/middleware/minio/">
+  <time datetime="2021-11-27T01:49:06.000Z">
+    2021-11-27
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2021/11/27/middleware/minio/">Minio</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 9000:9000 -p 9001:9001 -d --name minio1 \</span><br><span class="line">  -v /Users/carytseng/envir/minio/data:/data \</span><br><span class="line">  -v /Users/carytseng/envir/minio/config:/root/.minio \</span><br><span class="line">  -e &#x27;MINIO_ROOT_USER=admin&#x27; \</span><br><span class="line">  -e &#x27;MINIO_ROOT_PASSWORD=admin123&#x27; \</span><br><span class="line">  minio/minio server /data --console-address &quot;:9001&quot;</span><br></pre></td></tr></table></figure>
+
+
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2021/11/27/middleware/minio/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2021/11/27/thinking/随想11-27/">
+  <time datetime="2021-11-27T01:49:06.000Z">
+    2021-11-27
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2021/11/27/thinking/随想11-27/">随想11-27</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      
+
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2021/11/27/thinking/随想11-27/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2021/10/25/record/NVM/">
+  <time datetime="2021-10-25T01:49:06.000Z">
+    2021-10-25
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2021/10/25/record/NVM/">NVM</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p>1、nvm安装。nvm是node版本管理工具，为解决node各版本不兼容问题，nvm是让你在同一台机器上安装和切换不同版本的node</p>
+<ol>
+<li><p>brew install nvm</p>
+</li>
+<li><p>编辑配置文件，vim ~/.bash_profile，文件中写入如下内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export NVM_DIR=~/.nvm</span><br><span class="line">source $(brew --prefix nvm)/nvm.sh</span><br></pre></td></tr></table></figure></li>
+<li><p>保存，source ~/.bash_profile</p>
+</li>
+</ol>
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2021/10/25/record/NVM/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2021/09/25/host/mac/">
+  <time datetime="2021-09-25T01:49:06.000Z">
+    2021-09-25
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2021/09/25/host/mac/">Mac平台下工具总结</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p><a target="_blank" rel="noopener" href="https://www.macwk.com/" title="macwk">macwk</a></p>
+<ul>
+<li>解压：Bandizip</li>
+<li>影音：IINA</li>
+<li>终端替代：iTerm2</li>
+<li>文档阅览：PDF Expert</li>
+<li>浏览器下载：NeatDownloadManager</li>
+<li>磁力链接必备：迅雷</li>
+<li>系统清理：Disk diet</li>
+<li>本地索引搜索：HapiGo</li>
+<li>外网工具：Clash</li>
+<li>文档编辑：wps</li>
+<li>邮件收发（主要可设代理，方便gmail）：Formail</li>
+<li>文件管理器替代：TotalFinder</li>
+</ul>
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2021/09/25/host/mac/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2021/08/05/record/java/">
+  <time datetime="2021-08-05T11:59:19.000Z">
+    2021-08-05
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2021/08/05/record/java/">Java基础补全</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <ul>
+<li><p>boolean (8bit),byte(8bit),char(16bit),short(16bit),int(32bit),long(64bit),float(32bit),double(64bit),void</p>
+</li>
+<li><p>Boolean,Byte,Character,Integer,Long,Float,Double,Void</p>
+</li>
+</ul>
+
+<p>&amp;&amp;是短路操作符:若操作符左边的布尔表达式能推算出整个表达式的布尔值，则不计算右边的表达式。</p>
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2021/08/05/record/java/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2021/04/17/algorithm/剑指 Offer 05. 替换空格替换空格/">
+  <time datetime="2021-04-17T02:19:22.000Z">
+    2021-04-17
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2021/04/17/algorithm/剑指 Offer 05. 替换空格替换空格/">剑指 Offer 05. 替换空格</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">replaceSpace</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">char</span>[] c = s.toCharArray();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;c.length;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(c[i] == <span class="string">&#x27; &#x27;</span>)&#123;</span><br><span class="line">                sb.append(<span class="string">&quot;%20&quot;</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                sb.append(c[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2021/04/17/algorithm/剑指 Offer 05. 替换空格替换空格/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2021/04/17/algorithm/剑指 Offer 06. 从尾到头打印链表/">
+  <time datetime="2021-04-17T02:19:22.000Z">
+    2021-04-17
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2021/04/17/algorithm/剑指 Offer 06. 从尾到头打印链表/">剑指 Offer 06. 从尾到头打印链表</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] reversePrint(ListNode head) &#123;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        ListNode cur = head;</span><br><span class="line">        <span class="keyword">while</span>(cur!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            cur = cur.next;</span><br><span class="line">            </span><br><span class="line">            ++count; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[] r = <span class="keyword">new</span> <span class="keyword">int</span>[count];</span><br><span class="line">        cur = head;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=count-<span class="number">1</span>;i&gt;=<span class="number">0</span>;--i)&#123;</span><br><span class="line">            r[i]=cur.val;</span><br><span class="line">            cur = cur.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2021/04/17/algorithm/剑指 Offer 06. 从尾到头打印链表/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2021/04/17/algorithm/剑指 Offer 04. 二维数组中的查找/">
+  <time datetime="2021-04-17T01:19:22.000Z">
+    2021-04-17
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2021/04/17/algorithm/剑指 Offer 04. 二维数组中的查找/">剑指 Offer 04. 二维数组中的查找</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">findNumberIn2DArray</span><span class="params">(<span class="keyword">int</span>[][] matrix, <span class="keyword">int</span> target)</span> </span>&#123;  </span><br><span class="line">        <span class="keyword">if</span>(matrix.length == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=matrix[<span class="number">0</span>].length-<span class="number">1</span>,j=<span class="number">0</span>;i&gt;=<span class="number">0</span> &amp;&amp; j&lt;matrix.length;)&#123;</span><br><span class="line">            <span class="keyword">if</span>(matrix[j][i]==target)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target&lt;matrix[j][i])&#123;</span><br><span class="line">                i--;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2021/04/17/algorithm/剑指 Offer 04. 二维数组中的查找/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2021/03/31/middleware/mysql/">
+  <time datetime="2021-03-31T01:46:08.000Z">
+    2021-03-31
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2021/03/31/middleware/mysql/">MySQL</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <ul>
+<li>第一范式：列属性不可再分</li>
+<li>第二范式：行有唯一主键，其他非主键列依赖于主键</li>
+<li>第三范式：不能有传递依赖，消除冗余</li>
+</ul>
+
+<ul>
+<li><strong>原子性（Atomicity）</strong>：事务作为一个整体被执行，包含在其中的对数据库的操作要么全部被执行，要么都不执行。</li>
+<li><strong>一致性（Consistency）</strong>：事务应确保数据库的状态从一个一致状态转变为另一个一致状态。<em>一致状态</em>的含义是数据库中的数据应满足完整性约束。</li>
+<li><strong>隔离性（Isolation）</strong>：多个事务并发执行时，一个事务的执行不应影响其他事务的执行。</li>
+<li><strong>持久性（Durability）</strong>：已被提交的事务对数据库的修改应该永久保存在数据库中。</li>
+</ul>
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2021/03/31/middleware/mysql/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
       <a href="/2021/03/31/algorithm/剑指 Offer 03. 数组中重复的数字/">
   <time datetime="2021-03-31T01:19:22.000Z">
     2021-03-31
@@ -87,915 +469,8 @@
   <footer class="end-sep">
     
       
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2021/03/29/algorithm/二分查找/">
-  <time datetime="2021-03-29T13:19:22.000Z">
-    2021-03-29
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2021/03/29/algorithm/二分查找/">704.二分查找</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> low=<span class="number">0</span>,high=nums.length-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(low&lt;=high)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = (low + high)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid]==target)&#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(target&lt;nums[mid])&#123;</span><br><span class="line">                high = mid-<span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                low = mid+<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2021/03/27/algorithm/反转链表/">
-  <time datetime="2021-03-27T13:19:22.000Z">
-    2021-03-27
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2021/03/27/algorithm/反转链表/">反转链表</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <h2 id="迭代法"><a href="#迭代法" class="headerlink" title="迭代法"></a>迭代法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">reverse</span><span class="params">(ListNode head)</span></span>&#123;</span><br><span class="line">  ListNode pre = <span class="keyword">null</span>;</span><br><span class="line">  ListNode cur = head;</span><br><span class="line">  <span class="keyword">while</span>(cur!=<span class="keyword">null</span>)&#123;</span><br><span class="line">    ListNode tmp = cur.next;</span><br><span class="line">    cur.next = pre;</span><br><span class="line">    pre = cur;</span><br><span class="line">    cur = tmp;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> pre;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="递归法"><a href="#递归法" class="headerlink" title="递归法"></a>递归法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> ListNode <span class="title">reverse</span><span class="params">(ListNode head)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(head==<span class="keyword">null</span>||head.next=<span class="keyword">null</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> head;</span><br><span class="line">	&#125;</span><br><span class="line">  ListNode last = reverse(head.next);</span><br><span class="line">  head.next.next = head;</span><br><span class="line">  head.next = <span class="keyword">null</span>;</span><br><span class="line">  <span class="keyword">return</span> last;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2021/02/20/algorithm/剑指 Offer 09. 用两个栈实现队列/">
-  <time datetime="2021-02-20T01:19:22.000Z">
-    2021-02-20
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2021/02/20/algorithm/剑指 Offer 09. 用两个栈实现队列/">剑指 Offer 09. 用两个栈实现队列</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">class CQueue &#123;</span><br><span class="line"></span><br><span class="line">  Stack&lt;Integer&gt; s1;</span><br><span class="line">  Stack&lt;Integer&gt; s2;</span><br><span class="line"></span><br><span class="line">  public CQueue() &#123;</span><br><span class="line">    s1 = new Stack();</span><br><span class="line">    s2 = new Stack();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  public void appendTail(int value) &#123;</span><br><span class="line">    while (s2.size() &gt; 0) &#123;</span><br><span class="line">      s1.push(s2.pop());</span><br><span class="line">    &#125;</span><br><span class="line">    s1.push(value);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  public int deleteHead() &#123;</span><br><span class="line">    while (s1.size() &gt; 0) &#123;</span><br><span class="line">      s2.push(s1.pop());</span><br><span class="line">    &#125;</span><br><span class="line">    return s2.size() == 0 ? -1 : s2.pop();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"></span><br><span class="line"> * Your CQueue object will be instantiated and called as such:</span><br><span class="line"> * CQueue obj = new CQueue();</span><br><span class="line"> * obj.appendTail(value);</span><br><span class="line"> * int param_2 = obj.deleteHead();</span><br><span class="line">   */</span><br></pre></td></tr></table></figure>
-
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2021/02/20/algorithm/剑指 Offer 10- I. 斐波那契数列/">
-  <time datetime="2021-02-20T01:19:22.000Z">
-    2021-02-20
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2021/02/20/algorithm/剑指 Offer 10- I. 斐波那契数列/">剑指 Offer 10- I. 斐波那契数列</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line"></span><br><span class="line">  public int fib(int n) &#123;</span><br><span class="line">    if (n == 0 || n == 1) &#123;</span><br><span class="line">      return n;</span><br><span class="line">    &#125;</span><br><span class="line">    int a = 1, b = 0;</span><br><span class="line">    for (i = 1; i &lt; n; i++) &#123;</span><br><span class="line">      a = a + b;</span><br><span class="line">      b = a - b;</span><br><span class="line">      a %= 1000000007;</span><br><span class="line">    &#125;</span><br><span class="line">    return a;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2020/11/28/host/ignite迁移/">
-  <time datetime="2020-11-28T11:59:19.000Z">
-    2020-11-28
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2020/11/28/host/ignite迁移/">ignite迁移</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">新主机docker脚本安装</span></span><br><span class="line">curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>docker-compose.yml&amp;ignite.db文件cp</p>
-</li>
-<li><p>容器服务导出导入</p>
-<ul>
-<li>生成容器快照，打出镜像<ul>
-<li>docker commit -p [containerId] [alias]</li>
-</ul>
-</li>
-<li>生成tar文件<ul>
-<li>docker save -o ~/[filename].tar [imageName]</li>
-</ul>
-</li>
-<li>导入tar文件<ul>
-<li>cat [tarfile] |docker import - [name]</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>原主机获取容器启动命令相关参数</p>
-<ul>
-<li><p>安装runlike</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum install -y python-pip</span><br><span class="line">pip install runlike</span><br><span class="line"><span class="meta">#</span><span class="bash">查看启动参数</span></span><br><span class="line">runlike -p [containerid]</span><br><span class="line">cp</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li><p>启动ssr子容器所有服务，获得所有containerid，修改ignite.db中表user的service_id</p>
-</li>
-<li><p>docker-compose run –rm ignite-admin /bin/sh -c ‘./ignite-admin recover’</p>
-</li>
-<li><p>docker-compose up -d</p>
-</li>
-</ul>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2020/11/04/record/CAP定理/">
-  <time datetime="2020-11-04T13:41:57.000Z">
-    2020-11-04
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2020/11/04/record/CAP定理/">CAP定理</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <blockquote>
-<p>面试被问到CAP定理，之前看过，真正问起来讲得不清楚，估计没有真正的理解这个定理，故作此文进行记录</p>
-</blockquote>
-<p>分布式系统有三个指标，也即一致性、可用性、分区容错</p>
-<p>（C）一致性：多个节点的数据保持一致，当某个节点的数据修改后，需要同步修改所有节点的数据，保持一致</p>
-<p>（A）可用性：即当某个节点宕机后，整个集群还能正常对外服务，保证服务健康</p>
-<p>（P）分区容错：两个节点间可能会无法通信，P定理总是成立的。</p>
-<p>一致性和可用性不可能同时成立，因为P即分区容错总是可能出现，如果要保证一致性，则必须保证所有节点都收到该数据的同步，才能对外服务，这就不满足可用性。如果满足可用性，即某个节点崩坏了也要提供服务，那么就不能保证一致性。</p>
-<p>所以一般需要根据业务需要，保证C或A其中一个特性，例如网页更新可以采取可用性，因为最终用户都会看到最新的版本；如果是银行等金融数据，需要保证强一致性，则需要抛弃可用性。</p>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2020/10/28/middleware/redis/">
-  <time datetime="2020-10-28T07:13:07.000Z">
-    2020-10-28
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2020/10/28/middleware/redis/">redis</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <blockquote>
-<p>工作中接触Redis大多仅用来作为缓存，也用过来做分布式锁，对于内部的实现机制及高级用法几乎是走马观花，故作此文用来记录相关的知识点，从原理出发慢慢拓展此文，全部用自己的理解话术来进行记录，个人理解，有误请指出。</p>
-</blockquote>
-<h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><p>Redis诞生之初是为了解决关系型数据库的性能问题，由于IO需要对磁盘的读写速度满足不了实际场景，因此创造者利用内存造了一个内存数据库，没有关系型数据库的约束，Redis提供的数据结构简单且能满足高性能的读写场景，其基于对内存的读写，能够在短时间内处理数据，由于读写速度快，免去IO的局限，IO涉及操作系统用户空间与内核空间的数据复制及事件等待，所以redis采用单线程的处理模型，免去线程切换的开销，因为也没必要进行多线程处理</p>
-<h3 id="对比memcached"><a href="#对比memcached" class="headerlink" title="对比memcached"></a>对比memcached</h3><p>支持多种数据结构，memcached仅支持字符串且不支持持久化</p>
-<h2 id="请求处理"><a href="#请求处理" class="headerlink" title="请求处理"></a>请求处理</h2><p>Redis采用基于Reactor模式开发网络事件处理器，采用IO多路复用技术，简单来说就是一条线程监听多个客户端socket，当有事件到时，将事件作为一个task放到队列中，接下来文件处理器会对队列中的task进行处理，文件处理器是单线程的，没有线程的切换问题，文件处理器包含连接应答器、命令请求处理器、命令回复处理器，执行相应的命令后，返回相应。这也是Redis速度快的原因：IO多路复用、单线程处理task、基于内存的数据操作</p>
-<p><img src="/assets/blog_img/timg.jpeg" alt="timg"></p>
-<h2 id="Redis数据结构"><a href="#Redis数据结构" class="headerlink" title="Redis数据结构"></a>Redis数据结构</h2><p>基于键值的存储，值支持以下几种类型</p>
-<ul>
-<li>string：字符串<ul>
-<li>字节串：非字符自增会报错</li>
-<li>整数：可自增减</li>
-<li>浮点数</li>
-</ul>
-</li>
-<li>list：有序队列<ul>
-<li>可用作队列</li>
-</ul>
-</li>
-<li>set：集合</li>
-<li>hash：散列</li>
-<li>zset：有序集合<ul>
-<li>相比散列，提供基于分值的相关功能，每个key有对应的score，应对一些场景应用</li>
-</ul>
-</li>
-</ul>
-<h2 id="持久化"><a href="#持久化" class="headerlink" title="持久化"></a>持久化</h2><p>Redis提供持久化的功能，能够将内存的数据定时写入硬盘，保证数据在系统重启后能够恢复，继续进行服务</p>
-<p>两种持久化的方式：</p>
-<ul>
-<li>快照</li>
-<li>AOF</li>
-</ul>
-<h3 id="快照"><a href="#快照" class="headerlink" title="快照"></a>快照</h3><p>　　快照：会开启一个子进程定时对内存的数据进行打快照，使用BGSAVE命令，缺点是快照是按周期打，性能有限，一旦系统崩溃，会丢失从上次快照之后的数据，也有可能在刚打完快照就崩溃。而且打快照可能会造成Redis停顿</p>
-<h3 id="AOF"><a href="#AOF" class="headerlink" title="AOF"></a>AOF</h3><p>　　AOF：将Redis的执行命令记录下来，记录到AOF文件中，可根据需要设置频率，恢复时只需要执行相应的写命令即可。缺点是AOF的文件会随着内存数据的增大而增大，造成磁盘爆满，可以使用命令对AOF文件重写，压缩冗余的部分</p>
-<p>同步频率</p>
-<ul>
-<li><p>always：每个命令都写入磁盘</p>
-</li>
-<li><p>everysec：每秒同步一次，多个命令到磁盘</p>
-</li>
-<li><p>no：由系统决定写入时间</p>
-</li>
-</ul>
-<h3 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h3><p>水平添加多个Redis实例，通过主从服务器来满足高性能的读写请求。主服务器将快照文件发送到从服务器，从服务器获得快照并初始化数据</p>
-<h3 id="过期时间设置"><a href="#过期时间设置" class="headerlink" title="过期时间设置"></a>过期时间设置</h3><p>Redis提供过期时间设置保证内存空间，也能保证热数据</p>
-<p>Redis后台有两种方式对过期数据进行删除</p>
-<ul>
-<li>定期删除：每隔一段时间抽取过期的key然后删除</li>
-<li>惰性删除：当系统查询到这个过期key时会删除</li>
-</ul>
-<h3 id="热key问题"><a href="#热key问题" class="headerlink" title="热key问题"></a>热key问题</h3><p>针对某个key的大流量请求，造成物理机的网卡超载，导致Redis宕机引发雪崩</p>
-<p>解决思路：</p>
-<ul>
-<li>提前把key打到不同的服务器</li>
-<li>加入二级缓存，提前加载热key到内存</li>
-</ul>
-<h3 id="缓存击穿-缓存穿透-缓存雪崩"><a href="#缓存击穿-缓存穿透-缓存雪崩" class="headerlink" title="缓存击穿|缓存穿透|缓存雪崩"></a>缓存击穿|缓存穿透|缓存雪崩</h3><h4 id="缓存击穿"><a href="#缓存击穿" class="headerlink" title="缓存击穿"></a>缓存击穿</h4><p>类似热key问题，区别点在于key的过期导致请求打在DB上</p>
-<p>解决思路：</p>
-<ul>
-<li>加锁更新，对key进行加锁，在数据库查询前就进行了拦截</li>
-<li>过期时间写在value中，用异步方式刷新过期时间</li>
-</ul>
-<h4 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="缓存穿透"></a>缓存穿透</h4><p>查询缓存中不存在的key，恶意请求大量制造不存在的key直接请求DB</p>
-<p>解决思路：</p>
-<ul>
-<li>加一层布隆过滤器</li>
-</ul>
-<h4 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="缓存雪崩"></a>缓存雪崩</h4><p>某一时刻可能发生大规模的缓存失效，例如缓存服务宕机，大量的key同时失效，请求打到DB，导致整个系统雪崩</p>
-<ul>
-<li>不同的key设置不同的过期时间，避免同时过期</li>
-<li>限流，降低db压力</li>
-<li>二级缓存</li>
-</ul>
-<h2 id="redis分布式锁实现秒杀业务"><a href="#redis分布式锁实现秒杀业务" class="headerlink" title="redis分布式锁实现秒杀业务"></a>redis分布式锁实现秒杀业务</h2><p>　　曾经做过一个类似秒杀系统的模块，系统采用分布式架构，场景是这样子的，用户提了故障单后，有跟踪故障单的需求，衍生了催单，用户会通过多个客户端去提交催单，用户催单有专人去跟踪，有一定的时效性，需要及时处理反馈。</p>
-    
-  </div>
-  <footer class="end-sep">
-    
-      
         <div class="alignleft">
-          <a href="/2020/10/28/middleware/redis/#more" class="more-link">阅读全文</a>
-        </div>
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2020/10/07/record/Spring多数据源加载/">
-  <time datetime="2020-10-07T02:21:14.000Z">
-    2020-10-07
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2020/10/07/record/Spring多数据源加载/">Spring多数据源加载</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
-<p>Spring引入多数据源的方式，系统扩展的过程中可能会引入多个数据源，查阅了一些博客，发现引入方式或多或少都需要引入新的配置类，这里记录下在不需要修改任何代码的情况下，扩展数据源的方式，以后只需要在配置文件添加配置就能直接引入。</p>
-</blockquote>
-<h3 id="引入方式"><a href="#引入方式" class="headerlink" title="引入方式"></a>引入方式</h3><ul>
-<li>分包方式</li>
-<li>参数化方式</li>
-<li>注解+AOP</li>
-</ul>
-<h4 id="分包方式"><a href="#分包方式" class="headerlink" title="分包方式"></a>分包方式</h4><p>比较简单，哪个数据源的操作就走哪个mapper目录下的文件，一般就是两个库无任何关联的场景。</p>
-<h4 id="参数化方式"><a href="#参数化方式" class="headerlink" title="参数化方式"></a>参数化方式</h4><p>根据传入的参数选择数据源，进行数据查询，个人比较推崇这一种方式。</p>
-<h4 id="注解-AOP"><a href="#注解-AOP" class="headerlink" title="注解+AOP"></a>注解+AOP</h4><p>在特定的方式上添加自定义的注解，配置上需要选择的数据源值，AOP执行的时候通过获取注解上的值来切换，这种方式需要在方法上写死需要的数据源，不太灵活。</p>
-<h3 id="引入数据源的思路"><a href="#引入数据源的思路" class="headerlink" title="引入数据源的思路"></a>引入数据源的思路</h3><ul>
-<li>配置文件添加多个数据源</li>
-<li>自定义数据源配置</li>
-<li>注入Spring容器</li>
-<li>利用ThreadLocal的上下文，实现线程与数据源的绑定关系</li>
-<li>使用上用参数化还是AOP等都可以</li>
-</ul>
-<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>application.yml</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">master:</span></span><br><span class="line">      <span class="attr">password:</span> <span class="number">12345678</span></span><br><span class="line">      <span class="attr">jdbcUrl:</span> <span class="string">jdbc:mysql://127.0.0.1:3306/master?useUnicode=true&amp;characterEncoding=UTF-8</span></span><br><span class="line">      <span class="attr">driverClassName:</span> <span class="string">com.mysql.jdbc.Driver</span></span><br><span class="line">      <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">slave1:</span></span><br><span class="line">      <span class="attr">password:</span> <span class="number">12345678</span></span><br><span class="line">      <span class="attr">jdbcUrl:</span> <span class="string">jdbc:mysql://127.0.0.1:3306/slave1?useUnicode=true&amp;characterEncoding=UTF-8</span></span><br><span class="line">      <span class="attr">driverClassName:</span> <span class="string">com.mysql.jdbc.Driver</span></span><br><span class="line">      <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">slave2:</span></span><br><span class="line">      <span class="attr">password:</span> <span class="number">12345678</span></span><br><span class="line">      <span class="attr">jdbcUrl:</span> <span class="string">jdbc:mysql://127.0.0.1:3306/slave2?useUnicode=true&amp;characterEncoding=UTF-8</span></span><br><span class="line">      <span class="attr">driverClassName:</span> <span class="string">com.mysql.jdbc.Driver</span></span><br><span class="line">      <span class="attr">username:</span> <span class="string">root</span></span><br></pre></td></tr></table></figure>
-
-<p>建立一个property类来映射配置，这样我们就能拿到多个数据源的配置了。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@ConfigurationProperties(prefix = &quot;spring&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DynamicDataSourceProperty</span> </span>&#123;</span><br><span class="line">  	<span class="comment">//只映射datasource</span></span><br><span class="line">    <span class="keyword">private</span> Map&lt;String, Object&gt; datasource;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>接下来我们就是将所有的配置转换成bean并且注入到Spring中。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@MapperScan(basePackages = &quot;com.demo.sv.mapper&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DynamicDataSourceConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> BeanFactory beanFactory;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> DynamicDataSourceProperty dynamicDataSourceProperty;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 功能描述: &lt;br&gt;</span></span><br><span class="line"><span class="comment">     * 〈动态数据源bean 自动配置注册所有数据源〉</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="meta">@Primary</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> DataSource <span class="title">dynamicDataSource</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      	<span class="comment">//拿到Spring容器</span></span><br><span class="line">        DefaultListableBeanFactory listableBeanFactory = (DefaultListableBeanFactory) beanFactory;        </span><br><span class="line">        <span class="comment">/*获取yml所有数据源配置*/</span></span><br><span class="line">        Map&lt;String, Object&gt; datasource = dynamicDataSourceProperty.getDatasource();</span><br><span class="line">        Map&lt;Object, Object&gt; dataSourceMap = <span class="keyword">new</span> HashMap&lt;&gt;(<span class="number">5</span>);</span><br><span class="line">        Optional.ofNullable(datasource).ifPresent(map -&gt; &#123;</span><br><span class="line">            <span class="keyword">for</span> (Map.Entry&lt;String, Object&gt; entry : map.entrySet()) &#123;</span><br><span class="line">                <span class="comment">//创建数据源对象</span></span><br><span class="line">                HikariDataSource dataSource = (HikariDataSource) DataSourceBuilder.create().build();</span><br><span class="line">                String dataSourceId = entry.getKey();</span><br><span class="line">                configeDataSource(entry, dataSource);</span><br><span class="line">                <span class="comment">/*bean工厂注册每个数据源bean*/</span></span><br><span class="line">                listableBeanFactory.registerSingleton(dataSourceId, dataSource);</span><br><span class="line">                dataSourceMap.put(dataSourceId, dataSource);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="comment">//AbstractRoutingDataSource设置主从数据源</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> DynamicDataSource(beanFactory.getBean(<span class="string">&quot;master&quot;</span>, DataSource.class), dataSourceMap);</span><br><span class="line">    &#125;</span><br><span class="line">		</span><br><span class="line">  	<span class="comment">//从配置转换成bean</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">configeDataSource</span><span class="params">(Map.Entry&lt;String, Object&gt; entry, HikariDataSource dataSource)</span> </span>&#123;</span><br><span class="line">        Map&lt;String, Object&gt; dataSourceConfig = (Map&lt;String, Object&gt;) entry.getValue();</span><br><span class="line">        dataSource.setJdbcUrl(MapUtils.getString(dataSourceConfig, <span class="string">&quot;jdbcUrl&quot;</span>));</span><br><span class="line">        dataSource.setDriverClassName(MapUtils.getString(dataSourceConfig, <span class="string">&quot;driverClassName&quot;</span>));</span><br><span class="line">        dataSource.setUsername(MapUtils.getString(dataSourceConfig, <span class="string">&quot;username&quot;</span>));</span><br><span class="line">        dataSource.setPassword(MapUtils.getString(dataSourceConfig, <span class="string">&quot;password&quot;</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>切换数据源我们需要用到Spring提供的一个抽象类AbstractRoutingDataSource，这个类有个抽象方法determineTargetDataSource，我们通过继承这个类，并且实现determineTargetDataSource方法，这个determineTargetDataSource就是决定调用数据源的逻辑，简单来说这个方法算出key值，然后去数据源池取出我们需要的数据源。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DynamicDataSource</span> <span class="keyword">extends</span> <span class="title">AbstractRoutingDataSource</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DynamicDataSource</span><span class="params">(DataSource defaultDataSource, Map&lt;Object, Object&gt; targetDataSource)</span> </span>&#123;</span><br><span class="line">        backupTargetDataSources = targetDataSource;</span><br><span class="line">        <span class="keyword">super</span>.setDefaultTargetDataSource(defaultDataSource);</span><br><span class="line">        <span class="keyword">super</span>.setTargetDataSources(backupTargetDataSources);</span><br><span class="line">        <span class="keyword">super</span>.afterPropertiesSet();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> Object <span class="title">determineCurrentLookupKey</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        log.info(<span class="string">&quot;当前的数据源：&#123;&#125;&quot;</span>,DynamicDataSourceContextHolder.getContextKey());</span><br><span class="line">      	<span class="comment">//我们自己定义了一个DynamicDataSourceContextHolder来维护key，只要我们在方法调用前设置key，Spring会根据这个方法来决定数据源</span></span><br><span class="line">        <span class="keyword">return</span> DynamicDataSourceContextHolder.getContextKey();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>测试类，Springboot项目要加入排除自动配置数据源注解@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="meta">@RunWith(SpringJUnit4ClassRunner.class)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SvApplicationTests</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> UserMapper userMapper;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> ApplicationContext context;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">query</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        User user = <span class="keyword">new</span> User();</span><br><span class="line">      	<span class="comment">//根据需要切换我们需要的数据源</span></span><br><span class="line">        DynamicDataSourceContextHolder.setContextKey(<span class="string">&quot;slave2&quot;</span>);</span><br><span class="line">        List&lt;User&gt; users= userMapper.query();</span><br><span class="line">        DynamicDataSourceContextHolder.remove();</span><br><span class="line">        System.out.println(users);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="关于多数据源的事务处理"><a href="#关于多数据源的事务处理" class="headerlink" title="关于多数据源的事务处理"></a>关于多数据源的事务处理</h3><p>当引入多数据源后，如果要加入事务处理，同一个事务中处理处理两个数据源的数据会失败，主要是因为第一个数据源打开数据库连接后，会加入ThreadLocal中与线程进行绑定，而此时第二个数据源再获取sqlSession，发现不为空，取的是第一个数据源的连接，所以会有问题。如果要支持，思路就是保证sqlSession的独立，但不能保证分布式事务的正确处理。查阅相关资料，可以使用XA协议，具体此文没有详细探讨。</p>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2020/09/30/record/从零开始写框架-SpringMVC/">
-  <time datetime="2020-09-30T11:24:06.000Z">
-    2020-09-30
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2020/09/30/record/从零开始写框架-SpringMVC/">从零开始写框架-SpringMVC</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <blockquote>
-<p>前言：</p>
-<p>　　最近打算提升下源码能力，跟着相关教程实现Spring框架，巩固下前面的学习知识，像反射、设计模式等，顺带熟悉一些API。像设计模式这类知识，只能通过代码实践来提升对其核心思想的理解，毕竟设计模式不是凭空产生的，而是在代码实践的过程中，通过不断地重构提炼，发现其奥妙之处，才产生相关的程序思想。</p>
-</blockquote>
-<h3 id="1-0-MVC"><a href="#1-0-MVC" class="headerlink" title="1.0 MVC"></a>1.0 MVC</h3><h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><h4 id="配置文件application-properties"><a href="#配置文件application-properties" class="headerlink" title="配置文件application.properties"></a>配置文件application.properties</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scanPackage=com.gupaoedu.demo</span><br></pre></td></tr></table></figure>
-
-<h4 id="自定义注解"><a href="#自定义注解" class="headerlink" title="自定义注解"></a>自定义注解</h4><p>这部分主要模拟Spring中我们常用的Autowired，Controller，RequestMapping，RequestParam，Service等。</p>
-<p>注解文件：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(&#123;ElementType.FIELD&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> GPAutowired &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Target(&#123;ElementType.TYPE&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> GPController &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Target(&#123;ElementType.TYPE,ElementType.METHOD&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> GPRequestMapping &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Target(&#123;ElementType.PARAMETER&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> GPRequestParam &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Target(&#123;ElementType.TYPE&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> GPService &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> &quot;&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>web.xml文件：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">version</span>=<span class="string">&quot;4.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>gpmvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.gupaoedu.mvcframework.v1.servlet.GPDispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>application.properties<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>gpmvc<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>Controller类：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GPController</span></span><br><span class="line"><span class="meta">@GPRequestMapping(&quot;/demo&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoAction</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GPAutowired</span></span><br><span class="line">    <span class="keyword">private</span> IDemoService demoService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GPRequestMapping(&quot;/query&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">query</span><span class="params">(HttpServletRequest req, HttpServletResponse resp, <span class="meta">@GPRequestParam(&quot;name&quot;)</span> String name)</span></span>&#123;</span><br><span class="line">        String result = demoService.get(name);</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            resp.getWriter().write(result);</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GPRequestMapping(&quot;/add&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(HttpServletRequest req,HttpServletResponse resp,<span class="meta">@GPRequestParam(&quot;a&quot;)</span>Integer a,<span class="meta">@GPRequestParam(&quot;b&quot;)</span> Integer b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            resp.getWriter().write(a+<span class="string">&quot;+&quot;</span>+b+<span class="string">&quot;=&quot;</span>+(a+b));</span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GPRequestMapping(&quot;/remove&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">(HttpServletRequest req,HttpServletResponse resp,<span class="meta">@GPRequestParam(&quot;a&quot;)</span>Integer a,<span class="meta">@GPRequestParam(&quot;b&quot;)</span> Integer b)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Service接口：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IDemoService</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">get</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Service实现类：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GPService</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoService</span> <span class="keyword">implements</span> <span class="title">IDemoService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">get</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;my name is &quot;</span> + name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="核心思路："><a href="#核心思路：" class="headerlink" title="核心思路："></a>核心思路：</h4><p>思路：首先我们要实现SpringMVC，思考下需要什么组件，第一肯定是IOC容器，暂时可以使用Map来代替。还有就是能通过url来找controller的这么一个路由器，我们也可以用一个Map来存。上面的注解是标记文件的，我们需要扫描这部分标记有注解的文件，我们需要利用反射初始化相关类的实例，放到Map中，并且我们还要实现属性注入功能。</p>
-<p>初始化中我们需要做以下工作：</p>
-<ul>
-<li>扫描配置文件</li>
-<li>通过项目路径将注解相关的类，通过反射实例化</li>
-<li>实现类中的属性注入功能</li>
-<li>实现url与handler的映射，也即路由。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GPDispatcherServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Map&lt;String, Object&gt; mapping = <span class="keyword">new</span> HashMap&lt;String, Object&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.doPost(req, resp);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            doDispatch(req, resp);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            resp.getWriter().write(<span class="string">&quot;500 error&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">doDispatch</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> IOException, InvocationTargetException, IllegalAccessException </span>&#123;</span><br><span class="line">        <span class="comment">//获取请求url</span></span><br><span class="line">        String url = req.getRequestURI();</span><br><span class="line">        String contextPath = req.getContextPath();</span><br><span class="line">        url = url.replace(contextPath, <span class="string">&quot;&quot;</span>).replaceAll(<span class="string">&quot;/+&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (!<span class="keyword">this</span>.mapping.containsKey(url)) &#123;</span><br><span class="line">            resp.getWriter().write(<span class="string">&quot;404....&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        Method method = (Method) <span class="keyword">this</span>.mapping.get(url);</span><br><span class="line">        Map&lt;String, String[]&gt; params = req.getParameterMap();</span><br><span class="line">        method.invoke(<span class="keyword">this</span>.mapping.get(method.getDeclaringClass().getName()), <span class="keyword">new</span> Object[]&#123;req, resp, params.get(<span class="string">&quot;name&quot;</span>)[<span class="number">0</span>]&#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  	<span class="comment">//简易版本实现全部在一个方法中</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(ServletConfig config)</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line">        InputStream is = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Properties configContext = <span class="keyword">new</span> Properties();</span><br><span class="line">            is = <span class="keyword">this</span>.getClass().getClassLoader().getResourceAsStream(config.getInitParameter(<span class="string">&quot;contextConfigLocation&quot;</span>)); </span><br><span class="line">          	<span class="comment">//读取配置文件</span></span><br><span class="line">            configContext.load(is);</span><br><span class="line">            String scanPackage = configContext.getProperty(<span class="string">&quot;scanPackage&quot;</span>);</span><br><span class="line">            <span class="comment">//扫描配置路径下的类</span></span><br><span class="line">            doScanner(scanPackage);</span><br><span class="line">          	<span class="comment">//实例化标有注解的类</span></span><br><span class="line">            <span class="keyword">for</span> (String className : mapping.keySet()) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!className.contains(<span class="string">&quot;.&quot;</span>)) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                Class&lt;?&gt; clazz = Class.forName(className);</span><br><span class="line">                <span class="keyword">if</span> (clazz.isAnnotationPresent(GPController.class)) &#123;</span><br><span class="line">                    mapping.put(className, clazz.newInstance());</span><br><span class="line">                    String baseUrl = <span class="string">&quot;&quot;</span>;</span><br><span class="line">                    <span class="keyword">if</span> (clazz.isAnnotationPresent(GPRequestMapping.class)) &#123;</span><br><span class="line">                        GPRequestMapping requestMapping = clazz.getAnnotation(GPRequestMapping.class);</span><br><span class="line">                        baseUrl = requestMapping.value();</span><br><span class="line">                    &#125;</span><br><span class="line">                    Method[] methods = clazz.getMethods();</span><br><span class="line">                    <span class="keyword">for</span> (Method method : methods) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (!method.isAnnotationPresent(GPRequestMapping.class)) &#123;</span><br><span class="line">                            <span class="keyword">continue</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                        GPRequestMapping requestMapping = method.getAnnotation(GPRequestMapping.class);</span><br><span class="line">                        String url = (baseUrl + <span class="string">&quot;/&quot;</span> + requestMapping.value()).replaceAll(<span class="string">&quot;/+&quot;</span>, <span class="string">&quot;/&quot;</span>);</span><br><span class="line">                        mapping.put(url, method);</span><br><span class="line">                        System.out.println(<span class="string">&quot;Mapped &quot;</span> + url + <span class="string">&quot;,&quot;</span> + method);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (clazz.isAnnotationPresent(GPService.class)) &#123;</span><br><span class="line">                    GPService service = clazz.getAnnotation(GPService.class);</span><br><span class="line">                    String beanName = service.value();</span><br><span class="line">                    <span class="keyword">if</span> (<span class="string">&quot;&quot;</span>.equals(beanName)) &#123;</span><br><span class="line">                        beanName = clazz.getName();</span><br><span class="line">                    &#125;</span><br><span class="line">                    Object instance = clazz.newInstance();</span><br><span class="line">                    mapping.put(beanName, instance);</span><br><span class="line">                    <span class="keyword">for</span> (Class&lt;?&gt; i : clazz.getInterfaces()) &#123;</span><br><span class="line">                        mapping.put(i.getName(), instance);</span><br><span class="line">                        System.out.println(i.getName());</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//进行类的属性注入</span></span><br><span class="line">            <span class="keyword">for</span> (Object object : mapping.values()) &#123;</span><br><span class="line">                <span class="keyword">if</span> (object == <span class="keyword">null</span>) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                Class clazz = object.getClass();</span><br><span class="line">                <span class="keyword">if</span> (clazz.isAnnotationPresent(GPController.class)) &#123;</span><br><span class="line">                    Field[] fileds = clazz.getDeclaredFields();</span><br><span class="line">                    <span class="keyword">for</span> (Field field : fileds) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (!field.isAnnotationPresent(GPAutowired.class)) &#123;</span><br><span class="line">                            <span class="keyword">continue</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                        GPAutowired autowired = field.getAnnotation(GPAutowired.class);</span><br><span class="line">                        String beanName = autowired.value();</span><br><span class="line">                        <span class="keyword">if</span> (<span class="string">&quot;&quot;</span>.equals(beanName)) &#123;</span><br><span class="line">                            beanName = field.getType().getName();</span><br><span class="line">                        &#125;</span><br><span class="line">                        field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">                        <span class="comment">//对象的属性设置为value</span></span><br><span class="line">                        field.set(mapping.get(clazz.getName()), mapping.get(beanName));</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (is != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    is.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;GP mvc init...&quot;</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  	<span class="comment">//扫描所有的类</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">doScanner</span><span class="params">(String scanPackage)</span> </span>&#123;</span><br><span class="line">        URL url = <span class="keyword">this</span>.getClass().getClassLoader().getResource(<span class="string">&quot;/&quot;</span> + scanPackage.replaceAll(<span class="string">&quot;\\.&quot;</span>, <span class="string">&quot;/&quot;</span>));</span><br><span class="line">        File classDir = <span class="keyword">new</span> File(url.getFile());</span><br><span class="line">        <span class="keyword">for</span> (File file : classDir.listFiles()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (file.isDirectory()) &#123;</span><br><span class="line">                doScanner(scanPackage + <span class="string">&quot;.&quot;</span> + file.getName());</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (!file.getName().endsWith(<span class="string">&quot;.class&quot;</span>)) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                String clazzName = (scanPackage + <span class="string">&quot;.&quot;</span> + file.getName().replace(<span class="string">&quot;.class&quot;</span>, <span class="string">&quot;&quot;</span>));</span><br><span class="line">                mapping.put(clazzName, <span class="keyword">null</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-0-MVC"><a href="#2-0-MVC" class="headerlink" title="2.0 MVC"></a>2.0 MVC</h3><p>1.0版本将所有的代码逻辑都写在init方法内，我们需要将相关的步骤抽取出来，进行优化</p>
-<h4 id="init方法"><a href="#init方法" class="headerlink" title="init方法"></a>init方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(ServletConfig config)</span> <span class="keyword">throws</span> ServletException </span>&#123;</span><br><span class="line">		<span class="comment">//加载配置文件</span></span><br><span class="line">    doLoadConfig(config.getInitParameter(<span class="string">&quot;contextConfigLocation&quot;</span>));</span><br><span class="line">		<span class="comment">//扫描类</span></span><br><span class="line">    doScanner(contextConfig.getProperty(<span class="string">&quot;scanPackage&quot;</span>));</span><br><span class="line">		<span class="comment">//反射实例化类</span></span><br><span class="line">    doInstance();</span><br><span class="line">		<span class="comment">//注入</span></span><br><span class="line">    doAutowired();</span><br><span class="line">		<span class="comment">//初始化url与方法映射关系</span></span><br><span class="line">    initHandlerMapping();</span><br><span class="line"></span><br><span class="line">    System.out.println(<span class="string">&quot;GP mvc init...&quot;</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="doLoadConfig方法"><a href="#doLoadConfig方法" class="headerlink" title="doLoadConfig方法"></a>doLoadConfig方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">doLoadConfig</span><span class="params">(String contextConfigLocation)</span> </span>&#123;</span><br><span class="line">    InputStream is = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        is = <span class="keyword">this</span>.getClass().getClassLoader().getResourceAsStream(contextConfigLocation);</span><br><span class="line">        contextConfig.load(is);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != is) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                is.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="doScanner方法"><a href="#doScanner方法" class="headerlink" title="doScanner方法"></a>doScanner方法</h4><p>递归扫描所有类，将扫描到的类到放到List中，后面需要进行实例化。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">doScanner</span><span class="params">(String scanPackage)</span> </span>&#123;</span><br><span class="line">    URL url = <span class="keyword">this</span>.getClass().getClassLoader().getResource(<span class="string">&quot;/&quot;</span> + scanPackage.replaceAll(<span class="string">&quot;\\.&quot;</span>, <span class="string">&quot;/&quot;</span>));</span><br><span class="line">    File classDir = <span class="keyword">new</span> File(url.getFile());</span><br><span class="line">    <span class="keyword">for</span> (File file : classDir.listFiles()) &#123;</span><br><span class="line">        <span class="keyword">if</span> (file.isDirectory()) &#123;</span><br><span class="line">            doScanner(scanPackage + <span class="string">&quot;.&quot;</span> + file.getName());</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (!file.getName().endsWith(<span class="string">&quot;.class&quot;</span>)) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            String clazzName = (scanPackage + <span class="string">&quot;.&quot;</span> + file.getName().replace(<span class="string">&quot;.class&quot;</span>, <span class="string">&quot;&quot;</span>));</span><br><span class="line">            classNames.add(clazzName);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="doInstance方法"><a href="#doInstance方法" class="headerlink" title="doInstance方法"></a>doInstance方法</h4><p>实例化Bean，模拟将实例化的Bean放进IOC中，我们用一个Map来代替。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">doInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (classNames.isEmpty()) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (String className : classNames) &#123;</span><br><span class="line">            Class&lt;?&gt; clazz = Class.forName(className);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (clazz.isAnnotationPresent(GPController.class)) &#123;</span><br><span class="line">                Object instance = clazz.newInstance();</span><br><span class="line">                String beanName = toLowerFirstCase(clazz.getSimpleName());</span><br><span class="line">                ioc.put(beanName, instance);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (clazz.isAnnotationPresent(GPService.class)) &#123;</span><br><span class="line">                GPService service = clazz.getAnnotation(GPService.class);</span><br><span class="line">                String beanName = service.value();</span><br><span class="line">                <span class="keyword">if</span> (<span class="string">&quot;&quot;</span>.equals(beanName)) &#123;</span><br><span class="line">                    beanName = toLowerFirstCase(clazz.getSimpleName());</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                Object instance = clazz.newInstance();</span><br><span class="line">                ioc.put(beanName, instance);</span><br><span class="line">                <span class="keyword">for</span> (Class&lt;?&gt; i : clazz.getInterfaces()) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (ioc.containsKey(i.getName())) &#123;</span><br><span class="line">                        <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">&quot;the &quot;</span> + i.getName() + <span class="string">&quot; is exists&quot;</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                    ioc.put(i.getName(), instance);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="doAutowired方法进行注入"><a href="#doAutowired方法进行注入" class="headerlink" title="doAutowired方法进行注入"></a>doAutowired方法进行注入</h4><p>这一步我们将容器内的类取出来，通过反射将属性给拿到，通过扫描注解，再从容器中拿到相关的Bean然后注入到当前类的属性中。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">doAutowired</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (ioc.isEmpty()) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (Map.Entry&lt;String, Object&gt; entry : ioc.entrySet()) &#123;</span><br><span class="line">        <span class="comment">//取出所有的属性</span></span><br><span class="line">        Field[] fields = entry.getValue().getClass().getDeclaredFields();</span><br><span class="line">        <span class="keyword">for</span> (Field field : fields) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!field.isAnnotationPresent(GPAutowired.class)) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            GPAutowired autowired = field.getAnnotation(GPAutowired.class);</span><br><span class="line">            String beanName = autowired.value().trim();</span><br><span class="line">            <span class="keyword">if</span> (<span class="string">&quot;&quot;</span>.equals(beanName)) &#123;</span><br><span class="line">                beanName = field.getType().getName();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                field.set(entry.getValue(), ioc.get(beanName));</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IllegalAccessException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="initHandlerMapping方法"><a href="#initHandlerMapping方法" class="headerlink" title="initHandlerMapping方法"></a>initHandlerMapping方法</h4><p>这一步我们将所有Controller的方法拿到，并且拿到对应的url相对路径，并且将url与处理方法映射给保存起来，在请求路由的时候就根据url来找到相应的方法，通过反射执行对应方法。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initHandlerMapping</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (ioc.isEmpty()) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (Map.Entry&lt;String, Object&gt; entry : ioc.entrySet()) &#123;</span><br><span class="line">        Class&lt;?&gt; clazz = entry.getValue().getClass();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!clazz.isAnnotationPresent(GPController.class)) &#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        String baseUrl = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">if</span> (clazz.isAnnotationPresent(GPRequestMapping.class)) &#123;</span><br><span class="line">            GPRequestMapping gpRequestMapping = clazz.getAnnotation(GPRequestMapping.class);</span><br><span class="line">            baseUrl = gpRequestMapping.value();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (Method method : clazz.getMethods()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!method.isAnnotationPresent(GPRequestMapping.class)) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            GPRequestMapping gpRequestMapping = method.getAnnotation(GPRequestMapping.class);</span><br><span class="line"></span><br><span class="line">            String url = (<span class="string">&quot;/&quot;</span> + baseUrl + <span class="string">&quot;/&quot;</span> + gpRequestMapping.value()).replaceAll(<span class="string">&quot;/+&quot;</span>, <span class="string">&quot;/&quot;</span>);</span><br><span class="line"></span><br><span class="line">            handlerMapping.put(url, method);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="doDispatch路由逻辑"><a href="#doDispatch路由逻辑" class="headerlink" title="doDispatch路由逻辑"></a>doDispatch路由逻辑</h4><p>请求路由逻辑，思路是这样的，拿到请求url，通过url找到初始化的method，这时候就有了目标类的执行方法。接下来就是填充请求参数，填充完后执行method.invoke方法执行目标类的方法，完成请求。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">doDispatch</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> IOException, InvocationTargetException, IllegalAccessException </span>&#123;</span><br><span class="line">    String url = req.getRequestURI();</span><br><span class="line">    String contextPath = req.getContextPath();</span><br><span class="line">    url = url.replace(contextPath, <span class="string">&quot;&quot;</span>).replaceAll(<span class="string">&quot;//+&quot;</span>, <span class="string">&quot;/&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">this</span>.handlerMapping.containsKey(url)) &#123;</span><br><span class="line">        resp.getWriter().write(<span class="string">&quot;404....!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  	<span class="comment">//拿到url对应的controller请求方法</span></span><br><span class="line">    Method method = (Method) <span class="keyword">this</span>.handlerMapping.get(url);</span><br><span class="line">    <span class="comment">//请求传进来的实参</span></span><br><span class="line">    Map&lt;String, String[]&gt; parameterMap = req.getParameterMap();</span><br><span class="line">    <span class="comment">//取到形参类型</span></span><br><span class="line">    Class&lt;?&gt;[] parameterTypes = method.getParameterTypes();</span><br><span class="line">		<span class="comment">//实参数组初始化</span></span><br><span class="line">    Object[] paramValues = <span class="keyword">new</span> Object[parameterTypes.length];</span><br><span class="line">		<span class="comment">//这里只处理String类型</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; parameterTypes.length; i++) &#123;</span><br><span class="line">        Class paramterType = parameterTypes[i];</span><br><span class="line">        <span class="keyword">if</span> (paramterType == HttpServletRequest.class) &#123;</span><br><span class="line">            paramValues[i] = req;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (paramterType == HttpServletResponse.class) &#123;</span><br><span class="line">            paramValues[i] = resp;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (paramterType == String.class) &#123;</span><br><span class="line">            Annotation[][] pa = method.getParameterAnnotations();</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; pa.length; j++) &#123;</span><br><span class="line">                <span class="keyword">for</span> (Annotation a : pa[i]) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (a <span class="keyword">instanceof</span> GPRequestParam) &#123;</span><br><span class="line">                        String paramName = ((GPRequestParam) a).value();</span><br><span class="line">                        <span class="keyword">if</span> (!<span class="string">&quot;&quot;</span>.equals(paramName.trim())) &#123;</span><br><span class="line">                            String value = Arrays.toString(parameterMap.get(paramName)).replaceAll(<span class="string">&quot;\\[|\\]&quot;</span>, <span class="string">&quot;&quot;</span>).replaceAll(<span class="string">&quot;\\s&quot;</span>, <span class="string">&quot;,&quot;</span>);</span><br><span class="line">                            paramValues[i] = value;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    String beanName = toLowerFirstCase(method.getDeclaringClass().getSimpleName());</span><br><span class="line">    method.invoke(<span class="keyword">this</span>.ioc.get(beanName), paramValues);</span><br><span class="line">    System.out.println(method);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-0-MVC"><a href="#3-0-MVC" class="headerlink" title="3.0 MVC"></a>3.0 MVC</h3><p>待更</p>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2020/09/25/middleware/nacos/">
-  <time datetime="2020-09-25T01:25:02.000Z">
-    2020-09-25
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2020/09/25/middleware/nacos/">Nacos</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <h1 id="Nacos"><a href="#Nacos" class="headerlink" title="Nacos"></a>Nacos</h1><h2 id="docker启动"><a href="#docker启动" class="headerlink" title="docker启动"></a>docker启动</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/nacos-group/nacos-docker.git</span><br><span class="line">cd nacos-docker</span><br><span class="line">docker-compose -f example/standalone-derby.yaml up</span><br></pre></td></tr></table></figure>
-
-<h2 id="SpringCloud-namespaces"><a href="#SpringCloud-namespaces" class="headerlink" title="SpringCloud+namespaces"></a>SpringCloud+namespaces</h2><ol>
-<li>添加命名空间</li>
-<li>maven中定义多个环境profile</li>
-</ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">id</span>&gt;</span>dev<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">activation</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">activeByDefault</span>&gt;</span>true<span class="tag">&lt;/<span class="name">activeByDefault</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">activation</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">runtime.env</span>&gt;</span>dev<span class="tag">&lt;/<span class="name">runtime.env</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">nacos.server-addr</span>&gt;</span>10.91.22.7:8888<span class="tag">&lt;/<span class="name">nacos.server-addr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">nacos.namespace</span>&gt;</span>aa96c495-c8fa-4078-b159-556c08592786<span class="tag">&lt;/<span class="name">nacos.namespace</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="tag">&lt;<span class="name">profile</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">id</span>&gt;</span>local<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">runtime.env</span>&gt;</span>local<span class="tag">&lt;/<span class="name">runtime.env</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">nacos.server-addr</span>&gt;</span>10.91.22.7:8888<span class="tag">&lt;/<span class="name">nacos.server-addr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">nacos.namespace</span>&gt;</span>aa96c495-c8fa-4078-b159-556c08592786<span class="tag">&lt;/<span class="name">nacos.namespace</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">profile</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>![image-20210512144727556](/Users/carytseng/Library/Application Support/typora-user-images/image-20210512144727556.png)</p>
-<p><strong>maven中指定生效的profile，idea的active-profile指定的是项目下的对应环境的profile，非nacos上的配置</strong></p>
-<ol start="3">
-<li>spring.cloud.nacos.discovery.namespace指定注册到相应的命名空间的注册列表，默认会在public</li>
-</ol>
-<p>![image-20210512144838409](/Users/carytseng/Library/Application Support/typora-user-images/image-20210512144838409.png)</p>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2020/09/25/middleware/presto/">
-  <time datetime="2020-09-25T01:25:02.000Z">
-    2020-09-25
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2020/09/25/middleware/presto/">Presto</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <h1 id="Presto"><a href="#Presto" class="headerlink" title="Presto"></a>Presto</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>​        Facebook开发的分布式查询引擎，采用master-slave架构，由一个Coordinator节点，一个Discovery节点，多个Worker节点组成，Coordinator负责解析SQL，生成执行计划，分发执行任务给多个Worker节点，Worker节点负责实际执行查询任务。Worker节点启动后向Discovery Server服务注册，Coordinator从Discovery Server获得可以正常工作的Worker节点。</p>
-<h3 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h3><ol>
-<li>完全基于内存的并行计算</li>
-<li>流水线</li>
-<li>本地化计算</li>
-<li>动态编译执行计划</li>
-<li>小心使用内存和数据结构</li>
-<li>类BlinkDB的近似查询</li>
-<li>GC控制</li>
-</ol>
-<h2 id="隐式类型转换"><a href="#隐式类型转换" class="headerlink" title="隐式类型转换"></a>隐式类型转换</h2><p>手工处理：try_cast([] as [])</p>
-<p>美团修改版：<a target="_blank" rel="noopener" href="https://github.com/MTDATA/presto/commits/mt-0.60">https://github.com/MTDATA/presto/commits/mt-0.60</a></p>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2020/09/10/thinking/放量下跌/">
-  <time datetime="2020-09-10T07:14:47.000Z">
-    2020-09-10
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2020/09/10/thinking/放量下跌/">放量下跌</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <p>　　今日的市场放量下跌，现在持有500股21.95的招商证券下跌0.5，500股25.50的三安光电，没有精确拿到当天的低价，行情全日震荡幅度大，拿到这个筹码不算最好，但也算不错，留有30%的仓位等补仓用。前日受美股影响A股也下跌，今天突破了3260点下挫到3234附近，目前持有的基金收益已经亏损了，科技股受影响严重，也是因为之前重仓科技基金，只能说看错了入场点，但问题不大，中长期还是看涨的，毕竟大环境越差，股市肯定要逆行，年初放出的货币怎么也要流向股市的，只是看上层怎么控场了，既不想急速拉升把场子弄臭，也不想资金跑掉砸盘，这时候就看各个大资金大机构怎么做好这个工作了。平稳的一个点位一个点位往上调整，这也是符合大众对股票市场建立信心的。虽然手上拿点小钱在股票市场实践，但对于股票市场的风险，参与之后是深有体会，指数区间对于个股某个区间的价位十分难以把握，所以对于散户来讲，要拿到好的价位入场很难，在这种震荡市中，小资金用来走短线获利是十分有优势的，但同时一不小心就被套在高点了，所以散户只能说跟着趋势走，把握大趋势。从长远来看，手持蓝筹股是最稳的选择，走价值投资的路子。路漫漫其修远兮，学点理财技能，给出自己的判断观点，对于世界，经济趋势的把握十分有益，知行合一。</p>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2020/08/17/thinking/牛市/">
-  <time datetime="2020-08-17T10:51:34.000Z">
-    2020-08-17
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2020/08/17/thinking/牛市/">牛市?</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <p>　　8.17今天的股市红红火火，浙商证券在上周的震荡盘中，亏了6、7个点，后续也没有补仓，虽然看多，600股成本16.44，上周收盘15.50，一块钱的亏损，受可转债转股的影响，担心股价受影响，因此打算换股，看好招商证券20块的价位，但最终没有买入。今天证券板块拉升，招商当了把领头羊，涨停，虽然上周就看出来机构在打压股价，不断地低吸拉成本，可惜了，一波短线没有买入。今天的大盘站到3400以上，拉升过大，后面的量能支撑表示有所怀疑，k线站到了5日线以上，明天之后也会有所回调，今天将手上的浙商16.60清仓了，防止风险，没什么盈利，三安光电25.78的300股，今天到达29.50，比较满意，手上的持仓也没有满上。今天的行情就是撬动金融板块，拉升指数，个股普遍没有大涨，二八行情。后续应该是大盘的板块轮动，今天加仓了手上的科技基金，科技基金之前高拉减仓了，震荡行情中没有什么亏损，提前埋伏科技板，等大盘资金轮动的时候能吃点肉，顺应国家的慢牛行情，小股民跟着赚点小钱，还是要对股市有所敬畏，看好中国的资本市场。</p>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2020/08/15/thinking/茶多酚的功效/">
-  <time datetime="2020-08-15T03:37:32.000Z">
-    2020-08-15
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2020/08/15/thinking/茶多酚的功效/">茶多酚的功效</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <h3 id="茶多酚"><a href="#茶多酚" class="headerlink" title="茶多酚"></a>茶多酚</h3><p>　　英德特产绿茶，号称绿茶中的茶王，期间特别驱车前往本地试茶，相比红茶的烈性，绿茶的茶性比较收敛，就茶感上比较中性，对中枢神经的兴奋作用没有那么大，有促排，消肿的功效 ，个人本身有鼻炎，鼻甲长期处于肿胀的状态，喝绿茶发现鼻甲的肿胀有减缓，脸上的油脂减少，查阅相关资料，发现绿茶中的茶多酚含量相比其他茶种含量较高，因为绿茶的发酵程度低，故而茶多酚含量高。茶多酚对人体有多重功效，特别是一些慢性疾病有一定的疗效。</p>
-<h4 id="功效"><a href="#功效" class="headerlink" title="功效"></a>功效</h4><ul>
-<li>抗氧化</li>
-<li>抗炎，鼻炎患者能够有效消肿，对鼻腔的炎症有一定的抑制作用</li>
-<li>抗高血脂</li>
-<li>延缓衰老</li>
-<li>防水肿、抗过敏</li>
-</ul>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2020/08/07/thinking/建仓/">
-  <time datetime="2020-08-07T08:51:55.000Z">
-    2020-08-07
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2020/08/07/thinking/建仓/">建仓</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <p>　　8.4入场建仓，300股的浙商证券，成本16.65，500股的三安光电，成本26.14。基本是买在跌位，8.6涨了一块钱，在8.7又猛跌猛拉，基本上没有多大的盈利，后续看好，持股不动。</p>
-<p>　　8.11，今天尾盘跳水，将这段时间的收益吐回去了，尾盘还加仓了浙商证券，拉低成本到16.44，虽然大盘整体下挫，但是聪明的钱，北上资金净流入60亿，说明在买筹，还是看好后市，持股不动。</p>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2020/07/14/designpattern/design-pattern-观察者模式/">
-  <time datetime="2020-07-14T01:44:08.000Z">
-    2020-07-14
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2020/07/14/designpattern/design-pattern-观察者模式/">观察者模式</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>　　定义对象的一种一对多的依赖关系，当一个对象的状态发生改变，所有依赖它的对象都得到通知并自动更新。</p>
-<h3 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h3><p>　　当一个对象状态发生变化时，依赖的对象需要得到通知时使用。</p>
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-        <div class="alignleft">
-          <a href="/2020/07/14/designpattern/design-pattern-观察者模式/#more" class="more-link">阅读全文</a>
-        </div>
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2020/07/07/thinking/入场梭哈/">
-  <time datetime="2020-07-07T10:29:26.000Z">
-    2020-07-07
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2020/07/07/thinking/入场梭哈/">入场梭哈</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <p>　　今天是7.7号，距离昨天开始宣传牛市启动仅一天之隔，作为一条韭菜，进场梭哈300股的招商证券，入手价是29.6，收市价是28.4，额……可以说进场就没了300多块钱，个人预期这波外资短时间不会那么快退场，因为资金吸水的作用还未曾达到，现在的资金来源是外资+机构在烘托，一波氛围烘托出来势必需要有人顶上，没错就是像楼主这样的韭菜，我的看法是现在还在中期，没到下跳的时候，如果我是外资，A股的股价这么低，加上长期的熊市周期，这波疫情下发的货币，总得有地方释放，没错，就是来圈释放的rmb，几天时间靠外资和机构拉到3300多点，剩下的就是要等散户进场，抬到3500以上，然后下跳。我个人预期股价到32块就清掉，不贪心，没错典型的韭菜思维，现在市场的空军是大于多军的，很多人在这波上涨中，吸取了年前的教训不恋战，及早止盈，离场，但我的看法还是那句话，增量的资金在对冲这些放量，大盘是下不来的，所以会造成及早下车的人在揪心少了几个点，其实都是没意义的，市场的变化太快没人能判断准，只要还在赌盘上，就没有赢家，我一直是这个思维，有人的地方就会一直有市场，有市场就会一直有买卖，资产总是放在那里，就看是否有交易的价值了，这些逃跑的资金我猜测它们的心理变化是会再度杀回来，而且会无比地猛烈，好了就看明天打脸了。</p>
-<p>　　2020.7.8</p>
-<p>　　今天最高跳到31块，股票公告说要停牌10天，10天后行情不知道啥样子，惊心动魄地在29.8抛了，净赚42块，第一次买股票，发现太刺激了，一上一下，几百块对于我这些小韭菜真觉得不是一般人能玩得起的，从7.1到现在，基金果断买了军工、消费、科技，刚好持有7天，而且是天天2-3个点的盈利，军工提前看好买了2000，才一周就17%的收益就很可怕的收益，从年前的经验来看，真的会来波跳水将这些收益给吸掉，现在的拉升是90°上升，这完全就是靠大资金拉上去的，到底场外资金的看客有多少不好说，看空的人都在等跳水进场收尸，如果市场完全无视呢，硬生生拉到3500点以上，那么也更加不敢进场了，营造出你不信我偏上的一种资本态度，还是要敬畏市场，适度止盈，还是那句话一天还在赌盘上，谁赢谁输还不好说。</p>
-<p>　　2020.7.10</p>
-<p>　　从6.30到今天，短短10天，2w的基金持仓，收益净赚2000，今天兑现收益，这收益率在平时可能要几个月才能达到，生生体会到资本的力量，只有兑现才真的是袋袋平安，今天的行情小幅度下跌，北向资金负流入了，昨晚美股大调整，说明这些天外资是在避险才把资金疯狂买入A股市场，现在已经是净流出了，个人看法是A股这波牛市行情快到点了，今天就兑现，提前避险，毕竟这些天的收益已经很满足了，留下一只长期看好的科技基金，持半仓，即使跌也跌不了多少，毕竟长期看好，后面跌下来再慢慢定投，相信时间的力量吧。</p>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2020/07/06/record/单点登录/">
-  <time datetime="2020-07-06T06:24:01.000Z">
-    2020-07-06
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2020/07/06/record/单点登录/">单点登录</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <p><strong>定义</strong></p>
-<blockquote>
-<p>单点登录英文全称Single Sign On，简称就是SSO。它的解释是：在多个应用系统中，只需要登录一次，就可以访问其他相互信任的应用系统。</p>
-</blockquote>
-<p><strong>概览</strong>　　</p>
-<p>　　客户端会访问三个系统中的一个，当初次登录Node2时，首先去sso验证登录，之后访问Node1、Node3都无须再次登录。</p>
-<p><img src="/assets/blog_img/sso.png"></p>
-<p><strong>SSO登录流程</strong></p>
-<ul>
-<li>用户访问Node1，判断未登录。</li>
-<li>跳转到CAS server，弹出登录页。</li>
-<li>填写用户密码登录成功，session写入CAS server，将server ticket返回给客户端，客户端拿到ST去访问Node1。</li>
-<li>Node1拿ST去CAS server验证有效性。</li>
-<li>通过后Node1写入session并设置Cookie。</li>
-</ul>
-
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2020/07/06/designpattern/design-pattern-策略模式/">
-  <time datetime="2020-07-06T02:40:45.000Z">
-    2020-07-06
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2020/07/06/designpattern/design-pattern-策略模式/">策略模式</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <p><strong>定义</strong></p>
-<p>　　类的行为在运行时可以更改，根据策略选择不同的执行算法。</p>
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-        <div class="alignleft">
-          <a href="/2020/07/06/designpattern/design-pattern-策略模式/#more" class="more-link">阅读全文</a>
+          <a href="/2021/03/31/algorithm/剑指 Offer 03. 数组中重复的数字/#more" class="more-link">阅读全文</a>
         </div>
       
       
