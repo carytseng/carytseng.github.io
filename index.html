@@ -64,128 +64,6 @@
   <header>
     
       <div class="icon"></div>
-      <a href="/2022/04/15/record/动态代理/">
-  <time datetime="2022-04-15T11:24:06.000Z">
-    2022-04-15
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2022/04/15/record/动态代理/">JDK动态代理、cglib、aspectJ</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <p>​    简单来说就是在一个现有的类上添加功能，比如我们想在某个实现类的某个方法前后加入一些自定义的功能，最普遍的就是打印方法前后的日志。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ICaculate</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">caculate</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Add</span> <span class="keyword">implements</span> <span class="title">ICaculate</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">caculate</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a+b;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-        <div class="alignleft">
-          <a href="/2022/04/15/record/动态代理/#more" class="more-link">阅读全文</a>
-        </div>
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2022/03/20/middleware/canal/">
-  <time datetime="2022-03-20T02:14:13.000Z">
-    2022-03-20
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2022/03/20/middleware/canal/">canal</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      
-<p>基于日志增量订阅和消费的业务包括</p>
-<ul>
-<li>数据库镜像</li>
-<li>数据库实时备份</li>
-<li>索引构建和实时维护(拆分异构索引、倒排索引等)</li>
-<li>业务 cache 刷新</li>
-<li>带业务逻辑的增量数据处理</li>
-</ul>
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-        <div class="alignleft">
-          <a href="/2022/03/20/middleware/canal/#more" class="more-link">阅读全文</a>
-        </div>
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2022/03/03/middleware/Elasticsearch/">
-  <time datetime="2022-03-03T01:25:02.000Z">
-    2022-03-03
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2022/03/03/middleware/Elasticsearch/">Elasticsearch</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 9200:9200 -p 9300:9300 -d  -e &quot;discovery.type=single-node&quot; --name elasticsearch \</span><br><span class="line">-v /Users/carytseng/envir/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml \</span><br><span class="line">-v /Users/carytseng/envir/elasticsearch/data:/usr/share/elasticsearch/data \</span><br><span class="line">-v /Users/carytseng/envir/elasticsearch/plugins:/usr/share/elasticsearch/plugins \</span><br><span class="line"> docker.elastic.co/elasticsearch/elasticsearch:7.12.0 </span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run --link elasticsearch:elasticsearch --name kibana -p 5601:5601 -d docker.elastic.co/kibana/kibana:6.5.0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker run -it -d -e ELASTICSEARCH_URL=http://127.0.0.1:9200 --name kibana --restart=always -p 5602:5601 kibana:6.5.0</span><br></pre></td></tr></table></figure>
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-        <div class="alignleft">
-          <a href="/2022/03/03/middleware/Elasticsearch/#more" class="more-link">阅读全文</a>
-        </div>
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
       <a href="/2022/02/27/thinking/俄乌冲突/">
   <time datetime="2022-02-27T05:29:46.000Z">
     2022-02-27
@@ -210,44 +88,6 @@
       
         <div class="alignleft">
           <a href="/2022/02/27/thinking/俄乌冲突/#more" class="more-link">阅读全文</a>
-        </div>
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2022/02/22/middleware/k8/">
-  <time datetime="2022-02-22T03:24:58.000Z">
-    2022-02-22
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2022/02/22/middleware/k8/">K8S</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <p></p>
-<p>​    一类服务，有name，虚拟ip和port，提供远程能力</p>
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-        <div class="alignleft">
-          <a href="/2022/02/22/middleware/k8/#more" class="more-link">阅读全文</a>
         </div>
       
       
@@ -300,26 +140,142 @@
   <header>
     
       <div class="icon"></div>
-      <a href="/2022/02/20/middleware/helm/">
-  <time datetime="2022-02-20T02:14:13.000Z">
-    2022-02-20
+      <a href="/2021/11/27/thinking/随想11-27/">
+  <time datetime="2021-11-27T01:49:06.000Z">
+    2021-11-27
   </time>
 </a>
     
     
   
-    <h1 class="title"><a href="/2022/02/20/middleware/helm/">HELM</a></h1>
+    <h1 class="title"><a href="/2021/11/27/thinking/随想11-27/">随想11-27</a></h1>
   
 
   </header>
   
   <div class="entry">
     
-      <p>Helm是k8s的包管理工具，使用helm可以简化k8s应用部署</p>
+      
+
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2021/11/27/thinking/随想11-27/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2020/09/10/thinking/放量下跌/">
+  <time datetime="2020-09-10T07:14:47.000Z">
+    2020-09-10
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2020/09/10/thinking/放量下跌/">放量下跌</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p>　　今日的市场放量下跌，现在持有500股21.95的招商证券下跌0.5，500股25.50的三安光电，没有精确拿到当天的低价，行情全日震荡幅度大，拿到这个筹码不算最好，但也算不错，留有30%的仓位等补仓用。前日受美股影响A股也下跌，今天突破了3260点下挫到3234附近，目前持有的基金收益已经亏损了，科技股受影响严重，也是因为之前重仓科技基金，只能说看错了入场点，但问题不大，中长期还是看涨的，毕竟大环境越差，股市肯定要逆行，年初放出的货币怎么也要流向股市的，只是看上层怎么控场了，既不想急速拉升把场子弄臭，也不想资金跑掉砸盘，这时候就看各个大资金大机构怎么做好这个工作了。平稳的一个点位一个点位往上调整，这也是符合大众对股票市场建立信心的。虽然手上拿点小钱在股票市场实践，但对于股票市场的风险，参与之后是深有体会，指数区间对于个股某个区间的价位十分难以把握，所以对于散户来讲，要拿到好的价位入场很难，在这种震荡市中，小资金用来走短线获利是十分有优势的，但同时一不小心就被套在高点了，所以散户只能说跟着趋势走，把握大趋势。从长远来看，手持蓝筹股是最稳的选择，走价值投资的路子。路漫漫其修远兮，学点理财技能，给出自己的判断观点，对于世界，经济趋势的把握十分有益，知行合一。</p>
+
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2020/09/10/thinking/放量下跌/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2020/08/17/thinking/牛市/">
+  <time datetime="2020-08-17T10:51:34.000Z">
+    2020-08-17
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2020/08/17/thinking/牛市/">牛市?</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p>　　8.17今天的股市红红火火，浙商证券在上周的震荡盘中，亏了6、7个点，后续也没有补仓，虽然看多，600股成本16.44，上周收盘15.50，一块钱的亏损，受可转债转股的影响，担心股价受影响，因此打算换股，看好招商证券20块的价位，但最终没有买入。今天证券板块拉升，招商当了把领头羊，涨停，虽然上周就看出来机构在打压股价，不断地低吸拉成本，可惜了，一波短线没有买入。今天的大盘站到3400以上，拉升过大，后面的量能支撑表示有所怀疑，k线站到了5日线以上，明天之后也会有所回调，今天将手上的浙商16.60清仓了，防止风险，没什么盈利，三安光电25.78的300股，今天到达29.50，比较满意，手上的持仓也没有满上。今天的行情就是撬动金融板块，拉升指数，个股普遍没有大涨，二八行情。后续应该是大盘的板块轮动，今天加仓了手上的科技基金，科技基金之前高拉减仓了，震荡行情中没有什么亏损，提前埋伏科技板，等大盘资金轮动的时候能吃点肉，顺应国家的慢牛行情，小股民跟着赚点小钱，还是要对股市有所敬畏，看好中国的资本市场。</p>
+
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2020/08/17/thinking/牛市/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2020/08/15/thinking/茶多酚的功效/">
+  <time datetime="2020-08-15T03:37:32.000Z">
+    2020-08-15
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2020/08/15/thinking/茶多酚的功效/">茶多酚的功效</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p>　　英德特产绿茶，号称绿茶中的茶王，期间特别驱车前往本地试茶，相比红茶的烈性，绿茶的茶性比较收敛，就茶感上比较中性，对中枢神经的兴奋作用没有那么大，有促排，消肿的功效 ，个人本身有鼻炎，鼻甲长期处于肿胀的状态，喝绿茶发现鼻甲的肿胀有减缓，脸上的油脂减少，查阅相关资料，发现绿茶中的茶多酚含量相比其他茶种含量较高，因为绿茶的发酵程度低，故而茶多酚含量高。茶多酚对人体有多重功效，特别是一些慢性疾病有一定的疗效。</p>
 <ul>
-<li><strong>Chart</strong>：一个 Helm 包，其中包含了运行一个应用所需要的镜像、依赖和资源定义等，还可能包含 Kubernetes 集群中的服务定义。</li>
-<li><strong>Release</strong>：在 Kubernetes 集群上运行的 Chart 的一个实例。在同一个集群上，一个 Chart 可以安装很多次。每次安装都会创建一个新的 release。例如一个 MySQL Chart，如果想在服务器上运行两个数据库，就可以把这个 Chart 安装两次。每次安装都会生成自己的 Release，会有自己的 Release 名称。</li>
-<li><strong>Repository</strong>：用于发布和存储 Chart 的存储库。</li>
+<li>抗氧化</li>
+<li>抗炎，鼻炎患者能够有效消肿，对鼻腔的炎症有一定的抑制作用</li>
+<li>抗高血脂</li>
+<li>延缓衰老</li>
+<li>防水肿、抗过敏</li>
 </ul>
     
   </div>
@@ -327,7 +283,7 @@
     
       
         <div class="alignleft">
-          <a href="/2022/02/20/middleware/helm/#more" class="more-link">阅读全文</a>
+          <a href="/2020/08/15/thinking/茶多酚的功效/#more" class="more-link">阅读全文</a>
         </div>
       
       
@@ -342,36 +298,30 @@
   <header>
     
       <div class="icon"></div>
-      <a href="/2022/02/20/record/javacv抓取rtsp视频流/">
-  <time datetime="2022-02-20T01:19:22.000Z">
-    2022-02-20
+      <a href="/2020/08/07/thinking/建仓/">
+  <time datetime="2020-08-07T08:51:55.000Z">
+    2020-08-07
   </time>
 </a>
     
     
   
-    <h1 class="title"><a href="/2022/02/20/record/javacv抓取rtsp视频流/">javacv抓取rtsp视频流</a></h1>
+    <h1 class="title"><a href="/2020/08/07/thinking/建仓/">建仓</a></h1>
   
 
   </header>
   
   <div class="entry">
     
-      
-
-
-
-
-
-<p>用于采集/抓取视频图像和音频采样。封装了检索流信息，自动猜测视频解码格式，音视频解码等具体API，并把解码完的像素数据（可配置像素格式）或音频数据保存到Frame中返回等功</p>
-<p><strong>FrameGrabber</strong>的子类/实现类包含以下几个：</p>
+      <p>　　8.4入场建仓，300股的浙商证券，成本16.65，500股的三安光电，成本26.14。基本是买在跌位，8.6涨了一块钱，在8.7又猛跌猛拉，基本上没有多大的盈利，后续看好，持股不动。</p>
+<p>　　8.11，今天尾盘跳水，将这段时间的收益吐回去了，尾盘还加仓了浙商证券，拉低成本到16.44，虽然大盘整体下挫，但是聪明的钱，北上资金净流入60亿，说明在买筹，还是看好后市，持股不动。</p>
     
   </div>
   <footer class="end-sep">
     
       
         <div class="alignleft">
-          <a href="/2022/02/20/record/javacv抓取rtsp视频流/#more" class="more-link">阅读全文</a>
+          <a href="/2020/08/07/thinking/建仓/#more" class="more-link">阅读全文</a>
         </div>
       
       
@@ -386,27 +336,102 @@
   <header>
     
       <div class="icon"></div>
-      <a href="/2021/11/29/record/CORS/">
-  <time datetime="2021-11-29T07:15:50.000Z">
-    2021-11-29
+      <a href="/2020/07/07/thinking/入场梭哈/">
+  <time datetime="2020-07-07T10:29:26.000Z">
+    2020-07-07
   </time>
 </a>
     
     
   
-    <h1 class="title"><a href="/2021/11/29/record/CORS/">跨域CORS后端处理</a></h1>
+    <h1 class="title"><a href="/2020/07/07/thinking/入场梭哈/">入场梭哈</a></h1>
   
 
   </header>
   
   <div class="entry">
     
-      <pre><code>    浏览器自身存在保护机制，当从一个域名访问另一个域名的资源时，域名、端口、协议任一不同，都会产生跨域问题
-</code></pre>
+      <p>　　今天是7.7号，距离昨天开始宣传牛市启动仅一天之隔，作为一条韭菜，进场梭哈300股的招商证券，入手价是29.6，收市价是28.4，额……可以说进场就没了300多块钱，个人预期这波外资短时间不会那么快退场，因为资金吸水的作用还未曾达到，现在的资金来源是外资+机构在烘托，一波氛围烘托出来势必需要有人顶上，没错就是像楼主这样的韭菜，我的看法是现在还在中期，没到下跳的时候，如果我是外资，A股的股价这么低，加上长期的熊市周期，这波疫情下发的货币，总得有地方释放，没错，就是来圈释放的rmb，几天时间靠外资和机构拉到3300多点，剩下的就是要等散户进场，抬到3500以上，然后下跳。我个人预期股价到32块就清掉，不贪心，没错典型的韭菜思维，现在市场的空军是大于多军的，很多人在这波上涨中，吸取了年前的教训不恋战，及早止盈，离场，但我的看法还是那句话，增量的资金在对冲这些放量，大盘是下不来的，所以会造成及早下车的人在揪心少了几个点，其实都是没意义的，市场的变化太快没人能判断准，只要还在赌盘上，就没有赢家，我一直是这个思维，有人的地方就会一直有市场，有市场就会一直有买卖，资产总是放在那里，就看是否有交易的价值了，这些逃跑的资金我猜测它们的心理变化是会再度杀回来，而且会无比地猛烈，好了就看明天打脸了。</p>
+<p>　　2020.7.8</p>
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2020/07/07/thinking/入场梭哈/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2020/06/30/thinking/基金布局/">
+  <time datetime="2020-06-30T04:20:39.000Z">
+    2020-06-30
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2020/06/30/thinking/基金布局/">基金布局</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p>　　上半年疫情看好的医疗板块，没有坚定持有，当时的想法是持有至六月份，判定依据是国内是最早稳定疫情的，外部环境的综合生产能力或者控制能力相对中国这种集大力办大事的处理能力肯定是完全不在一个等级上的，因此中国这个外贸型国家在一段时间内必然是医疗设备输出国，有需必有供，在此认为下半年医疗还是可以持有的。另外就是布局消费、航空、军工、科技。</p>
+    
+  </div>
+  <footer class="end-sep">
+    
+      
+        <div class="alignleft">
+          <a href="/2020/06/30/thinking/基金布局/#more" class="more-link">阅读全文</a>
+        </div>
+      
+      
+    
+    <div class="clearfix"></div>
+  </footer>
+</article>
+
+
+  
+    <article class="post">
+  <header>
+    
+      <div class="icon"></div>
+      <a href="/2020/06/26/thinking/调理脾胃/">
+  <time datetime="2020-06-26T02:28:13.000Z">
+    2020-06-26
+  </time>
+</a>
+    
+    
+  
+    <h1 class="title"><a href="/2020/06/26/thinking/调理脾胃/">调理脾胃</a></h1>
+  
+
+  </header>
+  
+  <div class="entry">
+    
+      <p>　　近来生活不规律，饮食好生冷，多熬夜，作息不规律，感觉脾胃瘀滞，气机不畅感明显。查阅中医相关资料，是为脾胃虚弱之症。</p>
 <ol>
-<li>无法读取非同源网页的 Cookie、LocalStorage 和 IndexedDB</li>
-<li>无法接触非同源网页的 DOM</li>
-<li>无法向非同源地址发送 AJAX 请求（可以发送，但浏览器会拒绝接受响应）</li>
+<li>舌头边缘有齿痕，湿气重，脾胃虚</li>
+<li>食欲下降，转化率差</li>
+<li>早起不适，起床就胸闷气短，头晕。</li>
+<li>湿气重</li>
 </ol>
     
   </div>
@@ -414,111 +439,7 @@
     
       
         <div class="alignleft">
-          <a href="/2021/11/29/record/CORS/#more" class="more-link">阅读全文</a>
-        </div>
-      
-      
-    
-    <div class="clearfix"></div>
-  </footer>
-</article>
-
-
-  
-    <article class="post">
-  <header>
-    
-      <div class="icon"></div>
-      <a href="/2021/11/28/flow/vim/">
-  <time datetime="2021-11-28T03:15:15.000Z">
-    2021-11-28
-  </time>
-</a>
-    
-    
-  
-    <h1 class="title"><a href="/2021/11/28/flow/vim/">Vim</a></h1>
-  
-
-  </header>
-  
-  <div class="entry">
-    
-      <table>
-<thead>
-<tr>
-<th>按键</th>
-<th>操作</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>h</td>
-<td>左移动</td>
-</tr>
-<tr>
-<td>j</td>
-<td>下移动</td>
-</tr>
-<tr>
-<td>k</td>
-<td>上移动</td>
-</tr>
-<tr>
-<td>l</td>
-<td>右移动</td>
-</tr>
-<tr>
-<td>ctrl+d</td>
-<td>下移动半页</td>
-</tr>
-<tr>
-<td>ctrl+u</td>
-<td>上移动半页</td>
-</tr>
-<tr>
-<td>gg</td>
-<td>移动到第一行</td>
-</tr>
-<tr>
-<td>G</td>
-<td>移动到最后一行</td>
-</tr>
-<tr>
-<td>nG</td>
-<td>移动到第n行</td>
-</tr>
-<tr>
-<td>n+<space></space></td>
-<td>右移n个字符</td>
-</tr>
-<tr>
-<td>n+<enter></enter></td>
-<td>下移动n行</td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th>按键</th>
-<th>操作</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>/word</td>
-<td>向光标下搜索,n搜索下一个,shirt+n搜索上一个</td>
-</tr>
-<tr>
-<td>?word</td>
-<td>向光标上搜索</td>
-</tr>
-</tbody></table>
-    
-  </div>
-  <footer class="end-sep">
-    
-      
-        <div class="alignleft">
-          <a href="/2021/11/28/flow/vim/#more" class="more-link">阅读全文</a>
+          <a href="/2020/06/26/thinking/调理脾胃/#more" class="more-link">阅读全文</a>
         </div>
       
       
