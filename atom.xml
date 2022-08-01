@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>dogfun.top</title>
+  <icon>https://www.gravatar.com/avatar/bac9080800c06a1b685d5f013601b128</icon>
+  
+  <link href="https://dogfun.top/atom.xml" rel="self"/>
+  
+  <link href="https://dogfun.top/"/>
+  <updated>2022-08-01T01:18:23.026Z</updated>
+  <id>https://dogfun.top/</id>
+  
+  <author>
+    <name>CaryTseng</name>
+    <email>carytseng.kira@gmail.com</email>
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://dogfun.top/2022/08/01/index/"/>
+    <id>https://dogfun.top/2022/08/01/index/</id>
+    <published>2022-08-01T01:18:15.910Z</published>
+    <updated>2022-08-01T01:18:23.026Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+</feed>
