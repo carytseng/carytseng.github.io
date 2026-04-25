@@ -8,6 +8,8 @@ date: 2022-08-02 04:02:05
 
 收集Mac下的4k桌面食用壁纸，持续更新！
 
+<!-- more -->
+
 ![](/blog_img/torbjorn-sandbakk-Uf-x5nQYVMM.jpg)　
 ![](/blog_img/spots_scuffs_texture_145931_3840x2400.jpg)　
 ![](/blog_img/Sage-Wallpaper-Macbook-2880x1800.png)　
