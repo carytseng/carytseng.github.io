@@ -1,4 +1,8 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="description" content="我们所知不过沧海一粟，我们所不知却是汪洋大海"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>学习java应该如何理解反射？ | CaryTseng</title><link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="description" content="&amp;emsp;&amp;emsp;原文链接：学习java应该如何理解反射？ - 思想仓库的回答 - 知乎 
+&amp;emsp;&amp;emsp;针对题主，重新修改下答案！首先看书要理解反射，很难完全理解，这关系到Java的语言特性，jvm的内存细节，当初我看反射，就像高票答案那样，照着写一遍，结果是你并没有理解，你只是照猫画虎，要想真正理解，我建议题主，不断深入探究，当你踩得足够深回过头来，你会柳暗花明！
+&amp;emsp;&amp;emsp;这里我不打算像别的答案上来就上代码，给你讲怎么用，是啥是啥，老实说那样比较像培训java程序员的感觉，一点对知识的好奇心都没有，如果是想速成反射的，大家看别的答案吧。
+&amp;emsp;&amp;emsp;写答案，可能会有默认知识现象，就是有些知识点，我知道，但你不知道，可以评论！这里我试着简单粗暴地解释一波！
+"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>学习java应该如何理解反射？ | CaryTseng</title><link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="/styles/site.css">
 <meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="CaryTseng" type="application/atom+xml">
 </head><body><header class="container" id="header"><div class="header"><div class="header-left"><div class="avatar"><img src="/img/avatar.png"></div><div class="author"><div class="author-name"><a href="/">Cary Tseng</a></div><div class="about-me">我们所知不过沧海一粟，我们所不知却是汪洋大海</div></div></div><div class="header-right"><ul class="navigation"><li><a href="/">Home</a></li><li><a href="/about">About</a></li><li><a href="/archives">Archives</a></li></ul></div><div class="about-me-mask"><div class="about-me-wrap"><div class="about-me__header"><div class="avatar"><img src="/img/avatar.png"></div></div><ul class="socials"><li class="social-item"><span class="label"><img src="/images/socials/github.svg" alt="https://github.com/carytseng"></span><a href="https://github.com/carytseng" target="_blank" rel="noopener" title="https://github.com/carytseng">https://github.com/carytseng</a></li><li class="social-item"><span class="label"><img src="/images/socials/email.svg" alt="carytseng.kira@gmail.com"></span><a href="mailto:carytseng.kira@gmail.com" target="_blank" rel="noopener" title="carytseng.kira@gmail.com">carytseng.kira@gmail.com</a></li></ul></div></div></div></header><div class="container post"><section class="article"><div class="title">学习java应该如何理解反射？</div><div class="date">写于 2017年02月20日</div><div class="content"><p>&emsp;&emsp;原文链接：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/24304289/answer/147529485">学习java应该如何理解反射？ - 思想仓库的回答 - 知乎 </a></p>
@@ -6,6 +10,8 @@
 <p>&emsp;&emsp;这里我不打算像别的答案上来就上代码，给你讲怎么用，是啥是啥，老实说那样比较像培训java程序员的感觉，一点对知识的好奇心都没有，如果是想速成反射的，大家看别的答案吧。</p>
 <p>&emsp;&emsp;写答案，可能会有默认知识现象，就是有些知识点，我知道，但你不知道，可以评论！这里我试着简单粗暴地解释一波！</p>
 <p><img src="https://pic4.zhimg.com/80/v2-4face8109e0d52ef5894c41c69e4ec6b_1440w.jpg"></p>
+<span id="more"></span>
+
 <p>&emsp;&emsp;首先我们了解一下JVM，什么是JVM，Java的虚拟机，java之所以能跨平台就是因为这个东西，你可以理解成一个进程，程序，只不过他的作用是用来跑你的代码的。上图是java的内存模型，我们关注的点，一个方法区，一个栈，一个堆，初学的时候老师不深入的话只告诉你java的内存分为堆和栈，易懂点吧！</p>
 <p>&emsp;&emsp;假如你写了一段代码：Object o=new Object();</p>
 <p>&emsp;&emsp;运行了起来！</p>
