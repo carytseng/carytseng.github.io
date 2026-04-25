@@ -14,7 +14,7 @@ date: 2022-09-12 02:02:05
 
 ## iterm2![](/blog_img/1662950978778.jpg)　
 
-## idea-theme基础主题是green lite，但是背景颜色太重，我基于主题文件修改了背景颜色，改#3C3F41
+idea-theme基础主题是green lite，但是背景颜色太重，我基于主题文件修改了背景颜色，改#3C3F41
 
 ![](/blog_img/2351346.png)
 
