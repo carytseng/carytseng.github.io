@@ -1,767 +1,400 @@
-
-<!doctype html>
-<html lang="zh-CN" class="h-full scroll-smooth">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8" />
-    <meta name="generator" content="Hexo " />
-    <!-- FOUC prevention: apply dark mode class before first paint.
-         Flow: read default → build valid states → read localStorage (try/catch for Safari private mode)
-         → validate saved state → set data-theme-state on <html> → resolve effective dark/light
-         → add .dark class and colorScheme if needed. -->
-    <script>(function(){const d="light";window.__themeDefault=d;const s=d==='system'?['system','light','dark']:['light','dark'];let sv;try{sv=localStorage.getItem('theme')}catch(e){}if(!sv||s.indexOf(sv)===-1)sv=d;const h=document.documentElement;h.setAttribute('data-theme-state',sv);const k=sv==='dark'||(sv!=='light'&&window.matchMedia('(prefers-color-scheme:dark)').matches);if(k)h.classList.add('dark');h.style.colorScheme=k?'dark':'light';})()</script>
-    <!-- Preconnect for Google Fonts (before any CSS to maximize benefit) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Google Fonts: async preload to avoid render-blocking; merged into a single request.
-         Note: onload inline handler may be blocked under strict CSP; use JS font loader if CSP is required. -->
-    
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Spectral:wght@400;600&family=Yuji+Syuku&family=Zen+Old+Mincho:wght@400;600&family=Noto+Serif+JP:wght@400;600&family=Noto+Serif+SC:wght@400;600&family=Cormorant+Garamond:wght@400;600&family=Fira+Code:wght@400;500&display=swap" onload="this.rel='stylesheet'" data-csp-fallback />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Spectral:wght@400;600&family=Yuji+Syuku&family=Zen+Old+Mincho:wght@400;600&family=Noto+Serif+JP:wght@400;600&family=Noto+Serif+SC:wght@400;600&family=Cormorant+Garamond:wght@400;600&family=Fira+Code:wght@400;500&display=swap" /></noscript>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
-    
-    
-    
-    
-    <title>CaryTseng</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+<title>about | CaryTseng</title>
 
-    <!-- SEO Meta -->
-    
-    <meta name="description" content="我们所知不过沧海一粟，我们所不知却是汪洋大海" />
-    
-    
-    <meta name="author" content="CaryTseng" />
-    
-    
+<meta name="description" content="我们所知不过沧海一粟，我们所不知却是汪洋大海">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="CaryTseng" />
-    
-    <meta property="og:description" content="我们所知不过沧海一粟，我们所不知却是汪洋大海" />
-    
-    <meta property="og:url" content="https://carytseng.github.io/index.html" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="CaryTseng" />
-    
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="CaryTseng" />
-    
-    <meta name="twitter:description" content="我们所知不过沧海一粟，我们所不知却是汪洋大海" />
-    
-    
+<meta name="author" content="CaryTseng">
+<meta property="og:type" content="website">
+<meta property="og:title" content="about">
+<meta property="og:site_name" content="CaryTseng">
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://carytseng.github.io/index.html" />
+<meta property="og:description" content="我们所知不过沧海一粟，我们所不知却是汪洋大海">
 
-    <!-- Favicon -->
-    
-    <link rel="icon" href="/favicon.svg" />
-    
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="canonical" href="https://carytseng.github.io/about/index-1.html">
 
-    <!-- RSS -->
-    
-
-    <!-- CSS -->
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/css/lightgallery.min.css" integrity="sha384-YlypU+LX5577RgeZebpBZTy28roXf0lHGaOSxrroczh16ktxM0BoAMPXsrehqxx8" crossorigin="anonymous" />
-    
-    <link rel="stylesheet" href="/css/style.min.css?v=69bbab69">
-    <!-- CSP fallback: promote preloaded font stylesheets if onload was blocked.
-         setTimeout(3000) gives onload enough time to fire first; only unprocessed preloads are promoted. -->
-    <script>setTimeout(function(){document.querySelectorAll('link[data-csp-fallback][rel="preload"]').forEach(function(l){l.rel='stylesheet'})},3000)</script>
 <link rel="alternate" href="/atom.xml" title="CaryTseng" type="application/atom+xml">
-</head>
 
 
-<body class="h-full fog-bg text-slate-800">
-    
-    
-<svg width="0" height="0" class="absolute pointer-events-none" aria-hidden="true">
-    <defs>
-        <filter id="seal-roughness" x="-20%" y="-20%" width="140%" height="140%">
-            <feTurbulence type="turbulence" baseFrequency="0.05" numOctaves="2" result="noise" />
-            <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" />
-        </filter>
-        <filter id="text-erosion">
-            <feTurbulence type="fractalNoise" baseFrequency="0.15" numOctaves="1" result="noise" />
-            <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" />
-        </filter>
-    </defs>
-</svg>
 
-    
 
-    
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Serif+JP:wght@400;500;700&family=Noto+Serif+SC:wght@400;500;700&family=Shippori+Mincho:wght@400;500;700&display=swap" rel="stylesheet">
 
-    <div class="min-h-full px-4 pt-14 pb-6 md:pb-5">
 
-        <!-- Paper Card -->
-        <div
-            class="paper relative mx-auto w-full max-w-4xl rounded-xl px-5 sm:px-8 md:px-12 lg:px-14 pt-10 pb-6 md:pt-12 md:pb-8">
 
-            
-<header class="relative">
+<link rel="stylesheet" href="/css/style.css">
 
-    <div class="relative flex items-start justify-center">
-        <div class="text-center">
-            <div class="relative inline-block">
-                
-                <h1 class="site-title">
-                    <a href="/">CaryTseng</a>
-                </h1>
-                
-                <!-- Seal: Mathematically Centered -->
-                
-                <div
-                    class="absolute left-full top-1/2 -translate-y-1/2 ml-1 sm:ml-4 origin-left scale-75 sm:scale-110">
-                    
-<svg width="52" height="52" viewBox="0 0 100 100" aria-hidden="true"
-    xmlns="http://www.w3.org/2000/svg">
-    <path d="M15,12 Q50,5 85,12 Q95,50 88,88 Q50,95 12,88 Q5,50 15,12 Z"
-        fill="var(--color-seal)" filter="url(#seal-roughness)" opacity="0.92" />
-    <text x="50" y="50" text-anchor="middle" dominant-baseline="central"
-        font-size="42" fill="rgba(255,255,255,0.92)" filter="url(#text-erosion)"
-        class="seal-text select-none">白</text>
-</svg>
 
-                </div>
-                
-            </div>
-            
-            <p class="site-subtitle">
-                ·思考仓库·
-            </p>
-            
-            <div class="mt-3 sm:mt-4 flex justify-center gap-2">
-                
-                
-                
-                <button id="themeToggle" class="group header-pill-btn" aria-label="浅色" data-label-system="跟随系统" data-label-light="浅色" data-label-dark="深色">
-                    
-<svg data-icon="system" class="size-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-    <rect x="2" y="3" width="20" height="14" rx="2" stroke-width="1.5"/>
-    <path d="M8 21h8M12 17v4" stroke-width="1.5" stroke-linecap="round"/>
-</svg>
 
-                    
-<svg data-icon="light" class="size-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-    <circle cx="12" cy="12" r="4" stroke-width="1.5"/>
-    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke-width="1.5" stroke-linecap="round"/>
-</svg>
+<script>
+(function(){
+  var t = localStorage.getItem('theme');
+  if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark');
+  }
+})();
+</script>
 
-                    
-<svg data-icon="dark" class="size-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
 
-                </button>
-                
-            </div>
-        </div>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body class="bg-bg-light dark:bg-bg-dark text-text-primary dark:text-text-primary-dark font-body leading-relaxed min-h-screen flex flex-col ">
+  <header class="w-full border-b border-border-light dark:border-border-dark">
+  <nav class="max-w-wide mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <a href="/" class="font-heading text-xl font-medium tracking-wide hover:text-accent dark:hover:text-accent-dark transition-colors">
+      CaryTseng
+    </a>
+    <div class="flex items-center gap-6">
+      <ul class="hidden sm:flex items-center gap-6 text-sm">
+        
+        <li>
+          <a href="/" class="text-text-secondary dark:text-text-secondary-dark hover:text-accent dark:hover:text-accent-dark transition-colors">
+            首页
+          </a>
+        </li>
+        
+        <li>
+          <a href="/archives" class="text-text-secondary dark:text-text-secondary-dark hover:text-accent dark:hover:text-accent-dark transition-colors">
+            归档
+          </a>
+        </li>
+        
+        <li>
+          <a href="/tags" class="text-text-secondary dark:text-text-secondary-dark hover:text-accent dark:hover:text-accent-dark transition-colors">
+            标签
+          </a>
+        </li>
+        
+        <li>
+          <a href="/categories" class="text-text-secondary dark:text-text-secondary-dark hover:text-accent dark:hover:text-accent-dark transition-colors">
+            分类
+          </a>
+        </li>
+        
+        <li>
+          <a href="/about" class="text-text-secondary dark:text-text-secondary-dark hover:text-accent dark:hover:text-accent-dark transition-colors">
+            关于
+          </a>
+        </li>
+        
+      </ul>
+      <button id="dark-mode-toggle" class="p-1.5 text-text-secondary dark:text-text-secondary-dark hover:text-accent dark:hover:text-accent-dark transition-colors" aria-label="Toggle dark mode">
+  <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+  <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+</button>
+
+      <button id="mobile-menu-btn" class="sm:hidden p-1 text-text-secondary dark:text-text-secondary-dark" aria-label="首页">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
     </div>
+  </nav>
+  <div id="mobile-menu" class="sm:hidden hidden border-t border-border-light dark:border-border-dark">
+    <ul class="px-4 py-3 space-y-2">
+      
+      <li>
+        <a href="/" class="block py-1 text-sm text-text-secondary dark:text-text-secondary-dark hover:text-accent dark:hover:text-accent-dark transition-colors">
+          首页
+        </a>
+      </li>
+      
+      <li>
+        <a href="/archives" class="block py-1 text-sm text-text-secondary dark:text-text-secondary-dark hover:text-accent dark:hover:text-accent-dark transition-colors">
+          归档
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tags" class="block py-1 text-sm text-text-secondary dark:text-text-secondary-dark hover:text-accent dark:hover:text-accent-dark transition-colors">
+          标签
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories" class="block py-1 text-sm text-text-secondary dark:text-text-secondary-dark hover:text-accent dark:hover:text-accent-dark transition-colors">
+          分类
+        </a>
+      </li>
+      
+      <li>
+        <a href="/about" class="block py-1 text-sm text-text-secondary dark:text-text-secondary-dark hover:text-accent dark:hover:text-accent-dark transition-colors">
+          关于
+        </a>
+      </li>
+      
+    </ul>
+  </div>
 </header>
 
-<!-- Navigation -->
-<nav class="mt-8 md:mt-10" aria-label="菜单">
-    <!-- Mobile Toggle -->
-    <div class="flex items-center justify-center md:hidden">
-        <button id="menuBtn"
-            class="focus-elegant inline-flex items-center gap-2 rounded-full border border-slate-200 bg-paper/95 px-4 py-2 text-sm text-slate-700 shadow-xs"
-            aria-expanded="false" aria-controls="mobileMenu">
-            <span class="text-base leading-none tracking-widest">菜单</span>
-            
-<svg class="size-4 text-slate-500 transition-transform duration-200" id="menuChevron"
-    viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-    <path fill-rule="evenodd"
-        d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08z"
-        clip-rule="evenodd" />
-</svg>
-
-        </button>
-    </div>
-
-    <!-- Desktop Menu -->
-    <div class="hidden md:block">
-        <ul class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-base text-slate-700 px-4">
-            
-            <li><a class="focus-elegant rounded-md px-2 py-1 hover:text-seal transition-colors"
-                    href="/" >Home</a></li>
-            
-            <li class="nav-divider text-slate-400 select-none" role="separator" aria-hidden="true">/</li>
-            
-            
-            <li><a class="focus-elegant rounded-md px-2 py-1 hover:text-seal transition-colors"
-                    href="/archives" >Archives</a></li>
-            
-            <li class="nav-divider text-slate-400 select-none" role="separator" aria-hidden="true">/</li>
-            
-            
-            <li><a class="focus-elegant rounded-md px-2 py-1 hover:text-seal transition-colors"
-                    href="/categories" >Categories</a></li>
-            
-            <li class="nav-divider text-slate-400 select-none" role="separator" aria-hidden="true">/</li>
-            
-            
-            <li><a class="focus-elegant rounded-md px-2 py-1 hover:text-seal transition-colors"
-                    href="/tags" >Tags</a></li>
-            
-            
-        </ul>
-    </div>
-
-    <!-- Mobile Menu Panel -->
-    <div id="mobileMenu" class="menu-panel md:hidden mt-4" data-open="false">
-        <ul
-            class="mx-auto max-w-sm max-h-menu overflow-y-auto rounded-2xl border border-slate-200 bg-paper/95 shadow-xs">
-            
-            <li><a class="focus-elegant block px-6 py-3 text-center text-slate-800 hover:text-seal hover:bg-seal/5 transition-colors"
-                    href="/" >Home</a></li>
-            
-            <li class="h-px bg-slate-200/70" role="separator" aria-hidden="true"></li>
-            
-            
-            <li><a class="focus-elegant block px-6 py-3 text-center text-slate-800 hover:text-seal hover:bg-seal/5 transition-colors"
-                    href="/archives" >Archives</a></li>
-            
-            <li class="h-px bg-slate-200/70" role="separator" aria-hidden="true"></li>
-            
-            
-            <li><a class="focus-elegant block px-6 py-3 text-center text-slate-800 hover:text-seal hover:bg-seal/5 transition-colors"
-                    href="/categories" >Categories</a></li>
-            
-            <li class="h-px bg-slate-200/70" role="separator" aria-hidden="true"></li>
-            
-            
-            <li><a class="focus-elegant block px-6 py-3 text-center text-slate-800 hover:text-seal hover:bg-seal/5 transition-colors"
-                    href="/tags" >Tags</a></li>
-            
-            
-        </ul>
-    </div>
-</nav>
-
-
-            <!-- Main Content -->
-            <main class="section-divider">
-                
+  <main class="flex-1 w-full max-w-wide mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+    
+<div class="max-w-wide mx-auto">
+  <div class="flex flex-col lg:flex-row lg:gap-6">
     
     
-        
-<article class="content-article">
-    <header class="text-center mb-4">
-        <h2 class="card-title">
-            <a href="/2022/09/12/iterm2&idea-theme/">iterm2 &amp; idea theme</a>
-        </h2>
-        
-<div class="mt-2 flex items-center justify-center gap-4 text-sm text-slate-500 flex-wrap">
-    <div class="flex items-center gap-1.5">
-        
-<svg class="size-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-</svg>
-
-        <a href="/archives/2022/" class="oldstyle-nums link-muted"><time datetime="2022-09-12">2022/09/12</time></a>
+    <div class="order-first lg:order-last lg:flex-1 flex items-center justify-center">
+      
+<div class="w-full h-full relative">
+  <canvas
+    id="pretext-hero-canvas"
+    class="w-full h-full"
+    data-font="16px JetBrains Mono"
+    data-animation="wave"
+    aria-hidden="true"
+  ></canvas>
+  <noscript>
+    <div class="flex items-center justify-center w-full h-full">
+      <pre class="font-mono text-xs sm:text-sm text-text-primary dark:text-text-primary-dark opacity-70 leading-none">(\(\
+( -.-)
+o_(")(")
+      </pre>
     </div>
-    
+  </noscript>
+  <div id="pretext-hero-fallback" class="hidden items-center justify-center w-full h-full">
+    <pre class="font-mono text-xs sm:text-sm text-text-primary dark:text-text-primary-dark opacity-70 leading-none">(\(\
+( -.-)
+o_(")(")
+    </pre>
+  </div>
 </div>
+<script type="module" src="/js/pretext-hero.js"></script>
 
-    </header>
-    
-        
-        
-    
-    <div class="prose-shiro">
-        <p>自用的iterm2与idea主题，基于green lite改色，色调偏淡，耐看不失丰富性。 </p>
-<p><a target="_blank" rel="noopener" href="https://github.com/pjialin/jetbrains-green-lite-theme">green-lite-theme</a></p>
     </div>
     
-    <div class="mt-6 text-center">
-        <a href="/2022/09/12/iterm2&idea-theme/"
-            class="focus-elegant btn-ink">
-            阅读更多
-        </a>
-    </div>
-    
-</article>
-
-
-        
-            
-<div class="my-8 flex items-center justify-center gap-3" aria-hidden="true">
-    <div class="h-px flex-1 bg-linear-to-r from-transparent to-slate-300 max-w-divider"></div>
-    <svg class="h-4 w-10 shrink-0 text-slate-300" viewBox="0 0 40 10">
-        <circle cx="20" cy="5" r="3" fill="currentColor" opacity="0.9" />
-        <circle cx="4" cy="5" r="1.5" fill="currentColor" opacity="0.6" />
-        <circle cx="36" cy="5" r="1.5" fill="currentColor" opacity="0.6" />
-    </svg>
-    <div class="h-px flex-1 bg-linear-to-l from-transparent to-slate-300 max-w-divider"></div>
-</div>
-
-        
-    
-        
-<article class="content-article">
-    <header class="text-center mb-4">
-        <h2 class="card-title">
-            <a href="/2022/08/13/%E8%B4%A2%E5%AF%8C%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF/">财富自由之路</a>
-        </h2>
-        
-<div class="mt-2 flex items-center justify-center gap-4 text-sm text-slate-500 flex-wrap">
-    <div class="flex items-center gap-1.5">
-        
-<svg class="size-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-</svg>
-
-        <a href="/archives/2022/" class="oldstyle-nums link-muted"><time datetime="2022-08-13">2022/08/13</time></a>
-    </div>
-    
-</div>
-
-    </header>
-    
-        
-        
-    
-    <div class="prose-shiro">
-        <p>读李笑来老师的《财富自由之路》，记录的一些读书笔记。</p>
-    </div>
-    
-    <div class="mt-6 text-center">
-        <a href="/2022/08/13/%E8%B4%A2%E5%AF%8C%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF/"
-            class="focus-elegant btn-ink">
-            阅读更多
-        </a>
-    </div>
-    
-</article>
-
-
-        
-            
-<div class="my-8 flex items-center justify-center gap-3" aria-hidden="true">
-    <div class="h-px flex-1 bg-linear-to-r from-transparent to-slate-300 max-w-divider"></div>
-    <svg class="h-4 w-10 shrink-0 text-slate-300" viewBox="0 0 40 10">
-        <circle cx="20" cy="5" r="3" fill="currentColor" opacity="0.9" />
-        <circle cx="4" cy="5" r="1.5" fill="currentColor" opacity="0.6" />
-        <circle cx="36" cy="5" r="1.5" fill="currentColor" opacity="0.6" />
-    </svg>
-    <div class="h-px flex-1 bg-linear-to-l from-transparent to-slate-300 max-w-divider"></div>
-</div>
-
-        
-    
-        
-<article class="content-article">
-    <header class="text-center mb-4">
-        <h2 class="card-title">
-            <a href="/2022/08/02/wallpaper/">4k wallpaper for mac</a>
-        </h2>
-        
-<div class="mt-2 flex items-center justify-center gap-4 text-sm text-slate-500 flex-wrap">
-    <div class="flex items-center gap-1.5">
-        
-<svg class="size-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-</svg>
-
-        <a href="/archives/2022/" class="oldstyle-nums link-muted"><time datetime="2022-08-02">2022/08/02</time></a>
-    </div>
-    
-</div>
-
-    </header>
-    
-        
-        
-    
-    <div class="prose-shiro">
-        <p>收集Mac下的4k桌面食用壁纸，持续更新！</p>
-    </div>
-    
-    <div class="mt-6 text-center">
-        <a href="/2022/08/02/wallpaper/"
-            class="focus-elegant btn-ink">
-            阅读更多
-        </a>
-    </div>
-    
-</article>
-
-
-        
-            
-<div class="my-8 flex items-center justify-center gap-3" aria-hidden="true">
-    <div class="h-px flex-1 bg-linear-to-r from-transparent to-slate-300 max-w-divider"></div>
-    <svg class="h-4 w-10 shrink-0 text-slate-300" viewBox="0 0 40 10">
-        <circle cx="20" cy="5" r="3" fill="currentColor" opacity="0.9" />
-        <circle cx="4" cy="5" r="1.5" fill="currentColor" opacity="0.6" />
-        <circle cx="36" cy="5" r="1.5" fill="currentColor" opacity="0.6" />
-    </svg>
-    <div class="h-px flex-1 bg-linear-to-l from-transparent to-slate-300 max-w-divider"></div>
-</div>
-
-        
-    
-        
-<article class="content-article">
-    <header class="text-center mb-4">
-        <h2 class="card-title">
-            <a href="/2022/08/01/%E6%88%90%E9%95%BF%E3%80%81%E5%B7%A5%E4%BD%9C%E5%92%8C%E7%88%B1%E6%83%85/">成长、爱情和婚姻</a>
-        </h2>
-        
-<div class="mt-2 flex items-center justify-center gap-4 text-sm text-slate-500 flex-wrap">
-    <div class="flex items-center gap-1.5">
-        
-<svg class="size-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-</svg>
-
-        <a href="/archives/2022/" class="oldstyle-nums link-muted"><time datetime="2022-08-01">2022/08/01</time></a>
-    </div>
-    
-</div>
-
-    </header>
-    
-        
-        
-    
-    <div class="prose-shiro">
-        <p><img src="/blog_img/phoebe-strafford-43386-unsplash.jpg">　</p>
-    </div>
-    
-    <div class="mt-6 text-center">
-        <a href="/2022/08/01/%E6%88%90%E9%95%BF%E3%80%81%E5%B7%A5%E4%BD%9C%E5%92%8C%E7%88%B1%E6%83%85/"
-            class="focus-elegant btn-ink">
-            阅读更多
-        </a>
-    </div>
-    
-</article>
-
-
-        
-            
-<div class="my-8 flex items-center justify-center gap-3" aria-hidden="true">
-    <div class="h-px flex-1 bg-linear-to-r from-transparent to-slate-300 max-w-divider"></div>
-    <svg class="h-4 w-10 shrink-0 text-slate-300" viewBox="0 0 40 10">
-        <circle cx="20" cy="5" r="3" fill="currentColor" opacity="0.9" />
-        <circle cx="4" cy="5" r="1.5" fill="currentColor" opacity="0.6" />
-        <circle cx="36" cy="5" r="1.5" fill="currentColor" opacity="0.6" />
-    </svg>
-    <div class="h-px flex-1 bg-linear-to-l from-transparent to-slate-300 max-w-divider"></div>
-</div>
-
-        
-    
-        
-<article class="content-article">
-    <header class="text-center mb-4">
-        <h2 class="card-title">
-            <a href="/2020/06/05/%E7%A6%BB%E8%81%8C%E5%89%8D%E5%A4%95%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/">离职前夕一点思考</a>
-        </h2>
-        
-<div class="mt-2 flex items-center justify-center gap-4 text-sm text-slate-500 flex-wrap">
-    <div class="flex items-center gap-1.5">
-        
-<svg class="size-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-</svg>
-
-        <a href="/archives/2020/" class="oldstyle-nums link-muted"><time datetime="2020-06-05">2020/06/05</time></a>
-    </div>
-    
-</div>
-
-    </header>
-    
-        
-        
-    
-    <div class="prose-shiro">
-        <p>&emsp;&emsp;人的一生会遭遇多次相遇与别离吧，因为缘分人与人在巧合之中相识，相知，走过一段共同的旅程，这段属于共有的时间记忆，将会成为我们生命当中不可磨灭的一部分，大概这也是造就了现在的我所不可或缺的一部分。分子总是在不断运动变化的，人也不过是无数分子组成的动物，相对于分子说，人是在不断的变化吧，或好或坏，我们永远都不知道明天会发生什么，能做的是把握好当下，做好当下的自己，或许比任何事情都重要，尽人事听天命，把些许的期待留到明天，杞人忧天再多也无法影响明天。</p>
-    </div>
-    
-    <div class="mt-6 text-center">
-        <a href="/2020/06/05/%E7%A6%BB%E8%81%8C%E5%89%8D%E5%A4%95%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/"
-            class="focus-elegant btn-ink">
-            阅读更多
-        </a>
-    </div>
-    
-</article>
-
-
-        
-            
-<div class="my-8 flex items-center justify-center gap-3" aria-hidden="true">
-    <div class="h-px flex-1 bg-linear-to-r from-transparent to-slate-300 max-w-divider"></div>
-    <svg class="h-4 w-10 shrink-0 text-slate-300" viewBox="0 0 40 10">
-        <circle cx="20" cy="5" r="3" fill="currentColor" opacity="0.9" />
-        <circle cx="4" cy="5" r="1.5" fill="currentColor" opacity="0.6" />
-        <circle cx="36" cy="5" r="1.5" fill="currentColor" opacity="0.6" />
-    </svg>
-    <div class="h-px flex-1 bg-linear-to-l from-transparent to-slate-300 max-w-divider"></div>
-</div>
-
-        
-    
-        
-<article class="content-article">
-    <header class="text-center mb-4">
-        <h2 class="card-title">
-            <a href="/2020/05/03/%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95%E6%80%9D%E8%80%83/">职业发展思考</a>
-        </h2>
-        
-<div class="mt-2 flex items-center justify-center gap-4 text-sm text-slate-500 flex-wrap">
-    <div class="flex items-center gap-1.5">
-        
-<svg class="size-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-</svg>
-
-        <a href="/archives/2020/" class="oldstyle-nums link-muted"><time datetime="2020-05-03">2020/05/03</time></a>
-    </div>
-    
-</div>
-
-    </header>
-    
-        
-        
-    
-    <div class="prose-shiro">
-        <p>&emsp;&emsp;   近来总产生一种对现有工作厌恶的情绪，不管是所从事的职业，还是工作内容，本能的逃避，从刚入职时对新知识及内容的好奇到现在的状态，从技术的掌握程度上，并没有提升多少，更多的只是使用的工具的进步，感觉并没有提升到对某项技术本质的掌握，这可能是从事技术行业一个致命的心态，不进则退，这是作为技术性工种很残酷的事实，因为总有人不断汲取新知识，不断超越自我，在市场上处于卖方市场。可能本来自我对于技术就不是有很大的热情和持续的学习投入，没有投入，惰性，造就自我的技术退化，表面肤浅的看待一项技术，仅停留在使用层面，再深入就浅尝则止，导致总感觉只是在这个行业边缘庙里看花。从本心上看，到底是自我职业心态的不正确还是确实对于技术性工作没有过多的热情，仅有的只是针对这个工种所提供的高薪带来的安全感，优越感所欺骗？人隔五三差需要回过头来思考人本质的发展问题，不能被时代被周围人所裹挟，保持清醒的脑袋，才能更好过好这个阶段，技术人要更好地发展，真的需要沉淀，打磨自身的技能，才能在资本市场被需要，技术是解决问题的工具，站在技术上的层次上看，解决现实问题，适应业务发展需要，这就是技术的价值，技术人总有一些固化的技术至上的思维，这是没有走出圈子层次的深层原因，了解这个世界的多面性，就更能发现每个行业每个工种都有其复杂性，走出这个思维，发现人的底层能力才是立足社会的核心能力，有了底层能力，不管是从事技术还是其他职业，都有解决问题的方法工具。社会是个大整体，每个个体都是互利互惠的存在，有价值就能被需要，这个是核心命题，只要做到被需要，才能产生价值。</p>
-    </div>
-    
-    <div class="mt-6 text-center">
-        <a href="/2020/05/03/%E8%81%8C%E4%B8%9A%E5%8F%91%E5%B1%95%E6%80%9D%E8%80%83/"
-            class="focus-elegant btn-ink">
-            阅读更多
-        </a>
-    </div>
-    
-</article>
-
-
-        
-            
-<div class="my-8 flex items-center justify-center gap-3" aria-hidden="true">
-    <div class="h-px flex-1 bg-linear-to-r from-transparent to-slate-300 max-w-divider"></div>
-    <svg class="h-4 w-10 shrink-0 text-slate-300" viewBox="0 0 40 10">
-        <circle cx="20" cy="5" r="3" fill="currentColor" opacity="0.9" />
-        <circle cx="4" cy="5" r="1.5" fill="currentColor" opacity="0.6" />
-        <circle cx="36" cy="5" r="1.5" fill="currentColor" opacity="0.6" />
-    </svg>
-    <div class="h-px flex-1 bg-linear-to-l from-transparent to-slate-300 max-w-divider"></div>
-</div>
-
-        
-    
-        
-<article class="content-article">
-    <header class="text-center mb-4">
-        <h2 class="card-title">
-            <a href="/2018/06/24/%E5%AD%98%E5%9C%A8%E7%9A%84%E6%84%8F%E4%B9%89/">存在的意义</a>
-        </h2>
-        
-<div class="mt-2 flex items-center justify-center gap-4 text-sm text-slate-500 flex-wrap">
-    <div class="flex items-center gap-1.5">
-        
-<svg class="size-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-</svg>
-
-        <a href="/archives/2018/" class="oldstyle-nums link-muted"><time datetime="2018-06-24">2018/06/24</time></a>
-    </div>
-    
-</div>
-
-    </header>
-    
-        
-        
-    
-    <div class="prose-shiro">
-        <p>&emsp;&emsp;每个人生于世上，都不免会对自己存在的意义产生疑惑。不知何时有了意识，对这个世界有了清晰的认知，当问起自己这个问题时，仿佛呱呱落地的我们就在昨天，但今日我们已成为这个世界整体的一部分，不可否认的存在着。对于世界来讲，人是客体，对于人来讲，这个世界的一切都是客体。人作为一种有思考能力的动物，在进化的过程中区别与其他生物，我不免有疑惑我们的思维方式是否受限于我们的物质构成，如果将整个世界，扩大至宇宙，我们也不过是时间长河的一瞬，空间上的一点尘埃。换个角度，人不是这个世上的主体，也不过如其他物质，生物那般只是这个有机世界的一部分，以世界作为主体的角度来看，人与其他一切客体都是等同的，无非就是分子在不断运动，产生，分化，死亡。无他，也就是物质的形态以一种方式产生凋零转化为另一种形态。</p>
-    </div>
-    
-    <div class="mt-6 text-center">
-        <a href="/2018/06/24/%E5%AD%98%E5%9C%A8%E7%9A%84%E6%84%8F%E4%B9%89/"
-            class="focus-elegant btn-ink">
-            阅读更多
-        </a>
-    </div>
-    
-</article>
-
-
-        
-            
-<div class="my-8 flex items-center justify-center gap-3" aria-hidden="true">
-    <div class="h-px flex-1 bg-linear-to-r from-transparent to-slate-300 max-w-divider"></div>
-    <svg class="h-4 w-10 shrink-0 text-slate-300" viewBox="0 0 40 10">
-        <circle cx="20" cy="5" r="3" fill="currentColor" opacity="0.9" />
-        <circle cx="4" cy="5" r="1.5" fill="currentColor" opacity="0.6" />
-        <circle cx="36" cy="5" r="1.5" fill="currentColor" opacity="0.6" />
-    </svg>
-    <div class="h-px flex-1 bg-linear-to-l from-transparent to-slate-300 max-w-divider"></div>
-</div>
-
-        
-    
-        
-<article class="content-article">
-    <header class="text-center mb-4">
-        <h2 class="card-title">
-            <a href="/2018/05/24/%E6%88%91%E4%BB%AC%E5%AF%B9%E5%BE%85%E8%87%AA%E5%B7%B1%E7%9A%84%E6%80%81%E5%BA%A6/">我们对待自己的态度</a>
-        </h2>
-        
-<div class="mt-2 flex items-center justify-center gap-4 text-sm text-slate-500 flex-wrap">
-    <div class="flex items-center gap-1.5">
-        
-<svg class="size-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-</svg>
-
-        <a href="/archives/2018/" class="oldstyle-nums link-muted"><time datetime="2018-05-24">2018/05/24</time></a>
-    </div>
-    
-</div>
-
-    </header>
-    
-        
-        
-    
-    <div class="prose-shiro">
-        <p>&emsp;&emsp;一个人的个性越独特、越具价值和意义，那么，他就越有必要不时地认清自己生命总体发展的大致脉络和自己的计划，为此必须要踏上认识自己的道路，清楚自己的首要和真正的意愿——这些对于他的幸福而言是至关重要的东西，然后对于何者排在第二和第三位置必须心中有数。同时他也应该大致明白自己应该从事何种职业、需要扮演何种角色以及自己与这个世界的关系。如果一个人具备非凡的个性，那么，对自己的生命计划有一个大致的了解，能够比任何一切都更有效地增强自己的勇气，振作、鼓足信心，激励自己行动起来，避免走弯路。</p>
-    </div>
-    
-    <div class="mt-6 text-center">
-        <a href="/2018/05/24/%E6%88%91%E4%BB%AC%E5%AF%B9%E5%BE%85%E8%87%AA%E5%B7%B1%E7%9A%84%E6%80%81%E5%BA%A6/"
-            class="focus-elegant btn-ink">
-            阅读更多
-        </a>
-    </div>
-    
-</article>
-
-
-        
-            
-<div class="my-8 flex items-center justify-center gap-3" aria-hidden="true">
-    <div class="h-px flex-1 bg-linear-to-r from-transparent to-slate-300 max-w-divider"></div>
-    <svg class="h-4 w-10 shrink-0 text-slate-300" viewBox="0 0 40 10">
-        <circle cx="20" cy="5" r="3" fill="currentColor" opacity="0.9" />
-        <circle cx="4" cy="5" r="1.5" fill="currentColor" opacity="0.6" />
-        <circle cx="36" cy="5" r="1.5" fill="currentColor" opacity="0.6" />
-    </svg>
-    <div class="h-px flex-1 bg-linear-to-l from-transparent to-slate-300 max-w-divider"></div>
-</div>
-
-        
-    
-        
-<article class="content-article">
-    <header class="text-center mb-4">
-        <h2 class="card-title">
-            <a href="/2017/02/20/java%E5%BA%94%E8%AF%A5%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%8F%8D%E5%B0%84/">学习java应该如何理解反射？</a>
-        </h2>
-        
-<div class="mt-2 flex items-center justify-center gap-4 text-sm text-slate-500 flex-wrap">
-    <div class="flex items-center gap-1.5">
-        
-<svg class="size-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-</svg>
-
-        <a href="/archives/2017/" class="oldstyle-nums link-muted"><time datetime="2017-02-20">2017/02/20</time></a>
-    </div>
-    
-</div>
-
-    </header>
-    
-        
-        
-    
-    <div class="prose-shiro">
-        <p>&emsp;&emsp;原文链接：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/24304289/answer/147529485">学习java应该如何理解反射？ - 思想仓库的回答 - 知乎 </a></p>
-<p>&emsp;&emsp;针对题主，重新修改下答案！首先看书要理解反射，很难完全理解，这关系到Java的语言特性，jvm的内存细节，当初我看反射，就像高票答案那样，照着写一遍，结果是你并没有理解，你只是照猫画虎，要想真正理解，我建议题主，不断深入探究，当你踩得足够深回过头来，你会柳暗花明！</p>
-<p>&emsp;&emsp;这里我不打算像别的答案上来就上代码，给你讲怎么用，是啥是啥，老实说那样比较像培训java程序员的感觉，一点对知识的好奇心都没有，如果是想速成反射的，大家看别的答案吧。</p>
-<p>&emsp;&emsp;写答案，可能会有默认知识现象，就是有些知识点，我知道，但你不知道，可以评论！这里我试着简单粗暴地解释一波！</p>
-<p><img src="https://pic4.zhimg.com/80/v2-4face8109e0d52ef5894c41c69e4ec6b_1440w.jpg"></p>
-    </div>
-    
-    <div class="mt-6 text-center">
-        <a href="/2017/02/20/java%E5%BA%94%E8%AF%A5%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E5%8F%8D%E5%B0%84/"
-            class="focus-elegant btn-ink">
-            阅读更多
-        </a>
-    </div>
-    
-</article>
-
-
-        
-    
-    
 
     
-
-
-            </main>
-
-            <footer class="section-divider">
-    <div class="text-center text-sm text-slate-500 leading-relaxed">
-        <p>&copy; <span class="oldstyle-nums">2026</span> CaryTseng</p>
-        <p class="font-eng text-footnote tracking-wide opacity-90">Elegant theme by <a href="https://github.com/Acris/hexo-theme-shiro" target="_blank" rel="noopener noreferrer" class="link-muted">Shiro</a> · Made by <a href="https://acris.me" target="_blank" rel="noopener noreferrer" class="link-muted">Acris</a>
-                        with <span aria-label="love" title="love">❤️</span></p>
-    </div>
-</footer>
-
+    <div class="flex-shrink-0 lg:w-[50%] py-4">
+      <div class="relative border border-dashed border-border-light dark:border-border-dark rounded-sm">
+        
+        <div class="absolute -top-3 left-4 px-2 bg-bg-light dark:bg-bg-dark font-mono text-xs text-text-secondary dark:text-text-secondary-dark">
+          &#x250C;&#x2500; recent posts &#x2500;&#x2510;
         </div>
 
-        <!-- Note Text — decorative aside, not part of main content or footer -->
-        <aside class="mt-4 text-center" aria-hidden="true" role="presentation">
-            <p class="site-note font-title text-xs sm:text-sm text-slate-400/70 tracking-note font-light select-none" lang="ja">
-                白は、余白の名。
-            </p>
-        </aside>
+        <div class="px-5 pt-6 pb-4">
+          <ul class="space-y-0">
+            
+            <li class="group">
+              <a href="/2022/09/12/iterm2&idea-theme/" class="block py-3 border-b border-dotted border-border-light dark:border-border-dark hover:border-accent dark:hover:border-accent-dark transition-colors">
+                <div class="flex items-start gap-2.5">
+                  <span class="font-mono text-xs text-text-secondary dark:text-text-secondary-dark mt-0.5 flex-shrink-0 group-hover:text-accent dark:group-hover:text-accent-dark transition-colors">&gt;</span>
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2 mb-0.5">
+                      <time class="font-mono text-[11px] text-text-secondary dark:text-text-secondary-dark tabular-nums flex-shrink-0" datetime="2022-09-11T18:02:05.000Z">
+                        2022-09-12
+                      </time>
+                      <span class="font-mono text-[11px] text-text-secondary dark:text-text-secondary-dark opacity-40">&#x2502;</span>
+                      
+                    </div>
+                    <h2 class="text-sm font-medium leading-snug group-hover:text-accent dark:group-hover:text-accent-dark transition-colors">
+                      iterm2 &amp;amp; idea theme
+                    </h2>
+                    
+                    <p class="mt-1 text-xs text-text-secondary dark:text-text-secondary-dark line-clamp-2 leading-relaxed">
+                      自用的iterm2与idea主题，基于green lite改色，色调偏淡，耐看不失丰富性。 
+green-lite-theme
+                    </p>
+                    
+                    
+                    <div class="mt-0.5 flex flex-wrap gap-1.5">
+                      
+                      <span class="font-mono text-[10px] text-text-secondary dark:text-text-secondary-dark opacity-50">#theme</span>
+                      
+                    </div>
+                    
+                  </div>
+                </div>
+              </a>
+            </li>
+            
+            <li class="group">
+              <a href="/2022/08/13/%E8%B4%A2%E5%AF%8C%E8%87%AA%E7%94%B1%E4%B9%8B%E8%B7%AF/" class="block py-3 border-b border-dotted border-border-light dark:border-border-dark hover:border-accent dark:hover:border-accent-dark transition-colors">
+                <div class="flex items-start gap-2.5">
+                  <span class="font-mono text-xs text-text-secondary dark:text-text-secondary-dark mt-0.5 flex-shrink-0 group-hover:text-accent dark:group-hover:text-accent-dark transition-colors">&gt;</span>
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2 mb-0.5">
+                      <time class="font-mono text-[11px] text-text-secondary dark:text-text-secondary-dark tabular-nums flex-shrink-0" datetime="2022-08-12T17:02:05.000Z">
+                        2022-08-13
+                      </time>
+                      <span class="font-mono text-[11px] text-text-secondary dark:text-text-secondary-dark opacity-40">&#x2502;</span>
+                      
+                    </div>
+                    <h2 class="text-sm font-medium leading-snug group-hover:text-accent dark:group-hover:text-accent-dark transition-colors">
+                      财富自由之路
+                    </h2>
+                    
+                    <p class="mt-1 text-xs text-text-secondary dark:text-text-secondary-dark line-clamp-2 leading-relaxed">
+                      读李笑来老师的《财富自由之路》，记录的一些读书笔记。
+                    </p>
+                    
+                    
+                    <div class="mt-0.5 flex flex-wrap gap-1.5">
+                      
+                      <span class="font-mono text-[10px] text-text-secondary dark:text-text-secondary-dark opacity-50">#读书笔记</span>
+                      
+                    </div>
+                    
+                  </div>
+                </div>
+              </a>
+            </li>
+            
+            <li class="group">
+              <a href="/2022/08/02/wallpaper/" class="block py-3 border-b border-dotted border-border-light dark:border-border-dark hover:border-accent dark:hover:border-accent-dark transition-colors">
+                <div class="flex items-start gap-2.5">
+                  <span class="font-mono text-xs text-text-secondary dark:text-text-secondary-dark mt-0.5 flex-shrink-0 group-hover:text-accent dark:group-hover:text-accent-dark transition-colors">&gt;</span>
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2 mb-0.5">
+                      <time class="font-mono text-[11px] text-text-secondary dark:text-text-secondary-dark tabular-nums flex-shrink-0" datetime="2022-08-01T20:02:05.000Z">
+                        2022-08-02
+                      </time>
+                      <span class="font-mono text-[11px] text-text-secondary dark:text-text-secondary-dark opacity-40">&#x2502;</span>
+                      
+                    </div>
+                    <h2 class="text-sm font-medium leading-snug group-hover:text-accent dark:group-hover:text-accent-dark transition-colors">
+                      4k wallpaper for mac
+                    </h2>
+                    
+                    <p class="mt-1 text-xs text-text-secondary dark:text-text-secondary-dark line-clamp-2 leading-relaxed">
+                      收集Mac下的4k桌面食用壁纸，持续更新！
+                    </p>
+                    
+                    
+                    <div class="mt-0.5 flex flex-wrap gap-1.5">
+                      
+                      <span class="font-mono text-[10px] text-text-secondary dark:text-text-secondary-dark opacity-50">#wallpaper</span>
+                      
+                    </div>
+                    
+                  </div>
+                </div>
+              </a>
+            </li>
+            
+            <li class="group">
+              <a href="/2022/08/01/%E6%88%90%E9%95%BF%E3%80%81%E5%B7%A5%E4%BD%9C%E5%92%8C%E7%88%B1%E6%83%85/" class="block py-3 border-b border-dotted border-border-light dark:border-border-dark hover:border-accent dark:hover:border-accent-dark transition-colors">
+                <div class="flex items-start gap-2.5">
+                  <span class="font-mono text-xs text-text-secondary dark:text-text-secondary-dark mt-0.5 flex-shrink-0 group-hover:text-accent dark:group-hover:text-accent-dark transition-colors">&gt;</span>
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2 mb-0.5">
+                      <time class="font-mono text-[11px] text-text-secondary dark:text-text-secondary-dark tabular-nums flex-shrink-0" datetime="2022-08-01T05:02:05.000Z">
+                        2022-08-01
+                      </time>
+                      <span class="font-mono text-[11px] text-text-secondary dark:text-text-secondary-dark opacity-40">&#x2502;</span>
+                      
+                    </div>
+                    <h2 class="text-sm font-medium leading-snug group-hover:text-accent dark:group-hover:text-accent-dark transition-colors">
+                      成长、爱情和婚姻
+                    </h2>
+                    
+                    <p class="mt-1 text-xs text-text-secondary dark:text-text-secondary-dark line-clamp-2 leading-relaxed">
+                      　
+                    </p>
+                    
+                    
+                    <div class="mt-0.5 flex flex-wrap gap-1.5">
+                      
+                      <span class="font-mono text-[10px] text-text-secondary dark:text-text-secondary-dark opacity-50">#思想仓库</span>
+                      
+                    </div>
+                    
+                  </div>
+                </div>
+              </a>
+            </li>
+            
+            <li class="group">
+              <a href="/2020/06/05/%E7%A6%BB%E8%81%8C%E5%89%8D%E5%A4%95%E4%B8%80%E7%82%B9%E6%80%9D%E8%80%83/" class="block py-3  hover:border-accent dark:hover:border-accent-dark transition-colors">
+                <div class="flex items-start gap-2.5">
+                  <span class="font-mono text-xs text-text-secondary dark:text-text-secondary-dark mt-0.5 flex-shrink-0 group-hover:text-accent dark:group-hover:text-accent-dark transition-colors">&gt;</span>
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2 mb-0.5">
+                      <time class="font-mono text-[11px] text-text-secondary dark:text-text-secondary-dark tabular-nums flex-shrink-0" datetime="2020-06-05T09:02:05.000Z">
+                        2020-06-05
+                      </time>
+                      <span class="font-mono text-[11px] text-text-secondary dark:text-text-secondary-dark opacity-40">&#x2502;</span>
+                      
+                    </div>
+                    <h2 class="text-sm font-medium leading-snug group-hover:text-accent dark:group-hover:text-accent-dark transition-colors">
+                      离职前夕一点思考
+                    </h2>
+                    
+                    <p class="mt-1 text-xs text-text-secondary dark:text-text-secondary-dark line-clamp-2 leading-relaxed">
+                      &emsp;&emsp;人的一生会遭遇多次相遇与别离吧，因为缘分人与人在巧合之中相识，相知，走过一段共同的旅程，这段属于共有的时间记忆，将会成为我们生命当中不可磨灭的一部分，大概这也是造就了现在的我所不可或缺的一部分。分子总是在不断运动变化
+                    </p>
+                    
+                    
+                    <div class="mt-0.5 flex flex-wrap gap-1.5">
+                      
+                      <span class="font-mono text-[10px] text-text-secondary dark:text-text-secondary-dark opacity-50">#思想仓库</span>
+                      
+                    </div>
+                    
+                  </div>
+                </div>
+              </a>
+            </li>
+            
+          </ul>
+
+          <div class="mt-4 pt-3 border-t border-dashed border-border-light dark:border-border-dark">
+            <a href="/archives" class="inline-flex items-center gap-2 font-mono text-[11px] text-text-secondary dark:text-text-secondary-dark hover:text-accent dark:hover:text-accent-dark transition-colors">
+              <span>&gt;</span>
+              <span>view all archives &rarr;</span>
+            </a>
+          </div>
+        </div>
+
+        
+        <div class="absolute -bottom-3 right-4 px-2 bg-bg-light dark:bg-bg-dark font-mono text-xs text-text-secondary dark:text-text-secondary-dark">
+          &#x2514;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2518;
+        </div>
+      </div>
     </div>
+  </div>
+</div>
 
+  </main>
+  <footer class="w-full border-t border-border-light dark:border-border-dark mt-auto">
+  <div class="max-w-wide mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-sm text-text-secondary dark:text-text-secondary-dark">
+    <p>
+      &copy; 2026 CaryTseng
+    </p>
+    <p class="mt-1">
+      驱动 <a href="https://hexo.io" class="hover:text-accent dark:hover:text-accent-dark transition-colors" target="_blank" rel="noopener">Hexo</a>
+      &middot;
+      主题 <a href="https://github.com/hexo-theme-pretext" class="hover:text-accent dark:hover:text-accent-dark transition-colors" target="_blank" rel="noopener">Pretext</a>
+    </p>
     
-    <button id="backToTop" class="back-to-top" data-visible="false" aria-label="回到顶部">
-        <svg class="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
-        </svg>
-    </button>
+    <div class="mt-4 flex items-center justify-center gap-4">
+      
+      <a href="https://github.com/carytseng" class="hover:text-accent dark:hover:text-accent-dark transition-colors" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+      </a>
+      
+      
+      
+      <a href="mailto:carytseng.kira@gmail.com" class="hover:text-accent dark:hover:text-accent-dark transition-colors" aria-label="Email">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      </a>
+      
+    </div>
     
+  </div>
+</footer>
 
-    <!-- Scripts -->
-    
-    <script>window.__i18n = {"clipboard_copy":"复制代码","clipboard_copied":"已复制","gallery_visit_source":"查看原始链接","gallery_view_image":"查看图片"};</script>
-    
-    <script defer src="https://cdn.jsdelivr.net/npm/lightgallery@2.9.0/lightgallery.min.js" integrity="sha384-yshhQEAY0bBxbxfLyRlLQ7v1z45XofL6adlFh192s2NpDzXS+HPKjXoloaHiNcYO" crossorigin="anonymous"></script>
-    <script defer src="/js/lightgallery.js?v=7e9057b9"></script>
-    <script defer src="/js/clipboard.js?v=29d59ec0"></script>
-    
-    
-    
-    
-    <script defer src="/js/progress.js?v=a52f509d"></script>
-    
-    
-    <script defer src="/js/theme-toggle.js?v=0a313889"></script>
-    
-    
-    <script defer src="/js/mobile-menu.js?v=9c4e4c22"></script>
-    
-    
+  
+  <button id="back-to-top" class="fixed bottom-6 right-6 w-10 h-10 bg-accent dark:bg-accent-dark text-white rounded-full opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center hover:opacity-90 z-50" aria-label="Back to top">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+  </button>
+  
+  
+<script src="/js/main.js"></script>
 
 </body>
 </html>
