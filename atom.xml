@@ -6,7 +6,7 @@
   <link href="https://carytseng.github.io/atom.xml" rel="self"/>
   
   <link href="https://carytseng.github.io/"/>
-  <updated>2026-04-25T07:59:24.623Z</updated>
+  <updated>2026-04-25T05:36:58.791Z</updated>
   <id>https://carytseng.github.io/</id>
   
   <author>
@@ -15,26 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>iterm2 &amp;amp; idea theme</title>
-    <link href="https://carytseng.github.io/2022/09/12/iterm2&amp;idea-theme/"/>
-    <id>https://carytseng.github.io/2022/09/12/iterm2&amp;idea-theme/</id>
-    <published>2022-09-11T18:02:05.000Z</published>
-    <updated>2026-04-25T07:59:24.623Z</updated>
-    
-    <content type="html"><![CDATA[<p>自用的iterm2与idea主题，基于green lite改色，色调偏淡，耐看不失丰富性。 </p><p><a href="https://github.com/pjialin/jetbrains-green-lite-theme">green-lite-theme</a></p><span id="more"></span><h2 id="iterm2"><a href="#iterm2" class="headerlink" title="iterm2"></a>iterm2<img src="/blog_img/1662950978778.jpg"></h2><p>idea-theme基础主题是green lite，但是背景颜色太重，我基于主题文件修改了背景颜色，改#3C3F41</p><p><img src="/blog_img/2351346.png"></p><p><img src="/blog_img/1234567.png"></p><p><img src="/blog_img/123456.png"></p><h2 id="下载链接theme-c"><a href="#下载链接theme-c" class="headerlink" title="下载链接theme-c"></a>下载链接<a href="https://github.com/carytseng/theme-c">theme-c</a></h2>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;自用的iterm2与idea主题，基于green lite改色，色调偏淡，耐看不失丰富性。 &lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/pjialin/jetbrains-green-lite-theme&quot;&gt;green-lite-theme&lt;/a&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="theme" scheme="https://carytseng.github.io/tags/theme/"/>
-    
-  </entry>
   
   <entry>
     <title>财富自由之路</title>
