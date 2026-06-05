@@ -34,6 +34,14 @@ pretext:
     enable: true
     art: "cat"                  # cat | mountain | maze
 
+# Visit counter (busuanzi)
+# See: https://busuanzi.ibruce.info
+busuanzi:
+  enable: true
+  site_pv: true          # 站点总访问量
+  site_uv: true          # 站点总访客数
+  page_pv: true          # 文章阅读量
+
 # Comment system
 comments:
   provider: false               # giscus | disqus | waline | false
