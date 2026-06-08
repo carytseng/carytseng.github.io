@@ -7,95 +7,84 @@
   var fallback = document.getElementById("pretext-hero-fallback");
   var font = canvas.dataset.font || "14px JetBrains Mono";
 
-  // --- Multiple bunny ASCII arts ---
-  var BUNNIES = [
-    // #1 Bug bunny (by bug)
+  // --- Multiple Geek-style ASCII arts ---
+  var TOTOROS = [
+    // #1 Hacker at terminal
     [
-      "                              __       ",
-      "                     /\\    .-\" /       ",
-      "                    /  ; .'  .'        ",
-      "                   :   :/  .'          ",
-      "                    \\  ;-.'            ",
-      "       .--\"\"\"\"--..__ /     `.          ",
-      "     .'           .'    `o  \\          ",
-      "    /                    `   ;         ",
-      "   :                  \\      :         ",
-      " .-;        -.         `.__.-'         ",
-      ":  ;          \\     ,   ;              ",
-      "'._:           ;   :   (               ",
-      "    \\/  .__    ;    \\   `-.            ",
-      " bug ;     \"-,/_..--\"`-..__)          ",
-      '     \'""--.._ :                        ',
+      "            .--------------------.          ",
+      "           /                      \\         ",
+      "          |  .------------------.  |        ",
+      "          | |   >_              | |        ",
+      "          | |  $ npm start      | |        ",
+      "          | |  compiling...     | |        ",
+      "          | |  ready on :3000   | |        ",
+      "          | |___________________| |        ",
+      "          |                        |        ",
+      "          |    ___          ___    |        ",
+      "          |   | o |        | o |   |        ",
+      "          |   |___|        |___|   |        ",
+      "           \\                      /         ",
+      "            '--------------------'          ",
     ],
-    // #2 Standing bunny with long ears
+    // #2 Geek face with glasses
     [
-      "     / \\                    ",
-      "    / _ \\                   ",
-      "   | / \\ |                  ",
-      "   ||   || _______          ",
-      "   ||   || |\\     \\         ",
-      "   ||   || ||\\     \\        ",
-      "   ||   || || \\    |        ",
-      "   ||   || ||  \\__/         ",
-      "   ||   || ||   ||          ",
-      "    \\\\_/ \\_/ \\_//           ",
-      "   /   _     _   \\         ",
-      "  /               \\        ",
-      "  |    O     O    |        ",
-      "  |   \\  ___  /   |        ",
-      " /     \\ \\_/ /     \\       ",
-      "/  -----  |  -----  \\      ",
-      "|     \\__/|\\__/     |      ",
-      "\\       |_|_|       /      ",
-      " \\_____       _____/       ",
-      "       \\     /              ",
-      "       |     |              ",
+      "               .-\"\"\"\"\"\"\"\"\"-.               ",
+      "              /              \\              ",
+      "             |  ____________  |             ",
+      "             | |  __    __  | |             ",
+      "             | | |  |  |  | | |             ",
+      "             | | |__|  |__| | |             ",
+      "             | |____________| |             ",
+      "             |   \\        /   |             ",
+      "             |    \\______/    |             ",
+      "             |    ______      |             ",
+      "             |   / ____ \\     |             ",
+      "             |   | (__) |     |             ",
+      "             |    \\____/      |             ",
+      "              \\              /              ",
+      "               '------------'               ",
     ],
-    // #3 Star bunny
+    // #3 Code brackets design
     [
-      "   ***                      ",
-      "  ** **                     ",
-      " **   **                    ",
-      " **   **         ****      ",
-      " **   **       **   ****   ",
-      " **  **       *   **   **  ",
-      "  **  *      *  **  ***  **",
-      "   **  *    *  **     **  *",
-      "    ** **  ** **        ** ",
-      "    **   **  **            ",
-      "   *           *           ",
-      "  *             *          ",
-      " *    0     0    *         ",
-      " *   /   @   \\   *        ",
-      " *   \\__/ \\__/   *        ",
-      "   *     W     *           ",
-      "     **     **             ",
-      "       *****               ",
+      "      {  __________________________  }      ",
+      "     (  /                          \\  )     ",
+      "    <  |    {  }  [  ]  (  )  <  >  |  >    ",
+      "   {   |    const geek = true;     |   }   ",
+      "  (    |    let code = \"cool\";     |    )  ",
+      "   {   |    if (happy) code();     |   }   ",
+      "    <  |    return awesome;        |  >    ",
+      "     (  \\__________________________/  )     ",
+      "      {                                }      ",
+      "       \\                              /       ",
+      "        \\   \\                      /   /        ",
+      "         \\   \\         O          /   /         ",
+      "          \\   \\       /|\\        /   /          ",
+      "           \\   \\       /        /   /           ",
+      "            \\___\\_____________/___/            ",
     ],
-    // #4 Sparkle bunny (original tall)
+    // #4 Developer with laptop
     [
-      "                      /|      __        ",
-      "*             +      / |   ,-~ /        ",
-      "     .              Y :|  //  /         ",
-      "         .          | jj /( .^     *    ",
-      "               *    >-\"~\"-v\"            ",
-      "*                  /       Y            ",
-      "   .     .        jo  o    |     .      ",
-      "                 ( ~T~     j            ",
-      "      +           >._-' _./         +  ",
-      "               /| ;-\"~ _  l             ",
-      "  .           / l/ ,-\"~    \\     +      ",
-      "              \\//\\/      .- \\            ",
-      "       +       Y        /    Y          ",
-      "               l       I     !          ",
-      "               ]\\      _\\    /\"\\        ",
-      "              (\" ~----( ~   Y.  )       ",
-      "          ~~~~~~~~~~~~~~~~~~~~~~~~~~    ",
+      "          .----------------------.             ",
+      "         /                        \\            ",
+      "        |  .--------------------.  |           ",
+      "        | |                      | |           ",
+      "        | |  function hello() {  | |           ",
+      "        | |    return \"world\";   | |           ",
+      "        | |  }                   | |           ",
+      "        | |______________________| |           ",
+      "        |                          |           ",
+      "        |       __          __     |           ",
+      "        |      |  |        |  |    |           ",
+      "        |      |__|        |__|    |           ",
+      "         \\                      /              ",
+      "          \\    __________      /               ",
+      "           \\  |__________|   /                ",
+      "            \\______________/                  ",
     ],
   ];
 
-  // Pick a random bunny
-  var bunnyLines = BUNNIES[Math.floor(Math.random() * BUNNIES.length)];
+  // Use developer with laptop (fourth pattern)
+  var totoroLines = TOTOROS[3];
 
   var prepareWithSegments;
   try {
@@ -169,19 +158,19 @@
     var rect = canvas.parentElement.getBoundingClientRect();
     var width = rect.width;
 
-    // Compute required height from bunny dimensions
+    // Compute required height from Totoro dimensions
     var baseFontSize = parseInt(font) || 14;
     ctx.font = baseFontSize + "px JetBrains Mono";
     var baseCharW = ctx.measureText("M").width;
     var maxLen = 0;
-    for (var i = 0; i < bunnyLines.length; i++) {
-      if (bunnyLines[i].length > maxLen) maxLen = bunnyLines[i].length;
+    for (var i = 0; i < totoroLines.length; i++) {
+      if (totoroLines[i].length > maxLen) maxLen = totoroLines[i].length;
     }
     var neededWidth = maxLen * baseCharW;
     var availWidth = width - 24;
     var scale = neededWidth > availWidth ? availWidth / neededWidth : 1;
     var scaledLineH = Math.round(BASE_LINE_H * scale);
-    var artHeight = bunnyLines.length * scaledLineH;
+    var artHeight = totoroLines.length * scaledLineH;
     var VERT_PAD = 40;
     canvasHeight = Math.max(artHeight + VERT_PAD * 2, 200);
 
@@ -200,8 +189,8 @@
 
     // Find widest line
     var maxLen = 0;
-    for (var i = 0; i < bunnyLines.length; i++) {
-      if (bunnyLines[i].length > maxLen) maxLen = bunnyLines[i].length;
+    for (var i = 0; i < totoroLines.length; i++) {
+      if (totoroLines[i].length > maxLen) maxLen = totoroLines[i].length;
     }
 
     // Auto-scale font to fit width with padding
@@ -221,15 +210,15 @@
 
     ctx.font = activeFont;
     var charW = ctx.measureText("M").width;
-    var totalArtHeight = bunnyLines.length * lineH;
+    var totalArtHeight = totoroLines.length * lineH;
     var startY = (canvasHeight - totalArtHeight) / 2;
     var artWidth = maxLen * charW;
     var startX = (width - artWidth) / 2;
 
     // Detect special characters for coloring
     // Face chars: eyes (O, o, 0, @), wave (~), sparkle (*, +, .)
-    for (var li = 0; li < bunnyLines.length; li++) {
-      var line = bunnyLines[li];
+    for (var li = 0; li < totoroLines.length; li++) {
+      var line = totoroLines[li];
       try {
         prepareWithSegments(line, activeFont);
       } catch { /* non-critical */ }
@@ -239,7 +228,7 @@
         if (ch === " ") continue;
 
         var isSpecial = false;
-        var isWave = ch === "~" && li >= bunnyLines.length - 2;
+        var isWave = ch === "~" && li >= totoroLines.length - 2;
         var isSparkle = (ch === "*" || ch === "+" || ch === ".");
 
         // Detect face region: look for eye-like chars
