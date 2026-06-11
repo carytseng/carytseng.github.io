@@ -5,5 +5,11 @@ db.json
 node_modules/
 public/
 .deploy*/
-source/_posts/
+
+# Build artifacts
+content.json
+search.json
+sitemap.xml
+index.html
+robots.txt
 

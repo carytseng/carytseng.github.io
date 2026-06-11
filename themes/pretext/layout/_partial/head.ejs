@@ -50,3 +50,19 @@
   gtag('config', '<%= theme.seo.google_analytics %>');
 </script>
 <% } %>
+
+<%# JSON-LD structured data %>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "<%= config.title %>",
+  "url": "<%= config.url %>",
+  "description": "<%= config.description %>",
+  "author": {
+    "@type": "Person",
+    "name": "<%= config.author %>",
+    "url": "<%= config.url %>"
+  }
+}
+</script>

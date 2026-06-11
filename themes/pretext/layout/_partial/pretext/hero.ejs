@@ -11,20 +11,40 @@ var heroAnimation = (theme.pretext && theme.pretext.hero && theme.pretext.hero.a
     aria-hidden="true"
   ></canvas>
   <noscript>
-    <div class="flex items-center justify-center w-full h-full">
-      <pre class="font-mono text-xs sm:text-sm text-text-primary dark:text-text-primary-dark opacity-70 leading-none">  ___  
- /   \ 
-| O O |
- \___/ 
-      </pre>
+    <div class="flex items-center justify-center w-full h-full p-4">
+      <pre class="font-mono text-xs sm:text-sm text-text-primary dark:text-text-primary-dark opacity-70 leading-relaxed select-none">  .----------------------.
+ /                        \
+|  .--------------------.  |
+| |  function hello() {  | |
+| |    return "world";   | |
+| |  }                   | |
+| |______________________| |
+|                          |
+|       __          __     |
+|      |  |        |  |    |
+|      |__|        |__|    |
+ \                      /
+  \    __________      /
+   \  |__________|   /
+    \______________/</pre>
     </div>
   </noscript>
-  <div id="pretext-hero-fallback" class="hidden items-center justify-center w-full h-full">
-    <pre class="font-mono text-xs sm:text-sm text-text-primary dark:text-text-primary-dark opacity-70 leading-none">  ___  
- /   \ 
-| O O |
- \___/ 
-      </pre>
-    </div>
+  <div id="pretext-hero-fallback" class="hidden items-center justify-center w-full h-full p-4">
+    <pre class="font-mono text-xs sm:text-sm text-text-primary dark:text-text-primary-dark opacity-60 leading-relaxed select-none animate-pulse">  .----------------------.
+ /                        \
+|  .--------------------.  |
+| |  function hello() {  | |
+| |    return "world";   | |
+| |  }                   | |
+| |______________________| |
+|                          |
+|       __          __     |
+|      |  |        |  |    |
+|      |__|        |__|    |
+ \                      /
+  \    __________      /
+   \  |__________|   /
+    \______________/</pre>
+  </div>
 </div>
 <script type="module" src="<%- url_for('js/pretext-hero.js') %>"></script>
