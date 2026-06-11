@@ -296,7 +296,47 @@
   }
 
   function showFallback() {
-    canvas.style.display = "none";
+    // Try drawing static ASCII art on canvas directly (no module needed)
+    if (ctx) {
+      var color = getColor();
+      var fallbackArt = TOTOROS[3]; // Developer with laptop
+
+      var dpr = window.devicePixelRatio || 1;
+      var rect = canvas.parentElement.getBoundingClientRect();
+      var width = rect.width;
+      var height = rect.height || 280;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      canvas.style.width = width + "px";
+      canvas.style.height = height + "px";
+      canvas.parentElement.style.height = height + "px";
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      var fontSize = 13;
+      ctx.font = fontSize + "px JetBrains Mono";
+      ctx.textBaseline = "top";
+
+      var charW = ctx.measureText("M").width;
+      var maxLen = 0;
+      for (var i = 0; i < fallbackArt.length; i++) {
+        if (fallbackArt[i].length > maxLen) maxLen = fallbackArt[i].length;
+      }
+      var artWidth = maxLen * charW;
+      var artHeight = fallbackArt.length * (fontSize + 2);
+      var startX = Math.max(2, (width - artWidth) / 2);
+      var startY = Math.max(2, (height - artHeight) / 2);
+
+      ctx.globalAlpha = 0.7;
+      for (var li = 0; li < fallbackArt.length; li++) {
+        ctx.fillStyle = color;
+        ctx.fillText(fallbackArt[li], startX, startY + li * (fontSize + 2));
+      }
+      ctx.globalAlpha = 1;
+      canvas.style.display = "block";
+    } else {
+      canvas.style.display = "none";
+    }
+
     if (fallback) {
       fallback.classList.remove("hidden");
       fallback.classList.add("flex");
