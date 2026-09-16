@@ -155,7 +155,15 @@ excerpt:
 auto_category:
   enable: true
   depth: 5
-  
+
+# 外链自动添加 rel="external nofollow noreferrer"
+# 项请见 https://github.com/hexojs/hexo-filter-nofollow
+nofollow:
+  enable: true
+  field: site # 'site' 全站生效；'post' 仅正文生效
+  exclude:
+    - carytseng.github.io
+
 # 标签云插件
 # tags cloud
 # https://github.com/MikeCoder/hexo-tag-cloud/blob/master/README.ZH.md
