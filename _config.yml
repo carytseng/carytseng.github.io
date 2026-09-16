@@ -90,7 +90,9 @@ pagination_dir: page
 
 # Include / Exclude file(s)
 ## include:/exclude: options only apply to the 'source/' folder
+## .nojekyll 是隐藏文件，Hexo 默认跳过，需显式 include 才会输出到 public/
 include:
+  - .nojekyll
 exclude:
 ignore:
 
@@ -109,6 +111,8 @@ deploy:
   type: git
   repository: git@github.com:carytseng/carytseng.github.io.git
   branch: master
+  # hexo-fs 5+ 的 copyDir 默认忽略隐藏文件（如 .nojekyll），必须显式关闭
+  ignore_hidden: false
 
 ### JsonContent
 jsonContent:
